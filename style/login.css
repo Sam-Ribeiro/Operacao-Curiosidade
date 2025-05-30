@@ -1,25 +1,57 @@
 @charset "UTF-8";
 
+body{
+    background-color: #f4f4f4;
+    font-family:'Arial Narrow Bold';
+    font-style: initial;
+}
+
 .login{
     width: 450px;
-    height: 450px;
+    height: 500px;
     background-color: #ffffff;
-    margin-top: 100px;
-    margin-right: auto;
-    margin-bottom: auto;
-    margin-left: auto;
+    margin: 100px auto auto auto;
     border: 1px solid black;
 }
 
 .logo{
-    margin-top: 50px;
-    margin-right: 150px;
-    margin-bottom: auto;
-    margin-left: 150px;
+    margin: 30px 150px 10px 150px;
 }
 
+.campo{
+    border: 2px solid black;
+    margin: 15px 96px 15px 96px;
+    height: 40px;
+    width: 226px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
+.botao{
+    color: #ffffff;
+    border-radius: 5px;
+    border-color: black;
+    border-style: initial;
+    background-color: black;
+    margin: 15px 100px 10px 100px;
+    height: 40px;
+    width: 250px;
+}
 
-body{
-    background-color: #f4f4f4;
+.botao:hover{
+    background-color: rgb(100, 100, 100);
+}
+
+.alerta{
+    border: 2px solid red;
+    background-color: rgb(250, 159, 159);
+    margin: 15px 96px 15px 96px;
+    width: 256px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-decoration: underline;
+    text-decoration-color: red;
+    text-align: center;
+    font-size: large;
+    color: rgb(0, 0, 0);
 }
