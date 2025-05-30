@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+.login{
+    width: 450px;
+    height: 450px;
+    background-color: #ffffff;
+    margin-top: 100px;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    border: 1px solid black;
+}
+
+.logo{
+    margin-top: 50px;
+    margin-right: 150px;
+    margin-bottom: auto;
+    margin-left: 150px;
+}
+
+
+
+body{
+    background-color: #f4f4f4;
+}
