@@ -2,11 +2,11 @@
 
 body{
     background-color: #f4f4f4;
-    font-family:'Arial Narrow Bold';
-    font-style: initial;
+    font-family: Verdana;
+    font-weight: bold;
 }
 
-.login{
+main{
     width: 450px;
     height: 500px;
     background-color: #ffffff;
@@ -43,6 +43,7 @@ body{
 }
 
 .alerta{
+    display: none;
     border: 2px solid red;
     background-color: rgb(250, 159, 159);
     margin: 15px 96px 15px 96px;

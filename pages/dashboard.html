@@ -11,16 +11,26 @@
     
     <div class="container">
         <nav>
+            <div>
+                <h1>OC</h1>
+                <p>Operação Curiosidade</p>
+            </div>
             <ul>
-                <li>home</li>
-                <li>cad</li>
-                <li>relatorio</li>
-            </ul>
+                <li><a href="#"> <img src="../assets/home.png" alt=""> Home</a></li><hr>
+                <li><a href="#"> <img src="../assets/cadastro.png" alt=""> Cadastro</a></li><hr>
+                <li><a href="#"><img src="../assets/relatorio.png" alt=""> Relatórios</a></li><hr>
+            </ul> 
         </nav>
 
         <div class="principal">
             <header>
-                <div></div>
+                <form>
+                    <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar...">
+                    <button id="btn_pesquisar"><img src="../assets/pesquisar.png" alt="Pesquisar"></button>
+                </form>
+                <a href="#" id="usuario"> Nome do Usuário <strong id="icone">N</strong> </a>
+                <a href="#"id="sair">Sair</a>
+                
             </header>
             <main>
                 <div class="container">
@@ -30,13 +40,14 @@
                     </div>
                     <div id="bloco2">
                         <h1>10</h1>
-                        <p>cadastros no ultimo mes</p>
+                        <p>Cadastros no ultimo mês</p>
                     </div>
                     <div id="bloco3">
                         <h1>10</h1>
-                        <p>cadastros com pendencia de revisão</p>
+                        <p>Cadastros com pendencia de revisão</p>
                     </div>
                 </div>
+                
             </main>
 
         </div>

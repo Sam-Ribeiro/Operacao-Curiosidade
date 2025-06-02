@@ -1,13 +1,23 @@
-document.getElementById("login-form").addEventListener("submit", function (e) {
+function erro(){
+  var d = document.getElementById("erro")
+  d.style.display = 'block';
+}
+function fecharerro(){
+  var d = document.getElementById("erro")
+  d.style.display = 'none';
+}
+
+document.getElementById("login-form").addEventListener("submit", function (e)
+{
   e.preventDefault();
 
-  const email = document.getElementById("email").value.trim();
-  const senha = document.getElementById("senha").value.trim();
+  var email = document.getElementById("email").value.trim();
+  var senha = document.getElementById("senha").value.trim();
   
-  if (email === "a@e" && senha === "1") {
+  if (email == "a@e" && senha == "1") {
     window.location.href = "../pages/dashboard.html"
   } else {
-    window.body
+    erro();
   }
-
-});
+}
+);

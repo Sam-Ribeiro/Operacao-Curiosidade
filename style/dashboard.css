@@ -1,9 +1,8 @@
 @charset "UTF-8";
 
 body{
-    background-color: #f4f4f4;
-    font-family:'Arial Narrow Bold';
-    font-style: initial;
+    background-color: #f0f0f0;
+    font-family: Verdana;
     margin: 0px;
     display: flex;
     min-height: 100vh;
@@ -20,17 +19,51 @@ body{
     margin: 10px;
 }
 
-
 nav{
     background-color: #ffffff;
     width: 300px;
     padding: 10px;
     border-right:solid 5px #d4d4d4;
+    margin: 0px;
+}
+
+nav div{
+    display: block;
+    background-color: #ebfcfc;
+}
+
+nav div h1{
+    margin: 5px;
+    font-size: 3em;
+    display: inline;
+    text-align: left;
+}
+
+nav div p{
+    background-color: #ebfcfc;
+    float: right;
+    display: inline;
+    text-align: right;
+    margin-top: 1em;
+    margin-right: 10px;
+}
+
+nav img{
+    width: 16px;
+    height: 16px;
 }
 
 nav ul{
-    color: #000000;
+    margin-top: 10px;
+    padding-left: 0px;
     list-style: none;
+}
+nav li{
+    padding: 10px;
+}
+
+a:hover{
+    color:#6a6a6a;
 }
 
 main{
@@ -46,6 +79,7 @@ main div.container div{
 }
 
 main div.container div p{
+    font-size: 0.9em;
     margin-bottom: 5px;
     margin-right: 5px;
     float: right;
@@ -59,15 +93,72 @@ main div.container div h1{
 }
 
 header{
-    background-color: #ededed;
-    height: 80px;
-    margin: 10px;
+    background-color: #cecece;
+    padding: 25px;
+}
+header button img{
+    width: 16px;
+    height: 16px;
+}
+#usuario{
+    display: inline;
+    text-align: center;
+    margin-left: 15vh;
+    border-right: #6a6a6a 1px solid;
+}
+
+header a{
+    text-align: center;
+    font-size: small;
+    height: 20px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+#icone{
+    background-color: #ffffff;
+    color: #6a6a6a;
+    font-weight:lighter;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 50px;
+    border-style: initial;
+    padding: 9px;
+    padding-left: 11px;
+    padding-right: 11px;
+    font-size:15px;
+}
+
+header form{
+    display: inline;
+    width: 70vh;
+}
+#pesquisa{
+    border-style: inherit;
+    padding: 10px;
+    width: 100vh;
+    max-width: 400px;
+    margin-right: 0px;
+}
+#btn_pesquisar{
+    padding: 2px;
+    padding-bottom: 6px;
+    margin-left: 0px;
+    height: 35px;
+    width: 35px;
+    background-color: white;
+    border-style: inherit;
 }
 
 aside{
     background-color: #ffffff;
     width: 300px;
     border-left:solid 5px #d4d4d4;
+}
+
+a{
+    text-decoration: none;
+    color: #000000;
 }
 
 #bloco1 h1{
