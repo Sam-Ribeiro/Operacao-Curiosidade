@@ -5,21 +5,77 @@ body{
     font-family:'Arial Narrow Bold';
     font-style: initial;
     margin: 0px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
+
+.container{
+    display: flex;
+    flex: 1;
+}
+
+.principal{
+    flex: 1;
+    margin: 10px;
+}
+
 
 nav{
-    display: inline;
-    float:left;
-    background-color: rgb(255, 255, 255);
-    border-right-color: rgb(153, 153, 153);
-    border-style: initial;
+    background-color: #ffffff;
     width: 300px;
-    height: auto;
+    padding: 10px;
+    border-right:solid 5px #d4d4d4;
 }
 
-main {
-    
-    float: left;
-    width: calc(100% - 310px);
-    margin-left: 310px;
+nav ul{
+    color: #000000;
+    list-style: none;
+}
+
+main{
+}
+
+main div.container div{
+    padding: 0;
+    margin: 10px;
+    background-color: rgb(255, 255, 255);
+    min-height: 150px;
+    min-width: 100px;
+    flex: 1;
+}
+
+main div.container div p{
+    margin-bottom: 5px;
+    margin-right: 5px;
+    float: right;
+    text-align: end;
+    color: #6a6a6a;
+}
+
+main div.container div h1{
+    text-align: center;
+    font-size: 3em;
+}
+
+header{
+    background-color: #ededed;
+    height: 80px;
+    margin: 10px;
+}
+
+aside{
+    background-color: #ffffff;
+    width: 300px;
+    border-left:solid 5px #d4d4d4;
+}
+
+#bloco1 h1{
+    color: rgb(74, 74, 220);
+}
+#bloco2 h1{
+    color: rgb(115, 220, 74);
+}
+#bloco3 h1{
+    color: rgb(220, 74, 74);
 }
