@@ -1,13 +1,33 @@
-document.getElementById("login-form").addEventListener("submit", function (e) {
+const users = JSON.parse(localStorage.getItem("users")) || [];
+
+document.getElementById("login-form").addEventListener("submit", logar)
+
+function logar(e){
   e.preventDefault();
+  var erro = document.getElementById("erro")
+  var email = document.getElementById("email").value;
+  var senha = document.getElementById("senha").value;
+  const user = users.find(u => u.user_email === email);
+  if (!email || !senha ) {
+    erro.innerText = "Preencha todos os campos"
+    erro.style.display = 'block'
 
-  const email = document.getElementById("email").value.trim();
-  const senha = document.getElementById("senha").value.trim();
-  
-  if (email === "a@e" && senha === "1") {
+  }else if(!user){
+    erro.innerText = "Email não cadastrado"
+    erro.style.display = 'block'
+
+  }else if(user.user_senha != senha){
+    erro.innerText = "Senha inválida"
+    erro.style.display = 'block'
+
+  }else{
     window.location.href = "../pages/dashboard.html"
-  } else {
-    window.body
+    localStorage.setItem("user", JSON.stringify(user))
   }
+}
+function validarUsuario(){
+  const user = JSON.parse(localStorage.getItem("user"));
+  if(user){window.location.href = "../pages/dashboard.html"}
+}
 
-});
+validarUsuario();
