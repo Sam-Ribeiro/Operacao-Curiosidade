@@ -28,29 +28,25 @@ nav{
 }
 
 nav div{
-    display: block;
-    background-color: #ebfcfc;
+    display: flex;
+    background-color: #f0f4fc;
+    align-items: center;
 }
 
 nav div h1{
-    margin: 5px;
     font-size: 3em;
-    display: inline;
-    text-align: left;
+    display: flex;
+    margin: 10px;
 }
 
 nav div p{
-    background-color: #ebfcfc;
-    float: right;
-    display: inline;
-    text-align: right;
-    margin-top: 1em;
+    display: flex;
     margin-right: 10px;
 }
 
 nav img{
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
 }
 
 nav ul{
@@ -66,88 +62,92 @@ a:hover{
     color:#6a6a6a;
 }
 
-main{
-}
 
-main div.container div{
+main section.container div{
     padding: 0;
     margin: 10px;
     background-color: rgb(255, 255, 255);
-    min-height: 150px;
-    min-width: 100px;
     flex: 1;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    border-style: inherit;
+    border-radius: 5px;
 }
 
-main div.container div p{
+main section.container div p{
     font-size: 0.9em;
     margin-bottom: 5px;
     margin-right: 5px;
     float: right;
     text-align: end;
-    color: #6a6a6a;
+    color: #6a6a6a; 
 }
 
-main div.container div h1{
+main section.container div h1{
     text-align: center;
     font-size: 3em;
 }
 
 header{
-    background-color: #cecece;
-    padding: 25px;
+    background-color: #d7dbe2;
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:10px;
 }
 header button img{
     width: 16px;
     height: 16px;
 }
 #usuario{
-    display: inline;
-    text-align: center;
-    margin-left: 15vh;
-    border-right: #6a6a6a 1px solid;
+    
 }
 
 header a{
-    text-align: center;
+    display: flex;
     font-size: small;
     height: 20px;
     padding: 10px;
-    margin-left: 10px;
+    margin: 10px;
 }
 
 #icone{
     background-color: #ffffff;
     color: #6a6a6a;
     font-weight:lighter;
+    border-radius: 130px;
+    border-style: initial;
+    padding: 10px;
+    font-size:15px;
+    line-height: 0px;
     margin-left: 10px;
     margin-right: 10px;
-    border-radius: 50px;
-    border-style: initial;
-    padding: 9px;
-    padding-left: 11px;
-    padding-right: 11px;
-    font-size:15px;
 }
 
 header form{
-    display: inline;
+    display: flex;
     width: 70vh;
 }
 #pesquisa{
     border-style: inherit;
+    border-radius: 5px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
     padding: 10px;
-    width: 100vh;
-    max-width: 400px;
     margin-right: 0px;
+    flex: 1;
+    
 }
-#btn_pesquisar{
-    padding: 2px;
-    padding-bottom: 6px;
-    margin-left: 0px;
-    height: 35px;
-    width: 35px;
-    background-color: white;
+#btn-pesquisar{
     border-style: inherit;
+    border-radius: 5px;
+    border-left: #d7dbe2 solid 1px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    height: 36px;
+    width: 36px;
+    background-color: white;
+    line-height: 36px;
 }
 
 aside{
@@ -169,4 +169,56 @@ a{
 }
 #bloco3 h1{
     color: rgb(220, 74, 74);
+}
+
+.tabela h1{
+    color: #6a6a6a;;
+    font-size: large;
+    float: left;
+}
+.tabela{
+    
+    padding: 20px;
+    margin: 10px;
+    height: 100vh;
+    background-color: #ffffff;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    text-align: left
+}
+
+table{
+    padding: 5px;
+    width: 100%;
+}
+#nome{
+    width: 45%;
+}
+#email{
+    width: 45%;
+}
+#status{
+    width: 10%;
+    text-align: center;
+}
+.status{
+    text-align: center;
+}
+td{
+    border-top: #00000067 solid 1px;
+    padding: 10px;
+}
+th{
+    font-weight:100;
+    padding: 10px;
+    color: #6a6a6a;
+}
+
+#novo-cadastro{
+    background-color: rgb(115, 220, 74);
+    color: #ffffff;
+    border-radius: 5px;
+    border-style: initial;
+    padding: 5px;
+    font-weight: bolder;
+    float: right    ;
 }

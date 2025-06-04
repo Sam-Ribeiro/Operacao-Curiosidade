@@ -14,14 +14,4 @@ function validaUsuario(){
     }
 };
 
-function atualizaDados(){
-    totalCadastros = document.querySelector("#bloco1 h1")
-    cadastrosMes = document.querySelector("#bloco2 h1")
-    cadastrosRevisao = document.querySelector("#bloco3 h1")
-
-    totalCadastros.innerText = "25"
-    cadastrosMes.innerText = "50"
-    cadastrosRevisao.innerText = "75"
-}
-atualizaDados();
 validaUsuario();

@@ -16,9 +16,9 @@
                 <p>Operação Curiosidade</p>
             </div>
             <ul>
-                <li><a href="#"> <img src="../assets/home.png" alt=""> Home</a></li><hr>
-                <li><a href="#"> <img src="../assets/cadastro.png" alt=""> Cadastro</a></li><hr>
-                <li><a href="#"><img src="../assets/relatorio.png" alt=""> Relatórios</a></li><hr>
+                <li><a href="dashboard.html"> <img src="../assets/home.png" alt=""> Home</a></li><hr>
+                <li><a href="cadastro.html"> <img src="../assets/cadastro.png" alt=""> Cadastro</a></li><hr>
+                <li><a href="relatorios.html"><img src="../assets/relatorio.png" alt=""> Relatórios</a></li><hr>
             </ul> 
         </nav>
 
@@ -26,17 +26,17 @@
             <header>
                 <form>
                     <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar...">
-                    <button id="btn_pesquisar"><img src="../assets/pesquisar.png" alt="Pesquisar"></button>
+                    <button id="btn-pesquisar"><img src="../assets/pesquisar.png" alt="Pesquisar"></button>
                 </form>
-                <a href="#" id="usuario"> Nome do Usuário <strong id="icone">N</strong> </a>
-                <a href="#"id="sair">Sair</a>
+                <a href="#"> <em id="usuario">Nome do Usuário</em><strong id="icone">N</strong></a>
+                <a href="login.html"id="sair">Sair</a>
                 
             </header>
             <main>
-                <div class="container">
+                <section class="container">
                     <div id="bloco1">
                         <h1>100</h1>
-                        <p>total de cadastros</p>
+                        <p>Total de cadastros</p>
                     </div>
                     <div id="bloco2">
                         <h1>10</h1>
@@ -46,8 +46,25 @@
                         <h1>10</h1>
                         <p>Cadastros com pendencia de revisão</p>
                     </div>
-                </div>
-                
+                </section>
+                <section class="tabela">
+                    <h1>Últimos cadastros</h1>
+                    <table id="tabela-cadastros">
+                        <thead><tr>
+                            <th id="nome">NOME</th>
+                            <th id="email">EMAIL</th>
+                            <th id="status">STATUS</th>
+                        </tr></thead>
+                        <tbody>
+                            <tr>
+                                <td>sam</td><td>sam@test</td><td class="status">Ativo</td>
+                            </tr>
+                            <tr>
+                                <td>mike</td><td>mike@email</td><td class="status">Ativo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
             </main>
 
         </div>
@@ -56,5 +73,6 @@
 
         </aside>
     </div>
+    <script type="text/javascript" src="../script/dashboard.js"></script>
 </body>
 </html>
