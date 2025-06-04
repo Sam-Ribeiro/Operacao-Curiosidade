@@ -1,0 +1,129 @@
+body{
+    background-color: #f0f0f0;
+    font-family: Verdana;
+    margin: 0px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.container{
+    display: flex;
+    flex: 1;
+}
+
+.principal{
+    flex: 1;
+    margin: 10px;
+}
+
+a:hover{
+    color:#6a6a6a;
+}
+
+a{
+    text-decoration: none;
+    color: #000000;
+}
+
+header{
+    background-color: #d7dbe2;
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:10px;
+}
+header button img{
+    width: 16px;
+    height: 16px;
+}
+
+header a{
+    display: flex;
+    font-size: small;
+    height: 20px;
+    padding: 10px;
+    margin: 10px;
+}
+
+#icone{
+    background-color: #ffffff;
+    color: #6a6a6a;
+    font-weight:lighter;
+    border-radius: 130px;
+    border-style: initial;
+    padding: 10px;
+    font-size:15px;
+    line-height: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+header form{
+    display: flex;
+    width: 70vh;
+}
+#pesquisa{
+    border-style: inherit;
+    border-radius: 5px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    padding: 10px;
+    margin-right: 0px;
+    flex: 1;
+    
+}
+#btn-pesquisar{
+    border-style: inherit;
+    border-radius: 5px;
+    border-left: #d7dbe2 solid 1px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    height: 36px;
+    width: 36px;
+    background-color: white;
+    line-height: 36px;
+}
+
+
+.tabela h1{
+    color: #6a6a6a;;
+    font-size: large;
+    float: left;
+}
+.tabela{
+    padding: 20px;
+    margin: 10px;
+    height: 100vh;
+    background-color: #ffffff;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    text-align: left
+}
+
+table{
+    padding: 5px;
+    width: 100%;
+}
+#nome{
+    width: 45%;
+}
+#email{
+    width: 45%;
+}
+#status{
+    width: 10%;
+    text-align: center;
+}
+.status{
+    text-align: center;
+}
+td{
+    border-top: #00000067 solid 1px;
+    padding: 10px;
+}
+th{
+    font-weight:100;
+    padding: 10px;
+    color: #6a6a6a;
+}

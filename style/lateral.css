@@ -1,0 +1,45 @@
+
+nav{
+    background-color: #ffffff;
+    width: 300px;
+    padding: 10px;
+    border-right:solid 5px #d4d4d4;
+    margin: 0px;
+}
+
+nav div{
+    display: flex;
+    background-color: #f0f4fc;
+    align-items: center;
+}
+
+nav div h1{
+    font-size: 3em;
+    display: flex;
+    margin: 10px;
+}
+
+nav div p{
+    display: flex;
+    margin-right: 10px;
+}
+
+nav img{
+    width: 18px;
+    height: 18px;
+}
+
+nav ul{
+    margin-top: 10px;
+    padding-left: 0px;
+    list-style: none;
+}
+nav li{
+    padding: 10px;
+}
+
+aside{
+    background-color: #ffffff;
+    width: 300px;
+    border-left:solid 5px #d4d4d4;
+}
