@@ -48,6 +48,43 @@
                         </tbody>
                     </table>
                 </section>
+
+                <dialog>
+                    <section class="formulario">
+                    <form>
+                        <div class="cabecalho">
+                            <h1>Novo cadastro</h1>
+                            <input type="checkbox" name="status" class="status">
+                            <label class="status" for="status"> Ativo </label><br>
+                        </div>
+                        <div class="form-corpo">
+                            <h2>1º Fatos e dados</h2><hr>
+                            
+                                <label for="nome">Nome:</label>
+                                <input class="campo" type="text" name="nome" id="nome"><br>
+                                <label for="idade">Idade:</label> 
+                                <input class="campo" type="text" name="idade" id="idade">
+                                <label for="email">Email:</label> 
+                                <input class="campo" type="email" name="email" id="email"><br>
+                                <label for="endereco">Endereco:</label> 
+                                <input class="campo" type="text" name="endereco" id="endereco"><br>
+                                <label for="informacoes">Outras informações:</label> 
+                                <textarea class="texto" id="informacoes" name="informacoes" rows="3" cols="200"></textarea>
+                                
+                            <h2>2º Interesses</h2><hr>
+                                <textarea class="texto" id="interesses" name="interesses" rows="3" cols="200"></textarea>
+                            <h2>3º Sentimentos</h2><hr>
+                                <textarea class="texto" id="sentimentos" name="sentimentos" rows="3" cols="200"></textarea>
+                            <h2>4º Valores</h2><hr>
+                                <textarea class="texto" id="valores" name="valores" rows="3" cols="200"></textarea>
+                        </div>
+                        <input class="botao" type="submit" value="GRAVAR" id="btn-gravar">
+                        <input class="botao" type="button" value="CANCELAR" id="btn-cancelar">
+                    </form>
+                    
+                </section>
+                </dialog>
+
             </main>
 
         </div>

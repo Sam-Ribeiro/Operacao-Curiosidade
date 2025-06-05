@@ -12,3 +12,104 @@
 #novo-cadastro:hover{
     background-color: rgb(56, 150, 90);
 }
+
+.formulario{
+    height: 100%;
+    width: 100%;
+}
+dialog{ 
+    width: 60%;
+    box-shadow: 10px 10px 100px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
+    border-radius: 5px;
+    border-style: initial;
+    justify-content: center;
+}
+
+dialog .botao{
+    background-color: rgb(56, 170, 73);
+    color: #ffffff;
+    border-radius: 5px;
+    border-style: initial;
+    padding: 10px 50px 10px 50px;
+    font-weight:bold;
+    font-size: 1em;
+    letter-spacing: 2px;
+    display: block;
+    width: 200px;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: 2em;
+}
+dialog .botao:hover{
+    background-color: rgb(32, 120, 64);   
+}
+#btn-cancelar{
+    background-color: rgb(220, 74, 74);;
+}
+#btn-cancelar:hover{
+    background-color: rgb(158, 42, 42);;
+}
+
+
+.formulario h1{
+    color: #6a6a6a;;
+    font-size: large;
+    float: left;
+    margin: 0px;
+}
+
+.formulario h2{
+    font-size: 1em;
+    padding-right: 100px;
+    margin-bottom: 1px;
+}
+
+.form-corpo hr{
+    margin-top: 0px;
+}
+
+.status{
+    float: right;
+    padding: 0px;
+}
+.cabecalho{
+    padding: 10px 0px 10px 0px;
+}
+
+.form-corpo{
+    padding: 20px;
+}
+
+label{
+    color: #575757;
+    font-size: small;
+    padding-left: 10px;
+}
+
+.campo{
+    width: 90%;
+    height: 2em;
+    background-color: #f1f1f1;
+    border-style: inherit;
+    margin: 5px 10px 5px 10px;
+    
+}
+
+.form-corpo #idade{ 
+    width: 30%;
+}
+.form-corpo #email{
+    width: 50%;
+}
+.form-corpo #endereco{
+    width: 87%;
+}
+.texto{
+    width: 97%;
+    height: 5em;
+    text-align: start;
+    background-color: #f1f1f1;
+    border-style: inherit;
+    margin: 5px 10px 5px 10px;
+}
