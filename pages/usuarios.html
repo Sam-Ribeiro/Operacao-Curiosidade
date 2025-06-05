@@ -37,6 +37,7 @@
             <main>
                 <section class="tabela">
                     <h1>Relatórios -> Lista de Usuários</h1>
+                    <input id="imprimir" type="button" value="IMPRIMIR">
                     <table id="tabela-cadastros">
                         <thead><tr>
                             <th id="nome">NOME</th>
@@ -51,10 +52,19 @@
 
         </div>
 
-        <aside>
-
+        <aside id="aside">
+            <h1>Usuários</h1>
+            <hr>
+            <table id="tabela-usuarios">
+                    <thead><tr>
+                        <th id="nome">NOME</th>
+                    </tr></thead>
+                    <tbody>
+                    </tbody>
+            </table>
         </aside>
     </div>
+    <script type="text/javascript" src="../script/aside.js"></script>
     <script type="text/javascript" src="../script/relatorio.js"></script>
     </body>
 </html>

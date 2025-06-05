@@ -130,6 +130,11 @@ td{
     border-top: #00000067 solid 1px;
     padding: 10px;
 }
+tr:hover{
+    background-color: #f1f1f1;
+}
+
+
 th{
     font-weight:100;
     padding: 10px;
