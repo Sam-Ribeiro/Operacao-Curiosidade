@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Relatório de Usuários</title>
     <link rel="shortcut icon" href="../assets/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="../style/dashboard.css">
+    <link rel="stylesheet" href="../style/relatorio.css">
     <link rel="stylesheet" href="../style/main.css">
     <link rel="stylesheet" href="../style/lateral.css">
 </head>
-<body>
-    
+    <body>
+     
     <div class="container">
         <nav>
             <div>
@@ -18,8 +18,8 @@
                 <p>Operação Curiosidade</p>
             </div>
             <ul>
-                <li><a href="dashboard.html"> <img src="../assets/home.png" alt=""> Home</a></li><hr>
-                <li><a href="cadastro.html"> <img src="../assets/cadastro.png" alt=""> Cadastro</a></li><hr>
+                <li><a href="dashboard.html"><img src="../assets/home.png" alt=""> Home</a></li><hr>
+                <li><a href="cadastro.html"><img src="../assets/cadastro.png" alt=""> Cadastro</a></li><hr>
                 <li><a href="relatorios.html"><img src="../assets/relatorio.png" alt=""> Relatórios</a></li><hr>
             </ul> 
         </nav>
@@ -35,22 +35,8 @@
                 
             </header>
             <main>
-                <section class="container">
-                    <div id="bloco1">
-                        <h1>100</h1>
-                        <p>Total de cadastros</p>
-                    </div>
-                    <div id="bloco2">
-                        <h1>10</h1>
-                        <p>Cadastros no último mês</p>
-                    </div>
-                    <div id="bloco3">
-                        <h1>10</h1>
-                        <p>Cadastros com pendência de revisão</p>
-                    </div>
-                </section>
                 <section class="tabela">
-                    <h1>Últimos cadastros</h1>
+                    <h1>Relatórios -> Lista de Usuários</h1>
                     <table id="tabela-cadastros">
                         <thead><tr>
                             <th id="nome">NOME</th>
@@ -65,20 +51,10 @@
 
         </div>
 
-        <aside id="aside">
-            <h1>Usuários</h1>
-            <hr>
-            <table id="tabela-usuarios">
-                    <thead><tr>
-                        <th id="nome">NOME</th>
-                    </tr></thead>
-                    <tbody>
-                    </tbody>
-            </table>
-            
+        <aside>
+
         </aside>
     </div>
-    <script type="text/javascript" src="../script/aside.js"></script>
-    <script type="text/javascript" src="../script/dashboard.js"></script>
-</body>
+    <script type="text/javascript" src="../script/relatorio.js"></script>
+    </body>
 </html>

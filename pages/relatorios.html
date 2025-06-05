@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastros</title>
+    <title>Relatórios</title>
     <link rel="shortcut icon" href="../assets/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="../style/dashboard.css">
+    <link rel="stylesheet" href="../style/relatorio.css">
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/lateral.css">
 </head>
     <body>
      
@@ -16,8 +18,8 @@
                 <p>Operação Curiosidade</p>
             </div>
             <ul>
-                <li><a href="dashboard.html"> <img src="../assets/home.png" alt=""> Home</a></li><hr>
-                <li><a href="cadastro.html"> <img src="../assets/cadastro.png" alt=""> Cadastro</a></li><hr>
+                <li><a href="dashboard.html"><img src="../assets/home.png" alt=""> Home</a></li><hr>
+                <li><a href="cadastro.html"><img src="../assets/cadastro.png" alt=""> Cadastro</a></li><hr>
                 <li><a href="relatorios.html"><img src="../assets/relatorio.png" alt=""> Relatórios</a></li><hr>
             </ul> 
         </nav>
@@ -34,19 +36,14 @@
             </header>
             <main>
                 <section class="tabela">
-                    <h1>Últimos cadastros</h1>
-                    <table id="tabela-cadastros">
+                    <h1>Relatórios</h1>
+                    <table id="tabela-relatorios">
                         <thead><tr>
                             <th id="nome">NOME</th>
-                            <th id="email">EMAIL</th>
-                            <th id="status">STATUS</th>
                         </tr></thead>
                         <tbody>
                             <tr>
-                                <td>sam</td><td>sam@test</td><td class="status">Ativo</td>
-                            </tr>
-                            <tr>
-                                <td>mike</td><td>mike@email</td><td class="status">Ativo</td>
+                                <td><a href="usuarios.html">Lista de usuários</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -55,10 +52,20 @@
 
         </div>
 
-        <aside>
-
+        <aside id="aside">
+            <h1>Usuários</h1>
+            <hr>
+            <table id="tabela-usuarios">
+                    <thead><tr>
+                        <th id="nome">NOME</th>
+                    </tr></thead>
+                    <tbody>
+                    </tbody>
+            </table>
+            
         </aside>
     </div>
-    <script type="text/javascript" src="../script/dashboard.js"></script>
+    <script type="text/javascript" src="../script/aside.js"></script>
+    <script type="text/javascript" src="../script/relatorio.js"></script>
     </body>
 </html>

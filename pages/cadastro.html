@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastros</title>
     <link rel="shortcut icon" href="../assets/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="../style/dashboard.css">
+    <link rel="stylesheet" href="../style/cadastro.css">
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/lateral.css">
 </head>
     <body>
      
@@ -43,12 +45,6 @@
                             <th id="status">STATUS</th>
                         </tr></thead>
                         <tbody>
-                            <tr>
-                                <td>sam</td><td>sam@test</td><td class="status">Ativo</td>
-                            </tr>
-                            <tr>
-                                <td>mike</td><td>mike@email</td><td class="status">Ativo</td>
-                            </tr>
                         </tbody>
                     </table>
                 </section>
@@ -56,10 +52,20 @@
 
         </div>
 
-        <aside>
-
+        <aside id="aside">
+            <h1>Usuários</h1>
+            <hr>
+            <table id="tabela-usuarios">
+                    <thead><tr>
+                        <th id="nome">NOME</th>
+                    </tr></thead>
+                    <tbody>
+                    </tbody>
+            </table>
+            
         </aside>
     </div>
+    <script type="text/javascript" src="../script/aside.js"></script>
     <script type="text/javascript" src="../script/cadastro.js"></script>
     </body>
 </html>
