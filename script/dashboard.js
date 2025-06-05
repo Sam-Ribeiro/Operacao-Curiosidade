@@ -75,7 +75,7 @@ function preencherTabela(){
             window.location.href = "../pages/cadastro.html"
         });
     });
-}
+} 
 preencherTabela()
 
 
