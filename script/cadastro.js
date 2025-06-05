@@ -89,7 +89,7 @@ function editarUsuario(){
         modal.showModal()
     }
 }
-
+ 
 preencherTabela();
 validaUsuario();
 editarUsuario();
