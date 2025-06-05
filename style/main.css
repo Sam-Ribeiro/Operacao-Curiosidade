@@ -60,6 +60,11 @@ header a{
     margin-right: 10px;
 }
 
+#sair{
+    border-left: #6a6a6a solid 2px;
+    padding-left: 30px;
+}
+
 header form{
     display: flex;
     width: 70vh;
@@ -84,6 +89,9 @@ header form{
     width: 36px;
     background-color: white;
     line-height: 36px;
+}
+#btn-pesquisar:hover{
+    background-color: whitesmoke
 }
 
 
@@ -115,7 +123,7 @@ table{
     width: 10%;
     text-align: center;
 }
-.status{
+td:nth-child(3){
     text-align: center;
 }
 td{

@@ -6,4 +6,9 @@
     padding: 5px;
     font-weight: bolder;
     float: right;
+    font-size: larger;
+}
+
+#imprimir:hover{
+    background-color: rgb(74, 74, 110);
 }
