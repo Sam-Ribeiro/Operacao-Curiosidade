@@ -1,5 +1,5 @@
 #novo-cadastro{
-    background-color: rgb(88, 170, 56);
+    background-color: rgb(56, 170, 73);
     color: #ffffff;
     border-radius: 5px;
     border-style: initial;
@@ -10,5 +10,5 @@
     float: right;
 }
 #novo-cadastro:hover{
-    background-color: rgb(88, 150, 56);
+    background-color: rgb(56, 150, 90);
 }
