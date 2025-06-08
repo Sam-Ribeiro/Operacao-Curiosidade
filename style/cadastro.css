@@ -37,9 +37,9 @@ dialog .botao{
     letter-spacing: 2px;
     display: block;
     width: 200px;
-    margin: 10px;
+    margin: 20px;
     margin-left: auto;
-    margin-right: 2em;
+    margin-right: auto;
 }
 dialog .botao:hover{
     background-color: rgb(32, 120, 64);   
@@ -93,7 +93,17 @@ label{
     background-color: #f1f1f1;
     border-style: inherit;
     margin: 5px 10px 5px 10px;
-    
+}
+
+.campo:focus{
+    outline: none;
+    border-bottom: rgb(100, 100, 100) solid 4px;
+    border-radius: 10px;
+}
+.texto:focus{
+    outline: none;
+    border-bottom: rgb(100, 100, 100) solid 4px;
+    border-radius: 10px;
 }
 
 .form-corpo #idade{ 
@@ -112,4 +122,11 @@ label{
     background-color: #f1f1f1;
     border-style: inherit;
     margin: 5px 10px 5px 10px;
+}
+
+#erro{
+    display: none;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }

@@ -114,18 +114,26 @@ table{
     width: 100%;
 }
 .tabela #nome{
-    width: 45%;
+    width: 35%;
 }
 .tabela #email{
-    width: 45%;
+    width: 35%;
 }
 .tabela #status{
     width: 10%;
     text-align: center;
 }
+.tabela #cad-data{
+    width: 20%;
+    text-align: center;
+}
 td:nth-child(3){
     text-align: center;
 }
+td:nth-child(4){
+    text-align: center;
+}
+
 td{
     border-top: #00000067 solid 1px;
     padding: 10px;
@@ -138,4 +146,7 @@ th{
     font-weight:100;
     padding: 10px;
     color: #6a6a6a;
+}
+th:hover{
+    background-color: #d0d0d0;
 }

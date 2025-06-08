@@ -15,6 +15,7 @@ main{
     background-color: #ffffff;
     border: 1px solid black;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
 .logo{
@@ -40,12 +41,19 @@ main{
 
 .campo{
     border: 2px solid black;
+    border-radius: 10px;
     margin: 12px 96px 12px 96px;
     height: 40px;
     width: 226px;
     padding-left: 15px;
     padding-right: 15px;
 }
+.campo:focus{
+    outline: none;
+    border-bottom: rgb(100, 100, 100) solid 4px;
+    border-radius: 10px;
+}
+
 
 .botao{
     color: #ffffff;
