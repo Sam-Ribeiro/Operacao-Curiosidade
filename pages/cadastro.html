@@ -43,6 +43,7 @@
                             <th id="nome">NOME</th>
                             <th id="email">EMAIL</th>
                             <th id="status">STATUS</th>
+                            <th id="cad-data">DIA CADASTRADO</th>
                         </tr></thead>
                         <tbody>
                         </tbody>
@@ -51,10 +52,10 @@
 
                 <dialog>
                     <section class="formulario">
-                    <form>
+                    <form autocomplete="off">
                         <div class="cabecalho">
                             <h1>Novo cadastro</h1>
-                            <input type="checkbox" name="status" class="status">
+                            <input type="checkbox" name="status" class="status" id="status" >
                             <label class="status" for="status"> Ativo </label><br>
                         </div>
                         <div class="form-corpo">
@@ -78,8 +79,13 @@
                             <h2>4º Valores</h2><hr>
                                 <textarea class="texto" id="valores" name="valores" rows="3" cols="200"></textarea>
                         </div>
-                        <input class="botao" type="submit" value="GRAVAR" id="btn-gravar">
-                        <input class="botao" type="button" value="CANCELAR" id="btn-cancelar">
+                        <div id="erro"><span>Erro</span></div>
+                        <div class="container">
+                            <input class="botao" type="button" value="GRAVAR" id="btn-gravar">
+                            <input class="botao" type="button" value="EDITAR" id="btn-editar">
+                            <input class="botao" type="button" value="EXCLUIR" id="btn-excluir">
+                            <input class="botao" type="button" value="CANCELAR" id="btn-cancelar">
+                        </div>
                     </form>
                     
                 </section>
@@ -104,5 +110,6 @@
     </div>
     <script type="text/javascript" src="../script/aside.js"></script>
     <script type="text/javascript" src="../script/cadastro.js"></script>
+    <script type="text/javascript" src="../script/tabelas.js"></script>
     </body>
 </html>

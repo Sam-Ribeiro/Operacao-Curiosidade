@@ -1,78 +1,69 @@
-const user = JSON.parse(localStorage.getItem("user"));
-document.getElementById("sair").addEventListener("click",function sair(){
-    localStorage.removeItem("user")}
-)
 
-function validaUsuario(){
-    if(user){
-        nome_perfil = document.getElementById("usuario")
-        icone_perfil = document.getElementById("icone")
-        nome_perfil.innerText = user.user_nome
-        icone_perfil.innerText = user.user_nome.charAt(0).toUpperCase()
-    }else{
-        window.location.href = "../pages/login.html"
+function carregarUsuario(){
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    const modal = document.querySelector("dialog")
+    if(usuario){
+        modal.showModal()
+        document.querySelector("dialog #nome").value = usuario.nome
+        document.querySelector("dialog #email").value = usuario.email
+        document.querySelector("dialog #idade").value = usuario.idade
+        document.querySelector("dialog #endereco").value = usuario.endereco
+        document.querySelector("dialog #informacoes").value = usuario.informacoes
+        document.querySelector("dialog #interesses").value = usuario.interesses
+        document.querySelector("dialog #sentimentos").value = usuario.sentimentos
+        document.querySelector("dialog #valores").value = usuario.valores
     }
-};
-if(document.getElementById("tabela-cadastros")){
-    function preencherTabela(){
-
-        const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-        for(var i = usuarios.length - 1; i >= 0 ; i--){
-            const usuario = usuarios[i];
-            if(usuario.status == "Ativo"){
-            var tabela = document.getElementById("tabela-cadastros")
-            var qtdLinhas = tabela.rows.length;
-            var linha = tabela.insertRow(qtdLinhas)
-
-            var celulaNome = linha.insertCell(0)
-            var celulaEmail = linha.insertCell(1)
-            var celulaStatus = linha.insertCell(2)
-
-            var link = '<a class="link-usuario" id="'+ i +'" href="#">'+ usuario.nome +'</a>';     
-
-            celulaNome.innerHTML = link
-            celulaEmail.innerText = usuario.email
-            celulaStatus.innerText = usuario.status
-            }
-        }
-        for(var i = usuarios.length - 1; i >= 0 ; i--){
-            const usuario = usuarios[i];
-            if(usuario.status == "Inativo"){
-            var tabela = document.getElementById("tabela-cadastros")
-            var qtdLinhas = tabela.rows.length;
-            var linha = tabela.insertRow(qtdLinhas)
-
-            var celulaNome = linha.insertCell(0)
-            var celulaEmail = linha.insertCell(1)
-            var celulaStatus = linha.insertCell(2)
-
-            var link = '<a class="link-usuario" id="'+ i +'" href="#">'+ usuario.nome +'</a>';    
-
-            celulaNome.innerHTML = link
-            celulaEmail.innerText = usuario.email
-            celulaStatus.innerText = usuario.status
-
-            linha.style.color = 'gray'
-            }
-        }
-        const links = document.querySelectorAll('.link-usuario');
-        links.forEach(link => {
-            link.addEventListener('click', (event) => {
-                const elementoClicado = event.target;
-                const idLink = elementoClicado.id;
-                const usuario = usuarios[idLink];
-                localStorage.setItem("usuario", JSON.stringify(usuario))
-                const modal = document.querySelector("dialog")
-                modal.showModal()
-            });
-        });
-}
 }
 
+function preencheStorage(){
+    var erro = document.getElementById("erro")
+    erro.style.display = 'none'
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    const checkbox = document.querySelector("dialog #status")
+    if(checkbox.checked == true){
+        var status = "Ativo"
+    }else{
+        var status = "Inativo"
+    }
+    const usuario ={
+            nome: document.querySelector("dialog #nome").value,
+            email: document.querySelector("dialog #email").value,
+            status: status,
+            idade:  document.querySelector("dialog #idade").value,
+            endereco: document.querySelector("dialog #endereco").value,
+            informacoes: document.querySelector("dialog #informacoes").value,
+            interesses: document.querySelector("dialog #interesses").value,
+            sentimentos: document.querySelector("dialog #sentimentos").value,
+            valores: document.querySelector("dialog #valores").value,
+            dataCadastro: new Date().toISOString()
+        }
+    if(!usuario.nome || !usuario.email || !usuario.status || !usuario.idade || !usuario.endereco || !usuario.informacoes || !usuario.interesses || !usuario.sentimentos || !usuario.valores){
+        erro.innerText = "Preencha todos os campos"
+        erro.style.display = 'block'
+    }else if(usuarios.some(u => u.email === usuario.email)){
+        erro.innerText = "Email já cadastrado"
+        erro.style.display = 'block'
+    }else if(!emailRegex.test(usuario.email)){
+        erro.innerText = "Email inválido"
+        erro.style.display = 'block'
+    }else if( Number(usuario.idade)<1 || Number(usuario.idade>120) || isNaN(Number(usuario.idade))){
+        erro.innerText = "Idade inválida"
+        erro.style.display = 'block'
+    }else{   
+        usuarios.push(usuario)
+        localStorage.setItem("usuarios", JSON.stringify(usuarios))
+        preencherTabela();
+        modal.close()
+        localStorage.removeItem("usuario")
+    }
+}
 
+const user = JSON.parse(localStorage.getItem("user"));
 const modal = document.querySelector("dialog")
 const botaoModal = document.getElementById("novo-cadastro")
 const botaoClose = document.getElementById("btn-cancelar")
+const botaoGravar = document.getElementById("btn-gravar")
 
 botaoModal.onclick = function (){
     modal.showModal()
@@ -81,15 +72,8 @@ botaoClose.onclick = function(){
     modal.close()
     localStorage.removeItem("usuario")
 }
-
-function editarUsuario(){
-    const usuario = JSON.parse(localStorage.getItem("usuario"));
-    const modal = document.querySelector("dialog")
-    if(usuario){
-        modal.showModal()
-    }
+botaoGravar.onclick = function (){
+    preencheStorage();
 }
- 
-preencherTabela();
-validaUsuario();
-editarUsuario();
+
+carregarUsuario();

@@ -42,6 +42,16 @@ nav a{
     padding: 20px 170px 20px 5px;
 }
 
+nav a{
+    color: #000000;
+}
+
+aside a{
+    color: #000000;
+}
+
+
+
 aside{
     background-color: #ffffff;
     width: 300px;

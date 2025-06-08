@@ -13,7 +13,7 @@ function cadastrar(e){
     const ano = Number(anotxt)
 
     if(!nome || !email || !senha || !data){
-        erro.innerText = "preencha todos os campos"
+        erro.innerText = "Preencha todos os campos"
         erro.style.display = 'block'
     }else if(users.some(u => u.user_email === email)){
         erro.innerText = "Email já cadastrado"
@@ -21,12 +21,9 @@ function cadastrar(e){
     }else if(nome.length < 3){
         erro.innerText = "Nome deve ter mais que dois caracteres"
         erro.style.display = 'block'
-    }else if(ano>=agora){
+    }else if(ano>=agora || ano<1910){
         erro.innerText = "Data de nascimento inválida"
         erro.style.display = 'block'
-    }else if(ano<1910){
-        erro.innerText = "Data de nascimento inválida"
-        erro.style.display = 'block'    
     }else{
         const user ={
             user_nome: nome,
@@ -45,5 +42,22 @@ function validarUsuario(){
   const user = JSON.parse(localStorage.getItem("user"));
   if(user){window.location.href = "../pages/dashboard.html"}
 }
+
+function formatDateInput(inputElement) {
+
+    if (inputElement.value) {
+        const dateObj = new Date(inputElement.value);
+        const dia = String(dateObj.getDate() + 1).padStart(2, '0');
+        const mes = String(dateObj.getMonth() + 1).padStart(2, '0');
+        const ano = dateObj.getFullYear();
+
+        inputElement.type = 'text';
+        inputElement.value = `${dia}/${mes}/${ano}`;
+    } else {
+        inputElement.type = 'text';
+    }
+}
+
+
 
 validarUsuario();
