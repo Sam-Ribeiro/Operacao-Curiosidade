@@ -43,4 +43,21 @@ function validarUsuario(){
   if(user){window.location.href = "../pages/dashboard.html"}
 }
 
+function formatDateInput(inputElement) {
+
+    if (inputElement.value) {
+        const dateObj = new Date(inputElement.value);
+        const dia = String(dateObj.getDate() + 1).padStart(2, '0');
+        const mes = String(dateObj.getMonth() + 1).padStart(2, '0');
+        const ano = dateObj.getFullYear();
+
+        inputElement.type = 'text';
+        inputElement.value = `${dia}/${mes}/${ano}`;
+    } else {
+        inputElement.type = 'text';
+    }
+}
+
+
+
 validarUsuario();

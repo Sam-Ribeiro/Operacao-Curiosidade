@@ -27,7 +27,7 @@ dialog{
 }
 
 dialog .botao{
-    background-color: rgb(56, 170, 73);
+    
     color: #ffffff;
     border-radius: 5px;
     border-style: initial;
@@ -41,7 +41,22 @@ dialog .botao{
     margin-left: auto;
     margin-right: auto;
 }
-dialog .botao:hover{
+#btn-editar{
+    background-color: rgb(56, 102, 170); 
+}
+#btn-editar:hover{
+    background-color: rgb(32, 67, 120);   
+}
+#btn-excluir{
+    background-color: rgb(223, 139, 43);;
+}
+#btn-excluir:hover{
+    background-color: rgb(175, 111, 38);;   
+}
+#btn-gravar{
+    background-color: rgb(56, 170, 73); 
+}
+#btn-gravar:hover{
     background-color: rgb(32, 120, 64);   
 }
 #btn-cancelar{
@@ -72,6 +87,7 @@ dialog .botao:hover{
 .status{
     float: right;
     padding: 0px;
+    margin: 10px 20px 0px 0px;
 }
 .cabecalho{
     padding: 10px 0px 10px 0px;
