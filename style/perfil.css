@@ -1,0 +1,67 @@
+#cadastrar-form{
+    background-color: white;
+    margin:auto auto auto auto;
+    border-style: inherit;
+    border-radius: 5px;
+    padding: 50px;
+    width: 40%;
+    height: 80%;
+    height: 600px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    
+}
+#dados{
+    background-color: white;
+    margin:auto auto auto auto;
+    border-style: inherit;
+    border-radius: 5px;
+    padding: 50px;
+    width: 40%;
+    height: 600px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.campo{
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 12px 96px 12px 96px;
+    height: 40px;
+    width: 226px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.campo:focus{
+    outline: none;
+    border-bottom: rgb(100, 100, 100) solid 4px;
+    border-radius: 10px;
+}
+
+
+.botao{
+    color: #ffffff;
+    border-radius: 5px;
+    border-color: black;
+    border-style: initial;
+    background-color: black;
+    margin: 15px 100px 10px 100px;
+    height: 40px;
+    width: 250px;
+}
+
+.botao:hover{
+    background-color: rgb(100, 100, 100);
+}
+
+#erro{
+    display: none;
+    border: 2px solid rgb(220, 74, 74);
+    background-color: rgb(242, 182, 182);
+    margin: 15px 96px 15px 96px;
+    width: 256px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-decoration: underline;
+    text-decoration-color: rgb(220, 74, 74);
+    text-align: center;
+    font-weight: normal;
+}
