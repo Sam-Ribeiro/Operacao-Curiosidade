@@ -102,14 +102,15 @@ header form{
     float: left;
 }
 .tabela{
+    border-style: inherit;
+    border-radius: 5px;
+    overflow: auto;
     padding: 20px;
     margin: 10px;
-    height: 100vh;
     background-color: #ffffff;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     text-align: left
 }
-
 table{
     padding: 5px;
     width: 100%;
