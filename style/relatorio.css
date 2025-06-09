@@ -1,4 +1,4 @@
-#imprimir{
+#btn-imprimir{
     background-color: rgb(60, 95, 184);
     color: #ffffff;
     border-radius: 5px;
@@ -10,6 +10,51 @@
     float: right;
 }
 
-#imprimir:hover{
+#btn-imprimir:hover{
     background-color: rgb(45, 73, 143);
+}
+
+@page {
+    size: A4;
+    margin: 0;
+}
+@media print {
+    html, body{
+        visibility: hidden;
+    }
+    .principal{
+        margin: 0px;
+        padding: 0px;
+    }
+    main{
+        margin: 0px;
+        padding: 0px;
+    }
+    .principal header{
+        display: none;
+    }
+    nav{
+        display: none;
+    }
+    aside{
+        display: none;
+    }
+    .tabela {
+        visibility: visible;
+        box-shadow: none !important;
+        height: min-content !important;
+    }
+    table{
+        border: 1px solid black;
+    }
+    tr{
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+    thead {
+        display: table-header-group;
+    }
+    #btn-imprimir{
+        visibility: hidden;
+    }
 }
