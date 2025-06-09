@@ -4,6 +4,9 @@ function carregarUsuario(){
     const modal = document.querySelector("dialog")
     if(usuario){
         modal.showModal()
+        botaoGravar.style.display = 'none'
+        botaoEditar.style.display = 'block'
+        botaoExcluir.style.display = 'block'
         document.querySelector("dialog #nome").value = usuario.nome
         document.querySelector("dialog #email").value = usuario.email
         document.querySelector("dialog #idade").value = usuario.idade
@@ -12,6 +15,10 @@ function carregarUsuario(){
         document.querySelector("dialog #interesses").value = usuario.interesses
         document.querySelector("dialog #sentimentos").value = usuario.sentimentos
         document.querySelector("dialog #valores").value = usuario.valores
+        let checkbox = document.querySelector("dialog #status")
+        if(usuario.status == "Ativo"){
+            checkbox.checked = true
+        }
     }
 }
 
@@ -64,16 +71,35 @@ const modal = document.querySelector("dialog")
 const botaoModal = document.getElementById("novo-cadastro")
 const botaoClose = document.getElementById("btn-cancelar")
 const botaoGravar = document.getElementById("btn-gravar")
+const botaoEditar = document.getElementById("btn-editar")
+const botaoExcluir = document.getElementById("btn-excluir")
 
 botaoModal.onclick = function (){
     modal.showModal()
+    botaoGravar.style.display = 'block'
+    botaoEditar.style.display = 'none'
+    botaoExcluir.style.display = 'none'
+}
+botaoGravar.onclick = function (){
+    preencheStorage();
 }
 botaoClose.onclick = function(){
     modal.close()
     localStorage.removeItem("usuario")
 }
-botaoGravar.onclick = function (){
-    preencheStorage();
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        modal.close()
+        localStorage.removeItem("usuario")
+    }
+});
+botaoEditar.onclick = function(){
+    const usuarios = JSON.parse(localStorage.getItem("usuarios"))  
+    const usuario = JSON.parse(localStorage.getItem("usuario"))
+    const usuariosAtualizados = usuarios.filter(u => u.email !== usuario.email)
+    localStorage.setItem("usuarios", JSON.stringify(usuariosAtualizados))
+    preencheStorage()
 }
+
 
 carregarUsuario();
