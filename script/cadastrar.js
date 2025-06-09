@@ -42,7 +42,6 @@ function validarUsuario(){
   const user = JSON.parse(localStorage.getItem("user"));
   if(user){window.location.href = "../pages/dashboard.html"}
 }
-
 function formatDateInput(inputElement) {
 
     if (inputElement.value) {
