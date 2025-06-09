@@ -99,7 +99,16 @@ botaoEditar.onclick = function(){
     const usuariosAtualizados = usuarios.filter(u => u.email !== usuario.email)
     localStorage.setItem("usuarios", JSON.stringify(usuariosAtualizados))
     preencheStorage()
+    preencherTabela()
 }
-
+botaoExcluir.onclick = function(){
+    const usuarios = JSON.parse(localStorage.getItem("usuarios"))  
+    const usuario = JSON.parse(localStorage.getItem("usuario"))
+    const usuariosAtualizados = usuarios.filter(u => u.email !== usuario.email)
+    localStorage.setItem("usuarios", JSON.stringify(usuariosAtualizados))
+    modal.close()
+    localStorage.removeItem("usuario")
+    preencherTabela()
+}
 
 carregarUsuario();
