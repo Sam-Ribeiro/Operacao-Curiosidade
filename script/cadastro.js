@@ -60,10 +60,51 @@ function preencheStorage(){
     }else{   
         usuarios.push(usuario)
         localStorage.setItem("usuarios", JSON.stringify(usuarios))
+        localStorage.removeItem("usuario")
         preencherTabela();
         modal.close()
-        localStorage.removeItem("usuario")
     }
+}
+
+function verificaEntrada(){
+    var erro = document.getElementById("erro")
+    erro.style.display = 'none'
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    const usuarioEditado = JSON.parse(localStorage.getItem("usuario"))
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const usuario ={
+        nome: document.querySelector("dialog #nome").value,
+        email: document.querySelector("dialog #email").value,
+        idade:  document.querySelector("dialog #idade").value,
+        endereco: document.querySelector("dialog #endereco").value,
+        informacoes: document.querySelector("dialog #informacoes").value,
+        interesses: document.querySelector("dialog #interesses").value,
+        sentimentos: document.querySelector("dialog #sentimentos").value,
+        valores: document.querySelector("dialog #valores").value,
+        dataCadastro: new Date().toISOString()
+    }
+    const outrosUsuarios = usuarios.filter(u => u.email !== usuarioEditado.email)
+    if(!usuario.nome || !usuario.email || !usuario.idade || !usuario.endereco || !usuario.informacoes || !usuario.interesses || !usuario.sentimentos || !usuario.valores){
+        erro.innerText = "Preencha todos os campos"
+        erro.style.display = 'block'
+        console.log("retornando esse false")
+        return false
+    }else if(outrosUsuarios.some(u => u.email === usuario.email)){
+        erro.innerText = "Email já cadastrado"
+        erro.style.display = 'block'
+        return false
+    }else if(!emailRegex.test(usuario.email)){
+        erro.innerText = "Email inválido"
+        erro.style.display = 'block'
+        return false
+    }else if( Number(usuario.idade)<1 || Number(usuario.idade>120) || isNaN(Number(usuario.idade))){
+        erro.innerText = "Idade inválida"
+        erro.style.display = 'block'
+        return false
+    }else{   
+        return true     
+    }
+    
 }
 
 const user = JSON.parse(localStorage.getItem("user"));
@@ -82,24 +123,37 @@ botaoModal.onclick = function (){
 }
 botaoGravar.onclick = function (){
     preencheStorage();
+    form = document.getElementById("form-cadastro")
+    form.reset()
 }
 botaoClose.onclick = function(){
     modal.close()
     localStorage.removeItem("usuario")
+    form = document.getElementById("form-cadastro")
+    form.reset()
 }
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
+        event.preventDefault()
         modal.close()
         localStorage.removeItem("usuario")
+        form = document.getElementById("form-cadastro")
+        form.reset()
     }
 });
 botaoEditar.onclick = function(){
     const usuarios = JSON.parse(localStorage.getItem("usuarios"))  
     const usuario = JSON.parse(localStorage.getItem("usuario"))
-    const usuariosAtualizados = usuarios.filter(u => u.email !== usuario.email)
-    localStorage.setItem("usuarios", JSON.stringify(usuariosAtualizados))
-    preencheStorage()
-    preencherTabela()
+    let retorno = verificaEntrada()
+    console.log("Retorno "+ retorno)
+    if(retorno){
+        const usuariosAtualizados = usuarios.filter(u => u.email !== usuario.email)
+        localStorage.setItem("usuarios", JSON.stringify(usuariosAtualizados))
+        preencheStorage()
+        preencherTabela()
+    }
+    form = document.getElementById("form-cadastro")
+    form.reset()
 }
 botaoExcluir.onclick = function(){
     const usuarios = JSON.parse(localStorage.getItem("usuarios"))  
@@ -109,6 +163,8 @@ botaoExcluir.onclick = function(){
     modal.close()
     localStorage.removeItem("usuario")
     preencherTabela()
+    form = document.getElementById("form-cadastro")
+    form.reset()
 }
 
 carregarUsuario();

@@ -1,32 +1,19 @@
-#cadastrar-form{
+.editar-perfil{
     background-color: white;
-    margin:auto auto auto auto;
     border-style: inherit;
     border-radius: 5px;
     padding: 50px;
-    width: 40%;
-    height: 80%;
-    height: 600px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-    
-}
-#dados{
-    background-color: white;
-    margin:auto auto auto auto;
-    border-style: inherit;
-    border-radius: 5px;
-    padding: 50px;
-    width: 40%;
-    height: 600px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    flex: 1;
+    margin: 10px;
 }
 
 .campo{
     border: 2px solid black;
     border-radius: 10px;
-    margin: 12px 96px 12px 96px;
+    margin: 10px;
     height: 40px;
-    width: 226px;
+    width: 250px;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -43,9 +30,9 @@
     border-color: black;
     border-style: initial;
     background-color: black;
-    margin: 15px 100px 10px 100px;
+    margin: 10px;
     height: 40px;
-    width: 250px;
+    width: 220px;
 }
 
 .botao:hover{
@@ -65,3 +52,70 @@
     text-align: center;
     font-weight: normal;
 }
+
+.editar-perfil h1{
+    font-size: 1.5em;
+    margin-top: 0px;
+}
+
+.editar-perfil h2{
+    font-size: 1.2em;
+    margin-left: 10px;
+    margin-bottom: 0px;
+}
+.editar-perfil p{
+    margin-left: 10px;
+}
+
+.editar-perfil hr{
+    width: 475px;
+}
+
+/*checkbox */
+.checkbox-wrapper-17{
+    margin: 0px;
+    margin-left: 50px;
+    line-height: 10px;
+}
+  .checkbox-wrapper-17 input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+
+  .checkbox-wrapper-17 label {
+    --size: 50px;
+
+    cursor: pointer;
+    width: var(--size);
+    height: calc(var(--size) / 2);
+    background: rgb(192, 192, 192);
+    display: block;
+    border-radius: 100px;
+    position: relative;
+  }
+
+  .checkbox-wrapper-17 label:after {
+    content: '';
+    position: absolute;
+    top: 6%;
+    left: 2.5%;
+    width: calc(50% - 5%);
+    height: calc(100% - 11%);
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+  }
+
+  .checkbox-wrapper-17 input:checked + label {
+    background: #000000;
+  }
+
+  .checkbox-wrapper-17 input:checked + label:after {
+    left: calc(100% - 2.5%);
+    transform: translateX(-100%);
+  }
+
+  .checkbox-wrapper-17 label:active:after {
+    width: 55%;
+  }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastros</title>
+    <title>Perfil</title>
     <link rel="shortcut icon" href="../assets/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="../style/main.css">
     <link rel="stylesheet" href="../style/lateral.css">
@@ -23,34 +23,41 @@
                 <li><a href="relatorios.html"><img src="../assets/relatorio.png" alt=""> Relatórios</a></li><hr>
             </ul> 
         </nav>
-
-        <div class="principal">
-            <main class="container">
-                <form id="cadastrar-form" autocomplete="off">
-                        <input class="campo" type="text" name="nome" id="nome" placeholder="Nome">
-                        <input class="campo" type="email" name="email" id="email" placeholder="Email">
-                        <input class="campo" type="password" name="senha" id="senha" placeholder="Senha">
-                        <input class="campo" type="text" onfocus="(this.type='date')" onblur="formatDateInput(this)" name="data" id="data" placeholder="Data de Nascimento">
-                        <input class="botao" type="submit" value="SALVAR ALTERAÇÕES" id="btn-salvar">
+            <main>
+                <form class="editar-perfil" autocomplete="off">
+                    <h1>Perfil</h1>
+                    <hr>
+                    <h2>Nome do usuario</h2>
+                    <input class="campo" type="text" name="nome" id="nome">
+                    <h2>Email cadastrado</h2>
+                    <input class="campo" type="email" name="email" id="email">
+                    <h2>Data de nascimento</h2>
+                    <input class="campo" type="text" onfocus="(this.type='date')" onblur="formatDateInput(this)" name="data" id="data">
+                    <h2>Senha</h2>
+                    <input class="botao" type="button" value="ALTERAR SENHA" id="btn-senha">
+                    <hr>
+                    <div class="container">
+                        <input class="botao" type="button" value="SALVAR ALTERAÇÕES" id="btn-salvar">
+                        <input class="botao" type="button" value="EXCLUIR CONTA" id="btn-excluir">
+                    </div>
                 </form>
-                <div id="dados">
-                    <h1>Dados do usuário</h1>
-                    <h2>Nome</h2>
-                    <span id="user-nome">nome do usuario</span>
-                    <hr>
-                    <h2>Email</h2>
-                    <span id="user-email">email do usuario</span>
-                    <hr>
-                    <h2>Data de Nascimento</h2>
-                    <span id="user-data">01/01/2001</span>
-                    <hr>
-                    <h2>Cadastros realizados</h2>
-                    <span id="user-cad"> 15</span>
-                    <hr>
-                    <input class="botao" type="button" value="EXCLUIR CONTA" id="btn-excluir">
-                </div>
             </main>
-        </div>
+            <div>
+                <form class="editar-perfil">
+                    <h1>Configurações</h1>
+                    <hr>
+                    <h2>Segurança</h2>
+                    <p>Manter login <input type="checkbox" name="manter-conectado" id="manter-conectado"></p>
+                    <hr>
+                    <h2>Tema</h2>
+                    <div class="container">
+                        <p>Tema: Claro / Escuro</p>
+                        <div class="checkbox-wrapper-17">
+                            <input type="checkbox" id="switch-17" /><label for="switch-17"></label>
+                        </div>
+                    </div>
+                </form>
+            </div>
     </div>
     <script type="text/javascript" src="../script/aside.js"></script>
     </body>

@@ -53,8 +53,7 @@ header a{
     background-color: #ffffff;
     color: #6a6a6a;
     font-weight:lighter;
-    border-radius: 130px;
-    border-style: initial;
+    border-radius: 80px;
     padding: 10px;
     font-size:15px;
     line-height: 0px;
@@ -109,7 +108,8 @@ header form{
     margin: 10px;
     background-color: #ffffff;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-    text-align: left
+    text-align: left;
+    user-select: none;
 }
 table{
     padding: 5px;
@@ -151,4 +151,23 @@ th{
 }
 th:hover{
     background-color: #d0d0d0;
+}
+
+th strong{
+    visibility: hidden;
+}
+.page-botao{
+    border: none;
+    background-color: #ffffff;
+    color: #6a6a6a;
+}
+.ativo:hover{
+    color: black
+}
+.ativo{
+    color: #444444;
+}
+.page-controle{
+    display: flex;
+    justify-content: space-around;
 }
