@@ -17,35 +17,80 @@ function preencherTabela(){
             tabela.deleteRow(1);
         }
         let usuarios = null
+        ths = document.querySelectorAll("th strong")
+        ths.forEach((ordem) => ordem.style.visibility = "hidden")
         switch(orderby){
             case 0:
                 usuarios = organizarAZ()
+                th = document.querySelector("th:nth-child(1) strong")
+                th.innerHTML ="&#11167;"
+                th.style.visibility = "visible"
                 break
             case 1:
                 usuarios = organizarZA()
+                th = document.querySelector("th:nth-child(1) strong")
+                th.innerHTML = "&#11165"
+                th.style.visibility = "visible"
                 break
             case 2:
                 usuarios = organizarStatus()
+                th = document.querySelector("th:nth-child(3) strong")
+                th.innerHTML ="&#11167;"
+                th.style.visibility = "visible"
                 break
             case 3:
                 usuarios = organizarStatusInativo()
+                th = document.querySelector("th:nth-child(3) strong")
+                th.innerHTML = "&#11165"
+                th.style.visibility = "visible"
                 break
             case 4:
                 usuarios = organizarEmailAZ()
+                th = document.querySelector("th:nth-child(2) strong")
+                th.innerHTML ="&#11167;"
+                th.style.visibility = "visible"
                 break
             case 5:
                 usuarios = organizarEmailZA()
+                th = document.querySelector("th:nth-child(2) strong")
+                th.innerHTML = "&#11165"
+                th.style.visibility = "visible"
                 break
             case 6:
                 usuarios = organizarDataRecente()
+                th = document.querySelector("th:nth-child(4) strong")
+                th.innerHTML ="&#11167;"
+                th.style.visibility = "visible"
                 break
             case 7:
                 usuarios = organizarDataAntiga()
+                th = document.querySelector("th:nth-child(4) strong")
+                th.innerHTML = "&#11165"
+                th.style.visibility = "visible"
                 break                
             default:
                 usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
                 break            
         }
+        if(filtro != ''){
+            filtro = filtro.toLowerCase();
+            usuarios = usuarios.filter(u => 
+                u.email.toLowerCase().includes(filtro) || 
+                u.nome.toLowerCase().includes(filtro) || 
+                u.status.toLowerCase().startsWith(filtro)
+             )
+        }
+        paginas = usuarios.length / itensPorPagina | 0;
+        if (usuarios.length % itensPorPagina !== 0) {
+            paginas++;
+        }
+        const paginaInicial = (paginaAtual - 1) * itensPorPagina;
+        let paginaFinal = paginaInicial + itensPorPagina;
+
+        if (paginaFinal > usuarios.length) {
+            paginaFinal = usuarios.length;
+        }
+        usuarios = usuarios.slice(paginaInicial, paginaFinal);
         for(var i = 0; i < usuarios.length ; i++){
             const usuario = usuarios[i];
             var qtdLinhas = tabela.rows.length;
@@ -155,13 +200,60 @@ function organizarDataRecente() {
     return usuarios;
 }
 
-let orderby = 0
+function controlaPagina(){
+    paginaSpan.innerText = `Exibindo pagina ${paginaAtual} de ${paginas}`
+    botaoPaginaProxima.classList.add("ativo")
+    botaoPaginaAnterior.classList.add("ativo")
+    if(paginaAtual == paginas){
+        botaoPaginaProxima.classList.remove("ativo")
+    }
+    if(paginaAtual == 1){
+        botaoPaginaAnterior.classList.remove("ativo")
+    }
+}
+
+let filtro = ''
+let orderby = 7
+let paginaAtual = 1
+let paginas = 1
+let paginaSpan = document.getElementById("span-pagina")
+const itensPorPagina = 15
 const botaoSair = document.getElementById("sair")
 const botaoNome = document.getElementById("nome")
 const botaoEmail = document.getElementById("email")
 const botaoStatus = document.querySelector("tr #status")
 const botaoDia = document.getElementById("cad-data")
+const botaoPesquisar = document.getElementById("btn-pesquisar")
+const botaoPaginaProxima = document.getElementById("btn-proxima")
+const botaoPaginaAnterior = document.getElementById("btn-anterior")
 
+botaoPaginaAnterior.onclick = function(){
+    if(paginaAtual>1){
+        paginaAtual--
+        controlaPagina()
+        preencherTabela()
+    }
+}
+botaoPaginaProxima.onclick = function(){
+    if(paginaAtual < paginas){
+        paginaAtual++
+        controlaPagina()
+        preencherTabela()
+    }
+}
+   
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault()
+        botaoPesquisar.click();
+    }
+});
+
+botaoPesquisar.onclick = function(){
+    filtro = document.getElementById("pesquisa").value
+    preencherTabela();
+}
 botaoNome.onclick = function(){
     if(orderby == 0){
         orderby = 1
@@ -204,3 +296,4 @@ botaoSair.onclick = function(){
 
 preencherTabela();
 validaUsuario();
+controlaPagina();

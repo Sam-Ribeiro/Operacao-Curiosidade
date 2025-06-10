@@ -28,7 +28,7 @@
             <header>
                 <form>
                     <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar...">
-                    <button id="btn-pesquisar"><img src="../assets/pesquisar.png" alt="Pesquisar"></button>
+                    <button type="button" id="btn-pesquisar"><img src="../assets/pesquisar.png" alt="Pesquisar"></button>
                 </form>
                 <a href="perfil.html"> <em id="usuario">Nome do Usuário</em><strong id="icone">N</strong></a>
                 <a href="login.html"id="sair">Sair</a>
@@ -40,19 +40,25 @@
                     <input id="novo-cadastro" type="button" value="NOVO CADASTRO">
                     <table id="tabela-cadastros">
                         <thead><tr>
-                            <th id="nome">NOME</th>
-                            <th id="email">EMAIL</th>
-                            <th id="status">STATUS</th>
-                            <th id="cad-data">ÚLTIMA ALTERAÇÃO</th>
+                            <th id="nome">NOME <strong>&#11167;</strong></th>
+                            <th id="email">EMAIL <strong>&#11167;</strong></th>
+                            <th id="status">STATUS <strong>&#11167;</strong></th>
+                            <th id="cad-data">ÚLTIMA ALTERAÇÃO <strong>&#11167;</strong></th>
                         </tr></thead>
                         <tbody>
                         </tbody>
                     </table>
+                    <hr>
+                    <div class="page-controle">
+                        <input class="page-botao" type="button" value="&#11164; Pagina anterior" id="btn-anterior">
+                        <span id="span-pagina">Exibindo pagina x de y</span>
+                        <input class="page-botao" type="button" value="Próxima pagina &#11166;" id="btn-proxima">
+                    </div>
                 </section>
 
                 <dialog>
                     <section class="formulario">
-                    <form autocomplete="off">
+                    <form id="form-cadastro" autocomplete="off">
                         <div class="cabecalho">
                             <h1>Novo cadastro</h1>
                             <input type="checkbox" name="status" class="status" id="status" >

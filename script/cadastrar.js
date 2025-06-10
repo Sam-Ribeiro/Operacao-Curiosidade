@@ -4,6 +4,7 @@ document.getElementById("cadastrar-form").addEventListener("submit", cadastrar)
 function cadastrar(e){
     e.preventDefault();
     var erro = document.getElementById("erro")
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     var nome = document.getElementById("nome").value
     var email = document.getElementById("email").value
     var senha = document.getElementById("senha").value
@@ -18,6 +19,9 @@ function cadastrar(e){
     }else if(users.some(u => u.user_email === email)){
         erro.innerText = "Email já cadastrado"
         erro.style.display = 'block'
+    }else if(!emailRegex.test(email)){
+        erro.innerText = "Email inválido"
+        erro.style.display = 'block'    
     }else if(nome.length < 3){
         erro.innerText = "Nome deve ter mais que dois caracteres"
         erro.style.display = 'block'

@@ -13,6 +13,10 @@
     background-color: rgb(56, 150, 90);
 }
 
+.tabela{
+    height: 80vh;
+}
+
 .formulario{
     height: 100%;
     width: 100%;
