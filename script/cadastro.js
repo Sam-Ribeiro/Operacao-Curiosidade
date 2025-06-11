@@ -45,7 +45,7 @@ function preencheStorage(){
             valores: document.querySelector("dialog #valores").value,
             dataCadastro: new Date().toISOString()
         }
-    if(!usuario.nome || !usuario.email || !usuario.status || !usuario.idade || !usuario.endereco || !usuario.informacoes || !usuario.interesses || !usuario.sentimentos || !usuario.valores){
+    if(!usuario.nome || !usuario.email || !usuario.status || !usuario.idade || !usuario.endereco){
         erro.innerText = "Preencha todos os campos"
         erro.style.display = 'block'
     }else if(usuarios.some(u => u.email === usuario.email)){
@@ -88,7 +88,7 @@ function verificaEntrada(){
         dataCadastro: new Date().toISOString()
     }
     const outrosUsuarios = usuarios.filter(u => u.email !== usuarioEditado.email)
-    if(!usuario.nome || !usuario.email || !usuario.idade || !usuario.endereco || !usuario.informacoes || !usuario.interesses || !usuario.sentimentos || !usuario.valores){
+    if(!usuario.nome || !usuario.email || !usuario.idade || !usuario.endereco){
         erro.innerText = "Preencha todos os campos"
         erro.style.display = 'block'
         console.log("retornando esse false")

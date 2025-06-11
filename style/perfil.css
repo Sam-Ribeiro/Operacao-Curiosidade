@@ -1,9 +1,9 @@
 .editar-perfil{
-    background-color: white;
+    background-color: var(--cor-fundo);
     border-style: inherit;
     border-radius: 5px;
     padding: 50px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
     flex: 1;
     margin: 10px;
 }
@@ -19,7 +19,7 @@
 }
 .campo:focus{
     outline: none;
-    border-bottom: rgb(100, 100, 100) solid 4px;
+    border-bottom: var(--cor-campo-foco) solid 4px;
     border-radius: 10px;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .botao:hover{
-    background-color: rgb(100, 100, 100);
+    background-color: #646464;
 }
 
 #erro{
@@ -72,30 +72,30 @@
 }
 
 /*checkbox */
-.checkbox-wrapper-17{
+.toggle{
     margin: 0px;
     margin-left: 50px;
     line-height: 10px;
 }
-  .checkbox-wrapper-17 input[type=checkbox] {
+  .toggle input[type=checkbox] {
     height: 0;
     width: 0;
     visibility: hidden;
   }
 
-  .checkbox-wrapper-17 label {
+  .toggle label {
     --size: 50px;
 
     cursor: pointer;
     width: var(--size);
     height: calc(var(--size) / 2);
-    background: rgb(192, 192, 192);
+    background: #c0c0c0;
     display: block;
     border-radius: 100px;
     position: relative;
   }
 
-  .checkbox-wrapper-17 label:after {
+  .toggle label:after {
     content: '';
     position: absolute;
     top: 6%;
@@ -107,15 +107,15 @@
     transition: 0.3s;
   }
 
-  .checkbox-wrapper-17 input:checked + label {
+  .toggle input:checked + label {
     background: #000000;
   }
 
-  .checkbox-wrapper-17 input:checked + label:after {
+  .toggle input:checked + label:after {
     left: calc(100% - 2.5%);
     transform: translateX(-100%);
   }
 
-  .checkbox-wrapper-17 label:active:after {
+  .toggle label:active:after {
     width: 55%;
   }

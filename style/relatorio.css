@@ -24,6 +24,7 @@
     margin: 0;
 }
 @media print {
+    
     html, body{
         visibility: hidden;
     }
@@ -61,5 +62,19 @@
     }
     #btn-imprimir{
         visibility: hidden;
+    }
+
+    .tema-escuro {
+        --cor-fundo: #ffffff!important;
+        --cor-fundo2:#c3c4ca!important;
+        --cor-fundo3:#f0f4fc!important;
+        --cor-header-fundo:#497af6!important;
+        --cor-texto: #000000!important;
+        --cor-texto2:#6a6a6a!important;
+        --cor-texto3:#575757!important;
+        --cor-campo: #f1f1f1!important;
+        --cor-campo-foco: #646464!important;
+        --cor-borda: #6c6c6c!important;
+        --cor-botao-ativo: #444444!important;
     }
 }

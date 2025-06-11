@@ -22,16 +22,15 @@
     width: 100%;
 }
 dialog{ 
+    background-color: var(--cor-fundo);
     width: 60%;
     box-shadow: 10px 10px 100px rgba(0, 0, 0, 0.3);
-    background-color: #ffffff;
     border-radius: 5px;
     border-style: initial;
     justify-content: center;
 }
 
 dialog .botao{
-    
     color: #ffffff;
     border-radius: 5px;
     border-style: initial;
@@ -72,13 +71,14 @@ dialog .botao{
 
 
 .formulario h1{
-    color: #6a6a6a;;
+    color: var(--cor-texto2);
     font-size: large;
     float: left;
     margin: 0px;
 }
 
 .formulario h2{
+    color: var(--cor-texto);
     font-size: 1em;
     padding-right: 100px;
     margin-bottom: 1px;
@@ -102,7 +102,7 @@ dialog .botao{
 }
 
 label{
-    color: #575757;
+    color: var(--cor-texto3);
     font-size: small;
     padding-left: 10px;
 }
@@ -110,19 +110,20 @@ label{
 .campo{
     width: 90%;
     height: 2em;
-    background-color: #f1f1f1;
+    background-color: var(--cor-campo);
+    color: var(--cor-texto);
     border-style: inherit;
     margin: 5px 10px 5px 10px;
 }
 
 .campo:focus{
     outline: none;
-    border-bottom: rgb(100, 100, 100) solid 4px;
+    border-bottom: var(--cor-campo-foco) solid 4px;
     border-radius: 10px;
 }
 .texto:focus{
     outline: none;
-    border-bottom: rgb(100, 100, 100) solid 4px;
+    border-bottom: var(--cor-campo-foco) solid 4px;
     border-radius: 10px;
 }
 
@@ -139,7 +140,8 @@ label{
     width: 97%;
     height: 5em;
     text-align: start;
-    background-color: #f1f1f1;
+    background-color: var(--cor-campo);
+    color: var(--cor-texto);
     border-style: inherit;
     margin: 5px 10px 5px 10px;
 }

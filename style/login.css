@@ -1,35 +1,39 @@
 @charset "UTF-8";
 
 body{
-    background-color: #f4f4f4;
+    background: #060059;
+    background: var(--cor-gradiente);
     font-family: Verdana;
     font-weight: bold;
     display: flex;
     justify-content: center;
     padding: 30px;
+    height: 100vh;
 }
 
 main{
     width: 450px;
     height: 550px;
-    background-color: #ffffff;
+    background-color: var(--cor-fundo);
     border: 1px solid black;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
 
 .logo{
-    color: #000000;
-    background-color:#e1e1e1;
+    color: #ffffff;
+    background: #060059;
+    background: var(--cor-gradiente);
     margin: 30px 150px 10px 150px;
     text-align: center;
     width: 150px;
     height: 150px;
     border-radius: 140px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    text-shadow: 5px 5px 10px #00000080;
 }
 .logo p{
+    color: white    ;
     margin-top: 30px;
 }
 .logo h1{
@@ -40,7 +44,7 @@ main{
 }
 
 .campo{
-    border: 2px solid black;
+    border: 2px solid var(--cor-texto);
     border-radius: 10px;
     margin: 12px 96px 12px 96px;
     height: 40px;
@@ -50,24 +54,26 @@ main{
 }
 .campo:focus{
     outline: none;
-    border-bottom: rgb(100, 100, 100) solid 4px;
+    border-bottom: var(--cor-campo-foco) solid 4px;
     border-radius: 10px;
 }
 
-
 .botao{
-    color: #ffffff;
+    color: white;
+    font-weight: 600;
     border-radius: 5px;
-    border-color: black;
+    border-color: var(--cor-texto);
     border-style: initial;
-    background-color: black;
+    background: #060059;
+    background: var(--cor-gradiente);
     margin: 15px 100px 10px 100px;
     height: 40px;
     width: 250px;
 }
 
 .botao:hover{
-    background-color: rgb(100, 100, 100);
+    background: #060059;
+    background: var(--cor-gradiente-hover)
 }
 
 #erro{
@@ -97,4 +103,7 @@ a{
 
 a:hover{
     text-decoration: underline;
+}
+p{
+    color: var(--cor-texto);
 }

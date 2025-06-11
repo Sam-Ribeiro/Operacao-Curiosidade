@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="../style/main.css">
     <link rel="stylesheet" href="../style/lateral.css">
     <link rel="stylesheet" href="../style/perfil.css">
+    <link rel="stylesheet" href="../style/temas.css">
 </head>
     <body>
-     
     <div class="container">
         <nav>
             <div>
@@ -47,12 +47,17 @@
                     <h1>Configurações</h1>
                     <hr>
                     <h2>Segurança</h2>
-                    <p>Manter login <input type="checkbox" name="manter-conectado" id="manter-conectado"></p>
+                    <div class="container">
+                        <p>Manter login </p> 
+                        <div class="toggle">
+                            <input type="checkbox" id="conexao" /><label for="conexao"></label>
+                        </div>
+                    </div>
                     <hr>
                     <h2>Tema</h2>
                     <div class="container">
-                        <p>Tema: Claro / Escuro</p>
-                        <div class="checkbox-wrapper-17">
+                        <p>Claro / Escuro</p>
+                        <div class="toggle">
                             <input type="checkbox" id="switch-17" /><label for="switch-17"></label>
                         </div>
                     </div>
@@ -60,5 +65,7 @@
             </div>
     </div>
     <script type="text/javascript" src="../script/aside.js"></script>
+    <script type="text/javascript" src="../script/tema.js"></script>
+    <script type="text/javascript" src="../script/tema.js"></script>
     </body>
 </html>

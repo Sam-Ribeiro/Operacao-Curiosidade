@@ -1,15 +1,17 @@
 
 nav{
-    background-color: #ffffff;
+    background-color: var(--cor-fundo);
     width: 300px;
-    padding: 10px;
-    border-right:solid 5px #d4d4d4;
+    padding: 0px;
+    border-right:solid 5px var(--cor-borda);
     margin: 0px;
 }
 
 nav div{
     display: flex;
-    background-color: #f0f4fc;
+    background: #060059;
+    background: linear-gradient(120deg, rgba(6, 0, 89, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    color: white;
     align-items: center;
 }
 
@@ -43,14 +45,12 @@ nav a{
 }
 
 nav a{
-    color: #000000;
+    color: var(--cor-texto);
 }
 
 aside a{
-    color: #000000;
+    color: var(--cor-texto);
 }
-
-
 
 aside{
     background-color: #ffffff;

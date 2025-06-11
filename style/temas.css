@@ -1,0 +1,79 @@
+
+:root {
+    --cor-fundo: #ffffff;
+    --cor-fundo2:#c3c4ca;
+    --cor-fundo3:#f0f4fc;
+    --cor-header-fundo: #5f6880;
+    --cor-texto: #000000;
+    --cor-texto2:#6a6a6a;
+    --cor-texto3:#575757;
+    --cor-campo: #f1f1f1;
+    --cor-campo-foco: #646464;
+    --cor-borda: #6c6c6c;
+    --cor-botao-ativo: #444444;
+    --cor-botao: #2d2d2d;
+    --cor-gradiente: linear-gradient(120deg, rgba(6, 0, 89, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    --cor-gradiente-hover:linear-gradient(80deg, rgba(6, 0, 89, 1) 0%, rgba(0, 212, 255, 1) 90%);
+}
+
+.tema-escuro {
+    --cor-fundo: #1a1a1a;
+    --cor-fundo2:#2c2c2c;
+    --cor-fundo3:#3a3a3a;
+    --cor-header-fundo:#021838;
+    --cor-texto: #e0e0e0;
+    --cor-texto2:#b0b0b0;
+    --cor-texto3:#cccccc;
+    --cor-campo: #444444;
+    --cor-campo-foco: #888888;
+    --cor-borda: #555555;
+    --cor-botao-ativo: #888888; 
+}
+
+/*
+Cores usadas
+    body-bh     #f0f0f0;
+    body-bg     #f4f4f4;
+    header-bg   #d7dbe2;
+    Fundo       #ffffff;
+    form h1     #6a6a6a;       main-dash- p
+    form h2     #000000;
+    form label  #575757;
+    campo bg    #f1f1f1;      // textobg
+    campo-focus #646464;       // text-focus
+    borda nav   #d4d4d4; aside
+    nav bg      #f0f4fc;
+    botao ativo #444444;
+*/
+
+/*                 BASE
+
+:root {
+    --cor-fundo: #ffffff;
+    --cor-fundo2:#f0f0f0;
+    --cor-fundo3:#f0f4fc;
+    --cor-header-fundo:#d7dbe2;
+    --cor-texto: #000000;
+    --cor-texto2:#6a6a6a;
+    --cor-texto3:#575757;
+    --cor-campo: #f1f1f1;
+    --cor-campo-foco: #646464;
+    --cor-borda: #d4d4d4;
+    --cor-botao-ativo: #444444;
+}
+
+.tema-escuro {
+    --cor-fundo: #1a1a1a;
+    --cor-fundo2:#2c2c2c;
+    --cor-fundo3:#3a3a3a;
+    --cor-header-fundo:#333333;
+    --cor-texto: #e0e0e0;
+    --cor-texto2:#b0b0b0;
+    --cor-texto3:#cccccc;
+    --cor-campo: #444444;
+    --cor-campo-foco: #888888;
+    --cor-borda: #555555;
+    --cor-botao-ativo: #888888; 
+}
+
+*/

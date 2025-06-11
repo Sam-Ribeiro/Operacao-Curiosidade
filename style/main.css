@@ -1,10 +1,11 @@
 body{
-    background-color: #f0f0f0;
+    background-color: var(--cor-fundo2);
     font-family: Verdana;
     margin: 0px;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    color: var(--cor-texto);
 }
 
 .container{
@@ -18,16 +19,16 @@ body{
 }
 
 a:hover{
-    color:#6a6a6a;
+    color:var(--cor-texto2);
 }
 
 a{
     text-decoration: none;
-    color: #000000;
+    color: var(--cor-texto);
 }
 
 header{
-    background-color: #d7dbe2;
+    background-color: var(--cor-header-fundo);
     padding: 10px 20px 10px 20px;
     display: flex;
     align-items: center;
@@ -49,20 +50,23 @@ header a{
     margin: 10px;
 }
 
+#usuario{
+    margin-left: 350px;
+}
+
 #icone{
-    background-color: #ffffff;
-    color: #6a6a6a;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto2);
     font-weight:lighter;
     border-radius: 80px;
     padding: 10px;
     font-size:15px;
     line-height: 0px;
     margin-left: 10px;
-    margin-right: 10px;
 }
 
 #sair{
-    border-left: #6a6a6a solid 2px;
+    border-left: var(--cor-texto2) solid 2px;
     padding-left: 30px;
 }
 
@@ -71,7 +75,7 @@ header form{
     width: 70vh;
 }
 #pesquisa{
-    border-style: inherit;
+    background-color: var(--cor-fundo);
     border-radius: 5px;
     border-bottom-right-radius: 0px;
     border-top-right-radius: 0px;
@@ -80,23 +84,22 @@ header form{
     flex: 1;
 }
 #btn-pesquisar{
-    border-style: inherit;
     border-radius: 5px;
-    border-left: #d7dbe2 solid 1px;
+    border-left: var(--cor-header-fundo) solid 1px;
     border-bottom-left-radius: 0px;
     border-top-left-radius: 0px;
     height: 36px;
     width: 36px;
-    background-color: white;
+    background-color: var(--cor-fundo);
     line-height: 36px;
 }
 #btn-pesquisar:hover{
-    background-color: whitesmoke
+    background-color: var(--cor-fundo3)
 }
 
 
 .tabela h1{
-    color: #6a6a6a;;
+    color: var(--cor-texto2);
     font-size: large;
     float: left;
 }
@@ -106,7 +109,7 @@ header form{
     overflow: auto;
     padding: 20px;
     margin: 10px;
-    background-color: #ffffff;
+    background-color: var(--cor-fundo);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     text-align: left;
     user-select: none;
@@ -121,7 +124,7 @@ table{
 .tabela #email{
     width: 35%;
 }
-.tabela #status{
+#tabela-cadastros #status{
     width: 10%;
     text-align: center;
 }
@@ -137,20 +140,21 @@ td:nth-child(4){
 }
 
 td{
-    border-top: #00000067 solid 1px;
+    border-top: var(--cor-fundo) solid 1px;
     padding: 10px;
 }
 tr:hover{
-    background-color: #f1f1f1;
+    background-color: var(--cor-campo);
 }
 
 th{
     font-weight:100;
     padding: 10px;
-    color: #6a6a6a;
+    color: var(--cor-texto2);
+    background-color: var(--cor-fundo3);
 }
 th:hover{
-    background-color: #d0d0d0;
+    background-color: var(--cor-borda);
 }
 
 th strong{
@@ -158,14 +162,14 @@ th strong{
 }
 .page-botao{
     border: none;
-    background-color: #ffffff;
-    color: #6a6a6a;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto2);
 }
 .ativo:hover{
-    color: black
+    color: var(--cor-texto)
 }
 .ativo{
-    color: #444444;
+    color: var(--cor-botao-ativo);
 }
 .page-controle{
     display: flex;
