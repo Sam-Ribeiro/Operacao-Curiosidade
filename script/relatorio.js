@@ -18,7 +18,4 @@ if(botaoImprimir){
     });
 }
 
-
-
-
 validaUsuario();

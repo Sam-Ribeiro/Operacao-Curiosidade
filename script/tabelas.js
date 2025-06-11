@@ -8,7 +8,7 @@ function validaUsuario(){
     }else{
         window.location.href = "../pages/login.html"
     }
-};
+}
 
 function preencherTabela(){
     var tabela = document.getElementById("tabela-cadastros")
@@ -16,54 +16,54 @@ function preencherTabela(){
         while (tabela.rows.length > 1) {
             tabela.deleteRow(1);
         }
-        let usuarios = null
+        let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
         ths = document.querySelectorAll("th strong")
         ths.forEach((ordem) => ordem.style.visibility = "hidden")
         switch(orderby){
             case 0:
-                usuarios = organizarAZ()
+                usuarios.sort((a, b) => a.nome.localeCompare(b.nome))
                 th = document.querySelector("th:nth-child(1) strong")
                 th.innerHTML ="&#11167;"
                 th.style.visibility = "visible"
                 break
             case 1:
-                usuarios = organizarZA()
+                usuarios.sort((a, b) => b.nome.localeCompare(a.nome))
                 th = document.querySelector("th:nth-child(1) strong")
                 th.innerHTML = "&#11165"
                 th.style.visibility = "visible"
                 break
             case 2:
-                usuarios = organizarStatus()
+                usuarios = organizarStatus(usuarios)
                 th = document.querySelector("th:nth-child(3) strong")
                 th.innerHTML ="&#11167;"
                 th.style.visibility = "visible"
                 break
             case 3:
-                usuarios = organizarStatusInativo()
+                usuarios = organizarStatusInativo(usuarios)
                 th = document.querySelector("th:nth-child(3) strong")
                 th.innerHTML = "&#11165"
                 th.style.visibility = "visible"
                 break
             case 4:
-                usuarios = organizarEmailAZ()
+                usuarios.sort((a, b) => a.email.localeCompare(b.email))
                 th = document.querySelector("th:nth-child(2) strong")
                 th.innerHTML ="&#11167;"
                 th.style.visibility = "visible"
                 break
             case 5:
-                usuarios = organizarEmailZA()
+                usuarios.sort((a, b) => b.email.localeCompare(a.email))
                 th = document.querySelector("th:nth-child(2) strong")
                 th.innerHTML = "&#11165"
                 th.style.visibility = "visible"
                 break
             case 6:
-                usuarios = organizarDataRecente()
+                usuarios = organizarDataRecente(usuarios)
                 th = document.querySelector("th:nth-child(4) strong")
                 th.innerHTML ="&#11167;"
                 th.style.visibility = "visible"
                 break
             case 7:
-                usuarios = organizarDataAntiga()
+                usuarios = organizarDataAntiga(usuarios)
                 th = document.querySelector("th:nth-child(4) strong")
                 th.innerHTML = "&#11165"
                 th.style.visibility = "visible"
@@ -132,32 +132,7 @@ function preencherTabela(){
     }
 }
 
-function organizarAZ(){
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-    usuarios.sort((a, b) => a.nome.localeCompare(b.nome))
-    return usuarios
-}
-
-function organizarZA(){
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-    usuarios.sort((a, b) => b.nome.localeCompare(a.nome))
-    return usuarios
-}
-
-function organizarEmailAZ(){
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-    usuarios.sort((a, b) => a.email.localeCompare(b.email))
-    return usuarios
-}
-
-function organizarEmailZA(){
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-    usuarios.sort((a, b) => b.email.localeCompare(a.email))
-    return usuarios
-}
-
-function organizarStatus(){
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+function organizarStatus(usuarios){
     usuarios.sort((a, b) => {
         if (a.status === "Ativo" && b.status === "Inativo") {
             return -1;
@@ -170,8 +145,7 @@ function organizarStatus(){
     return usuarios
 }
 
-function organizarStatusInativo(){
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+function organizarStatusInativo(usuarios){
     usuarios.sort((a, b) => {
         if (b.status === "Ativo" && a.status === "Inativo") {
             return -1;
@@ -184,16 +158,14 @@ function organizarStatusInativo(){
     return usuarios
 }
 
-function organizarDataAntiga() {
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+function organizarDataAntiga(usuarios) {
     usuarios.sort((a, b) => {
         return new Date(a.dataCadastro) - new Date(b.dataCadastro);
     });
     return usuarios;
 }
 
-function organizarDataRecente() {
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+function organizarDataRecente(usuarios) {
     usuarios.sort((a, b) => {
         return new Date(b.dataCadastro) - new Date(a.dataCadastro);
     });
@@ -213,10 +185,10 @@ function controlaPagina(){
 }
 
 let filtro = ''
-let orderby = 7
+let orderby = 6
 let paginaAtual = 1
 let paginas = 1
-let paginaSpan = document.getElementById("span-pagina")
+const paginaSpan = document.getElementById("span-pagina")
 const itensPorPagina = 15
 const botaoSair = document.getElementById("sair")
 const botaoNome = document.getElementById("nome")
@@ -241,7 +213,6 @@ botaoPaginaProxima.onclick = function(){
         preencherTabela()
     }
 }
-   
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
