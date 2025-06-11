@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatórios</title>
+    <title>Registro de Eventos</title>
     <link rel="shortcut icon" href="../assets/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="../style/relatorio.css">
     <link rel="stylesheet" href="../style/main.css">
@@ -28,7 +28,7 @@
             <header>
                 <form>
                     <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar...">
-                   <button type="button" id="btn-pesquisar"><img src="../assets/pesquisar.png" alt="Pesquisar"></button>
+                    <button type="button" id="btn-pesquisar"><img src="../assets/pesquisar.png" alt="Pesquisar"></button>
                 </form>
                 <a href="perfil.html"> <em id="usuario">Nome do Usuário</em><strong id="icone">N</strong></a>
                 <a href="login.html"id="sair">Sair</a>
@@ -36,20 +36,23 @@
             </header>
             <main>
                 <section class="tabela">
-                    <h1>Relatórios</h1>
-                    <table id="tabela-relatorios">
+                    <h1>Relatórios -> Registro de Eventos</h1>
+                    <input id="btn-imprimir" type="button" value="IMPRIMIR">
+                    <table id="tabela-logs">
                         <thead><tr>
-                            <th id="nome">NOME</th>
+                            <th id="evento-user">USUARIO <strong>&#11167;</strong></th>
+                            <th id="evento-nome">EVENTO <strong>&#11167;</strong></th>
+                            <th id="evento-data">DATA <strong>&#11167;</strong></th>
                         </tr></thead>
                         <tbody>
-                            <tr>
-                                <td><a href="usuarios.html">Lista de usuários</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="logs.html">Registro de eventos</a></td>
-                            </tr>
                         </tbody>
                     </table>
+                    <hr>
+                    <div class="page-controle">
+                        <input class="page-botao" type="button" value="&#11164; Pagina anterior" id="btn-anterior">
+                        <span id="span-pagina">Exibindo pagina x de y</span>
+                        <input class="page-botao" type="button" value="Próxima pagina &#11166;" id="btn-proxima">
+                    </div>
                 </section>
             </main>
 
@@ -65,10 +68,10 @@
                     <tbody>
                     </tbody>
             </table>
-            
         </aside>
     </div>
     <script type="text/javascript" src="../script/aside.js"></script>
     <script type="text/javascript" src="../script/relatorio.js"></script>
+    <script type="text/javascript" src="../script/logs.js"></script>
     </body>
 </html>

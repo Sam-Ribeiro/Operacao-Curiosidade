@@ -57,7 +57,11 @@ function preencheStorage(){
     }else if( Number(usuario.idade)<1 || Number(usuario.idade>120) || isNaN(Number(usuario.idade))){
         erro.innerText = "Idade inválida"
         erro.style.display = 'block'
-    }else{   
+    }else{
+        u = JSON.parse(localStorage.getItem("usuario"))
+        if(!u){
+            enviarLog("Cadastrou usuário: "+usuario.nome)
+        }   
         usuarios.push(usuario)
         localStorage.setItem("usuarios", JSON.stringify(usuarios))
         localStorage.removeItem("usuario")
@@ -104,7 +108,18 @@ function verificaEntrada(){
     }else{   
         return true     
     }
-    
+}
+
+function enviarLog(log){
+    const logs = JSON.parse(localStorage.getItem("logs")) || [];
+    const user = JSON.parse(localStorage.getItem("user")) || [];
+    const logformatado ={ 
+        evento: log,
+        data: new Date().toISOString(),
+        user: user.user_nome,
+    }
+    logs.push(logformatado)
+    localStorage.setItem("logs", JSON.stringify(logs))
 }
 
 const user = JSON.parse(localStorage.getItem("user"));
@@ -145,10 +160,10 @@ botaoEditar.onclick = function(){
     const usuarios = JSON.parse(localStorage.getItem("usuarios"))  
     const usuario = JSON.parse(localStorage.getItem("usuario"))
     let retorno = verificaEntrada()
-    console.log("Retorno "+ retorno)
     if(retorno){
         const usuariosAtualizados = usuarios.filter(u => u.email !== usuario.email)
         localStorage.setItem("usuarios", JSON.stringify(usuariosAtualizados))
+        enviarLog("Editou usuário: "+usuario.nome)
         preencheStorage()
         preencherTabela()
     }
@@ -161,6 +176,7 @@ botaoExcluir.onclick = function(){
     const usuariosAtualizados = usuarios.filter(u => u.email !== usuario.email)
     localStorage.setItem("usuarios", JSON.stringify(usuariosAtualizados))
     modal.close()
+    enviarLog("Excluiu usuário: "+usuario.nome)
     localStorage.removeItem("usuario")
     preencherTabela()
     form = document.getElementById("form-cadastro")
