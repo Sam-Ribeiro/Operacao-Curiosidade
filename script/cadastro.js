@@ -27,7 +27,7 @@ function preencheStorage(){
     erro.style.display = 'none'
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-    const checkbox = document.querySelector("dialog #status")
+    const checkbox = document.querySelector("dialog #status-toggle")
     if(checkbox.checked == true){
         var status = "Ativo"
     }else{
@@ -111,8 +111,8 @@ function verificaEntrada(){
 }
 
 function enviarLog(log){
-    const logs = JSON.parse(localStorage.getItem("logs")) || [];
-    const user = JSON.parse(localStorage.getItem("user")) || [];
+    const logs = JSON.parse(localStorage.getItem("logs")) || []
+    const user = JSON.parse(localStorage.getItem("user")) || []
     const logformatado ={ 
         evento: log,
         data: new Date().toISOString(),
@@ -155,7 +155,7 @@ document.addEventListener('keydown', (event) => {
         form = document.getElementById("form-cadastro")
         form.reset()
     }
-});
+})
 botaoEditar.onclick = function(){
     const usuarios = JSON.parse(localStorage.getItem("usuarios"))  
     const usuario = JSON.parse(localStorage.getItem("usuario"))

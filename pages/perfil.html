@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../style/lateral.css">
     <link rel="stylesheet" href="../style/perfil.css">
     <link rel="stylesheet" href="../style/temas.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,700,1,200"/>
 </head>
     <body>
     <div class="container">
@@ -18,9 +19,10 @@
                 <p>Operação Curiosidade</p>
             </div>
             <ul>
-                <li><a href="dashboard.html"> <img src="../assets/home.png" alt=""> Home</a></li><hr>
-                <li><a href="cadastro.html"> <img src="../assets/cadastro.png" alt=""> Cadastro</a></li><hr>
-                <li><a href="relatorios.html"><img src="../assets/relatorio.png" alt=""> Relatórios</a></li><hr>
+                <li><a href="dashboard.html"> <span class="material-symbols-outlined">home</span> Home</a></li>
+                <li><a href="cadastro.html"> <span class="material-symbols-outlined">person_add</span> Cadastro</a></li>
+                <li><a href="relatorios.html"><span class="material-symbols-outlined">demography</span>  Relatórios</a></li>
+                <li><a href="perfil.html" class="ativo"><span class="material-symbols-outlined">manage_accounts</span> Configurações</a></li>
             </ul> 
         </nav>
             <main>
@@ -32,13 +34,16 @@
                     <h2>Email cadastrado</h2>
                     <input class="campo" type="email" name="email" id="email">
                     <h2>Data de nascimento</h2>
-                    <input class="campo" type="text" onfocus="(this.type='date')" onblur="formatDateInput(this)" name="data" id="data">
+                    <input class="campo" type="text" onfocus="(this.type='date')" onblur="formatDateInput(this)" name="data" id="data"><hr>
                     <h2>Senha</h2>
-                    <input class="botao" type="button" value="ALTERAR SENHA" id="btn-senha">
+                    <p class="senha">Senha atual:</p>
+                    <input class="campo" type="password" name="senha" id="senha-antiga">
+                    <p class="senha">Nova senha:</p>
+                    <input class="campo" type="password" name="senha-nova" id="senha-nova">
                     <hr>
+                    <div id="erro"></div>
                     <div class="container">
                         <input class="botao" type="button" value="SALVAR ALTERAÇÕES" id="btn-salvar">
-                        <input class="botao" type="button" value="EXCLUIR CONTA" id="btn-excluir">
                     </div>
                 </form>
             </main>
@@ -64,8 +69,7 @@
                 </form>
             </div>
     </div>
-    <script type="text/javascript" src="../script/aside.js"></script>
     <script type="text/javascript" src="../script/tema.js"></script>
-    <script type="text/javascript" src="../script/tema.js"></script>
+    <script type="text/javascript" src="../script/perfil.js"></script>
     </body>
 </html>

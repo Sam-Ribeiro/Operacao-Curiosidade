@@ -10,9 +10,13 @@
     color: rgb(220, 74, 74);
 }
 
+#bloco2{
+    margin: 0px;
+}
+
 main section.container div{
     padding: 0;
-    margin: 10px;
+    margin: 0px 10px 0px 10px;
     background-color: var(--cor-fundo);
     flex: 1;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
@@ -31,9 +35,9 @@ main section.container div p{
 
 main section.container div h1{
     text-align: center;
-    font-size: 3em;
+    font-size: var(--fonte-enorme);
 }
 
 .tabela{
-    height: 50vh;
+    height: 60vh;
 }

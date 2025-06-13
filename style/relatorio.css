@@ -40,10 +40,7 @@
         display: none;
     }
     nav{
-        display: none;
-    }
-    aside{
-        display: none;
+        display: none !important;
     }
     .tabela {
         visibility: visible;
@@ -52,10 +49,12 @@
     }
     table{
         border: 1px solid black;
+        font: 0.1em;
     }
     tr{
         page-break-inside: avoid;
         page-break-after: auto;
+        font-size: 0.9em;
     }
     thead {
         display: table-header-group;
@@ -63,18 +62,26 @@
     #btn-imprimir{
         visibility: hidden;
     }
+    #btn-proxima{
+        visibility: hidden;
+    }
+    #btn-anterior{
+        visibility: hidden;
+    }
 
     .tema-escuro {
         --cor-fundo: #ffffff!important;
         --cor-fundo2:#c3c4ca!important;
-        --cor-fundo3:#f0f4fc!important;
-        --cor-header-fundo:#497af6!important;
+        --cor-fundo3:#cecece!important;
+        --cor-fundo4:#e4e8ee !important;
         --cor-texto: #000000!important;
         --cor-texto2:#6a6a6a!important;
         --cor-texto3:#575757!important;
-        --cor-campo: #f1f1f1!important;
-        --cor-campo-foco: #646464!important;
-        --cor-borda: #6c6c6c!important;
-        --cor-botao-ativo: #444444!important;
+    }
+    strong{
+        display: none;
+    }
+    #tabela-cadastros #status{
+        padding-right: 35px;
     }
 }

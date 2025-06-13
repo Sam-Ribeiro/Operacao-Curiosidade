@@ -95,7 +95,9 @@ function preencherTabela(){
             const usuario = usuarios[i];
             var qtdLinhas = tabela.rows.length;
             var linha = tabela.insertRow(qtdLinhas)
-
+            if(i%2==0){
+                linha.classList.add("par")
+            }
             var celulaNome = linha.insertCell(0)
             var celulaEmail = linha.insertCell(1)
             var celulaStatus = linha.insertCell(2)
@@ -217,14 +219,12 @@ botaoPaginaProxima.onclick = function(){
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         event.preventDefault()
-        botaoPesquisar.click();
+    }else{
+        filtro = document.getElementById("pesquisa").value
+        preencherTabela();
     }
 });
 
-botaoPesquisar.onclick = function(){
-    filtro = document.getElementById("pesquisa").value
-    preencherTabela();
-}
 botaoNome.onclick = function(){
     if(orderby == 0){
         orderby = 1

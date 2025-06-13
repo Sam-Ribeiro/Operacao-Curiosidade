@@ -9,10 +9,8 @@ function aplicarTema(){
         if(checkbox){
             checkbox.checked = true
         }
-        console.log("tema escuro")
     }else{
         body.classList.remove('tema-escuro');
-        console.log("tema claro")
     }
 }
 if(checkbox){

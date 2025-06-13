@@ -74,7 +74,9 @@ function preencherTabela(){
             var celulaUser = linha.insertCell(0)
             var celulaEvento = linha.insertCell(1)
             var celulaData = linha.insertCell(2)
-
+            if(i%2==0){
+                linha.classList.add("par")
+            }
             let data = new Date(log.data)
             let dia = String(data.getDate()).padStart(2, '0')
             let mes = String(data.getMonth() + 1).padStart(2, '0')
@@ -147,16 +149,13 @@ botaoPaginaProxima.onclick = function(){
 }
 
 document.addEventListener('keydown', (event) => {
+    filtro = document.getElementById("pesquisa").value
+    preencherTabela();
     if (event.key === 'Enter') {
         event.preventDefault()
-        botaoPesquisar.click();
     }
 });
 
-botaoPesquisar.onclick = function(){
-    filtro = document.getElementById("pesquisa").value
-    preencherTabela();
-}
 botaoUser.onclick = function(){
     if(orderby == 0){
         orderby = 1

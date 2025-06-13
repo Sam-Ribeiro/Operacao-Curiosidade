@@ -6,6 +6,16 @@ body{
     min-height: 100vh;
     flex-direction: column;
     color: var(--cor-texto);
+    scrollbar-color: var(--cor-tema) var(--cor-fundo3);
+}
+
+::placeholder {
+  color: var(--cor-texto2);  
+  opacity: 1;
+}
+
+a{
+    text-decoration: none;
 }
 
 .container{
@@ -15,14 +25,14 @@ body{
 
 .principal{
     flex: 1;
-    margin: 10px;
+    margin: 0px;
 }
 
-a:hover{
+main a:hover{
     color:var(--cor-texto2);
 }
 
-a{
+main a{
     text-decoration: none;
     color: var(--cor-texto);
 }
@@ -48,21 +58,30 @@ header a{
     height: 20px;
     padding: 10px;
     margin: 10px;
+    color: white;
+    align-items: center;
+}
+header a:hover{
+    color: rgb(207, 225, 255);
 }
 
-#usuario{
-    margin-left: 350px;
+#placeholder{
+    flex: 1;
 }
 
 #icone{
+    display: flex;
+    height: 5px;
+    width: 5px;
     background-color: var(--cor-fundo);
     color: var(--cor-texto2);
     font-weight:lighter;
-    border-radius: 80px;
-    padding: 10px;
-    font-size:15px;
-    line-height: 0px;
-    margin-left: 10px;
+    border-radius: 100px;
+    padding: 14px;
+    font-size: 17px;
+    margin-left: 12px;
+    align-items: center;
+    justify-content: center;
 }
 
 #sair{
@@ -72,31 +91,17 @@ header a{
 
 header form{
     display: flex;
-    width: 70vh;
+    width: 40vw;
 }
 #pesquisa{
-    background-color: var(--cor-fundo);
+    border: none;
+    color: var(--cor-texto);
+    background-color: var(--cor-campo);
     border-radius: 5px;
-    border-bottom-right-radius: 0px;
-    border-top-right-radius: 0px;
     padding: 10px;
     margin-right: 0px;
     flex: 1;
 }
-#btn-pesquisar{
-    border-radius: 5px;
-    border-left: var(--cor-header-fundo) solid 1px;
-    border-bottom-left-radius: 0px;
-    border-top-left-radius: 0px;
-    height: 36px;
-    width: 36px;
-    background-color: var(--cor-fundo);
-    line-height: 36px;
-}
-#btn-pesquisar:hover{
-    background-color: var(--cor-fundo3)
-}
-
 
 .tabela h1{
     color: var(--cor-texto2);
@@ -112,7 +117,6 @@ header form{
     background-color: var(--cor-fundo);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     text-align: left;
-    user-select: none;
 }
 table{
     padding: 5px;
@@ -122,16 +126,20 @@ table{
     width: 35%;
 }
 .tabela #email{
-    width: 35%;
+    width: 32%;
 }
 #tabela-cadastros #status{
-    width: 10%;
+    width: 13%;
     text-align: center;
+    padding-left: 35px;
 }
 .tabela #cad-data{
     width: 20%;
     text-align: center;
 }
+.tabela #evento-data{
+    text-align: center;
+}       
 td:nth-child(3){
     text-align: center;
 }
@@ -152,9 +160,10 @@ th{
     padding: 10px;
     color: var(--cor-texto2);
     background-color: var(--cor-fundo3);
+    user-select: none;
 }
 th:hover{
-    background-color: var(--cor-borda);
+    background-color: var(--cor-fundo2);
 }
 
 th strong{
@@ -166,7 +175,7 @@ th strong{
     color: var(--cor-texto2);
 }
 .ativo:hover{
-    color: var(--cor-texto)
+    background-color: var(--cor-tema)
 }
 .ativo{
     color: var(--cor-botao-ativo);
@@ -175,3 +184,62 @@ th strong{
     display: flex;
     justify-content: space-around;
 }
+
+.par{
+    background-color: var(--cor-fundo4);
+}
+
+#erro{
+    display: none;
+    color: var(--cor-texto);
+    margin: 15px 96px 15px 96px;
+    width: 256px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-decoration: underline;
+    text-decoration-color: rgb(220, 74, 74);
+    text-align: center;
+    font-weight: normal;
+    font-size: 1.1em;
+}
+
+  .toggle input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+
+  .toggle label {
+    cursor: pointer;
+    width: var(--size);
+    height: calc(var(--size) / 2);
+    background: #c0c0c0;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+  }
+
+  .toggle label:after {
+    content: '';
+    position: absolute;
+    top: 6%;
+    left: 2.5%;
+    width: calc(50% - 5%);
+    height: calc(100% - 11%);
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+  }
+
+  .toggle input:checked + label {
+    background: var(--cor-header-fundo);
+  }
+
+  .toggle input:checked + label:after {
+    left: calc(100% - 2.5%);
+    transform: translateX(-100%);
+  }
+
+  .toggle label:active:after {
+    width: 55%;
+  }

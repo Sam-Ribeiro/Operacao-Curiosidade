@@ -11,6 +11,11 @@ body{
     height: 100vh;
 }
 
+::placeholder {
+  color: var(--cor-texto2);  
+  opacity: 1;
+}
+
 main{
     width: 450px;
     height: 550px;
@@ -21,7 +26,7 @@ main{
 }
 
 .logo{
-    color: #ffffff;
+    color: var(--cor-branco);
     background: #060059;
     background: var(--cor-gradiente);
     margin: 30px 150px 10px 150px;
@@ -33,7 +38,7 @@ main{
     text-shadow: 5px 5px 10px #00000080;
 }
 .logo p{
-    color: white    ;
+    color: var(--cor-branco);
     margin-top: 30px;
 }
 .logo h1{
@@ -44,7 +49,9 @@ main{
 }
 
 .campo{
+    background-color: var(--cor-fundo);
     border: 2px solid var(--cor-texto);
+    color: var(--cor-texto);
     border-radius: 10px;
     margin: 12px 96px 12px 96px;
     height: 40px;
@@ -59,7 +66,7 @@ main{
 }
 
 .botao{
-    color: white;
+    color: var(--cor-branco);
     font-weight: 600;
     border-radius: 5px;
     border-color: var(--cor-texto);
@@ -74,20 +81,6 @@ main{
 .botao:hover{
     background: #060059;
     background: var(--cor-gradiente-hover)
-}
-
-#erro{
-    display: none;
-    border: 2px solid rgb(220, 74, 74);
-    background-color: rgb(242, 182, 182);
-    margin: 15px 96px 15px 96px;
-    width: 256px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    text-decoration: underline;
-    text-decoration-color: rgb(220, 74, 74);
-    text-align: center;
-    font-weight: normal;
 }
 
 .link{
@@ -106,4 +99,18 @@ a:hover{
 }
 p{
     color: var(--cor-texto);
+}
+
+#erro{
+    display: none;
+    color: rgb(220, 74, 74);
+    margin: 15px 96px 15px 96px;
+    width: 256px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-decoration: underline;
+    text-decoration-color: rgb(220, 74, 74);
+    text-align: center;
+    font-weight: normal;
+    font-size: 1.1em;
 }
