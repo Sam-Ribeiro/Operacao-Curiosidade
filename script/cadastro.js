@@ -15,7 +15,7 @@ function carregarUsuario(){
         document.querySelector("dialog #interesses").value = usuario.interesses
         document.querySelector("dialog #sentimentos").value = usuario.sentimentos
         document.querySelector("dialog #valores").value = usuario.valores
-        let checkbox = document.querySelector("dialog #status")
+        let checkbox = document.querySelector("dialog #status-toggle")
         if(usuario.status == "Ativo"){
             checkbox.checked = true
         }

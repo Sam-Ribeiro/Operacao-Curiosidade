@@ -18,7 +18,9 @@
     --cor-fundo-gradiente: #060059;
     --cor-gradiente: linear-gradient(120deg, rgba(6, 0, 89, 1) 0%, rgba(0, 212, 255, 1) 100%);
     --cor-gradiente-hover:linear-gradient(80deg, #060059 0%, rgba(0, 212, 255, 1) 90%);
+    --fonte-label: 0.8em;
     --fonte-pequena: 1em;
+    --fonte-erro: 1.1em;
     --fonte-media: 1.5em;
     --fonte-grande: 2.0em;
     --fonte-enorme: 3.0em;

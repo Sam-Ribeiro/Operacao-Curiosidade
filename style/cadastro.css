@@ -5,7 +5,7 @@
     border-style: initial;
     padding: 10px 50px 10px 50px;
     font-weight:bold;
-    font-size: 1em;
+    font-size: var(--fonte-pequena);
     letter-spacing: 2px;
     float: right;
 }
@@ -38,7 +38,7 @@ dialog .botao{
     border-style: initial;
     padding: 10px 50px 10px 50px;
     font-weight:bold;
-    font-size: 1em;
+    font-size: var(--fonte-pequena);
     letter-spacing: 2px;
     display: block;
     width: 200px;
@@ -109,7 +109,7 @@ dialog .botao{
 
 label{
     color: var(--cor-texto3);
-    font-size: small;
+    font-size: var(--fonte-label);
     padding-left: 10px;
 }
 

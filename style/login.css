@@ -40,11 +40,12 @@ main{
 .logo p{
     color: var(--cor-branco);
     margin-top: 30px;
+    font-size: var(--fonte-pequena);
 }
 .logo h1{
     padding-top: 50px;
     line-height: 0em;
-    font-size: 3em;
+    font-size: var(--fonte-enorme);
     margin-bottom: 25px;
 }
 
@@ -112,5 +113,5 @@ p{
     text-decoration-color: rgb(220, 74, 74);
     text-align: center;
     font-weight: normal;
-    font-size: 1.1em;
+    font-size: var(--fonte-erro);
 }

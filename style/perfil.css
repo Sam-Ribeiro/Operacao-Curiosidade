@@ -32,7 +32,7 @@
 }
 
 .botao{
-    margin: auto;
+    margin: 20px auto 0px auto;
     color: #ffffff;
     border-radius: 5px;
     border-color:var(--cor-tema);
@@ -47,16 +47,17 @@
 }
 
 .editar-perfil h1{
-    font-size: 1.5em;
+    font-size: var(--fonte-media);
     margin-top: 0px;
 }
 
 .editar-perfil h2{
-    font-size: 1.2em;
+    font-size: var(--fonte-pequena);
     margin-left: 10px;
     margin-bottom: 0px;
 }
 .editar-perfil p{
+    font-size: var(--fonte-label);
     margin-left: 10px;
 }
 

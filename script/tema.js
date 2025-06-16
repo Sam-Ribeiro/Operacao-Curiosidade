@@ -1,16 +1,16 @@
 const body = document.body
 const checkbox = document.getElementById("switch-17")
-
+const html = document.documentElement
 function aplicarTema(){
     const temaSalvo = JSON.parse(localStorage.getItem('temaSalvo'));
     console.log("tema: "+ temaSalvo.tema)
     if(temaSalvo.tema == "escuro"){
-        body.classList.add('tema-escuro');
+        html.classList.add('tema-escuro');
         if(checkbox){
             checkbox.checked = true
         }
     }else{
-        body.classList.remove('tema-escuro');
+        html.classList.remove('tema-escuro');
     }
 }
 if(checkbox){
