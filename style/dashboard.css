@@ -10,30 +10,34 @@
     color: rgb(220, 74, 74);
 }
 
+#bloco2{
+    margin: 0px;
+}
+
 main section.container div{
     padding: 0;
-    margin: 10px;
-    background-color: rgb(255, 255, 255);
+    margin: 0px 10px 0px 10px;
+    background-color: var(--cor-fundo);
     flex: 1;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
     border-style: inherit;
     border-radius: 5px;
 }
 
 main section.container div p{
-    font-size: 0.9em;
+    font-size: var(--fonte-pequena);
     margin-bottom: 5px;
     margin-right: 5px;
     float: right;
     text-align: end;
-    color: #6a6a6a; 
+    color: var(--cor-campo-foco); 
 }
 
 main section.container div h1{
     text-align: center;
-    font-size: 3em;
+    font-size: var(--fonte-enorme);
 }
 
 .tabela{
-    height: 50vh;
+    height: 60vh;
 }

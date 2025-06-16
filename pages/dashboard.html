@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="../style/dashboard.css">
     <link rel="stylesheet" href="../style/main.css">
     <link rel="stylesheet" href="../style/lateral.css">
+    <link rel="stylesheet" href="../style/temas.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,700,1,200"/>
 </head>
 <body>
-    
+    <script type="text/javascript" src="../script/tema.js"></script>
     <div class="container">
         <nav>
             <div>
@@ -18,34 +20,34 @@
                 <p>Operação Curiosidade</p>
             </div>
             <ul>
-                <li><a href="dashboard.html"> <img src="../assets/home.png" alt=""> Home</a></li><hr>
-                <li><a href="cadastro.html"> <img src="../assets/cadastro.png" alt=""> Cadastro</a></li><hr>
-                <li><a href="relatorios.html"><img src="../assets/relatorio.png" alt=""> Relatórios</a></li><hr>
+                <li><a href="dashboard.html" class="ativo"> <span class="material-symbols-outlined">home</span> Home</a></li>
+                <li><a href="cadastro.html"> <span class="material-symbols-outlined">person_add</span> Cadastro</a></li>
+                <li><a href="relatorios.html"><span class="material-symbols-outlined">demography</span>  Relatórios</a></li>
+                <li><a href="perfil.html"><span class="material-symbols-outlined">manage_accounts</span> Configurações</a></li>
             </ul> 
         </nav>
 
         <div class="principal">
             <header>
                 <form>
-                    <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar...">
-                    <button type="button" id="btn-pesquisar"><img src="../assets/pesquisar.png" alt="Pesquisar"></button>
+                    <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar..." autocomplete="off"> 
                 </form>
+                <p href="#"id="placeholder"></p>
                 <a href="perfil.html"> <em id="usuario">Nome do Usuário</em><strong id="icone">N</strong></a>
                 <a href="login.html"id="sair">Sair</a>
-                
             </header>
             <main>
                 <section class="container">
                     <div id="bloco1">
-                        <h1>100</h1>
+                        <h1>0</h1>
                         <p>Total de cadastros</p>
                     </div>
                     <div id="bloco2">
-                        <h1>10</h1>
+                        <h1>0</h1>
                         <p>Cadastros no último mês</p>
                     </div>
                     <div id="bloco3">
-                        <h1>10</h1>
+                        <h1>0</h1>
                         <p>Cadastros com pendência de revisão</p>
                     </div>
                 </section>
@@ -71,21 +73,7 @@
             </main>
 
         </div>
-
-        <aside id="aside">
-            <h1>Usuários</h1>
-            <hr>
-            <table id="tabela-usuarios">
-                    <thead><tr>
-                        <th id="nome">NOME</th>
-                    </tr></thead>
-                    <tbody>
-                    </tbody>
-            </table>
-            
-        </aside>
     </div>
-    <script type="text/javascript" src="../script/aside.js"></script>
     <script type="text/javascript" src="../script/dashboard.js"></script>
     <script type="text/javascript" src="../script/tabelas.js"></script>
 </body>

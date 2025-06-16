@@ -15,7 +15,7 @@ function carregarUsuario(){
         document.querySelector("dialog #interesses").value = usuario.interesses
         document.querySelector("dialog #sentimentos").value = usuario.sentimentos
         document.querySelector("dialog #valores").value = usuario.valores
-        let checkbox = document.querySelector("dialog #status")
+        let checkbox = document.querySelector("dialog #status-toggle")
         if(usuario.status == "Ativo"){
             checkbox.checked = true
         }
@@ -27,7 +27,7 @@ function preencheStorage(){
     erro.style.display = 'none'
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-    const checkbox = document.querySelector("dialog #status")
+    const checkbox = document.querySelector("dialog #status-toggle")
     if(checkbox.checked == true){
         var status = "Ativo"
     }else{
@@ -45,7 +45,7 @@ function preencheStorage(){
             valores: document.querySelector("dialog #valores").value,
             dataCadastro: new Date().toISOString()
         }
-    if(!usuario.nome || !usuario.email || !usuario.status || !usuario.idade || !usuario.endereco || !usuario.informacoes || !usuario.interesses || !usuario.sentimentos || !usuario.valores){
+    if(!usuario.nome || !usuario.email || !usuario.status || !usuario.idade || !usuario.endereco){
         erro.innerText = "Preencha todos os campos"
         erro.style.display = 'block'
     }else if(usuarios.some(u => u.email === usuario.email)){
@@ -88,7 +88,7 @@ function verificaEntrada(){
         dataCadastro: new Date().toISOString()
     }
     const outrosUsuarios = usuarios.filter(u => u.email !== usuarioEditado.email)
-    if(!usuario.nome || !usuario.email || !usuario.idade || !usuario.endereco || !usuario.informacoes || !usuario.interesses || !usuario.sentimentos || !usuario.valores){
+    if(!usuario.nome || !usuario.email || !usuario.idade || !usuario.endereco){
         erro.innerText = "Preencha todos os campos"
         erro.style.display = 'block'
         console.log("retornando esse false")
@@ -111,8 +111,8 @@ function verificaEntrada(){
 }
 
 function enviarLog(log){
-    const logs = JSON.parse(localStorage.getItem("logs")) || [];
-    const user = JSON.parse(localStorage.getItem("user")) || [];
+    const logs = JSON.parse(localStorage.getItem("logs")) || []
+    const user = JSON.parse(localStorage.getItem("user")) || []
     const logformatado ={ 
         evento: log,
         data: new Date().toISOString(),
@@ -155,7 +155,7 @@ document.addEventListener('keydown', (event) => {
         form = document.getElementById("form-cadastro")
         form.reset()
     }
-});
+})
 botaoEditar.onclick = function(){
     const usuarios = JSON.parse(localStorage.getItem("usuarios"))  
     const usuario = JSON.parse(localStorage.getItem("usuario"))

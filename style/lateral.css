@@ -1,20 +1,23 @@
 
 nav{
-    background-color: #ffffff;
+    background-color: var(--cor-fundo);
     width: 300px;
-    padding: 10px;
-    border-right:solid 5px #d4d4d4;
+    padding: 0px;
     margin: 0px;
+    display: flex;
+    flex-direction: column;
 }
 
 nav div{
     display: flex;
-    background-color: #f0f4fc;
+    background: #060059;
+    background: var(--cor-gradiente);
+    color: var(--cor-branco);
     align-items: center;
 }
 
 nav div h1{
-    font-size: 3em;
+    font-size: var(--fonte-enorme);
     display: flex;
     margin: 10px;
 }
@@ -24,45 +27,29 @@ nav div p{
     margin-right: 10px;
 }
 
-nav img{
-    width: 18px;
-    height: 18px;
-    filter:opacity(0.7)
-}
-
-nav ul{
-    margin-top: 10px;
+nav ul{ 
+    margin: 0px;
     padding-left: 0px;
     list-style: none;
-}
-nav li{
-    padding: 10px;
+    font-size: var(--fonte-pequena);
 }
 nav a{
-    padding: 20px 170px 20px 5px;
+    display: flex;
+    color: var(--cor-texto);
+    padding: 20px;  
+    background-color: var(--cor-fundo3);
+    color: var(--cor-texto);
+    line-height: 0;
+    align-items: center;
+    gap: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}   
+nav a:hover{
+    background-color: var(--cor-header-fundo);
+    color: var(--cor-branco);
 }
-
-nav a{
-    color: #000000;
-}
-
-aside a{
-    color: #000000;
-}
-
-
-
-aside{
-    background-color: #ffffff;
-    width: 300px;
-    border-left:solid 5px #d4d4d4;
-}
-
-aside h1{
-    text-align: center;
-    font-size: large;
-}
-
-aside table{
-    text-align: center;
+.ativo{
+    background-color: var(--cor-header-fundo);
+    color: var(--cor-branco);
 }

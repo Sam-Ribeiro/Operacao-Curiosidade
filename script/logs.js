@@ -65,7 +65,7 @@ function preencherTabela(){
         if (paginaFinal > logs.length) {
             paginaFinal = logs.length;
         }
-        logs = logs.slice(paginaInicial, paginaFinal);
+        logs = logs.slice(paginaInicial, paginaFinal)
         for(var i = 0; i < logs.length ; i++){
             const log = logs[i];
             var qtdLinhas = tabela.rows.length;
@@ -74,13 +74,17 @@ function preencherTabela(){
             var celulaUser = linha.insertCell(0)
             var celulaEvento = linha.insertCell(1)
             var celulaData = linha.insertCell(2)
+            if(i%2==0){
+                linha.classList.add("par")
+            }
+            let data = new Date(log.data)
+            let dia = String(data.getDate()).padStart(2, '0')
+            let mes = String(data.getMonth() + 1).padStart(2, '0')
+            let ano = data.getFullYear()
+            let hora = String(data.getHours()).padStart(2, '0')
+            let minutos = String(data.getMinutes()).padStart(2, '0')
 
-            let data = new Date(log.data);
-            let dia = String(data.getDate()).padStart(2, '0');
-            let mes = String(data.getMonth() + 1).padStart(2, '0');
-            let ano = data.getFullYear();
-
-            let dataFormatada = `${dia}/${mes}/${ano}`; 
+            let dataFormatada = `${dia}/${mes}/${ano} - ${hora}:${minutos}`
 
             celulaUser.innerHTML = log.user
             celulaEvento.innerText = log.evento
@@ -105,13 +109,13 @@ function organizarDataRecente(logs) {
 
 function controlaPagina(){
     paginaSpan.innerText = `Exibindo pagina ${paginaAtual} de ${paginas}`
-    botaoPaginaProxima.classList.add("ativo")
-    botaoPaginaAnterior.classList.add("ativo")
+    botaoPaginaProxima.style.color = "var(--cor-texto)"
+    botaoPaginaAnterior.style.color = "var(--cor-texto)"
     if(paginaAtual == paginas){
-        botaoPaginaProxima.classList.remove("ativo")
+        botaoPaginaProxima.style.color = "gray"
     }
     if(paginaAtual == 1){
-        botaoPaginaAnterior.classList.remove("ativo")
+        botaoPaginaAnterior.style.color = "gray"
     }
 }
 
@@ -145,16 +149,13 @@ botaoPaginaProxima.onclick = function(){
 }
 
 document.addEventListener('keydown', (event) => {
+    filtro = document.getElementById("pesquisa").value
+    preencherTabela();
     if (event.key === 'Enter') {
         event.preventDefault()
-        botaoPesquisar.click();
     }
 });
 
-botaoPesquisar.onclick = function(){
-    filtro = document.getElementById("pesquisa").value
-    preencherTabela();
-}
 botaoUser.onclick = function(){
     if(orderby == 0){
         orderby = 1

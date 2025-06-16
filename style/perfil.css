@@ -1,14 +1,27 @@
+
+
+html, .editar-perfil, .campo, .botao, .fonte, nav, body, h1, h2, h3, h4, p, a, label, input {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, font-size 0.3s ease;
+}
+
+html, body{
+    transition: scrollbar-color 0.3s ease;
+}
+
+
 .editar-perfil{
-    background-color: white;
+    background-color: var(--cor-fundo);
     border-style: inherit;
     border-radius: 5px;
     padding: 50px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
     flex: 1;
     margin: 10px;
 }
 
 .campo{
+    background-color: var(--cor-campo);
+    color: var(--cor-texto);
     border: 2px solid black;
     border-radius: 10px;
     margin: 10px;
@@ -19,51 +32,42 @@
 }
 .campo:focus{
     outline: none;
-    border-bottom: rgb(100, 100, 100) solid 4px;
+    border-bottom: var(--cor-campo-foco) solid 4px;
     border-radius: 10px;
 }
 
+.senha{
+  margin-top: 10x;
+  margin-bottom: 0px;
+}
 
 .botao{
+    margin: 20px auto 0px auto;
     color: #ffffff;
     border-radius: 5px;
-    border-color: black;
+    border-color:var(--cor-tema);
     border-style: initial;
-    background-color: black;
-    margin: 10px;
+    background-color: var(--cor-tema);  
     height: 40px;
     width: 220px;
 }
 
 .botao:hover{
-    background-color: rgb(100, 100, 100);
-}
-
-#erro{
-    display: none;
-    border: 2px solid rgb(220, 74, 74);
-    background-color: rgb(242, 182, 182);
-    margin: 15px 96px 15px 96px;
-    width: 256px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    text-decoration: underline;
-    text-decoration-color: rgb(220, 74, 74);
-    text-align: center;
-    font-weight: normal;
+    background-color: rgb(12, 70, 106);
 }
 
 .editar-perfil h1{
-    font-size: 1.5em;
+    font-size: var(--fonte-media);
     margin-top: 0px;
 }
 
 .editar-perfil h2{
-    font-size: 1.2em;
+    font-size: var(--fonte-pequena);
     margin-left: 10px;
     margin-bottom: 0px;
 }
 .editar-perfil p{
+    font-size: var(--fonte-label);
     margin-left: 10px;
 }
 
@@ -71,51 +75,44 @@
     width: 475px;
 }
 
-/*checkbox */
-.checkbox-wrapper-17{
+.fonte{
+    background-color: var(--cor-fundo);
+    height: 120px;
+    width: 120px;
+    margin:auto;
+    margin-top: 30px;
+    text-align: center;
+    border: var(--cor-texto) solid 1px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.fonte-ativa{
+    border: var(--cor-tema) solid 3px;
+}
+
+h3{
+    font-size: var(--fonte-pequena);
+    margin-top: 25px;
+}
+h4{
+    font-size: var(--fonte-label);
+    font-weight: normal;
+}
+
+.fonte input{
+    float: right;
+    width: 15px;
+    height: 15px;
+}
+
+
+.toggle{
     margin: 0px;
     margin-left: 50px;
     line-height: 10px;
 }
-  .checkbox-wrapper-17 input[type=checkbox] {
-    height: 0;
-    width: 0;
-    visibility: hidden;
-  }
 
-  .checkbox-wrapper-17 label {
-    --size: 50px;
-
-    cursor: pointer;
-    width: var(--size);
-    height: calc(var(--size) / 2);
-    background: rgb(192, 192, 192);
-    display: block;
-    border-radius: 100px;
-    position: relative;
-  }
-
-  .checkbox-wrapper-17 label:after {
-    content: '';
-    position: absolute;
-    top: 6%;
-    left: 2.5%;
-    width: calc(50% - 5%);
-    height: calc(100% - 11%);
-    background: #fff;
-    border-radius: 90px;
-    transition: 0.3s;
-  }
-
-  .checkbox-wrapper-17 input:checked + label {
-    background: #000000;
-  }
-
-  .checkbox-wrapper-17 input:checked + label:after {
-    left: calc(100% - 2.5%);
-    transform: translateX(-100%);
-  }
-
-  .checkbox-wrapper-17 label:active:after {
-    width: 55%;
-  }
+.toggle label{
+  --size: 50px;
+}
