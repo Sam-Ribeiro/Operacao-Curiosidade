@@ -32,6 +32,13 @@ a{
     margin: 0px;
 }
 
+.campo{
+    font-size: var(--fonte-label);
+}
+tr{
+    font-size: var(--fonte-pequena);
+}
+
 main a:hover{
     color:var(--cor-texto2);
 }
@@ -181,6 +188,7 @@ th strong{
 .ativo:hover{
     background-color: var(--cor-tema)
 }
+
 .ativo{
     color: var(--cor-botao-ativo);
 }

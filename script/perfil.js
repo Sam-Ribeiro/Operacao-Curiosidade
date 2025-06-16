@@ -1,16 +1,14 @@
-const campoNome = document.getElementById("nome")
-const campoEmail = document.getElementById("email")
-const campoData = document.getElementById("data")
-const campoSenhaAntiga = document.getElementById("senha-antiga")
-const campoSenhaNova = document.getElementById("senha-nova")
+const campoNome = document.getElementById("campo-nome")
+const campoEmail = document.getElementById("campo-email")
+const campoData = document.getElementById("campo-data")
+const campoSenhaAntiga = document.getElementById("campo-senha-antiga")
+const campoSenhaNova = document.getElementById("campo-senha-nova")
 const botaoSalvar = document.getElementById("btn-salvar")
 const botaoExcluir = document.getElementById("btn-excluir")
 
 botaoSalvar.onclick = function(){
     salvarDados()
 }
-
-
 function carregarDados(){
     user = JSON.parse(localStorage.getItem("user"))
     campoNome.value = user.user_nome

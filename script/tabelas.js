@@ -176,13 +176,13 @@ function organizarDataRecente(usuarios) {
 
 function controlaPagina(){
     paginaSpan.innerText = `Exibindo pagina ${paginaAtual} de ${paginas}`
-    botaoPaginaProxima.classList.add("ativo")
-    botaoPaginaAnterior.classList.add("ativo")
+    botaoPaginaProxima.style.color = "var(--cor-texto)"
+    botaoPaginaAnterior.style.color = "var(--cor-texto)"
     if(paginaAtual == paginas){
-        botaoPaginaProxima.classList.remove("ativo")
+        botaoPaginaProxima.style.color = "gray"
     }
     if(paginaAtual == 1){
-        botaoPaginaAnterior.classList.remove("ativo")
+        botaoPaginaAnterior.style.color = "gray"
     }
 }
 

@@ -30,16 +30,16 @@
                     <h1>Perfil</h1>
                     <hr>
                     <h2>Nome do usuario</h2>
-                    <input class="campo" type="text" name="nome" id="nome">
+                    <input class="campo" type="text" name="nome" id="campo-nome">
                     <h2>Email cadastrado</h2>
-                    <input class="campo" type="email" name="email" id="email">
+                    <input class="campo" type="email" name="email" id="campo-email">
                     <h2>Data de nascimento</h2>
-                    <input class="campo" type="text" onfocus="(this.type='date')" onblur="formatDateInput(this)" name="data" id="data"><hr>
+                    <input class="campo" type="text" onfocus="(this.type='date')" onblur="formatDateInput(this)" name="data" id="campo-data"><hr>
                     <h2>Senha</h2>
                     <p class="senha">Senha atual:</p>
-                    <input class="campo" type="password" name="senha" id="senha-antiga">
+                    <input class="campo" type="password" name="senha" id="campo-senha-antiga">
                     <p class="senha">Nova senha:</p>
-                    <input class="campo" type="password" name="senha-nova" id="senha-nova">
+                    <input class="campo" type="password" name="senha-nova" id="campo-senha-nova">
                     <hr>
                     <div id="erro"></div>
                     <div class="container">
@@ -64,6 +64,31 @@
                         <p>Claro / Escuro</p>
                         <div class="toggle">
                             <input type="checkbox" id="switch-17" /><label for="switch-17"></label>
+                        </div>
+                    </div>
+                    <hr>
+                    <h2>Tamanho da fonte</h2>
+                    <div class="container">
+                        <div class="fonte fonte-pequena">
+                            <input type="radio" name="fonte" id="fonte-pequena">
+                            <label for="fonte-pequena">
+                                <h3>Pequeno</h3>
+                                <h4>Pequeno</h4>
+                            </label>
+                        </div>
+                        <div class="fonte fonte-media">
+                            <input type="radio" name="fonte" id="fonte-media">
+                            <label for="fonte-media">
+                                <h3>Médio</h3>
+                                <h4>Médio</h4>
+                            </label>
+                        </div>
+                        <div class="fonte fonte-grande">
+                            <input type="radio" name="fonte" id="fonte-grande">
+                            <label for="fonte-grande">
+                                <h3>Grande</h3>
+                                <h4>Grande</h4>
+                            </label>
                         </div>
                     </div>
                 </form>

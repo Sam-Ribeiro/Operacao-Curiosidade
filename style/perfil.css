@@ -1,4 +1,14 @@
 
+
+html, .editar-perfil, .campo, .botao, .fonte, nav, body, h1, h2, h3, h4, p, a, label, input {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, font-size 0.3s ease;
+}
+
+html, body{
+    transition: scrollbar-color 0.3s ease;
+}
+
+
 .editar-perfil{
     background-color: var(--cor-fundo);
     border-style: inherit;
@@ -65,7 +75,38 @@
     width: 475px;
 }
 
-/*checkbox */
+.fonte{
+    background-color: var(--cor-fundo);
+    height: 120px;
+    width: 120px;
+    margin:auto;
+    margin-top: 30px;
+    text-align: center;
+    border: var(--cor-texto) solid 1px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.fonte-ativa{
+    border: var(--cor-tema) solid 3px;
+}
+
+h3{
+    font-size: var(--fonte-pequena);
+    margin-top: 25px;
+}
+h4{
+    font-size: var(--fonte-label);
+    font-weight: normal;
+}
+
+.fonte input{
+    float: right;
+    width: 15px;
+    height: 15px;
+}
+
+
 .toggle{
     margin: 0px;
     margin-left: 50px;
