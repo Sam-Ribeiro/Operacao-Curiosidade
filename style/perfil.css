@@ -7,8 +7,9 @@ html, .editar-perfil, .campo, .botao, .fonte, nav, body, h1, h2, h3, h4, p, a, l
 html, body{
     transition: scrollbar-color 0.3s ease;
 }
-
-
+main{
+    margin: 10px 5px;
+}
 .editar-perfil{
     background-color: var(--cor-fundo);
     border-style: inherit;
@@ -16,7 +17,8 @@ html, body{
     padding: 50px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
     flex: 1;
-    margin: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .campo{
@@ -47,6 +49,7 @@ html, body{
     border-radius: 5px;
     border-color:var(--cor-tema);
     border-style: initial;
+    font-weight: bold;
     background-color: var(--cor-tema);  
     height: 40px;
     width: 220px;
@@ -94,10 +97,12 @@ html, body{
 h3{
     font-size: var(--fonte-pequena);
     margin-top: 25px;
+    margin-bottom: 0px;
 }
 h4{
     font-size: var(--fonte-label);
     font-weight: normal;
+    margin-top: 0.5em;
 }
 
 .fonte input{
@@ -106,7 +111,15 @@ h4{
     height: 15px;
 }
 
-
+.fonte label{
+    margin: 0px;
+    display: flex;
+    height: 100px;
+    width: 120px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+}
 .toggle{
     margin: 0px;
     margin-left: 50px;

@@ -13,9 +13,7 @@ function atualizaDados(){
         if (dataCadastro >= mesAtras){
             usuariosMes++
         }
-
     }
-
     totalCadastros = document.querySelector("#bloco1 h1")
     cadastrosMes = document.querySelector("#bloco2 h1")
     cadastrosRevisao = document.querySelector("#bloco3 h1")

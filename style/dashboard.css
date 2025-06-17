@@ -30,7 +30,7 @@ main section.container div p{
     margin-right: 5px;
     float: right;
     text-align: end;
-    color: var(--cor-campo-foco); 
+    color: var(--cor-texto3); 
 }
 
 main section.container div h1{
@@ -39,5 +39,5 @@ main section.container div h1{
 }
 
 .tabela{
-    height: 60vh;
+    height: 65vh;
 }

@@ -61,6 +61,4 @@ function formatDateInput(inputElement) {
     }
 }
 
-
-
 validarUsuario();

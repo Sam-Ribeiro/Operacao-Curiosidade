@@ -3,19 +3,20 @@
     --cor-branco: #ffffff;
     --cor-fundo: #ffffff;
     --cor-fundo2:#c3c4ca;
-    --cor-fundo3:#d4d5d6;
-    --cor-fundo4:#e4e8ee;
-    --cor-header-fundo:rgba(3, 106, 172, 1);
+    --cor-fundo3:#d6d6d4;
+    --cor-fundo4:#d5d6d8;
+    --cor-header-fundo:#036aac;
     --cor-tema: rgb(5, 94, 149);
     --cor-texto: #000000;
     --cor-texto2:#6a6a6a;
     --cor-texto3:#575757;
-    --cor-campo: #f1f1f1;
-    --cor-campo-foco: #646464;
+    --cor-campo: #e1e1e1;
+    --cor-campo-foco: #0145ff;
     --cor-borda: #6c6c6c;
     --cor-botao-ativo: #444444;
     --cor-botao: #2d2d2d;
     --cor-fundo-gradiente: #060059;
+    --cor-fundo-claro: rgb(42, 151, 219);
     --cor-gradiente: linear-gradient(120deg, rgba(6, 0, 89, 1) 0%, rgba(0, 212, 255, 1) 100%);
     --cor-gradiente-hover:linear-gradient(80deg, #060059 0%, rgba(0, 212, 255, 1) 90%);
     --fonte-label: 0.8em;
@@ -28,9 +29,9 @@
 
 .tema-escuro {
     --cor-fundo: #1a1a1a;
-    --cor-fundo2:#2c2c2c;
-    --cor-fundo3:#3a3a3a;
-    --cor-fundo4:#222222;
+    --cor-fundo2:#3a3a3a;
+    --cor-fundo3:#3b3b3b;
+    --cor-fundo4:#2a2a2a;
     --cor-header-fundo:rgba(3, 106, 172, 1);
     --cor-texto: #e0e0e0;
     --cor-texto2:#b0b0b0;
@@ -45,7 +46,7 @@
     --fonte-label: 0.7em;
     --fonte-pequena: 0.9em;
     --fonte-erro: 1.1em;
-    --fonte-media: 1.4em;
+    --fonte-media: 1.3em;
     --fonte-grande: 2.9em;
     --fonte-enorme: 3.0em;
 }

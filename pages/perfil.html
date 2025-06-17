@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,700,1,200"/>
 </head>
     <body>
+    <script type="text/javascript" src="../script/tema.js"></script>
     <div class="container">
+
         <nav>
             <div>
                 <h1>OC</h1>
@@ -25,76 +27,71 @@
                 <li><a href="perfil.html" class="ativo"><span class="material-symbols-outlined">manage_accounts</span> Configurações</a></li>
             </ul> 
         </nav>
-            <main>
-                <form class="editar-perfil" autocomplete="off">
-                    <h1>Perfil</h1>
-                    <hr>
-                    <h2>Nome do usuario</h2>
-                    <input class="campo" type="text" name="nome" id="campo-nome">
-                    <h2>Email cadastrado</h2>
-                    <input class="campo" type="email" name="email" id="campo-email">
-                    <h2>Data de nascimento</h2>
-                    <input class="campo" type="text" onfocus="(this.type='date')" onblur="formatDateInput(this)" name="data" id="campo-data"><hr>
-                    <h2>Senha</h2>
-                    <p class="senha">Senha atual:</p>
-                    <input class="campo" type="password" name="senha" id="campo-senha-antiga">
-                    <p class="senha">Nova senha:</p>
-                    <input class="campo" type="password" name="senha-nova" id="campo-senha-nova">
-                    <hr>
-                    <div id="erro"></div>
-                    <div class="container">
-                        <input class="botao" type="button" value="SALVAR ALTERAÇÕES" id="btn-salvar">
+
+         <main class="container">
+            <form class="editar-perfil" autocomplete="off">
+                <h1>Perfil</h1>
+                <hr>
+                <h2>Nome do usuario</h2>
+                <input class="campo" type="text" name="nome" id="campo-nome">
+                <h2>Email cadastrado</h2>
+                <input class="campo" type="email" name="email" id="campo-email">
+                <h2>Data de nascimento</h2>
+                <input class="campo" type="text" onfocus="(this.type='date')" onblur="formatDateInput(this)" name="data" id="campo-data"><hr>
+                <h2>Senha</h2>
+                <p class="senha">Senha atual:</p>
+                <input class="campo" type="password" name="senha" id="campo-senha-antiga">
+                <p class="senha">Nova senha:</p>
+                <input class="campo" type="password" name="senha-nova" id="campo-senha-nova">
+                <hr>
+                <div id="erro"></div>
+                <div class="container">
+                    <input class="botao" type="button" value="SALVAR ALTERAÇÕES" id="btn-salvar">
+                </div>
+            </form>
+            <form class="editar-perfil">
+                <h1>Configurações</h1>
+                <hr>
+                <h2>Tema</h2>
+
+                <div class="container">
+                    <p>Claro / Escuro</p>
+                    <div class="toggle">
+                        <input type="checkbox" id="botao-tema" /><label for="botao-tema"></label>
                     </div>
-                </form>
-            </main>
-            <div>
-                <form class="editar-perfil">
-                    <h1>Configurações</h1>
-                    <hr>
-                    <h2>Segurança</h2>
-                    <div class="container">
-                        <p>Manter login </p> 
-                        <div class="toggle">
-                            <input type="checkbox" id="conexao" /><label for="conexao"></label>
-                        </div>
+                </div><hr>
+
+                <h2>Tamanho da fonte</h2>
+                <div class="container">
+                    <div class="fonte fonte-pequena">
+                        <input type="radio" name="fonte" id="fonte-pequena">
+                        <label for="fonte-pequena">
+                            <h3>Pequeno</h3>
+                            <h4>Pequeno</h4>
+                        </label>
                     </div>
-                    <hr>
-                    <h2>Tema</h2>
-                    <div class="container">
-                        <p>Claro / Escuro</p>
-                        <div class="toggle">
-                            <input type="checkbox" id="switch-17" /><label for="switch-17"></label>
-                        </div>
+
+                    <div class="fonte fonte-media">
+                        <input type="radio" name="fonte" id="fonte-media">
+                        <label for="fonte-media">
+                            <h3>Médio</h3>
+                            <h4>Médio</h4>
+                        </label>
                     </div>
-                    <hr>
-                    <h2>Tamanho da fonte</h2>
-                    <div class="container">
-                        <div class="fonte fonte-pequena">
-                            <input type="radio" name="fonte" id="fonte-pequena">
-                            <label for="fonte-pequena">
-                                <h3>Pequeno</h3>
-                                <h4>Pequeno</h4>
-                            </label>
-                        </div>
-                        <div class="fonte fonte-media">
-                            <input type="radio" name="fonte" id="fonte-media">
-                            <label for="fonte-media">
-                                <h3>Médio</h3>
-                                <h4>Médio</h4>
-                            </label>
-                        </div>
-                        <div class="fonte fonte-grande">
-                            <input type="radio" name="fonte" id="fonte-grande">
-                            <label for="fonte-grande">
-                                <h3>Grande</h3>
-                                <h4>Grande</h4>
-                            </label>
-                        </div>
+
+                    <div class="fonte fonte-grande">
+                        <input type="radio" name="fonte" id="fonte-grande">
+                        <label for="fonte-grande">
+                            <h3>Grande</h3>
+                            <h4>Grande</h4>
+                        </label>
                     </div>
-                </form>
-            </div>
+
+                </div>
+            </form>
+        </main>
+
     </div>
-    <script type="text/javascript" src="../script/tema.js"></script>
     <script type="text/javascript" src="../script/perfil.js"></script>
     </body>
 </html>

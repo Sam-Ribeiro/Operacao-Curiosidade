@@ -108,7 +108,7 @@ function organizarDataRecente(logs) {
 }
 
 function controlaPagina(){
-    paginaSpan.innerText = `Exibindo pagina ${paginaAtual} de ${paginas}`
+    paginaSpan.innerText = `Exibindo página ${paginaAtual} de ${paginas}`
     botaoPaginaProxima.style.color = "var(--cor-texto)"
     botaoPaginaAnterior.style.color = "var(--cor-texto)"
     if(paginaAtual == paginas){
@@ -124,7 +124,7 @@ let orderby = 4
 let paginaAtual = 1
 let paginas = 1
 const paginaSpan = document.getElementById("span-pagina")
-const itensPorPagina = 15
+const itensPorPagina = 22
 const botaoSair = document.getElementById("sair")
 const botaoUser = document.getElementById("evento-user")
 const botaoEvento = document.getElementById("evento-nome")

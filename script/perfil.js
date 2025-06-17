@@ -5,6 +5,9 @@ const campoSenhaAntiga = document.getElementById("campo-senha-antiga")
 const campoSenhaNova = document.getElementById("campo-senha-nova")
 const botaoSalvar = document.getElementById("btn-salvar")
 const botaoExcluir = document.getElementById("btn-excluir")
+const checkbox = document.getElementById("botao-tema")
+const botoesFonte = document.getElementsByName("fonte")
+const divsFonte = document.getElementsByClassName("fonte")
 
 botaoSalvar.onclick = function(){
     salvarDados()
@@ -75,4 +78,68 @@ function salvarDados(){
     carregarDados()            
 }
 
+if(checkbox){
+    checkbox.addEventListener('change', function() {
+        if(checkbox.checked == true){
+            const temaSalvo ={
+                tema: "escuro"
+            }
+            localStorage.setItem("temaSalvo",JSON.stringify(temaSalvo))
+        }else{
+            const temaSalvo ={
+                tema: "claro"
+            }
+            localStorage.setItem("temaSalvo",JSON.stringify(temaSalvo))
+        }
+        aplicarTema()
+    })
+}
+
+function carregarConfiguracao(){
+    const temaSalvo = JSON.parse(localStorage.getItem('temaSalvo'))
+    const fonteSalva = JSON.parse(localStorage.getItem('fonteSalva'))
+    if(temaSalvo.tema == "escuro"){
+            checkbox.checked = true
+    }
+    if(fonteSalva.fonte == "pequena"){
+        botoesFonte[0].checked = true
+        divsFonte[0].classList.add("fonte-ativa")
+        divsFonte[1].classList.remove("fonte-ativa")
+        divsFonte[2].classList.remove("fonte-ativa")
+    }else if(fonteSalva.fonte == "media"){
+        botoesFonte[1].checked = true
+        divsFonte[1].classList.add("fonte-ativa")
+        divsFonte[0].classList.remove("fonte-ativa")
+        divsFonte[2].classList.remove("fonte-ativa")
+    }else if(fonteSalva.fonte == "grande"){
+        botoesFonte[2].checked = true
+        divsFonte[2].classList.add("fonte-ativa")
+        divsFonte[0].classList.remove("fonte-ativa")
+        divsFonte[1].classList.remove("fonte-ativa")
+    }
+}
+
+if(botoesFonte){
+    botoesFonte.forEach(b => b.addEventListener('change', function() {
+        if(botoesFonte[0].checked == true){
+            const fonteSalva ={
+                fonte: "pequena"
+            }
+            localStorage.setItem("fonteSalva",JSON.stringify(fonteSalva))
+        }else if(botoesFonte[2].checked == true){
+            const fonteSalva ={
+                fonte: "grande"
+            }
+            localStorage.setItem("fonteSalva",JSON.stringify(fonteSalva))
+        }else{
+            const fonteSalva ={
+                fonte: "media"
+            }
+            localStorage.setItem("fonteSalva",JSON.stringify(fonteSalva))
+        }
+        aplicarFonte();
+        carregarConfiguracao()
+    }))
+}
 carregarDados()
+carregarConfiguracao()

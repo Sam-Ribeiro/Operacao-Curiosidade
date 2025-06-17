@@ -1,9 +1,12 @@
 
 function carregarUsuario(){
-    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    const usuario = JSON.parse(localStorage.getItem("usuario"))
     const modal = document.querySelector("dialog")
+    const titulo = document.querySelector("dialog #titulo-modal")
+    titulo.innerText = "Novo Cadastro"
     if(usuario){
         modal.showModal()
+        titulo.innerText = "Editar Usuário"
         botaoGravar.style.display = 'none'
         botaoEditar.style.display = 'block'
         botaoExcluir.style.display = 'block'
@@ -74,11 +77,18 @@ function verificaEntrada(){
     var erro = document.getElementById("erro")
     erro.style.display = 'none'
     const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-    const usuarioEditado = JSON.parse(localStorage.getItem("usuario"))
+    const usuarioEditado = JSON.parse(localStorage.getItem("usuario")) || []
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const checkbox = document.querySelector("dialog #status-toggle")
+    if(checkbox.checked == true){
+        var status = "Ativo"
+    }else{
+        var status = "Inativo"
+    }
     const usuario ={
         nome: document.querySelector("dialog #nome").value,
         email: document.querySelector("dialog #email").value,
+        status: status,
         idade:  document.querySelector("dialog #idade").value,
         endereco: document.querySelector("dialog #endereco").value,
         informacoes: document.querySelector("dialog #informacoes").value,
@@ -89,7 +99,7 @@ function verificaEntrada(){
     }
     const outrosUsuarios = usuarios.filter(u => u.email !== usuarioEditado.email)
     if(!usuario.nome || !usuario.email || !usuario.idade || !usuario.endereco){
-        erro.innerText = "Preencha todos os campos"
+        erro.innerText = "Preencha os campos obrigatórios!"
         erro.style.display = 'block'
         console.log("retornando esse false")
         return false
@@ -105,7 +115,8 @@ function verificaEntrada(){
         erro.innerText = "Idade inválida"
         erro.style.display = 'block'
         return false
-    }else{   
+    }else{
+        localStorage.setItem("usuario", JSON.stringify(usuario))   
         return true     
     }
 }
@@ -137,9 +148,19 @@ botaoModal.onclick = function (){
     botaoExcluir.style.display = 'none'
 }
 botaoGravar.onclick = function (){
-    preencheStorage();
-    form = document.getElementById("form-cadastro")
-    form.reset()
+    const usuarios = JSON.parse(localStorage.getItem("usuarios"))  
+    let retorno = verificaEntrada()
+    if(retorno){
+        const usuario = JSON.parse(localStorage.getItem("usuario"))
+        enviarLog("Cadastrou usuário: "+usuario.nome)
+        usuarios.push(usuario)
+        localStorage.setItem("usuarios", JSON.stringify(usuarios))
+        localStorage.removeItem("usuario")
+        preencherTabela();
+        modal.close()
+        form = document.getElementById("form-cadastro")
+        form.reset()
+    }
 }
 botaoClose.onclick = function(){
     modal.close()
@@ -161,12 +182,20 @@ botaoEditar.onclick = function(){
     const usuario = JSON.parse(localStorage.getItem("usuario"))
     let retorno = verificaEntrada()
     if(retorno){
-        const usuariosAtualizados = usuarios.filter(u => u.email !== usuario.email)
-        localStorage.setItem("usuarios", JSON.stringify(usuariosAtualizados))
-        enviarLog("Editou usuário: "+usuario.nome)
-        preencheStorage()
+        const usuarioEditado = JSON.parse(localStorage.getItem("usuario"))
+        const usuariosAtualizados = usuarios.map(u => {
+            if (u.email === usuarioEditado.email) {
+                return usuarioEditado;
+            }
+            return u;
+        });
+        localStorage.setItem("usuarios", JSON.stringify(usuariosAtualizados));
         preencherTabela()
     }
+    modal.close()
+    enviarLog("Editou usuário: "+usuario.nome)
+    localStorage.removeItem("usuario")
+    preencherTabela()
     form = document.getElementById("form-cadastro")
     form.reset()
 }

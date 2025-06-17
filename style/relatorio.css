@@ -27,6 +27,9 @@
     
     html, body{
         visibility: hidden;
+        --fonte-label: 0.7em !important;
+        --fonte-pequena: 0.9em !important;
+        --fonte-media: 1.1em !important;
     }
     .principal{
         margin: 0px;
@@ -48,8 +51,7 @@
         height: min-content !important;
     }
     table{
-        border: 1px solid black;
-        font: 0.1em;
+        margin: 0px;
     }
     tr{
         page-break-inside: avoid;
@@ -83,5 +85,18 @@
     }
     #tabela-cadastros #status{
         padding-right: 35px;
+    }
+    .status-ativo{
+        color: black !important;
+        font-weight: normal!important;
+    }
+
+    .status-inativo{
+        color: black!important;
+        font-weight: normal!important;
+    }
+
+    td{
+        border: 1px solid rgb(136, 136, 136) !important;
     }
 }

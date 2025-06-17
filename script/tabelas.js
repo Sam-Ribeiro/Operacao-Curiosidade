@@ -110,16 +110,18 @@ function preencherTabela(){
             let mes = String(data.getMonth() + 1).padStart(2, '0');
             let ano = data.getFullYear();
 
-            let dataFormatada = `${dia}/${mes}/${ano}`; 
-
+            let dataFormatada = `${dia}/${mes}/${ano}`;
+            let status = "status" 
+            if(usuario.status == "Ativo"){
+                status = `<span class="status-ativo"> Ativo <span>`
+            }else{
+                status = `<span class="status-inativo"> Inativo <span>`
+            }
             celulaNome.innerHTML = link
             celulaEmail.innerText = usuario.email
-            celulaStatus.innerText = usuario.status
+            celulaStatus.innerHTML = status
             celulaData.innerText = dataFormatada
 
-            if(usuario.status == "Inativo"){
-                linha.style.color = 'gray'
-            }
         }
         const links = document.querySelectorAll('.link-usuario');
         links.forEach(link => {
@@ -175,7 +177,7 @@ function organizarDataRecente(usuarios) {
 }
 
 function controlaPagina(){
-    paginaSpan.innerText = `Exibindo pagina ${paginaAtual} de ${paginas}`
+    paginaSpan.innerText = `Exibindo página ${paginaAtual} de ${paginas}`
     botaoPaginaProxima.style.color = "var(--cor-texto)"
     botaoPaginaAnterior.style.color = "var(--cor-texto)"
     if(paginaAtual == paginas){
@@ -191,7 +193,7 @@ let orderby = 6
 let paginaAtual = 1
 let paginas = 1
 const paginaSpan = document.getElementById("span-pagina")
-const itensPorPagina = 15
+const itensPorPagina = 22
 const botaoSair = document.getElementById("sair")
 const botaoNome = document.getElementById("nome")
 const botaoEmail = document.getElementById("email")
@@ -217,11 +219,10 @@ botaoPaginaProxima.onclick = function(){
 }
 
 document.addEventListener('keydown', (event) => {
+    filtro = document.getElementById("pesquisa").value
+    preencherTabela();
     if (event.key === 'Enter') {
         event.preventDefault()
-    }else{
-        filtro = document.getElementById("pesquisa").value
-        preencherTabela();
     }
 });
 
