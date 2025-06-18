@@ -18,59 +18,55 @@
     height: 80vh;
 }
 
+.tabela #evento-user{
+    width: 20%;
+}
+.tabela #evento-nome{
+    width: 60%;
+}
+
+.tabela #evento-data{
+    width: 20%;
+}
+
+
 
 @page {
     size: A4;
-    margin: 0;
+    margin: 1cm;
 }
 @media print {
     
     html, body{
         visibility: hidden;
+        padding: 0px;
+        margin: 0px;
         --fonte-label: 0.7em !important;
         --fonte-pequena: 0.9em !important;
         --fonte-media: 1.1em !important;
     }
-    .principal{
-        margin: 0px;
-        padding: 0px;
-    }
-    main{
-        margin: 0px;
-        padding: 0px;
-    }
-    .principal header{
-        display: none;
-    }
-    nav{
+    header, nav, #btn-imprimir,#btn-proxima,#btn-anterior, #span-pagina, strong, .page-controle, hr{
         display: none !important;
     }
     .tabela {
-        visibility: visible;
+        visibility: visible !important;
         box-shadow: none !important;
-        height: min-content !important;
+        page-break-after: auto!important;
+        overflow:  hidden !important;
     }
     table{
-        margin: 0px;
+        margin-top: 10px !important;
+        page-break-after: auto!important;
+        border-collapse: collapse !important;
+        overflow: visible!important;
     }
     tr{
-        page-break-inside: avoid;
-        page-break-after: auto;
-        font-size: 0.9em;
+        page-break-inside: avoid!important;
+        font-size: 0.9em!important;
     }
     thead {
-        display: table-header-group;
+        display: table-header-group !important;
     }
-    #btn-imprimir{
-        visibility: hidden;
-    }
-    #btn-proxima{
-        visibility: hidden;
-    }
-    #btn-anterior{
-        visibility: hidden;
-    }
-
     .tema-escuro {
         --cor-fundo: #ffffff!important;
         --cor-fundo2:#c3c4ca!important;
@@ -80,22 +76,18 @@
         --cor-texto2:#6a6a6a!important;
         --cor-texto3:#575757!important;
     }
-    strong{
-        display: none;
+    td, th {
+        border: 1px solid rgb(136, 136, 136) !important;
+        padding: 8px !important;
+        word-wrap: break-word !important;
     }
     #tabela-cadastros #status{
         padding-right: 35px;
     }
-    .status-ativo{
+    .status-ativo, .status-inativo{
         color: black !important;
         font-weight: normal!important;
     }
-
-    .status-inativo{
-        color: black!important;
-        font-weight: normal!important;
-    }
-
     td{
         border: 1px solid rgb(136, 136, 136) !important;
     }

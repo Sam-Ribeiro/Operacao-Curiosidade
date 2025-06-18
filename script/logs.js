@@ -4,7 +4,8 @@ function preencherTabela(){
         while (tabela.rows.length > 1) {
             tabela.deleteRow(1);
         }
-        let logs = JSON.parse(localStorage.getItem("logs")) || [];
+        let logs = JSON.parse(localStorage.getItem("logs")) || []
+        tamanho = logs.length
         ths = document.querySelectorAll("th strong")
         ths.forEach((ordem) => ordem.style.visibility = "hidden")
         switch(orderby){
@@ -111,11 +112,16 @@ function controlaPagina(){
     paginaSpan.innerText = `Exibindo página ${paginaAtual} de ${paginas}`
     botaoPaginaProxima.style.color = "var(--cor-texto)"
     botaoPaginaAnterior.style.color = "var(--cor-texto)"
-    if(paginaAtual == paginas){
+    if(paginaAtual >= paginas){
         botaoPaginaProxima.style.color = "gray"
     }
-    if(paginaAtual == 1){
+    if(paginaAtual <= 1){
         botaoPaginaAnterior.style.color = "gray"
+    }
+    if(paginas == 0){
+        paginaSpan.innerText = `Nenhuma informação cadastrada`
+        botaoPaginaAnterior.style.display = 'none'
+        botaoPaginaProxima.style.display = 'none'
     }
 }
 
@@ -123,8 +129,9 @@ let filtro = ''
 let orderby = 4
 let paginaAtual = 1
 let paginas = 1
+let tamanho = 10
 const paginaSpan = document.getElementById("span-pagina")
-const itensPorPagina = 22
+let itensPorPagina = 22
 const botaoSair = document.getElementById("sair")
 const botaoUser = document.getElementById("evento-user")
 const botaoEvento = document.getElementById("evento-nome")
