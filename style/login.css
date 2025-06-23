@@ -16,6 +16,10 @@ body{
   opacity: 1;
 }
 
+#main-cadastro{
+    height: 700px;
+}
+
 main{
     width: 450px;
     height: 550px;
@@ -37,11 +41,13 @@ main{
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
     text-shadow: 5px 5px 10px #00000080;
 }
+
 .logo p{
     color: var(--cor-branco);
     margin-top: 30px;
-    font-size: var(--fonte-pequena);
+    font-size: 1em;
 }
+
 .logo h1{
     padding-top: 50px;
     line-height: 0em;
@@ -60,6 +66,7 @@ main{
     padding-left: 15px;
     padding-right: 15px;
 }
+
 .campo:focus{
     outline: none;
     border-bottom: var(--cor-campo-foco) solid 4px;
@@ -98,6 +105,7 @@ a{
 a:hover{
     text-decoration: underline;
 }
+
 p{
     color: var(--cor-texto);
 }

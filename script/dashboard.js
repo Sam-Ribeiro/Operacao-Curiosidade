@@ -1,27 +1,29 @@
-function atualizaDados(){
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-    let usuariosInativos = 0
-    let usuariosMes = 0
-    const mesAtras = new Date();
-    mesAtras.setMonth(new Date().getMonth() - 1);
-    for(let i = usuarios.length - 1; i >= 0 ; i--){
-        const usuario = usuarios[i];
-        if(usuario.status == "Inativo"){
-            usuariosInativos++
+function atualizarDados(){
+    let pessoas = JSON.parse(localStorage.getItem("pessoas")) || []
+    let pessoasInativos = 0
+    let pessoasMes = 0
+    let pessoasTotal = 0
+    const mesAtras = new Date()
+    mesAtras.setMonth(new Date().getMonth() - 1)
+    pessoas = pessoas.filter(p => !p.deletado)
+    for(let i = pessoas.length - 1; i >= 0 ; i--){
+        const pessoa = pessoas[i]
+        if(pessoa.status == "Inativo"){
+            pessoasInativos++
         }
-        const dataCadastro = new Date(usuario.dataCadastro);
+        const dataCadastro = new Date(pessoa.dataCadastro)
         if (dataCadastro >= mesAtras){
-            usuariosMes++
+            pessoasMes++
         }
-
+        pessoasTotal++
     }
-
     totalCadastros = document.querySelector("#bloco1 h1")
     cadastrosMes = document.querySelector("#bloco2 h1")
     cadastrosRevisao = document.querySelector("#bloco3 h1")
 
-    totalCadastros.innerText = usuarios.length
-    cadastrosMes.innerText = usuariosMes
-    cadastrosRevisao.innerText = usuariosInativos
+    totalCadastros.innerText = pessoasTotal
+    cadastrosMes.innerText = pessoasMes
+    cadastrosRevisao.innerText = pessoasInativos
 }
-atualizaDados();
+
+atualizarDados()

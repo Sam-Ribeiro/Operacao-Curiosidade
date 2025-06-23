@@ -14,74 +14,74 @@
     background-color: rgb(45, 73, 143);
 }
 
-.tabela{
-    height: 80vh;
+#tabela-logs{
+    height: 80%;
 }
-
+.tabela #evento-usuario{
+    width: 20%;
+}
+.tabela #evento-nome{
+    width: 60%;
+}
+.tabela #evento-data{
+    width: 20%;
+}
 
 @page {
     size: A4;
-    margin: 0;
+    margin: 1cm;
 }
 @media print {
     
     html, body{
-        visibility: hidden;
-    }
-    .principal{
-        margin: 0px;
+        visibility: hidden !important;
         padding: 0px;
-    }
-    main{
         margin: 0px;
-        padding: 0px;
+        --fonte-label: 0.7em !important;
+        --fonte-pequena: 0.9em !important;
+        --fonte-media: 1.1em !important;
     }
-    .principal header{
-        display: none;
-    }
-    nav{
+    header, nav, #btn-imprimir,#btn-proxima,#btn-anterior, #span-pagina, strong, .page-controle, hr{
         display: none !important;
     }
     .tabela {
-        visibility: visible;
+        visibility: visible !important;
         box-shadow: none !important;
-        height: min-content !important;
+        page-break-inside: avoid!important;
+        page-break-after: auto !important;
+    }
+    .tabela h1{
+        display: none;
     }
     table{
-        border: 1px solid black;
-        font: 0.1em;
+        page-break-after: auto !important;
     }
     tr{
-        page-break-inside: avoid;
-        page-break-after: auto;
-        font-size: 0.9em;
+        page-break-inside: avoid!important;
+        page-break-after: auto !important;
+        font-size: 0.9em!important;
+        display: table-header-group !important;
     }
-    thead {
-        display: table-header-group;
-    }
-    #btn-imprimir{
-        visibility: hidden;
-    }
-    #btn-proxima{
-        visibility: hidden;
-    }
-    #btn-anterior{
-        visibility: hidden;
-    }
-
-    .tema-escuro {
+    .tema-escuro, :root{
         --cor-fundo: #ffffff!important;
         --cor-fundo2:#c3c4ca!important;
-        --cor-fundo3:#cecece!important;
-        --cor-fundo4:#e4e8ee !important;
+        --cor-fundo3:rgb(238, 244, 245)!important;
         --cor-texto: #000000!important;
         --cor-texto2:#6a6a6a!important;
         --cor-texto3:#575757!important;
     }
-    strong{
-        display: none;
+    td, th {
+        border: 1px solid rgb(235, 235, 235) !important;
+        padding: 8px !important;
     }
     #tabela-cadastros #status{
         padding-right: 35px;
+    }
+    .status-ativo, .status-inativo{
+        color: black !important;
+        font-weight: normal!important;
+    }
+    td{
+        border: 1px solid rgb(136, 136, 136) !important;
     }
 }

@@ -30,13 +30,13 @@ dialog{
 }
 
 dialog::backdrop{
-    background-color: rgba(0, 0, 0, 0.559);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 dialog .botao{
     color: #ffffff;
     border-radius: 5px;
     border-style: initial;
-    padding: 10px 50px 10px 50px;
+    padding: 10px 0px 10px 0px;
     font-weight:bold;
     font-size: var(--fonte-pequena);
     letter-spacing: 2px;
@@ -46,8 +46,8 @@ dialog .botao{
     margin-left: auto;
     margin-right: auto;
 }
-#btn-editar{
-    background-color: rgb(56, 102, 170); 
+#btn-editar, #btn-restaurar{
+    background-color: rgb(56, 102, 170);
 }
 #btn-editar:hover{
     background-color: rgb(32, 67, 120);   
@@ -97,7 +97,7 @@ dialog .botao{
 .status{
     float: right;
     padding: 0px;
-    margin: 10px 20px 0px 0px;
+    margin: 15px 5px 0px 0px;
 }
 .cabecalho{
     padding: 10px 0px 10px 0px;
@@ -121,20 +121,20 @@ label{
     border-style: inherit;
     margin: 5px 10px 5px 10px;
     padding-left: 10px;
+    border-radius: 5px;
 }
 
 .campo:focus{
     outline: none;
     border-bottom: var(--cor-campo-foco) solid 4px;
-    border-radius: 10px;
 }
 .texto:focus{
     outline: none;
     border-bottom: var(--cor-campo-foco) solid 4px;
-    border-radius: 10px;
 }
 
 .texto{
+    border-radius: 5px;
     padding-left: 10px;
     width: 97%;
     height: 5em;
@@ -143,13 +143,8 @@ label{
     color: var(--cor-texto);
     border-style: inherit;
     margin: 5px 10px 5px 10px;
-}
-
-#erro{
-    display: none;
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    font-size: var(--fonte-label);
+    font-family: Verdana;
 }
 
 .toggle{

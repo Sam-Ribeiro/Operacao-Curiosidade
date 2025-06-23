@@ -37,7 +37,7 @@ nav a{
     display: flex;
     color: var(--cor-texto);
     padding: 20px;  
-    background-color: var(--cor-fundo3);
+    
     color: var(--cor-texto);
     line-height: 0;
     align-items: center;
@@ -46,7 +46,7 @@ nav a{
     border-radius: 5px;
 }   
 nav a:hover{
-    background-color: var(--cor-header-fundo);
+    background-color: var(--cor-fundo-claro);
     color: var(--cor-branco);
 }
 .ativo{
