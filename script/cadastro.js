@@ -1,13 +1,12 @@
-
-function carregarUsuario(){
-    const usuario = JSON.parse(localStorage.getItem("usuario"))
+function carregarPessoa(){
+    const pessoa = JSON.parse(localStorage.getItem("pessoa"))
     const modal = document.querySelector("dialog")
     const titulo = document.querySelector("dialog #titulo-modal")
     titulo.innerText = "Novo Cadastro"
-    if(usuario){
+    if(pessoa){
         modal.showModal()
         
-        if(usuario.deletado){
+        if(pessoa.deletado){
             titulo.innerText = "Usuário apagado"
             botaoGravar.style.display = 'none'
             botaoEditar.style.display = 'none'
@@ -20,16 +19,16 @@ function carregarUsuario(){
             botaoExcluir.style.display = 'block'
             botaoRestaurar.style.display = 'none'
         }
-        document.querySelector("dialog #nome").value = usuario.nome
-        document.querySelector("dialog #email").value = usuario.email
-        document.querySelector("dialog #idade").value = usuario.idade
-        document.querySelector("dialog #endereco").value = usuario.endereco
-        document.querySelector("dialog #informacoes").value = usuario.informacoes
-        document.querySelector("dialog #interesses").value = usuario.interesses
-        document.querySelector("dialog #sentimentos").value = usuario.sentimentos
-        document.querySelector("dialog #valores").value = usuario.valores
+        document.querySelector("dialog #nome").value = pessoa.nome
+        document.querySelector("dialog #email").value = pessoa.email
+        document.querySelector("dialog #idade").value = pessoa.idade
+        document.querySelector("dialog #endereco").value = pessoa.endereco
+        document.querySelector("dialog #informacoes").value = pessoa.informacoes
+        document.querySelector("dialog #interesses").value = pessoa.interesses
+        document.querySelector("dialog #sentimentos").value = pessoa.sentimentos
+        document.querySelector("dialog #valores").value = pessoa.valores
         let checkbox = document.querySelector("dialog #status-toggle")
-        if(usuario.status == "Ativo"){
+        if(pessoa.status == "Ativo"){
             checkbox.checked = true
         }
     }
@@ -38,8 +37,8 @@ function carregarUsuario(){
 function verificaEntrada(){
     var erro = document.getElementById("erro")
     erro.style.display = 'none'
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
-    const usuarioEditado = JSON.parse(localStorage.getItem("usuario")) || []
+    const pessoas = JSON.parse(localStorage.getItem("pessoas")) || []
+    const pessoaEditado = JSON.parse(localStorage.getItem("pessoa")) || []
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     const checkbox = document.querySelector("dialog #status-toggle")
     if(checkbox.checked == true){
@@ -47,7 +46,7 @@ function verificaEntrada(){
     }else{
         var status = "Inativo"
     }
-    const usuario ={
+    const pessoa ={
         nome: document.querySelector("dialog #nome").value,
         email: document.querySelector("dialog #email").value,
         status: status,
@@ -60,43 +59,49 @@ function verificaEntrada(){
         dataCadastro: new Date().toISOString(),
         deletado: false
     }
-    const outrosUsuarios = usuarios.filter(u => u.email !== usuarioEditado.email)
-    if(!usuario.nome || !usuario.email || !usuario.idade || !usuario.endereco){
+    const outrospessoas = pessoas.filter(u => u.email !== pessoaEditado.email)
+    if(!pessoa.nome || !pessoa.email || !pessoa.idade || !pessoa.endereco){
         erro.innerText = "Preencha os campos obrigatórios!"
         erro.style.display = 'block'
         console.log("retornando esse false")
         return false
-    }else if(outrosUsuarios.some(u => u.email === usuario.email)){
+    }else if(outrospessoas.some(u => u.email === pessoa.email)){
         erro.innerText = "Email já cadastrado"
         erro.style.display = 'block'
         return false
-    }else if(!emailRegex.test(usuario.email)){
+    }else if(!emailRegex.test(pessoa.email)){
         erro.innerText = "Email inválido"
         erro.style.display = 'block'
         return false
-    }else if( Number(usuario.idade)<1 || Number(usuario.idade>120) || isNaN(Number(usuario.idade))){
+    }else if( Number(pessoa.idade)<1 || Number(pessoa.idade>120) || isNaN(Number(pessoa.idade))){
         erro.innerText = "Idade inválida"
         erro.style.display = 'block'
         return false
     }else{
-        localStorage.setItem("usuario", JSON.stringify(usuario))   
+        localStorage.setItem("pessoa", JSON.stringify(pessoa))   
         return true     
     }
 }
 
 function enviarLog(log){
     const logs = JSON.parse(localStorage.getItem("logs")) || []
-    const user = JSON.parse(localStorage.getItem("user")) || []
+    const usuario = JSON.parse(localStorage.getItem("usuario")) || []
     const logformatado ={ 
         evento: log,
         data: new Date().toISOString(),
-        user: user.user_nome,
+        usuario: usuario.nome,
     }
     logs.push(logformatado)
     localStorage.setItem("logs", JSON.stringify(logs))
 }
 
-const user = JSON.parse(localStorage.getItem("user"))
+function fecharCadastro(){
+    modal.close()
+    localStorage.removeItem("pessoa")
+    preencherTabela(true)
+    form = document.getElementById("form-cadastro")
+    form.reset()
+}
 const modal = document.querySelector("dialog")
 const botaoModal = document.getElementById("novo-cadastro")
 const botaoClose = document.getElementById("btn-cancelar")
@@ -105,123 +110,113 @@ const botaoEditar = document.getElementById("btn-editar")
 const botaoExcluir = document.getElementById("btn-excluir")
 const botaoRestaurar =  document.getElementById("btn-restaurar")
 
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        event.preventDefault()
+        modal.close()
+        localStorage.removeItem("pessoa")
+        let form = document.getElementById("form-cadastro")
+        form.reset()
+    }
+})
+
 botaoModal.onclick = function (){
     modal.showModal()
     botaoGravar.style.display = 'block'
     botaoEditar.style.display = 'none'
     botaoExcluir.style.display = 'none'
 }
+
 botaoGravar.onclick = function (){
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
+    const pessoas = JSON.parse(localStorage.getItem("pessoas")) || []
     let retorno = verificaEntrada()
     if(retorno){
-        const usuario = JSON.parse(localStorage.getItem("usuario"))
-        enviarLog("Cadastrou usuário: "+usuario.nome)
-        usuarios.push(usuario)
-        localStorage.setItem("usuarios", JSON.stringify(usuarios))
-        localStorage.removeItem("usuario")
-        preencherTabela(true)
-        modal.close()
-        let form = document.getElementById("form-cadastro")
-        form.reset()
+        const pessoa = JSON.parse(localStorage.getItem("pessoa"))
+        enviarLog("Cadastrou a pessoa: "+pessoa.nome)
+        pessoas.push(pessoa)
+        localStorage.setItem("pessoas", JSON.stringify(pessoas))
+        fecharCadastro()
     }
 }
+
 botaoClose.onclick = function(){
-    modal.close()
-    localStorage.removeItem("usuario")
-    let form = document.getElementById("form-cadastro")
-    form.reset()
+    fecharCadastro()
 }
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-        event.preventDefault()
-        modal.close()
-        localStorage.removeItem("usuario")
-        let form = document.getElementById("form-cadastro")
-        form.reset()
-    }
-})
+
 botaoEditar.onclick = function(){
-    const usuarios = JSON.parse(localStorage.getItem("usuarios"))  
-    const usuario = JSON.parse(localStorage.getItem("usuario"))
+    const pessoas = JSON.parse(localStorage.getItem("pessoas"))  
+    const pessoa = JSON.parse(localStorage.getItem("pessoa"))
     let retorno = verificaEntrada()
     if(retorno){
-        const usuarioEditado = JSON.parse(localStorage.getItem("usuario"))
-        const usuariosAtualizados = usuarios.map(u => {
-            if (u.email === usuarioEditado.email) {
-                return usuarioEditado
+        const pessoaEditado = JSON.parse(localStorage.getItem("pessoa"))
+        const pessoasAtualizados = pessoas.map(u => {
+            if (u.email === pessoaEditado.email) {
+                return pessoaEditado
             }
             return u
         })
-        localStorage.setItem("usuarios", JSON.stringify(usuariosAtualizados))
+        localStorage.setItem("pessoas", JSON.stringify(pessoasAtualizados))
         let edicao = ""
-        if(usuario.nome != usuarioEditado.nome){
-            edicao = edicao + " Nome alterado de: "+ usuario.nome + " para "+usuarioEditado.nome + "."
+        if(pessoa.nome != pessoaEditado.nome){
+            edicao = edicao + " Nome alterado de: "+ pessoa.nome + " para "+pessoaEditado.nome + "."
         }
-        if(usuario.email != usuarioEditado.email){
-            edicao = edicao + " Email alterado de: "+ usuario.email + " para " + usuarioEditado.email + "."
+        if(pessoa.email != pessoaEditado.email){
+            edicao = edicao + " Email alterado de: "+ pessoa.email + " para " + pessoaEditado.email + "."
         }
-        if(usuario.idade != usuarioEditado.idade){
-            edicao = edicao + " Idade alterada de "+ usuario.idade + " para " + usuarioEditado.idade + "."
+        if(pessoa.idade != pessoaEditado.idade){
+            edicao = edicao + " Idade alterada de: "+ pessoa.idade + " para " + pessoaEditado.idade + "."
         }
-        if(usuario.status != usuarioEditado.status){
-            edicao = edicao + " Status alterada de "+ usuario.status + " para " + usuarioEditado.status + "."
+        if(pessoa.status != pessoaEditado.status){
+            edicao = edicao + " Status alterado de: "+ pessoa.status + " para " + pessoaEditado.status + "."
         }
-        if(usuario.endereco != usuarioEditado.endereco){
+        if(pessoa.endereco != pessoaEditado.endereco){
             edicao = edicao + " Endereço atualizado."
         }
-        if(usuario.informacoes != usuarioEditado.informacoes){
+        if(pessoa.informacoes != pessoaEditado.informacoes){
             edicao = edicao + " Informações de dados e fatos atualizados."
         }
-        if(usuario.interesses != usuarioEditado.interesses){
+        if(pessoa.interesses != pessoaEditado.interesses){
             edicao = edicao + " Interesses atualizados."
         }
-        if(usuario.sentimentos != usuarioEditado.sentimentos){
+        if(pessoa.sentimentos != pessoaEditado.sentimentos){
             edicao = edicao + " Sentimentos atualizados."
         }
-        if(usuario.valores != usuarioEditado.valores){
+        if(pessoa.valores != pessoaEditado.valores){
             edicao = edicao + " Valores atualizados."
         }
-        modal.close()
-        enviarLog("Editou usuário: " + usuario.nome +"."+ edicao)
+        enviarLog("Editou a pessoa: " + pessoa.nome +"."+ edicao)
+        fecharCadastro()
     }
-    localStorage.removeItem("usuario")
-    preencherTabela(true)
-    const form = document.getElementById("form-cadastro")
-    form.reset()
 }
+
 botaoExcluir.onclick = function(){
-    const usuarios = JSON.parse(localStorage.getItem("usuarios"))
-    const usuario = JSON.parse(localStorage.getItem("usuario"))
-    const usuariosAtualizados = usuarios.map(u => {
-        if (u.email === usuario.email) {
-            return { ...u, deletado: true }
+    const pessoas = JSON.parse(localStorage.getItem("pessoas"))
+    const pessoa = JSON.parse(localStorage.getItem("pessoa"))
+    const pessoasAtualizados = pessoas.map(u => {
+        if (u.email === pessoa.email) {
+            return { ...u, deletado: true, status: "Inativo" }
         }
             return u
         })
-    localStorage.setItem("usuarios", JSON.stringify(usuariosAtualizados))
-    modal.close()
-    enviarLog("Excluiu usuário: " + usuario.nome)
-    localStorage.removeItem("usuario")
-    preencherTabela(true)
-    form = document.getElementById("form-cadastro")
-    form.reset()
+    localStorage.setItem("pessoas", JSON.stringify(pessoasAtualizados))
+    
+    enviarLog("Excluiu a pessoa: " + pessoa.nome)
+    fecharCadastro()
 }
+
 botaoRestaurar.onclick = function(){
-    const usuarios = JSON.parse(localStorage.getItem("usuarios"))
-    const usuario = JSON.parse(localStorage.getItem("usuario"))
-    const usuariosAtualizados = usuarios.map(u => {
-        if (u.email === usuario.email) {
+    const pessoas = JSON.parse(localStorage.getItem("pessoas"))
+    const pessoa = JSON.parse(localStorage.getItem("pessoa"))
+    const pessoasAtualizados = pessoas.map(u => {
+        if (u.email === pessoa.email) {
             return { ...u, deletado: false }
         }
             return u
         })
-    localStorage.setItem("usuarios", JSON.stringify(usuariosAtualizados))
-    modal.close()
-    enviarLog("Restaurou usuário: " + usuario.nome)
-    localStorage.removeItem("usuario")
-    preencherTabela(true)
-    form = document.getElementById("form-cadastro")
-    form.reset()
+    localStorage.setItem("pessoas", JSON.stringify(pessoasAtualizados))
+    enviarLog("Restaurou a pessoa: " + pessoa.nome)
+    fecharCadastro()
 }
-carregarUsuario()
+
+carregarPessoa()
+

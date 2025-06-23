@@ -37,7 +37,7 @@ nav a{
     display: flex;
     color: var(--cor-texto);
     padding: 20px;  
-    background-color: var(--cor-fundo4);
+    
     color: var(--cor-texto);
     line-height: 0;
     align-items: center;

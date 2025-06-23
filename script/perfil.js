@@ -13,19 +13,19 @@ botaoSalvar.onclick = function(){
     salvarDados()
 }
 function carregarDados(){
-    user = JSON.parse(localStorage.getItem("user"))
-    campoNome.value = user.user_nome
-    campoEmail.value = user.user_email
-    campoData.value = user.user_data
+    usuario = JSON.parse(localStorage.getItem("usuario"))
+    campoNome.value = usuario.nome
+    campoEmail.value = usuario.email
+    campoData.value = usuario.data
     campoSenhaAntiga.value = ""
     campoSenhaNova.value = ""
 }
 
 function salvarDados(){
-    user = JSON.parse(localStorage.getItem("user"))
-    users = JSON.parse(localStorage.getItem("users"))
-    users.forEach(u => {
-        if(u.user_email == user.user_email){
+    usuario = JSON.parse(localStorage.getItem("usuario"))
+    usuarios = JSON.parse(localStorage.getItem("usuarios"))
+    usuarios.forEach(u => {
+        if(u.email == usuario.email){
             var nome = campoNome.value
             var email = campoEmail.value
             var data = campoData.value
@@ -34,23 +34,25 @@ function salvarDados(){
 
             var erro = document.getElementById("erro")
             erro.style.display = 'none'
+            erro.style.color = 'rgb(220, 74, 74)'
+            erro.style.textDecorationColor = 'rgb(220, 74, 74)'
             const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             var agora = new Date().getFullYear()
             const anotxt = data.substring(0, 4)
             const ano = Number(anotxt)
-            const outrosUsers = users.filter(u => u.user_email !== user.user_email)
+            const outrosusuarios = usuarios.filter(u => u.email !== usuario.email)
             if(senhaNova){
-                if(!senhaAntiga || senhaAntiga != user.user_senha){
+                if(!senhaAntiga || senhaAntiga != usuario.senha){
                     erro.innerText = "Para alterar a senha, preencha a senha antiga corretamente!"
                     erro.style.display = 'block'
                 }else{
-                    user.user_senha = senhaNova
+                    usuario.senha = senhaNova
                 }
             }
             if(!nome || !email || !data){
                 erro.innerText = "Prencha Nome, Email e data de nascimento"
                 erro.style.display = 'block'
-            }else if(outrosUsers.some(u => u.user_email === email)){
+            }else if(outrosusuarios.some(u => u.email === email)){
                 erro.innerText = "Email já cadastrado"
                 erro.style.display = 'block'
             }else if(!emailRegex.test(email)){
@@ -63,15 +65,20 @@ function salvarDados(){
                 erro.innerText = "Data de nascimento inválida"
                 erro.style.display = 'block'
             }else{
-                user.user_nome = nome
-                user.user_email = email
-                user.user_data = data
-                u.user_nome = nome
-                u.user_email = email
-                u.user_data = data
-                u.user_senha = user.user_senha
-                localStorage.setItem("user", JSON.stringify(user))
-                localStorage.setItem("users", JSON.stringify(users))
+                erro.style.color = 'rgb(115, 220, 74)'
+                erro.style.textDecorationColor = 'rgb(115, 220, 74)'
+                erro.innerText = "Usuário alterado com sucesso!"
+                erro.style.display = 'block'
+
+                usuario.nome = nome
+                usuario.email = email
+                usuario.data = data
+                u.nome = nome
+                u.email = email
+                u.data = data
+                u.senha = usuario.senha
+                localStorage.setItem("usuario", JSON.stringify(usuario))
+                localStorage.setItem("usuarios", JSON.stringify(usuarios))
             }
         }
     });

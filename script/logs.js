@@ -10,13 +10,13 @@ function preencherTabela(){
         ths.forEach((ordem) => ordem.style.visibility = "hidden")
         switch(orderby){
             case 0:
-                logs.sort((a, b) => a.user.localeCompare(b.user))
+                logs.sort((a, b) => a.usuario.localeCompare(b.usuario))
                 th = document.querySelector("th:nth-child(1) strong")
                 th.innerHTML ="&#11167;"
                 th.style.visibility = "visible"
                 break
             case 1:
-                logs.sort((a, b) => b.user.localeCompare(a.user))
+                logs.sort((a, b) => b.usuario.localeCompare(a.usuario))
                 th = document.querySelector("th:nth-child(1) strong")
                 th.innerHTML = "&#11165"
                 th.style.visibility = "visible"
@@ -53,7 +53,7 @@ function preencherTabela(){
             filtro = filtro.toLowerCase();
             logs = logs.filter(u => 
                 u.evento.toLowerCase().includes(filtro) || 
-                u.user.toLowerCase().includes(filtro)
+                u.usuario.toLowerCase().includes(filtro)
              )
         }
         paginas = logs.length / itensPorPagina | 0;
@@ -72,7 +72,7 @@ function preencherTabela(){
             var qtdLinhas = tabela.rows.length;
             var linha = tabela.insertRow(qtdLinhas)
 
-            var celulaUser = linha.insertCell(0)
+            var celulausuario = linha.insertCell(0)
             var celulaEvento = linha.insertCell(1)
             var celulaData = linha.insertCell(2)
             if(i%2==0){
@@ -87,7 +87,7 @@ function preencherTabela(){
 
             let dataFormatada = `${dia}/${mes}/${ano} - ${hora}:${minutos}`
 
-            celulaUser.innerHTML = log.user
+            celulausuario.innerHTML = log.usuario
             celulaEvento.innerText = log.evento
             celulaData.innerText = dataFormatada
         }
@@ -131,9 +131,9 @@ let paginaAtual = 1
 let paginas = 1
 let tamanho = 10
 const paginaSpan = document.getElementById("span-pagina")
-let itensPorPagina = 22
+let itensPorPagina = 10
 const botaoSair = document.getElementById("sair")
-const botaoUser = document.getElementById("evento-user")
+const botaoUsuario = document.getElementById("evento-usuario")
 const botaoEvento = document.getElementById("evento-nome")
 const botaoData = document.getElementById("evento-data")
 const botaoPesquisar = document.getElementById("btn-pesquisar")
@@ -161,9 +161,9 @@ document.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         event.preventDefault()
     }
-});
+})
 
-botaoUser.onclick = function(){
+botaoUsuario.onclick = function(){
     if(orderby == 0){
         orderby = 1
     }else{
@@ -188,9 +188,9 @@ botaoData.onclick = function(){
     preencherTabela();
 }
 botaoSair.onclick = function(){
-    localStorage.removeItem("user")
+    localStorage.removeItem("usuario")
 }
 
 preencherTabela();
-validaUsuario();
+validarUsuario();
 controlaPagina();

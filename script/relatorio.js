@@ -8,9 +8,9 @@ if(botaoImprimir){
         itensPorPagina = tamanho
         preencherTabela(listar())
         window.print()
-        itensPorPagina = 22
+        itensPorPagina = 10
         preencherTabela(listar())
     })
 }
 
-validaUsuario()
+validarUsuario()

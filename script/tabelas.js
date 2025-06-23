@@ -4,86 +4,86 @@ function preencherTabela(incluido){
         while (tabela.rows.length > 1) {
             tabela.deleteRow(1)
         }
-        let usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
-        tamanho = usuarios.length
+        let pessoas = JSON.parse(localStorage.getItem("pessoas")) || []
+        tamanho = pessoas.length
         ths = document.querySelectorAll("th strong")
         ths.forEach((ordem) => ordem.style.visibility = "hidden")
         switch(orderby){
             case 0:
-                usuarios.sort((a, b) => a.nome.localeCompare(b.nome))
+                pessoas.sort((a, b) => a.nome.localeCompare(b.nome))
                 th = document.querySelector("th:nth-child(1) strong")
                 th.innerHTML ="&#11167;"
                 th.style.visibility = "visible"
                 break
             case 1:
-                usuarios.sort((a, b) => b.nome.localeCompare(a.nome))
+                pessoas.sort((a, b) => b.nome.localeCompare(a.nome))
                 th = document.querySelector("th:nth-child(1) strong")
                 th.innerHTML = "&#11165"
                 th.style.visibility = "visible"
                 break
             case 2:
-                usuarios = organizarStatus(usuarios)
+                pessoas = organizarStatus(pessoas)
                 th = document.querySelector("th:nth-child(3) strong")
                 th.innerHTML ="&#11167;"
                 th.style.visibility = "visible"
                 break
             case 3:
-                usuarios = organizarStatusInativo(usuarios)
+                pessoas = organizarStatusInativo(pessoas)
                 th = document.querySelector("th:nth-child(3) strong")
                 th.innerHTML = "&#11165"
                 th.style.visibility = "visible"
                 break
             case 4:
-                usuarios.sort((a, b) => a.email.localeCompare(b.email))
+                pessoas.sort((a, b) => a.email.localeCompare(b.email))
                 th = document.querySelector("th:nth-child(2) strong")
                 th.innerHTML ="&#11167;"
                 th.style.visibility = "visible"
                 break
             case 5:
-                usuarios.sort((a, b) => b.email.localeCompare(a.email))
+                pessoas.sort((a, b) => b.email.localeCompare(a.email))
                 th = document.querySelector("th:nth-child(2) strong")
                 th.innerHTML = "&#11165"
                 th.style.visibility = "visible"
                 break
             case 6:
-                usuarios = organizarDataRecente(usuarios)
+                pessoas = organizarDataRecente(pessoas)
                 th = document.querySelector("th:nth-child(4) strong")
                 th.innerHTML ="&#11167;"
                 th.style.visibility = "visible"
                 break
             case 7:
-                usuarios = organizarDataAntiga(usuarios)
+                pessoas = organizarDataAntiga(pessoas)
                 th = document.querySelector("th:nth-child(4) strong")
                 th.innerHTML = "&#11165"
                 th.style.visibility = "visible"
                 break                
             default:
-                usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
+                pessoas = JSON.parse(localStorage.getItem("pessoas")) || []
                 break            
         }
         if(filtro != ''){
             filtro = filtro.toLowerCase()
-            usuarios = usuarios.filter(u => 
+            pessoas = pessoas.filter(u => 
                 u.email.toLowerCase().includes(filtro) || 
                 u.nome.toLowerCase().includes(filtro) || 
                 u.status.toLowerCase().startsWith(filtro)
              )
         }
-        usuarios = usuarios.filter(u => u.deletado != incluido)
+        pessoas = pessoas.filter(u => u.deletado != incluido)
 
-        paginas = usuarios.length / itensPorPagina | 0
-        if (usuarios.length % itensPorPagina !== 0) {
+        paginas = pessoas.length / itensPorPagina | 0
+        if (pessoas.length % itensPorPagina !== 0) {
             paginas++
         }
         const paginaInicial = (paginaAtual - 1) * itensPorPagina
         let paginaFinal = paginaInicial + itensPorPagina
 
-        if (paginaFinal > usuarios.length) {
-            paginaFinal = usuarios.length
+        if (paginaFinal > pessoas.length) {
+            paginaFinal = pessoas.length
         }
-        usuarios = usuarios.slice(paginaInicial, paginaFinal)
-        for(var i = 0; i < usuarios.length ; i++){
-            const usuario = usuarios[i]
+        pessoas = pessoas.slice(paginaInicial, paginaFinal)
+        for(var i = 0; i < pessoas.length ; i++){
+            const pessoa = pessoas[i]
             var qtdLinhas = tabela.rows.length
             var linha = tabela.insertRow(qtdLinhas)
             if(i%2==0){
@@ -94,41 +94,41 @@ function preencherTabela(incluido){
             var celulaStatus = linha.insertCell(2)
             var celulaData = linha.insertCell(3)
                 
-            var link = '<a class="link-usuario" id="'+ i +'" href="#">'+ usuario.nome +'</a>'
+            var link = '<a class="link-pessoa" id="'+ i +'" href="#">'+ pessoa.nome +'</a>'
 
-            let data = new Date(usuario.dataCadastro)
+            let data = new Date(pessoa.dataCadastro)
             let dia = String(data.getDate()).padStart(2, '0')
             let mes = String(data.getMonth() + 1).padStart(2, '0')
             let ano = data.getFullYear()
 
             let dataFormatada = `${dia}/${mes}/${ano}`
             let status = "status" 
-            if(usuario.status == "Ativo"){
+            if(pessoa.status == "Ativo"){
                 status = `<span class="status-ativo"> Ativo <span>`
             }else{
                 status = `<span class="status-inativo"> Inativo <span>`
             }
             celulaNome.innerHTML = link
-            celulaEmail.innerText = usuario.email
+            celulaEmail.innerText = pessoa.email
             celulaStatus.innerHTML = status
             celulaData.innerText = dataFormatada
 
         }
-        const links = document.querySelectorAll('.link-usuario')
+        const links = document.querySelectorAll('.link-pessoa')
         links.forEach(link => {
             link.addEventListener('click', (event) => {
                 const elementoClicado = event.target
                 const idLink = elementoClicado.id
-                const usuario = usuarios[idLink]
-                localStorage.setItem("usuario", JSON.stringify(usuario))
+                const pessoa = pessoas[idLink]
+                localStorage.setItem("pessoa", JSON.stringify(pessoa))
                 window.location.href = "../pages/cadastro.html"
             })
         })
     }
 }
 
-function organizarStatus(usuarios){
-    usuarios.sort((a, b) => {
+function organizarStatus(pessoas){
+    pessoas.sort((a, b) => {
         if (a.status === "Ativo" && b.status === "Inativo") {
             return -1
         }
@@ -137,10 +137,11 @@ function organizarStatus(usuarios){
         }
             return 0
     })
-    return usuarios
+    return pessoas
 }
-function organizarStatusInativo(usuarios){
-    usuarios.sort((a, b) => {
+
+function organizarStatusInativo(pessoas){
+    pessoas.sort((a, b) => {
         if (b.status === "Ativo" && a.status === "Inativo") {
             return -1
         }
@@ -149,21 +150,21 @@ function organizarStatusInativo(usuarios){
         }
             return 0
     })
-    return usuarios
+    return pessoas
 }
 
-function organizarDataAntiga(usuarios) {
-    usuarios.sort((a, b) => {
+function organizarDataAntiga(pessoas) {
+    pessoas.sort((a, b) => {
         return new Date(a.dataCadastro) - new Date(b.dataCadastro)
     })
-    return usuarios
+    return pessoas
 }
 
-function organizarDataRecente(usuarios) {
-    usuarios.sort((a, b) => {
+function organizarDataRecente(pessoas) {
+    pessoas.sort((a, b) => {
         return new Date(b.dataCadastro) - new Date(a.dataCadastro)
     })
-    return usuarios
+    return pessoas
 }
 
 function controlaPagina(){
@@ -189,7 +190,7 @@ let paginaAtual = 1
 let paginas = 0
 let tamanho = 10
 const incluidos = listar()
-let itensPorPagina = 22
+let itensPorPagina = 10
 const paginaSpan = document.getElementById("span-pagina")
 const botaoSair = document.getElementById("sair")
 const botaoNome = document.getElementById("nome")
@@ -256,9 +257,8 @@ botaoDia.onclick = function(){
     preencherTabela(incluidos)
 }
 botaoSair.onclick = function(){
-    localStorage.removeItem("user")
+    localStorage.removeItem("usuario")
 }
 
 preencherTabela(incluidos)
-validaUsuario()
 controlaPagina()
