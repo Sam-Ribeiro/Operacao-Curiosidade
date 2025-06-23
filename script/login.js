@@ -7,12 +7,12 @@ if(document.getElementById("login-form")){
 }
 
 function logar(e){
-e.preventDefault();
+e.preventDefault()
   var erro = document.getElementById("erro")
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  var email = document.getElementById("email").value;
-  var senha = document.getElementById("senha").value;
-  const usuario = usuarios.find(u => u.email === email);
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+  var email = document.getElementById("email").value
+  var senha = document.getElementById("senha").value
+  const usuario = usuarios.find(u => u.email === email)
   if (!email || !senha ) {
     erro.innerText = "Preencha todos os campos"
     erro.style.display = 'block'
@@ -38,9 +38,9 @@ e.preventDefault();
 }
 
 function cadastrar(e){
-    e.preventDefault();
+    e.preventDefault()
     var erro = document.getElementById("erro")
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     var nome = document.getElementById("nome").value
     var email = document.getElementById("email").value
     var senha = document.getElementById("senha").value
@@ -59,7 +59,10 @@ function cadastrar(e){
         erro.innerText = "Email inválido"
         erro.style.display = 'block'    
     }else if(nome.length < 3){
-        erro.innerText = "Nome deve ter mais que dois caracteres"
+        erro.innerText = "O Nome deve ter mais que dois caracteres"
+        erro.style.display = 'block'
+    }else if(senha.length < 6){
+        erro.innerText = "A Senha deve ter mais que seis caracteres"
         erro.style.display = 'block'
     }else if(ano>=agora || ano<1910){
         erro.innerText = "Data de nascimento inválida"
@@ -81,7 +84,7 @@ function cadastrar(e){
 function formatarData(campoData) {
 
     if (campoData.value) {
-        const dateObj = new Date(campoData.value);
+        const dateObj = new Date(campoData.value)
         const dia = String(dateObj.getDate() + 1).padStart(2, '0')
         const mes = String(dateObj.getMonth() + 1).padStart(2, '0')
         const ano = dateObj.getFullYear()
@@ -94,7 +97,7 @@ function formatarData(campoData) {
 }
 
 function validarUsuario(){
-  const usuario = JSON.parse(localStorage.getItem("usuario"));
+  const usuario = JSON.parse(localStorage.getItem("usuario"))
   if(usuario){window.location.href = "../pages/dashboard.html"}
 }
 

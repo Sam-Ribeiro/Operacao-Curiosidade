@@ -156,24 +156,18 @@ table{
 #tabela-cadastros #status{
     width: 13%;
     max-width: 13%;
-    text-align: center;
-    padding-left: 35px;
 }
 .tabela #cad-data{
     width: 20%;
     max-width: 20%;
-    text-align: center;
-}
-.tabela #evento-data{
-    text-align: center;
-}       
-td:nth-child(3){
-    text-align: center;
-}
-td:nth-child(4){
-    text-align: center;
+
 }
 
+/*
+.tabela #cad-data, #tabela-cadastros #status,.tabela #evento-data,td:nth-child(3),td:nth-child(4){
+    text-align: center;
+}
+*/
 td{
     border-top: var(--cor-fundo) solid 1px;
     padding: 10px;
@@ -277,7 +271,7 @@ th strong{
   }
 
   .status-ativo{
-    color: rgb(115, 220, 74);
+    color: rgb(97, 197, 58);
     font-weight: 600;
   }
 

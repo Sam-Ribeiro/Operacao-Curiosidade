@@ -12,7 +12,7 @@ function preencherTabela(incluido){
             case 0:
                 pessoas.sort((a, b) => a.nome.localeCompare(b.nome))
                 th = document.querySelector("th:nth-child(1) strong")
-                th.innerHTML ="&#11167;"
+                th.innerHTML ="&#11167"
                 th.style.visibility = "visible"
                 break
             case 1:
@@ -24,7 +24,7 @@ function preencherTabela(incluido){
             case 2:
                 pessoas = organizarStatus(pessoas)
                 th = document.querySelector("th:nth-child(3) strong")
-                th.innerHTML ="&#11167;"
+                th.innerHTML ="&#11167"
                 th.style.visibility = "visible"
                 break
             case 3:
@@ -36,7 +36,7 @@ function preencherTabela(incluido){
             case 4:
                 pessoas.sort((a, b) => a.email.localeCompare(b.email))
                 th = document.querySelector("th:nth-child(2) strong")
-                th.innerHTML ="&#11167;"
+                th.innerHTML ="&#11167"
                 th.style.visibility = "visible"
                 break
             case 5:
@@ -48,7 +48,7 @@ function preencherTabela(incluido){
             case 6:
                 pessoas = organizarDataRecente(pessoas)
                 th = document.querySelector("th:nth-child(4) strong")
-                th.innerHTML ="&#11167;"
+                th.innerHTML ="&#11167"
                 th.style.visibility = "visible"
                 break
             case 7:

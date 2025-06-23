@@ -1,13 +1,12 @@
 const body = document.body
 const html = document.documentElement
 
-
 function aplicarTema(){
     const temaSalvo = JSON.parse(localStorage.getItem('temaSalvo'))
     if(temaSalvo.tema == "escuro"){
-        html.classList.add('tema-escuro');
+        html.classList.add('tema-escuro')
     }else{
-        html.classList.remove('tema-escuro');
+        html.classList.remove('tema-escuro')
     }
 }
 
@@ -26,8 +25,6 @@ function aplicarFonte(){
         html.classList.add('fonte-grande')
     }
 }
-
-
 
 aplicarFonte()
 aplicarTema()

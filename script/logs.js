@@ -2,7 +2,7 @@ function preencherTabela(){
     var tabela = document.getElementById("tabela-logs")
     if(tabela){
         while (tabela.rows.length > 1) {
-            tabela.deleteRow(1);
+            tabela.deleteRow(1)
         }
         let logs = JSON.parse(localStorage.getItem("logs")) || []
         tamanho = logs.length
@@ -12,7 +12,7 @@ function preencherTabela(){
             case 0:
                 logs.sort((a, b) => a.usuario.localeCompare(b.usuario))
                 th = document.querySelector("th:nth-child(1) strong")
-                th.innerHTML ="&#11167;"
+                th.innerHTML ="&#11167"
                 th.style.visibility = "visible"
                 break
             case 1:
@@ -24,7 +24,7 @@ function preencherTabela(){
             case 2:
                 logs.sort((a, b) => a.evento.localeCompare(b.evento))
                 th = document.querySelector("th:nth-child(2) strong")
-                th.innerHTML ="&#11167;"
+                th.innerHTML ="&#11167"
                 th.style.visibility = "visible"
                 break
             case 3:
@@ -36,7 +36,7 @@ function preencherTabela(){
             case 4:
                 logs = organizarDataRecente(logs)
                 th = document.querySelector("th:nth-child(3) strong")
-                th.innerHTML ="&#11167;"
+                th.innerHTML ="&#11167"
                 th.style.visibility = "visible"
                 break
             case 5:
@@ -46,30 +46,30 @@ function preencherTabela(){
                 th.style.visibility = "visible"
                 break                
             default:
-                logs = JSON.parse(localStorage.getItem("logs")) || [];
+                logs = JSON.parse(localStorage.getItem("logs")) || []
                 break            
         }
         if(filtro != ''){
-            filtro = filtro.toLowerCase();
+            filtro = filtro.toLowerCase()
             logs = logs.filter(u => 
                 u.evento.toLowerCase().includes(filtro) || 
                 u.usuario.toLowerCase().includes(filtro)
              )
         }
-        paginas = logs.length / itensPorPagina | 0;
+        paginas = logs.length / itensPorPagina | 0
         if (logs.length % itensPorPagina !== 0) {
-            paginas++;
+            paginas++
         }
-        const paginaInicial = (paginaAtual - 1) * itensPorPagina;
-        let paginaFinal = paginaInicial + itensPorPagina;
+        const paginaInicial = (paginaAtual - 1) * itensPorPagina
+        let paginaFinal = paginaInicial + itensPorPagina
 
         if (paginaFinal > logs.length) {
-            paginaFinal = logs.length;
+            paginaFinal = logs.length
         }
         logs = logs.slice(paginaInicial, paginaFinal)
         for(var i = 0; i < logs.length ; i++){
-            const log = logs[i];
-            var qtdLinhas = tabela.rows.length;
+            const log = logs[i]
+            var qtdLinhas = tabela.rows.length
             var linha = tabela.insertRow(qtdLinhas)
 
             var celulausuario = linha.insertCell(0)
@@ -96,16 +96,16 @@ function preencherTabela(){
 
 function organizarDataAntiga(logs) {
     logs.sort((a, b) => {
-        return new Date(a.data) - new Date(b.data);
-    });
-    return logs;
+        return new Date(a.data) - new Date(b.data)
+    })
+    return logs
 }
 
 function organizarDataRecente(logs) {
     logs.sort((a, b) => {
-        return new Date(b.data) - new Date(a.data);
-    });
-    return logs;
+        return new Date(b.data) - new Date(a.data)
+    })
+    return logs
 }
 
 function controlaPagina(){
@@ -157,7 +157,7 @@ botaoPaginaProxima.onclick = function(){
 
 document.addEventListener('keydown', (event) => {
     filtro = document.getElementById("pesquisa").value
-    preencherTabela();
+    preencherTabela()
     if (event.key === 'Enter') {
         event.preventDefault()
     }
@@ -169,7 +169,7 @@ botaoUsuario.onclick = function(){
     }else{
         orderby = 0
     }
-    preencherTabela();
+    preencherTabela()
 }
 botaoEvento.onclick = function(){
     if(orderby == 2){
@@ -177,7 +177,7 @@ botaoEvento.onclick = function(){
     }else{
         orderby = 2
     }
-    preencherTabela();
+    preencherTabela()
 }
 botaoData.onclick = function(){
     if(orderby == 4){
@@ -185,12 +185,12 @@ botaoData.onclick = function(){
     }else{
         orderby = 4
     }
-    preencherTabela();
+    preencherTabela()
 }
 botaoSair.onclick = function(){
     localStorage.removeItem("usuario")
 }
 
-preencherTabela();
-validarUsuario();
-controlaPagina();
+preencherTabela()
+validarUsuario()
+controlaPagina()

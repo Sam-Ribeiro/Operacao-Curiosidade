@@ -36,19 +36,12 @@ function salvarDados(){
             erro.style.display = 'none'
             erro.style.color = 'rgb(220, 74, 74)'
             erro.style.textDecorationColor = 'rgb(220, 74, 74)'
-            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
             var agora = new Date().getFullYear()
             const anotxt = data.substring(0, 4)
             const ano = Number(anotxt)
             const outrosusuarios = usuarios.filter(u => u.email !== usuario.email)
-            if(senhaNova){
-                if(!senhaAntiga || senhaAntiga != usuario.senha){
-                    erro.innerText = "Para alterar a senha, preencha a senha antiga corretamente!"
-                    erro.style.display = 'block'
-                }else{
-                    usuario.senha = senhaNova
-                }
-            }
+            
             if(!nome || !email || !data){
                 erro.innerText = "Prencha Nome, Email e data de nascimento"
                 erro.style.display = 'block'
@@ -69,19 +62,33 @@ function salvarDados(){
                 erro.style.textDecorationColor = 'rgb(115, 220, 74)'
                 erro.innerText = "Usuário alterado com sucesso!"
                 erro.style.display = 'block'
-
-                usuario.nome = nome
-                usuario.email = email
-                usuario.data = data
-                u.nome = nome
-                u.email = email
-                u.data = data
-                u.senha = usuario.senha
-                localStorage.setItem("usuario", JSON.stringify(usuario))
-                localStorage.setItem("usuarios", JSON.stringify(usuarios))
+                if(senhaNova){
+                    if(!senhaAntiga || senhaAntiga != usuario.senha){
+                        erro.innerText = "Para alterar a senha, preencha a senha antiga corretamente!"
+                        erro.style.display = 'block'
+                        erro.style.color = 'rgb(220, 74, 74)'
+                        erro.style.textDecorationColor = 'rgb(220, 74, 74)'
+                    }else if(senhaNova.length < 6){
+                        erro.innerText = "A Senha deve ter mais que seis caracteres"
+                        erro.style.display = 'block'
+                        erro.style.color = 'rgb(220, 74, 74)'
+                        erro.style.textDecorationColor = 'rgb(220, 74, 74)'
+                    }else{
+                        usuario.senha = senhaNova
+                        usuario.nome = nome
+                        usuario.email = email
+                        usuario.data = data
+                        u.nome = nome
+                        u.email = email
+                        u.data = data
+                        u.senha = usuario.senha
+                        localStorage.setItem("usuario", JSON.stringify(usuario))
+                        localStorage.setItem("usuarios", JSON.stringify(usuarios))
+                    }
+                }
             }
         }
-    });
+    })
     carregarDados()            
 }
 
@@ -144,9 +151,10 @@ if(botoesFonte){
             }
             localStorage.setItem("fonteSalva",JSON.stringify(fonteSalva))
         }
-        aplicarFonte();
+        aplicarFonte()
         carregarConfiguracao()
     }))
 }
+
 carregarDados()
 carregarConfiguracao()

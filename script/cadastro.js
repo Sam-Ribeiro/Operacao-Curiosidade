@@ -63,7 +63,6 @@ function verificaEntrada(){
     if(!pessoa.nome || !pessoa.email || !pessoa.idade || !pessoa.endereco){
         erro.innerText = "Preencha os campos obrigatórios!"
         erro.style.display = 'block'
-        console.log("retornando esse false")
         return false
     }else if(outrospessoas.some(u => u.email === pessoa.email)){
         erro.innerText = "Email já cadastrado"
@@ -219,4 +218,3 @@ botaoRestaurar.onclick = function(){
 }
 
 carregarPessoa()
-

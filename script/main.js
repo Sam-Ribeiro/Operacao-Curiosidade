@@ -3,7 +3,7 @@ function listar(){
 } 
 
 function validarUsuario(){
-    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    const usuario = JSON.parse(localStorage.getItem("usuario"))
     if(usuario){
         nome_perfil = document.getElementById("usuario")
         icone_perfil = document.getElementById("icone")

@@ -1,5 +1,3 @@
-
-
 const botaoImprimir = document.getElementById("btn-imprimir")
 
 if(botaoImprimir){
