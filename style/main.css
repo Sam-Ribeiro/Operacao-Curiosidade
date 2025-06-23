@@ -58,6 +58,7 @@ header{
     border-radius: 5px;
     
 }
+
 header button img{
     width: 16px;
     height: 16px;
@@ -76,12 +77,9 @@ header a{
     color: white;
     align-items: center;
 }
+
 header a:hover{
     color: rgb(207, 225, 255);
-}
-
-#placeholder{
-    flex: 1;
 }
 
 #icone{
@@ -109,6 +107,7 @@ header form{
     display: flex;
     width: 40vw;
 }
+
 #pesquisa{
     border: none;
     color: var(--cor-texto);
@@ -119,11 +118,16 @@ header form{
     flex: 1;
 }
 
+#placeholder{
+    flex: 1;
+}
+
 .tabela h1{
     color: var(--cor-texto2);
     font-size: var(--fonte-media);
     float: left;
 }
+
 .tabela{
     border-style: none;
     border-radius: 5px;
@@ -133,6 +137,7 @@ header form{
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     text-align: left;
 }
+
 table{
     padding: 5px;
     width: 100%;
@@ -142,39 +147,41 @@ table{
 #tabela-cadastros{
     height: 80%;
 }
+
 #tabela-logs{
     height: 80%;
 }
+
 .tabela #nome{
     width: 35%;
     max-width: 35%;
 }
+
 .tabela #email{
     width: 32%;
     max-width: 32%;
 }
+
 #tabela-cadastros #status{
     width: 13%;
     max-width: 13%;
 }
+
 .tabela #cad-data{
     width: 20%;
     max-width: 20%;
 
 }
 
-/*
-.tabela #cad-data, #tabela-cadastros #status,.tabela #evento-data,td:nth-child(3),td:nth-child(4){
-    text-align: center;
-}
-*/
 td{
     border-top: var(--cor-fundo) solid 1px;
     padding: 10px;
 }
+
 tr{
     font-size: var(--fonte-pequena);
 }
+
 tr:hover{
     background-color: var(--cor-fundo2  );
 }
@@ -186,6 +193,7 @@ th{
     background-color: var(--cor-tema);
     user-select: none;
 }
+
 th:hover{
     background-color: var(--cor-fundo-claro);
 }
@@ -193,11 +201,13 @@ th:hover{
 th strong{
     visibility: hidden;
 }
+
 .page-botao{
     border: none;
     background-color: var(--cor-fundo);
     color: var(--cor-texto2);
 }
+
 .ativo:hover{
     background-color: var(--cor-tema)
 }
@@ -205,6 +215,7 @@ th strong{
 .ativo{
     color: var(--cor-botao-ativo);
 }
+
 .page-controle{
     display: flex;
     justify-content: space-around;
@@ -229,13 +240,13 @@ th strong{
     font-size: var(--fonte-erro);
 }
 
-  .toggle input[type=checkbox] {
+.toggle input[type=checkbox] {
     height: 0;
     width: 0;
     visibility: hidden;
-  }
+}
 
-  .toggle label {
+.toggle label {
     cursor: pointer;
     width: var(--size);
     height: calc(var(--size) / 2);
@@ -243,9 +254,9 @@ th strong{
     display: block;
     border-radius: 100px;
     position: relative;
-  }
+}
 
-  .toggle label:after {
+.toggle label:after {
     content: '';
     position: absolute;
     top: 6%;
@@ -255,27 +266,27 @@ th strong{
     background: #fff;
     border-radius: 90px;
     transition: 0.3s;
-  }
+}
 
-  .toggle input:checked + label {
+.toggle input:checked + label {
     background: var(--cor-header-fundo);
-  }
+}
 
-  .toggle input:checked + label:after {
+.toggle input:checked + label:after {
     left: calc(100% - 2.5%);
     transform: translateX(-100%);
-  }
+}
 
-  .toggle label:active:after {
+.toggle label:active:after {
     width: 55%;
-  }
+}
 
-  .status-ativo{
+.status-ativo{
     color: rgb(97, 197, 58);
     font-weight: 600;
-  }
+}
 
-  .status-inativo{
+.status-inativo{
     color: rgb(220, 74, 74);
     font-weight: 600;
-  }
+}

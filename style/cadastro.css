@@ -143,6 +143,8 @@ label{
     color: var(--cor-texto);
     border-style: inherit;
     margin: 5px 10px 5px 10px;
+    font-size: var(--fonte-label);
+    font-family: Verdana;
 }
 
 .toggle{
