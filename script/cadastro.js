@@ -13,7 +13,7 @@ function carregarPessoa(){
             botaoExcluir.style.display = 'none'
             botaoRestaurar.style.display = 'block'
         }else{
-            titulo.innerText = "Editar Usuário"
+            titulo.innerText = "Editar pessoa"
             botaoGravar.style.display = 'none'
             botaoEditar.style.display = 'block'
             botaoExcluir.style.display = 'block'
@@ -34,7 +34,7 @@ function carregarPessoa(){
     }
 }
 
-function verificaEntrada(){
+function verificarEntrada(){
     var erro = document.getElementById("erro")
     erro.style.display = 'none'
     const pessoas = JSON.parse(localStorage.getItem("pessoas")) || []
@@ -46,6 +46,7 @@ function verificaEntrada(){
     }else{
         var status = "Inativo"
     }
+
     const pessoa ={
         nome: document.querySelector("dialog #nome").value,
         email: document.querySelector("dialog #email").value,
@@ -59,13 +60,15 @@ function verificaEntrada(){
         dataCadastro: new Date().toISOString(),
         deletado: false
     }
-    const outrospessoas = pessoas.filter(u => u.email !== pessoaEditado.email)
+
+    const outrasPessoas = pessoas.filter(u => u.email !== pessoaEditado.email)
+    
     if(!pessoa.nome || !pessoa.email || !pessoa.idade || !pessoa.endereco){
         erro.innerText = "Preencha os campos obrigatórios!"
         erro.style.display = 'block'
         return false
-    }else if(outrospessoas.some(u => u.email === pessoa.email)){
-        erro.innerText = "Email já cadastrado"
+    }else if(outrasPessoas.some(u => u.email === pessoa.email)){
+        erro.innerText = "Email Inválido"
         erro.style.display = 'block'
         return false
     }else if(!emailRegex.test(pessoa.email)){
@@ -101,6 +104,7 @@ function fecharCadastro(){
     form = document.getElementById("form-cadastro")
     form.reset()
 }
+
 const modal = document.querySelector("dialog")
 const botaoModal = document.getElementById("novo-cadastro")
 const botaoClose = document.getElementById("btn-cancelar")
@@ -128,7 +132,7 @@ botaoModal.onclick = function (){
 
 botaoGravar.onclick = function (){
     const pessoas = JSON.parse(localStorage.getItem("pessoas")) || []
-    let retorno = verificaEntrada()
+    let retorno = verificarEntrada()
     if(retorno){
         const pessoa = JSON.parse(localStorage.getItem("pessoa"))
         enviarLog("Cadastrou a pessoa: "+pessoa.nome)
@@ -145,7 +149,7 @@ botaoClose.onclick = function(){
 botaoEditar.onclick = function(){
     const pessoas = JSON.parse(localStorage.getItem("pessoas"))  
     const pessoa = JSON.parse(localStorage.getItem("pessoa"))
-    let retorno = verificaEntrada()
+    let retorno = verificarEntrada()
     if(retorno){
         const pessoaEditado = JSON.parse(localStorage.getItem("pessoa"))
         const pessoasAtualizados = pessoas.map(u => {
