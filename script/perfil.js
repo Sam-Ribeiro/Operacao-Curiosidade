@@ -85,6 +85,17 @@ function salvarDados(){
                         localStorage.setItem("usuario", JSON.stringify(usuario))
                         localStorage.setItem("usuarios", JSON.stringify(usuarios))
                     }
+                }else{
+                    usuario.senha = senhaNova
+                    usuario.nome = nome
+                    usuario.email = email
+                    usuario.data = data
+                    u.nome = nome
+                    u.email = email
+                    u.data = data
+                    u.senha = usuario.senha
+                    localStorage.setItem("usuario", JSON.stringify(usuario))
+                    localStorage.setItem("usuarios", JSON.stringify(usuarios))
                 }
             }
         }

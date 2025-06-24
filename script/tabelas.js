@@ -1,14 +1,52 @@
 function preencherTabela(incluido){
     var tabela = document.getElementById("tabela-cadastros")
-    if(tabela){
-        while (tabela.rows.length > 1) {
-            tabela.deleteRow(1)
+    let pessoas = JSON.parse(localStorage.getItem("pessoas")) || []
+    pessoas = pessoas.filter(u => u.deletado != incluido)
+    tamanho = pessoas.length
+    while (tabela.rows.length > 1) {
+        tabela.deleteRow(1)
+    }
+
+    pessoas = ordenarTabela(pessoas)
+    pessoas = filtrarPesquisa(pessoas)
+    pessoas = dividirPaginas(pessoas)
+
+    for(var i = 0; i < pessoas.length ; i++){
+        const pessoa = pessoas[i]
+        var totalLinhas = tabela.rows.length
+        var linha = tabela.insertRow(totalLinhas)
+        if(i%2==0){
+            linha.classList.add("par")
         }
-        let pessoas = JSON.parse(localStorage.getItem("pessoas")) || []
-        tamanho = pessoas.length
-        ths = document.querySelectorAll("th strong")
-        ths.forEach((ordem) => ordem.style.visibility = "hidden")
-        switch(orderby){
+        var celulaNome = linha.insertCell(0)
+        var celulaEmail = linha.insertCell(1)
+        var celulaStatus = linha.insertCell(2)
+        var celulaData = linha.insertCell(3)
+            
+        var link = '<a class="link-pessoa" id="'+ i +'" href="#">'+ pessoa.nome +'</a>'
+
+        let data = new Date(pessoa.dataCadastro)
+        let dataFormatada = formatarData(data)
+
+        let status = "status" 
+        if(pessoa.status == "Ativo"){
+            status = `<span class="status-ativo"> Ativo <span>`
+        }else{
+            status = `<span class="status-inativo"> Inativo <span>`
+        }
+
+        celulaNome.innerHTML = link
+        celulaEmail.innerText = pessoa.email
+        celulaStatus.innerHTML = status
+        celulaData.innerText = dataFormatada
+    }
+    criarLinks(pessoas)
+}
+
+function ordenarTabela(pessoas){
+    ths = document.querySelectorAll("th strong")
+    ths.forEach((iconeOrdem) => iconeOrdem.style.visibility = "hidden")
+    switch(ordem){
             case 0:
                 pessoas.sort((a, b) => a.nome.localeCompare(b.nome))
                 th = document.querySelector("th:nth-child(1) strong")
@@ -61,70 +99,54 @@ function preencherTabela(incluido){
                 pessoas = JSON.parse(localStorage.getItem("pessoas")) || []
                 break            
         }
-        if(filtro != ''){
-            filtro = filtro.toLowerCase()
-            pessoas = pessoas.filter(u => 
-                u.email.toLowerCase().includes(filtro) || 
-                u.nome.toLowerCase().includes(filtro) || 
-                u.status.toLowerCase().startsWith(filtro)
-             )
-        }
-        pessoas = pessoas.filter(u => u.deletado != incluido)
+    return pessoas
+}
 
-        paginas = pessoas.length / itensPorPagina | 0
-        if (pessoas.length % itensPorPagina !== 0) {
-            paginas++
-        }
-        const paginaInicial = (paginaAtual - 1) * itensPorPagina
-        let paginaFinal = paginaInicial + itensPorPagina
-
-        if (paginaFinal > pessoas.length) {
-            paginaFinal = pessoas.length
-        }
-        pessoas = pessoas.slice(paginaInicial, paginaFinal)
-        for(var i = 0; i < pessoas.length ; i++){
-            const pessoa = pessoas[i]
-            var qtdLinhas = tabela.rows.length
-            var linha = tabela.insertRow(qtdLinhas)
-            if(i%2==0){
-                linha.classList.add("par")
-            }
-            var celulaNome = linha.insertCell(0)
-            var celulaEmail = linha.insertCell(1)
-            var celulaStatus = linha.insertCell(2)
-            var celulaData = linha.insertCell(3)
-                
-            var link = '<a class="link-pessoa" id="'+ i +'" href="#">'+ pessoa.nome +'</a>'
-
-            let data = new Date(pessoa.dataCadastro)
-            let dia = String(data.getDate()).padStart(2, '0')
-            let mes = String(data.getMonth() + 1).padStart(2, '0')
-            let ano = data.getFullYear()
-
-            let dataFormatada = `${dia}/${mes}/${ano}`
-            let status = "status" 
-            if(pessoa.status == "Ativo"){
-                status = `<span class="status-ativo"> Ativo <span>`
-            }else{
-                status = `<span class="status-inativo"> Inativo <span>`
-            }
-            celulaNome.innerHTML = link
-            celulaEmail.innerText = pessoa.email
-            celulaStatus.innerHTML = status
-            celulaData.innerText = dataFormatada
-
-        }
-        const links = document.querySelectorAll('.link-pessoa')
-        links.forEach(link => {
-            link.addEventListener('click', (event) => {
-                const elementoClicado = event.target
-                const idLink = elementoClicado.id
-                const pessoa = pessoas[idLink]
-                localStorage.setItem("pessoa", JSON.stringify(pessoa))
-                window.location.href = "../pages/cadastro.html"
-            })
-        })
+function filtrarPesquisa(pessoas){
+    if(filtro != ''){
+        filtro = filtro.toLowerCase()
+        pessoas = pessoas.filter(u => 
+            u.email.toLowerCase().includes(filtro) || 
+            u.nome.toLowerCase().includes(filtro) || 
+            u.status.toLowerCase().startsWith(filtro)
+        )
     }
+    return pessoas
+}
+
+function dividirPaginas(pessoas){
+    paginas = pessoas.length / itensPorPagina | 0
+    if (pessoas.length % itensPorPagina !== 0) {
+        paginas++
+    }
+    const pessoaInicial = (paginaAtual - 1) * itensPorPagina
+    let pessoaFinal = pessoaInicial + itensPorPagina
+    if (pessoaFinal > pessoas.length) {
+        pessoaFinal = pessoas.length
+    }
+    pessoas = pessoas.slice(pessoaInicial, pessoaFinal)
+    return pessoas
+}
+
+function criarLinks(pessoas){
+    const links = document.querySelectorAll('.link-pessoa')
+    links.forEach(link => {
+        link.addEventListener('click', (event) => {
+            const elementoClicado = event.target
+            const idLink = elementoClicado.id
+            const pessoa = pessoas[idLink]
+            localStorage.setItem("pessoa", JSON.stringify(pessoa))
+            window.location.href = "../pages/cadastro.html"
+        })
+    })
+}
+
+function formatarData(data){
+    let dia = String(data.getDate()).padStart(2, '0')
+    let mes = String(data.getMonth() + 1).padStart(2, '0')
+    let ano = data.getFullYear()
+    let dataFormatada = `${dia}/${mes}/${ano}`
+    return dataFormatada
 }
 
 function organizarStatus(pessoas){
@@ -185,12 +207,13 @@ function controlaPagina(){
 }
 
 let filtro = ''
-let orderby = 6
+let ordem = 6
 let paginaAtual = 1
 let paginas = 0
 let tamanho = 10
-const incluidos = listar()
 let itensPorPagina = 10
+
+const incluidos = listar()
 const paginaSpan = document.getElementById("span-pagina")
 const botaoSair = document.getElementById("sair")
 const botaoNome = document.getElementById("nome")
@@ -226,34 +249,34 @@ document.addEventListener('keydown', (event) => {
 })
 
 botaoNome.onclick = function(){
-    if(orderby == 0){
-        orderby = 1
+    if(ordem == 0){
+        ordem = 1
     }else{
-        orderby = 0
+        ordem = 0
     }
     preencherTabela(incluidos)
 }
 botaoEmail.onclick = function(){
-    if(orderby == 4){
-        orderby = 5
+    if(ordem == 4){
+        ordem = 5
     }else{
-        orderby = 4
+        ordem = 4
     }
     preencherTabela(incluidos)
 }
 botaoStatus.onclick = function(){
-    if(orderby == 2){
-        orderby = 3
+    if(ordem == 2){
+        ordem = 3
     }else{
-        orderby = 2
+        ordem = 2
     }
     preencherTabela(incluidos)
 }
 botaoDia.onclick = function(){
-    if(orderby == 7){
-        orderby = 6
+    if(ordem == 7){
+        ordem = 6
     }else{
-        orderby = 7
+        ordem = 7
     }
     preencherTabela(incluidos)
 }
