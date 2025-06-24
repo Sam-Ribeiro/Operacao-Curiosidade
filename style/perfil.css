@@ -1,4 +1,4 @@
-
+@charset "UTF-8";
 
 html, .editar-perfil, .campo, .botao, .fonte, nav, body, h1, h2, h3, h4, p, a, label, input {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, font-size 0.3s ease;
@@ -21,6 +21,10 @@ main{
     margin-right: 5px;
     height: 95vh;
     width: 32vw;
+}
+
+#campo-data{
+    font-size: var(--fonte-pequena);
 }
 
 .campo{
