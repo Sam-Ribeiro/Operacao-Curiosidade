@@ -63,7 +63,7 @@ function salvarDados(){
                 erro.innerText = "Usuário alterado com sucesso!"
                 erro.style.display = 'block'
                 if(senhaNova){
-                    if(!senhaAntiga || senhaAntiga != usuario.senha){
+                    if(!senhaAntiga || senhaAntiga != usuario.senha || senhaNova.le){
                         erro.innerText = "Para alterar a senha, preencha a senha antiga corretamente!"
                         erro.style.display = 'block'
                         erro.style.color = 'rgb(220, 74, 74)'
@@ -86,7 +86,6 @@ function salvarDados(){
                         localStorage.setItem("usuarios", JSON.stringify(usuarios))
                     }
                 }else{
-                    usuario.senha = senhaNova
                     usuario.nome = nome
                     usuario.email = email
                     usuario.data = data
