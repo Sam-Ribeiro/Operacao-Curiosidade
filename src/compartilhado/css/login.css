@@ -80,15 +80,18 @@ main{
     border-color: var(--cor-texto);
     border-style: initial;
     background: #060059;
-    background: var(--cor-gradiente);
+    background: var(--cor-tema);
     margin: 15px 100px 10px 100px;
     height: 40px;
     width: 250px;
+    transition: all 0.2s ease;
+    cursor: pointer;
 }
 
 .botao:hover{
     background: #060059;
-    background: var(--cor-gradiente-hover)
+    background: var(--cor-fundo-claro);
+    transform:scale(1.01);
 }
 
 .link{

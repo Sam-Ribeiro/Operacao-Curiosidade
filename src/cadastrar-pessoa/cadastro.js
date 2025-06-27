@@ -5,19 +5,17 @@ function carregarPessoa(){
     titulo.innerText = "Novo Cadastro"
     if(pessoa){
         modal.showModal()
-        
+        botaoGravar.style.display = 'none'
+        botaoEditar.style.display = 'none'
+        botaoExcluir.style.display = 'none'
+        botaoRestaurar.style.display = 'none'
         if(pessoa.deletado){
             titulo.innerText = "Usuário apagado"
-            botaoGravar.style.display = 'none'
-            botaoEditar.style.display = 'none'
-            botaoExcluir.style.display = 'none'
             botaoRestaurar.style.display = 'block'
         }else{
             titulo.innerText = "Editar pessoa"
-            botaoGravar.style.display = 'none'
             botaoEditar.style.display = 'block'
             botaoExcluir.style.display = 'block'
-            botaoRestaurar.style.display = 'none'
         }
         document.querySelector("dialog #nome").value = pessoa.nome
         document.querySelector("dialog #email").value = pessoa.email
@@ -128,6 +126,7 @@ botaoModal.onclick = function (){
     botaoGravar.style.display = 'block'
     botaoEditar.style.display = 'none'
     botaoExcluir.style.display = 'none'
+    botaoRestaurar.style.display = 'none'
 }
 
 botaoGravar.onclick = function (){

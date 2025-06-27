@@ -1,46 +1,50 @@
+usuario = JSON.parse(localStorage.getItem("usuario"))
+
 function preencherTabela(incluido){
-    var tabela = document.getElementById("tabela-cadastros")
-    let pessoas = JSON.parse(localStorage.getItem("pessoas")) || []
-    pessoas = pessoas.filter(u => u.deletado != incluido)
-    tamanho = pessoas.length
-    while (tabela.rows.length > 1) {
-        tabela.deleteRow(1)
-    }
-
-    pessoas = ordenarTabela(pessoas)
-    pessoas = filtrarPesquisa(pessoas)
-    pessoas = dividirPaginas(pessoas)
-
-    for(var i = 0; i < pessoas.length ; i++){
-        const pessoa = pessoas[i]
-        var totalLinhas = tabela.rows.length
-        var linha = tabela.insertRow(totalLinhas)
-        if(i%2==0){
-            linha.classList.add("par")
-        }
-        var celulaNome = linha.insertCell(0)
-        var celulaEmail = linha.insertCell(1)
-        var celulaStatus = linha.insertCell(2)
-        var celulaData = linha.insertCell(3)
-            
-        var link = '<a class="link-pessoa" id="'+ i +'" href="#">'+ pessoa.nome +'</a>'
-
-        let data = new Date(pessoa.dataCadastro)
-        let dataFormatada = formatarData(data)
-
-        let status = "status" 
-        if(pessoa.status == "Ativo"){
-            status = `<span class="status-ativo"> Ativo <span>`
-        }else{
-            status = `<span class="status-inativo"> Inativo <span>`
+    if(usuario){
+        var tabela = document.getElementById("tabela-cadastros")
+        let pessoas = JSON.parse(localStorage.getItem("pessoas")) || []
+        pessoas = pessoas.filter(u => u.deletado != incluido)
+        tamanho = pessoas.length
+        while (tabela.rows.length > 1) {
+            tabela.deleteRow(1)
         }
 
-        celulaNome.innerHTML = link
-        celulaEmail.innerText = pessoa.email
-        celulaStatus.innerHTML = status
-        celulaData.innerText = dataFormatada
+        pessoas = ordenarTabela(pessoas)
+        pessoas = filtrarPesquisa(pessoas)
+        pessoas = dividirPaginas(pessoas)
+
+        for(var i = 0; i < pessoas.length ; i++){
+            const pessoa = pessoas[i]
+            var totalLinhas = tabela.rows.length
+            var linha = tabela.insertRow(totalLinhas)
+            if(i%2==0){
+                linha.classList.add("par")
+            }
+            var celulaNome = linha.insertCell(0)
+            var celulaEmail = linha.insertCell(1)
+            var celulaStatus = linha.insertCell(2)
+            var celulaData = linha.insertCell(3)
+                
+            var link = '<a class="link-pessoa" id="'+ i +'" href="#">'+ pessoa.nome +'</a>'
+
+            let data = new Date(pessoa.dataCadastro)
+            let dataFormatada = formatarData(data)
+
+            let status = "status" 
+            if(pessoa.status == "Ativo"){
+                status = `<span class="status-ativo"> Ativo <span>`
+            }else{
+                status = `<span class="status-inativo"> Inativo <span>`
+            }
+
+            celulaNome.innerHTML = link
+            celulaEmail.innerText = pessoa.email
+            celulaStatus.innerHTML = status
+            celulaData.innerText = dataFormatada
+        }
+        criarLinks(pessoas)
     }
-    criarLinks(pessoas)
 }
 
 function ordenarTabela(pessoas){
@@ -104,6 +108,8 @@ function ordenarTabela(pessoas){
 
 function filtrarPesquisa(pessoas){
     if(filtro != ''){
+        paginaAtual = 1
+        controlaPagina()
         filtro = filtro.toLowerCase()
         pessoas = pessoas.filter(u => 
             u.email.toLowerCase().includes(filtro) || 
@@ -194,9 +200,11 @@ function controlaPagina(){
     botaoPaginaProxima.style.color = "var(--cor-texto)"
     botaoPaginaAnterior.style.color = "var(--cor-texto)"
     if(paginaAtual == paginas){
+        botaoPaginaProxima.style.display = 'block'
         botaoPaginaProxima.style.color = "gray"
     }
     if(paginaAtual == 1){
+        botaoPaginaAnterior.style.display = 'block'
         botaoPaginaAnterior.style.color = "gray"
     }
     if(paginas == 0){
