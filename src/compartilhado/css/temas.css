@@ -4,7 +4,6 @@
     --cor-fundo: #ffffff;
     --cor-fundo2:#c3c4ca;
     --cor-fundo3:#d6d6d4;
-    
     --cor-header-fundo:#036aac;
     --cor-tema: rgb(5, 94, 149);
     --cor-texto: #000000;
@@ -19,6 +18,9 @@
     --cor-fundo-claro: rgb(42, 151, 219);
     --cor-gradiente: linear-gradient(120deg, rgba(6, 0, 89, 1) 0%, rgba(0, 212, 255, 1) 100%);
     --cor-gradiente-hover:linear-gradient(80deg, #060059 0%, rgba(0, 212, 255, 1) 90%);
+    --cor-verde:rgb(68, 197, 17);
+    --cor-vermelho:rgb(225, 37, 37);
+    --cor-azul :rgb(55, 55, 210);
     --fonte-label: 0.8em;
     --fonte-pequena: 1em;
     --fonte-erro: 1.1em;
@@ -31,8 +33,6 @@
     --cor-fundo: #1a1a1a;
     --cor-fundo2:#3a3a3a;
     --cor-fundo3:#3b3b3b;
-    
-    --cor-header-fundo:rgba(3, 106, 172, 1);
     --cor-texto: #e0e0e0;
     --cor-texto2:#b0b0b0;
     --cor-texto3:#cccccc;
@@ -40,6 +40,9 @@
     --cor-campo-foco: #888888;
     --cor-borda: #1a1a1a;
     --cor-botao-ativo: #888888; 
+    --cor-verde:rgb(115, 220, 74);
+    --cor-vermelho:rgb(220, 74, 74);
+    --cor-azul :rgb(74, 74, 220);
 }
 
 .fonte-pequena{

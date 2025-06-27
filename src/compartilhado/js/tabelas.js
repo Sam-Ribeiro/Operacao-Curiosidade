@@ -142,7 +142,7 @@ function criarLinks(pessoas){
             const idLink = elementoClicado.id
             const pessoa = pessoas[idLink]
             localStorage.setItem("pessoa", JSON.stringify(pessoa))
-            window.location.href = "../pages/cadastro.html"
+            window.location.href = "../cadastrar-pessoa/cadastro.html"
         })
     })
 }
@@ -247,7 +247,7 @@ botaoPaginaProxima.onclick = function(){
     }
 }
 
-document.addEventListener('keydown', (event) => {
+document.addEventListener('keyup', (event) => {
     filtro = document.getElementById("pesquisa").value
     preencherTabela(incluidos)
     if (event.key === 'Enter') {

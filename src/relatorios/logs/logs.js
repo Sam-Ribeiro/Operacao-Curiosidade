@@ -182,7 +182,7 @@ botaoPaginaProxima.onclick = function(){
     }
 }
 
-document.addEventListener('keydown', (event) => {
+document.addEventListener('keyup', (event) => {
     filtro = document.getElementById("pesquisa").value
     preencherTabela()
     if (event.key === 'Enter') {

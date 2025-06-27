@@ -94,3 +94,13 @@ th strong{
 .par{
     background-color: var(--cor-fundo3);
 }
+
+.status-ativo{
+    color: var(--cor-verde);
+    font-weight: 600;
+}
+
+.status-inativo{
+    color: var(--cor-vermelho);
+    font-weight: 600;
+}

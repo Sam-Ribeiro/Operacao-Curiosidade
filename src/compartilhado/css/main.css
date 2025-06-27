@@ -188,12 +188,8 @@ header form{
     width: 55%;
 }
 
-.status-ativo{
-    color: rgb(97, 197, 58);
-    font-weight: 600;
-}
-
-.status-inativo{
-    color: rgb(220, 74, 74);
-    font-weight: 600;
+.erro{
+    border-bottom: var(--cor-vermelho) solid 4px;
+    border-radius: 10px;
+    border: 2px solid var(--cor-vermelho);
 }
