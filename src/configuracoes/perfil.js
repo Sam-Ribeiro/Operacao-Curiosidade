@@ -50,7 +50,6 @@ function salvarDados(){
             var nome = campoNome.value
             var email = campoEmail.value
             var data = campoData.value
-            console.log(data + " " + email + " " + nome)
             const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
             var agora = new Date().getFullYear()
             var ok = true
@@ -125,13 +124,13 @@ function carregarConfiguracao(){
 
 document.addEventListener('keyup', (event) => {
   if (event.key != 'Enter') {
+    campoNome.classList.remove("erro")
+    campoData.classList.remove("erro")
     campoEmail.classList.remove("erro")
     campoSenhaAntiga.classList.remove("erro")
     campoSenhaNova.classList.remove("erro")
     erro.style.display = 'none'
     erroSenha.style.display = 'none'
-    campoNome.classList.remove("erro")
-    campoData.classList.remove("erro")
     erro.style.color = 'rgb(220, 74, 74)'
     erro.style.textDecorationColor = 'rgb(220, 74, 74)'
     erroSenha.style.color = 'rgb(220, 74, 74)'

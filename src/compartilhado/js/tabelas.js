@@ -1,4 +1,4 @@
-usuario = JSON.parse(localStorage.getItem("usuario"))
+const usuario = JSON.parse(localStorage.getItem("usuario"))
 
 function preencherTabela(incluido){
     if(usuario){
