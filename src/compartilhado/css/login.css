@@ -18,7 +18,7 @@ body{
 }
 
 #main-cadastro{
-    height: 700px;
+    height: 750px;
 }
 
 main{
@@ -90,8 +90,7 @@ main{
 }
 
 .botao:hover{
-    background: #060059;
-    background: var(--cor-fundo-claro);
+    background-color: #02436c;;
     transform:scale(1.01);
 }
 
@@ -101,7 +100,7 @@ main{
 }
 
 a{
-    color: rgb(74, 74, 220);
+    color: var(--cor-azul);
     text-decoration: none;
     font-weight: bold;
 }
@@ -137,4 +136,3 @@ p{
     border-radius: 10px;
     border: 2px solid var(--cor-vermelho);
 }
-

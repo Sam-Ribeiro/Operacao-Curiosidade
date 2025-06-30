@@ -51,7 +51,7 @@ main a{
 
 header{
     background-color: var(--cor-header-fundo);
-    padding: 10px 20px 10px 20px;
+    padding: 5px 20px 5px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -190,6 +190,16 @@ header form{
 
 .erro{
     border-bottom: var(--cor-vermelho) solid 4px;
+    border-radius: 10px;
+    border: 2px solid var(--cor-vermelho);
+}
+
+.campo{
+    transition: all 0.2s ease;
+}
+
+.erro{
+    border-bottom: var(--cor-vermelho) solid 4px!important;
     border-radius: 10px;
     border: 2px solid var(--cor-vermelho);
 }

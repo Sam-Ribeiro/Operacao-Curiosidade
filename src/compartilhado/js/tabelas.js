@@ -142,7 +142,7 @@ function criarLinks(pessoas){
             const idLink = elementoClicado.id
             const pessoa = pessoas[idLink]
             localStorage.setItem("pessoa", JSON.stringify(pessoa))
-            window.location.href = "../cadastrar-pessoa/cadastro.html"
+            window.location.href = "../../../src/cadastrar-pessoa/cadastro.html"
         })
     })
 }
