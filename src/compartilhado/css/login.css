@@ -9,6 +9,7 @@ body{
     justify-content: center;
     padding: 30px;
     height: 100vh;
+    
 }
 
 ::placeholder {
@@ -17,7 +18,7 @@ body{
 }
 
 #main-cadastro{
-    height: 700px;
+    height: 750px;
 }
 
 main{
@@ -80,15 +81,17 @@ main{
     border-color: var(--cor-texto);
     border-style: initial;
     background: #060059;
-    background: var(--cor-gradiente);
+    background: var(--cor-tema);
     margin: 15px 100px 10px 100px;
     height: 40px;
     width: 250px;
+    transition: all 0.2s ease;
+    cursor: pointer;
 }
 
 .botao:hover{
-    background: #060059;
-    background: var(--cor-gradiente-hover)
+    background-color: #02436c;;
+    transform:scale(1.01);
 }
 
 .link{
@@ -97,7 +100,7 @@ main{
 }
 
 a{
-    color: rgb(74, 74, 220);
+    color: var(--cor-azul);
     text-decoration: none;
     font-weight: bold;
 }
@@ -112,14 +115,24 @@ p{
 
 #erro{
     display: none;
-    color: rgb(220, 74, 74);
+    color: var(--cor-vermelho);
     margin: 15px 96px 15px 96px;
     width: 256px;
     padding-top: 15px;
     padding-bottom: 15px;
     text-decoration: underline;
-    text-decoration-color: rgb(220, 74, 74);
+    text-decoration-color: var(--cor-vermelho);
     text-align: center;
     font-weight: normal;
     font-size: var(--fonte-erro);
+}
+
+.campo{
+    transition: all 0.2s ease;
+}
+
+.erro{
+    border-bottom: var(--cor-vermelho) solid 4px!important;
+    border-radius: 10px;
+    border: 2px solid var(--cor-vermelho);
 }

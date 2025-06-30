@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 #bloco1 h1{
-    color: rgb(74, 74, 220);
+    color: var(--cor-azul);
 }
 #bloco2 h1{
-    color: rgb(115, 220, 74);
+    color: var(--cor-verde);
 }
 #bloco3 h1{
-    color: rgb(220, 74, 74);
+    color: var(--cor-vermelho);
 }
 
 #bloco2{

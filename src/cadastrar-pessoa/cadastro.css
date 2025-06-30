@@ -31,7 +31,7 @@ dialog{
 }
 
 dialog::backdrop{
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 dialog .botao{
     color: #ffffff;
@@ -47,16 +47,16 @@ dialog .botao{
     margin-left: auto;
     margin-right: auto;
 }
-#btn-editar, #btn-restaurar{
+#btn-editar, #btn-restaurar, #btn-cancelar-excluir{
     background-color: rgb(56, 102, 170);
 }
-#btn-editar:hover{
+#btn-editar:hover, #btn-restaurar:hover, #btn-cancelar-excluir:hover{
     background-color: rgb(32, 67, 120);   
 }
-#btn-excluir{
+#btn-excluir, #btn-confirmar-excluir{
     background-color: rgb(220, 74, 74);
 }
-#btn-excluir:hover{
+#btn-excluir:hover, #btn-confirmar-excluir:hover{
     background-color: rgb(158, 42, 42);  
 }
 #btn-gravar{
@@ -189,4 +189,34 @@ label{
 }
 #div-nome{
     width: 100%;
+}
+
+#pop-up-excluir h1, #pop-up-excluir span{
+    color:var(--cor-texto);
+    text-align: center;
+    display: block;
+}
+
+#pop-up-excluir{
+    width: 500px;
+}
+
+#notificacao{
+    left: 1%;
+    width: 250px;
+    height: 20px;
+    background-color: var(--cor-tema);
+    color: var(--cor-branco);
+    border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    transition: 1.3s;
+    padding: 30px 10px;
+}
+
+.escondido{
+    left: -20% !important;
+    opacity: 0;
+    right: 0;
 }

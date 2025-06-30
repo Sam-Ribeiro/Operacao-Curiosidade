@@ -1,34 +1,37 @@
+usuario = JSON.parse(localStorage.getItem("usuario"))
 function preencherTabela(){
-    var tabela = document.getElementById("tabela-logs")
-    let logs = JSON.parse(localStorage.getItem("logs")) || []
-    tamanho = logs.length
+    if(usuario){
+        var tabela = document.getElementById("tabela-logs")
+        let logs = JSON.parse(localStorage.getItem("logs")) || []
+        tamanho = logs.length
 
-    while (tabela.rows.length > 1) {
-        tabela.deleteRow(1)
-    }
-    
-    logs = ordenarTabela(logs)
-    logs = filtrarPesquisa(logs)
-    logs = dividirPaginas(logs)
-    
-    for(var i = 0; i < logs.length ; i++){
-        const log = logs[i]
-        var totalLinhas = tabela.rows.length
-        var linha = tabela.insertRow(totalLinhas)
-
-        var celulausuario = linha.insertCell(0)
-        var celulaEvento = linha.insertCell(1)
-        var celulaData = linha.insertCell(2)
-        if(i%2==0){
-            linha.classList.add("par")
+        while (tabela.rows.length > 1) {
+            tabela.deleteRow(1)
         }
+        
+        logs = ordenarTabela(logs)
+        logs = filtrarPesquisa(logs)
+        logs = dividirPaginas(logs)
+        
+        for(var i = 0; i < logs.length ; i++){
+            const log = logs[i]
+            var totalLinhas = tabela.rows.length
+            var linha = tabela.insertRow(totalLinhas)
 
-        let data = new Date(log.data)
-        dataFormatada = formatarData(data)
+            var celulausuario = linha.insertCell(0)
+            var celulaEvento = linha.insertCell(1)
+            var celulaData = linha.insertCell(2)
+            if(i%2==0){
+                linha.classList.add("par")
+            }
 
-        celulausuario.innerHTML = log.usuario
-        celulaEvento.innerText = log.evento
-        celulaData.innerText = dataFormatada
+            let data = new Date(log.data)
+            dataFormatada = formatarData(data)
+
+            celulausuario.innerHTML = log.usuario
+            celulaEvento.innerText = log.evento
+            celulaData.innerText = dataFormatada
+        }
     }
 }
 function ordenarTabela(logs){
@@ -80,6 +83,8 @@ function ordenarTabela(logs){
 
 function filtrarPesquisa(logs){
     if(filtro != ''){
+        paginaAtual = 1
+        controlaPagina()
         filtro = filtro.toLowerCase()
         logs = logs.filter(u => 
             u.evento.toLowerCase().includes(filtro) || 
@@ -177,7 +182,7 @@ botaoPaginaProxima.onclick = function(){
     }
 }
 
-document.addEventListener('keydown', (event) => {
+document.addEventListener('keyup', (event) => {
     filtro = document.getElementById("pesquisa").value
     preencherTabela()
     if (event.key === 'Enter') {

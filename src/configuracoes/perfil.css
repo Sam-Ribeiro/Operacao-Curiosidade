@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 html, .editar-perfil, .campo, .botao, .fonte, nav, body, h1, h2, h3, h4, p, a, label, input {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, font-size 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 html, body{
@@ -9,6 +9,8 @@ html, body{
 }
 main{
     margin: 10px 5px;
+    
+    
 }
 .editar-perfil{
     background-color: var(--cor-fundo);
@@ -19,7 +21,8 @@ main{
     flex: 1;
     margin-left: 5px;
     margin-right: 5px;
-    height: 95vh;
+    height: 110vh;
+    max-height: 110vh;
     width: 32vw;
 }
 
@@ -50,7 +53,7 @@ main{
 }
 
 .botao{
-    margin: 20px auto 0px auto;
+    margin: 15px auto 15px 10px;
     color: #ffffff;
     border-radius: 5px;
     border-color:var(--cor-tema);
@@ -58,7 +61,7 @@ main{
     font-weight: bold;
     background-color: var(--cor-tema);  
     height: 40px;
-    width: 220px;
+    width: 280px;
 }
 
 .botao:hover{
@@ -134,4 +137,24 @@ h4{
 
 .toggle label{
   --size: 50px;
+}
+.erro{
+    border-bottom: var(--cor-vermelho) solid 4px!important;
+    border-radius: 10px;
+    border: 2px solid var(--cor-vermelho);
+}
+
+#erro-senha{
+    display: none;
+    color: var(--cor-texto);
+    margin: 15px 96px 15px 96px;
+    margin: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-decoration: underline;
+    text-decoration-color: rgb(220, 74, 74);
+    color: rgb(220, 74, 74);
+    text-align: center;
+    font-weight: normal;
+    font-size: var(--fonte-erro);
 }
