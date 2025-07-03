@@ -17,13 +17,18 @@
                 </div>
                 <form id="cadastrar-form" autocomplete="off">
                         <input class="campo" type="text" name="nome" id="nome" placeholder="Nome" title="O nome deve conter mais que três caracteres">
-                        <input class="campo" type="email" name="email" id="email" placeholder="Email">
+                        <span class="erro-campo" id="erro-nome" >Erro</span>
+                        <input class="campo" type="text" name="email" id="email" placeholder="Email">
+                        <span class="erro-campo" id="erro-email" >Erro</span>
                         <input class="campo" type="password" name="senha" id="senha" placeholder="Senha">
+                        <span class="erro-campo" id="erro-senha" >Erro</span>
                         <input class="campo" type="password" name="senha" id="confirmar-senha" placeholder="Confirme sua senha">
-                        <input class="campo" type="text" onfocus="(this.type='date')" onblur="formatDateInput(this)" name="data" id="data" placeholder="Data de Nascimento">
+                        <span class="erro-campo" id="erro-confirmar-senha" >Erro</span>
+                        <input class="campo" type="text" onfocus="(this.type='date')" onblur="formatarData(this)" name="data" id="data" placeholder="Data de Nascimento">
+                        <span class="erro-campo" id="erro-data" >Erro</span>
                         <input class="botao" type="submit" value="CADASTRAR" id="btn-cadastrar">
                 </form>
-                <div id="erro"></div>
+                <span id="erro"></span>
                 <p class="link">Já possui uma conta? <a href="../login/login.html">Entrar</a></p>
         </main>
         <script type="text/javascript" src="../compartilhado/js/login.js"></script>

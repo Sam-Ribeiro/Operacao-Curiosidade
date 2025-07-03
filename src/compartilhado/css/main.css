@@ -193,7 +193,16 @@ header form{
 }
 
 .erro{
-    border-bottom: var(--cor-vermelho) solid 4px!important;
     border-radius: 10px;
-    border: 2px solid var(--cor-vermelho);
+    border: 2px solid var(--cor-vermelho) !important;
+    border-bottom: var(--cor-vermelho) solid 4px!important;
+}
+
+.erro-campo{
+    display: none;
+    text-align: left;
+    color: var(--cor-vermelho);
+    margin: 0px 10px;
+    font-size: var(--fonte-label);
+    font-weight: 550;
 }

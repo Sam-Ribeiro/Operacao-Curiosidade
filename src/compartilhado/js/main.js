@@ -12,7 +12,7 @@ function validarUsuario(){
             icone_perfil.innerText = usuario.nome.charAt(0).toUpperCase()
         }
     }else{
-        window.location.href = "../pages/login.html"
+        window.location.href = "../login/login.html"
     }
 }
 

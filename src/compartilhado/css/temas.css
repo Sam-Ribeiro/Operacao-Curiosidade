@@ -3,7 +3,7 @@
     --cor-branco: #ffffff;
     --cor-fundo: #ffffff;
     --cor-fundo2:#c3c4ca;
-    --cor-fundo3:#d6d6d4;
+    --cor-fundo3:#98c0d8;
     --cor-header-fundo:#036aac;
     --cor-tema: rgb(5, 94, 149);
     --cor-texto: #000000;
@@ -32,7 +32,7 @@
 .tema-escuro {
     --cor-fundo: #1a1a1a;
     --cor-fundo2:#3a3a3a;
-    --cor-fundo3:#3b3b3b;
+    --cor-fundo3:#616161;
     --cor-texto: #e0e0e0;
     --cor-texto2:#b0b0b0;
     --cor-texto3:#cccccc;

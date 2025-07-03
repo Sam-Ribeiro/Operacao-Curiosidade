@@ -122,6 +122,7 @@ label{
     border-style: inherit;
     margin: 5px 10px 5px 10px;
     padding-left: 10px;
+    transition: all 0.3s ease-out;
     border-radius: 5px;
 }
 
@@ -220,3 +221,4 @@ label{
     opacity: 0;
     right: 0;
 }
+

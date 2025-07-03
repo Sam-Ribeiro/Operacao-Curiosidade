@@ -145,8 +145,8 @@ function controlaPagina(){
     }
     if(paginas == 0){
         paginaSpan.innerText = `Nenhuma informação cadastrada`
-        botaoPaginaAnterior.style.display = 'none'
-        botaoPaginaProxima.style.display = 'none'
+        botaoPaginaProxima.style.color = "gray"
+        botaoPaginaAnterior.style.color = "gray"
     }
 }
 

@@ -61,7 +61,11 @@ tr{
 }
 
 tr:hover{
-    background-color: var(--cor-fundo2  );
+    background-color: var(--cor-fundo3);
+}
+
+td a:hover{
+    color: var(--cor-texto3);
 }
 
 th{
@@ -92,7 +96,7 @@ th strong{
 }
 
 .par{
-    background-color: var(--cor-fundo3);
+    background-color: var(--cor-fundo2);
 }
 
 .status-ativo{

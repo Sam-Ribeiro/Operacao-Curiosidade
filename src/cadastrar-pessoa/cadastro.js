@@ -33,8 +33,6 @@ function carregarPessoa(){
 }
 
 function verificarEntrada(){
-    
-    erro.style.display = 'none'
     const pessoas = JSON.parse(localStorage.getItem("pessoas")) || []
     const pessoaEditado = JSON.parse(localStorage.getItem("pessoa")) || []
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
@@ -60,38 +58,40 @@ function verificarEntrada(){
     }
 
     const outrasPessoas = pessoas.filter(u => u.email !== pessoaEditado.email)
+    var ok = true
     
-    if(!pessoa.nome || !pessoa.email || !pessoa.idade || !pessoa.endereco){
-        erro.innerText = "Preencha os campos obrigatórios!"
-        erro.style.display = 'block'
-        if(!pessoa.nome){
-            document.querySelector("#tela-cadastro #nome").classList.add("erro")
-        }
-        if(!pessoa.email){
-            document.querySelector("#tela-cadastro #email").classList.add("erro")
-        }
-        if(!pessoa.idade){
-            document.querySelector("#tela-cadastro #idade").classList.add("erro")
-        }
-        if(!pessoa.endereco){
-            document.querySelector("#tela-cadastro #endereco").classList.add("erro")
-        }
-        return false
-    }else if(outrasPessoas.some(u => u.email === pessoa.email|| !pessoa.email)){
-        erro.innerText = "Erro ao cadastrar: Email Inválido"
-        erro.style.display = 'block'
+    if(!pessoa.nome || pessoa.nome.length < 3){
+        document.querySelector("#tela-cadastro #nome").classList.add("erro")
+        erroNome.innerText = "O nome deve ter mais que dois caracteres"
+        erroNome.style.display = "block"
+        ok = false
+    }
+    if(!pessoa.email || !emailRegex.test(pessoa.email)){
         document.querySelector("#tela-cadastro #email").classList.add("erro")
-        return false
-    }else if(!emailRegex.test(pessoa.email)){
-        erro.innerText = "Erro ao cadastrar: Email inválido"
-        erro.style.display = 'block'
+        erroEmail.innerText = "Email inválido"
+        erroEmail.style.display = "block"
+        ok = false
+    }
+    if(outrasPessoas.some(u => u.email === pessoa.email)){
         document.querySelector("#tela-cadastro #email").classList.add("erro")
-        return false
-    }else if( Number(pessoa.idade)<1 || Number(pessoa.idade>120) || isNaN(Number(pessoa.idade))){
-        erro.innerText = "Erro ao cadastrar: Idade inválida"
-        erro.style.display = 'block'
-        document.querySelector("#tela-cadastro #idade").classList.add("erro")
-        return false
+        erroEmail.innerText = "Email já cadastrado"
+        erroEmail.style.display = "block"
+        ok = false
+    }
+    if(!pessoa.idade || Number(pessoa.idade)<1 || Number(pessoa.idade>120) || isNaN(Number(pessoa.idade))){
+        campoIdade.classList.add("erro")
+        erroIdade.innerText = "Idade inválida"
+        erroIdade.style.display = "block"
+        ok = false
+    }
+    if(!pessoa.endereco){
+        document.querySelector("#tela-cadastro #endereco").classList.add("erro")
+        erroEndereco.innerText = "Endereço inválido"
+        erroEndereco.style.display = "block"
+        ok = false
+    }
+    if(!ok){
+        return false    
     }else{
         localStorage.setItem("pessoa", JSON.stringify(pessoa))   
         return true     
@@ -138,7 +138,14 @@ const botaoCancelar = document.getElementById("btn-cancelar-excluir")
 const botaoExcluirPessoa = document.getElementById("btn-excluir")
 const botaoRestaurar =  document.getElementById("btn-restaurar")
 const notificacao = document.getElementById("notificacao")
-var erro = document.getElementById("erro")
+var erroNome = document.getElementById("erro-nome")
+var erroEmail = document.getElementById("erro-email")
+var erroIdade = document.getElementById("erro-idade")
+var erroEndereco = document.getElementById("erro-endereco")
+const campoEmail = document.querySelector("#tela-cadastro #email")
+const campoNome = document.querySelector("#tela-cadastro #nome")
+const campoIdade = document.querySelector("#tela-cadastro #idade")
+const campoEndereco = document.querySelector("#tela-cadastro #endereco")
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
@@ -148,12 +155,22 @@ document.addEventListener('keydown', (event) => {
         }
         popupExcluir.close()  
     }
-    erro.style.display = 'none'
-    document.querySelector("#tela-cadastro #email").classList.remove("erro")
-    document.querySelector("#tela-cadastro #nome").classList.remove("erro")
-    document.querySelector("#tela-cadastro #idade").classList.remove("erro")
-    document.querySelector("#tela-cadastro #endereco").classList.remove("erro")
-    
+    if(event.target == campoEmail){
+        campoEmail.classList.remove("erro")
+        erroEmail.style.display = "none"
+    }
+    if(event.target == campoNome){
+        campoNome.classList.remove("erro")
+        erroNome.style.display = "none"
+    }
+    if(event.target == campoIdade){
+        campoIdade.classList.remove("erro")
+        erroIdade.style.display = "none"
+    }
+    if(event.target == campoEndereco){
+        campoEndereco.classList.remove("erro")
+        erroEndereco.style.display = "none"
+    }
 })
 
 botaoExcluirPessoa.onclick = function (){
@@ -168,7 +185,7 @@ botaoModal.onclick = function (){
     modal.showModal()
     botaoGravar.style.display = 'block'
     botaoEditar.style.display = 'none'
-    botaoExcluir.style.display = 'none'
+    botaoExcluirPessoa.style.display = 'none'
     botaoRestaurar.style.display = 'none'
 }
 
@@ -178,7 +195,7 @@ botaoGravar.onclick = function (){
     if(retorno){
         const pessoa = JSON.parse(localStorage.getItem("pessoa"))
         enviarLog("Cadastrou a pessoa: "+pessoa.nome)
-        notificar("Pessoa cadastrada com sucesso")
+        notificar("Pessoa cadastrada com sucesso!")
         pessoas.push(pessoa)
         localStorage.setItem("pessoas", JSON.stringify(pessoas))
         fecharCadastro()
@@ -196,7 +213,7 @@ botaoEditar.onclick = function(){
     if(retorno){
         const pessoaEditado = JSON.parse(localStorage.getItem("pessoa"))
         const pessoasAtualizados = pessoas.map(u => {
-            if (u.email === pessoaEditado.email) {
+            if (u.email === pessoa.email) {
                 return pessoaEditado
             }
             return u
@@ -231,7 +248,7 @@ botaoEditar.onclick = function(){
             edicao = edicao + " Valores atualizados."
         }
         enviarLog("Editou a pessoa: " + pessoa.nome +"."+ edicao)
-        notificar("Pessoa editada com sucesso")
+        notificar("Pessoa editada com sucesso!")
         fecharCadastro()
     }
 }
@@ -248,7 +265,7 @@ botaoExcluir.onclick = function(){
     localStorage.setItem("pessoas", JSON.stringify(pessoasAtualizados))
     
     enviarLog("Excluiu a pessoa: " + pessoa.nome)
-    notificar("Pessoa excluida com sucesso")
+    notificar("Pessoa excluida com sucesso!")
     popupExcluir.close()
     fecharCadastro()
 }
@@ -264,7 +281,7 @@ botaoRestaurar.onclick = function(){
         })
     localStorage.setItem("pessoas", JSON.stringify(pessoasAtualizados))
     enviarLog("Restaurou a pessoa: " + pessoa.nome)
-    notificar("Pessoa restaurada com sucesso")
+    notificar("Pessoa restaurada com sucesso!")
     fecharCadastro()
 }
 

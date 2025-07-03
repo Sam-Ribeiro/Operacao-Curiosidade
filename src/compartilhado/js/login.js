@@ -2,6 +2,11 @@ if(document.getElementById("login-form")){
   document.getElementById("login-form").addEventListener("submit", logar)
 }else{
   document.getElementById("cadastrar-form").addEventListener("submit", cadastrar)
+  var erroNome = document.getElementById("erro-nome")
+  var erroEmail = document.getElementById("erro-email")
+  var erroSenha = document.getElementById("erro-senha")
+  var erroConfimarSenha = document.getElementById("erro-confirmar-senha")
+  var erroData = document.getElementById("erro-data")
 }
 
 function logar(e){
@@ -41,43 +46,37 @@ function cadastrar(e){
   var data = document.getElementById("data").value
   var confimarSenha = document.getElementById("confirmar-senha").value
   var agora = new Date().getFullYear()
-  const anotxt = data.substring(0, 4)
+  const anotxt = data.substring(6, 10)
   const ano = Number(anotxt)
   var ok = true
 
   if(!emailRegex.test(email) || usuarios.some(u => u.email === email) || !email){
-    erro.innerText = "Email inválido"
-    erro.style.display = 'block'
+    erroEmail.innerText = "Email inválido"
+    erroEmail.style.display = 'block'
     campoEmail.classList.add("erro")
     ok = false 
   }if(nome.length < 3 || !nome){
-    erro.innerText = "O Nome deve ter mais que três caracteres"
-    erro.style.display = 'block'
+    erroNome.innerText = "O Nome deve ter mais que três caracteres"
+    erroNome.style.display = 'block'
     ok = false
     campoNome.classList.add("erro")
   }if(senha.length < 6 || !senha){
-    erro.innerText = "A Senha deve ter mais que seis caracteres"
-    erro.style.display = 'block'
+    erroSenha.innerText = "A Senha deve ter mais que seis caracteres"
+    erroSenha.style.display = 'block'
     ok = false
     campoSenha.classList.add("erro")
   }
   if(senha != confimarSenha || !confimarSenha){
-    erro.innerText = "As senhas não conferem"
-    erro.style.display = 'block'
+    erroConfimarSenha.innerText = "As senhas não conferem"
+    erroConfimarSenha.style.display = 'block'
     ok = false
     campoConfirmarSenha.classList.add("erro")
-    campoSenha.classList.add("erro")
   }
   if(ano>=agora || ano<1910 || !ano){
-    erro.innerText = "Data de nascimento inválida"
-    erro.style.display = 'block'
+    erroData.innerText = "Data de nascimento inválida"
+    erroData.style.display = 'block'
     ok = false
     campoData.classList.add("erro")
-  }
-  if(!nome || !email || !senha || !data || !confimarSenha){
-    erro.innerText = "Preencha todos os campos"
-    erro.style.display = 'block'
-    ok = false
   }
   if(ok){
     const usuario ={
@@ -113,16 +112,43 @@ function validarUsuario(){
   if(usuario){window.location.href = "../pages/dashboard.html"}
 }
 
+
 document.addEventListener('keyup', (event) => {
   if (event.key != 'Enter') {
-    campoEmail.classList.remove("erro")
-    campoSenha.classList.remove("erro")
-    erro.style.display = 'none'
-    if(document.getElementById("cadastrar-form")){
-      campoNome.classList.remove("erro")
-      campoData.classList.remove("erro")
-      campoConfirmarSenha.classList.remove("erro")
+    if(event.target == campoEmail){
+      campoEmail.classList.remove("erro")
+      if(erroEmail){
+        erroEmail.style.display = 'none'
+      }
     }
+    if(event.target == campoSenha){
+      campoSenha.classList.remove("erro")
+      if(erroSenha){
+        erroSenha.style.display = 'none'
+      }
+    }
+    if(document.getElementById("cadastrar-form")){
+      if(event.target == campoNome){
+        campoNome.classList.remove("erro")
+        erroNome.style.display = 'none'
+      }
+      if(event.target == campoData){
+        campoData.classList.remove("erro")
+        erroData.style.display = 'none'
+      }
+      if(event.target == campoConfirmarSenha){
+        campoConfirmarSenha.classList.remove("erro")
+        erroConfimarSenha.style.display = 'none'
+      }
+    }
+    else{
+      if(campoEmail.classList.contains("erro") || campoSenha.classList.contains("erro")){
+        erro.style.display = "block"
+      }else{
+        erro.style.display = "none"
+      }
+    }
+    
   }
 })
 
