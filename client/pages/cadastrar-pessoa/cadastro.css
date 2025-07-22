@@ -1,0 +1,224 @@
+@charset "UTF-8";
+#novo-cadastro{
+    background-color: rgb(56, 170, 73);
+    color: #ffffff;
+    border-radius: 5px;
+    border-style: initial;
+    padding: 10px 50px 10px 50px;
+    font-weight:bold;
+    font-size: var(--fonte-pequena);
+    letter-spacing: 2px;
+    float: right;
+}
+#novo-cadastro:hover{
+    background-color: rgb(56, 150, 90);
+}
+
+.tabela{
+    height: 90vh;
+}
+
+.formulario{
+    height: 100%;
+    width: 100%;
+}
+dialog{ 
+    background-color: var(--cor-fundo);
+    width: 60%;
+    border-radius: 5px;
+    border-style: initial;
+    justify-content: center;
+}
+
+dialog::backdrop{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+dialog .botao{
+    color: #ffffff;
+    border-radius: 5px;
+    border-style: initial;
+    padding: 10px 0px 10px 0px;
+    font-weight:bold;
+    font-size: var(--fonte-pequena);
+    letter-spacing: 2px;
+    display: block;
+    width: 200px;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#btn-editar, #btn-restaurar, #btn-cancelar-excluir{
+    background-color: rgb(56, 102, 170);
+}
+#btn-editar:hover, #btn-restaurar:hover, #btn-cancelar-excluir:hover{
+    background-color: rgb(32, 67, 120);   
+}
+#btn-excluir, #btn-confirmar-excluir{
+    background-color: rgb(220, 74, 74);
+}
+#btn-excluir:hover, #btn-confirmar-excluir:hover{
+    background-color: rgb(158, 42, 42);  
+}
+#btn-gravar{
+    background-color: rgb(56, 170, 73); 
+}
+#btn-gravar:hover{
+    background-color: rgb(32, 120, 64);   
+}
+#btn-cancelar{
+    background-color: rgb(220, 74, 74);
+    color: #ffffff;
+    float: right;
+    border: none;
+    border-radius: 10px;
+}
+#btn-cancelar:hover{
+    background-color: rgb(158, 42, 42);
+}
+
+.formulario h1{
+    color: var(--cor-texto2);
+    font-size: var(--fonte-media);
+    float: left;
+    margin: 0px;
+    padding: 20px;
+}
+
+.formulario h2{
+    color: var(--cor-texto);
+    font-size: var(--fonte-pequena);
+    padding-right: 100px;
+    margin-bottom: 1px;
+}
+
+.form-corpo hr{
+    margin-top: 0px;
+}
+
+.status{
+    float: right;
+    padding: 0px;
+    margin: 15px 5px 0px 0px;
+}
+.cabecalho{
+    padding: 10px 0px 10px 0px;
+}
+
+.form-corpo{
+    padding: 20px;
+}
+
+label{
+    color: var(--cor-texto3);
+    font-size: var(--fonte-label);
+    padding-left: 10px;
+}
+
+.campo{
+    height: 2em;
+    background-color: var(--cor-campo);
+    color: var(--cor-texto);
+    font-size: var(--fonte-label);
+    border-style: inherit;
+    margin: 5px 10px 5px 10px;
+    padding-left: 10px;
+    transition: all 0.3s ease-out;
+    border-radius: 5px;
+}
+
+.campo:focus{
+    outline: none;
+    border-bottom: var(--cor-campo-foco) solid 4px;
+}
+.texto:focus{
+    outline: none;
+    border-bottom: var(--cor-campo-foco) solid 4px;
+}
+
+.texto{
+    border-radius: 5px;
+    padding-left: 10px;
+    width: 97%;
+    height: 5em;
+    text-align: start;
+    background-color: var(--cor-campo);
+    color: var(--cor-texto);
+    border-style: inherit;
+    margin: 5px 10px 5px 10px;
+    font-size: var(--fonte-label);
+    font-family: Verdana;
+}
+
+.toggle{
+    display: flex;
+    max-width: 90px;
+    color: var(--cor-texto3);
+}
+
+.toggle label {
+    --size: 45px;
+}
+
+.status{
+    display: flex;
+    justify-content: row;
+    align-items: center;
+    margin-left: 20px;
+}
+
+#nome{
+    width: 100%;
+}
+#email{
+    width: 100%;
+}
+#endereco{
+    width: 97%;
+}
+#idade{
+    width: 90%;
+}
+.linha{
+    display: flex;
+}
+#div-idade{
+    width: 20%;
+}
+#div-email{
+    width: 75%;
+    margin-left: 20px;
+}
+#div-nome{
+    width: 100%;
+}
+
+#pop-up-excluir h1, #pop-up-excluir span{
+    color:var(--cor-texto);
+    text-align: center;
+    display: block;
+}
+
+#pop-up-excluir{
+    width: 500px;
+}
+
+#notificacao{
+    left: 1%;
+    width: 250px;
+    height: 20px;
+    background-color: var(--cor-tema);
+    color: var(--cor-branco);
+    border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    transition: 1.3s;
+    padding: 30px 10px;
+}
+
+.escondido{
+    left: -20% !important;
+    opacity: 0;
+    right: 0;
+}
+
