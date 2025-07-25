@@ -6,7 +6,7 @@ namespace server.Domains.Validations
 
         public ContratcValidations<T> IsAgeValid(int age, string message, string property)
         {
-            if (age < 0 || age > 120) {
+            if (age <= 0 || age > 120) {
                 AddNotification(new Notification(message,property));
             }
             return this;

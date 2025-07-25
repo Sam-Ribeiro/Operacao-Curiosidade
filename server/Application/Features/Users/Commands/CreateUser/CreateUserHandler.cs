@@ -31,7 +31,7 @@ namespace server.Application.Features.Users.Commands.CreateUser
                 }
                 catch (Exception ex)
                 {
-                    result = new Result(500, $"Erro ao cadastrar usuário ${ex.Message}", false);
+                    result = new Result(500, $"Erro ao cadastrar usuário: {ex.Message}", false);
                     return result;
                 }
             }

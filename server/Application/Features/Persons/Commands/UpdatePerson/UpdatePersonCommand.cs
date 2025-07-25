@@ -14,5 +14,6 @@ namespace server.Application.Features.Persons.Commands.UpdatePerson
         public string? Interests { get; set; }
         public string? Feelings { get; set; }
         public string? Values { get; set; }
+        public string? Token { get; set; }
     }
 }

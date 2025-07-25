@@ -36,7 +36,7 @@ namespace server.Application.Features.Users.Commands.Login
                         {
                             result = new Result(200, "Login realizado", true);
                             UserLoggedDTO userDTO = new UserLoggedDTO(user);
-                            var token = _createToken.NewToken(user);
+                            var token = _createToken.Generate(user);
                             var data = new { token, userDTO };
                             result.SetData(data);
                             return result;
@@ -48,7 +48,7 @@ namespace server.Application.Features.Users.Commands.Login
             }
             catch (Exception ex)
             {
-                result = new Result(500, $"Erro ao logar {ex.Message}", false);
+                result = new Result(500, $"Erro ao logar: {ex.Message}", false);
                 return result;
             }
         }

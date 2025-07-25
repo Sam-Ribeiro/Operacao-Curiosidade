@@ -8,19 +8,21 @@ namespace server.Repositories
         public InMemoryContext _context;
         public WriteUserRepository(InMemoryContext context) { 
             _context = context;
+            _context.LoadContexts();
         }
         public void AddUser(User user)
         {
             List<User> users = _context.users;
             user.Id = users.Any() ? users.Max(p => p.Id) + 1 : 1;
-            _context.users.Add(user);        
+            _context.users.Add(user);
+            _context.SaveChanges();
         }
 
         public void DeleteUser(int id)
         {
             User user = _context.users.FirstOrDefault(u => u.Id.Equals(id));
             user.Removed = true;
-         
+            _context.SaveChanges();
         }
         public void UpdateUser(User updatedUser)
         {
@@ -32,6 +34,7 @@ namespace server.Repositories
                 user.BornDate = updatedUser.BornDate;
                 user.PasswordHash = updatedUser.PasswordHash;
             }
+            _context.SaveChanges();
         }
     }
 }

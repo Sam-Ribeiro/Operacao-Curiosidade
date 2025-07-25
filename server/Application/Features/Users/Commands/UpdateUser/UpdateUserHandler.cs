@@ -1,8 +1,10 @@
 ﻿using server.Application.Commands.Interfaces;
 using server.Application.Results;
 using server.Infrastructure.Repositories.Interfaces;
+using server.Services.Authentication;
 using server.Services.Validation;
 using server.Utils.Exceptions;
+using System.Security.Claims;
 
 namespace server.Application.Features.Users.Commands.UpdateUser
 {
@@ -22,9 +24,16 @@ namespace server.Application.Features.Users.Commands.UpdateUser
             Result result;
             try
             {
+                var userToken = ReadToken.ValidateToken(command.Token);
+                if (userToken == null)
+                {
+                    result = new Result(401, "Erro ao validar token", false);
+                    return result;
+                }
                 if (validation.Validate(command, _readRepository.GetEmails()))
                 {
-                    var user = _readRepository.GetUserById(command.Id);
+                    int userId = Int32.Parse(userToken.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+                    var user = _readRepository.GetUserById(userId);
                     user.Email = command.Email;
                     user.Name = command.Name;
                     user.BornDate = command.BornDate;

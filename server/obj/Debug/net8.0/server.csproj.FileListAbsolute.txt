@@ -46,3 +46,6 @@ C:\Projetos\Projeto\Samuel_Ribeiro_da_Costa\Server\bin\Debug\net8.0\Microsoft.Ex
 C:\Projetos\Projeto\Samuel_Ribeiro_da_Costa\Server\bin\Debug\net8.0\Scrutor.dll
 C:\Projetos\Projeto\Samuel_Ribeiro_da_Costa\Server\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.dll
 C:\Projetos\Projeto\Samuel_Ribeiro_da_Costa\Server\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+C:\Projetos\Projeto\Samuel_Ribeiro_da_Costa\Server\bin\Debug\net8.0\logs.json
+C:\Projetos\Projeto\Samuel_Ribeiro_da_Costa\Server\bin\Debug\net8.0\persons.json
+C:\Projetos\Projeto\Samuel_Ribeiro_da_Costa\Server\bin\Debug\net8.0\users.json

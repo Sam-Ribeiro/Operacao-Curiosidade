@@ -1,9 +1,12 @@
-﻿using server.Application.Commands.Interfaces;
+﻿using Microsoft.AspNetCore.Authentication;
+using server.Application.Commands.Interfaces;
 using server.Application.Results;
 using server.Infrastructure.Repositories.Interfaces;
 using server.Models;
+using server.Services.Authentication;
 using server.Services.Validation;
 using server.Utils.Exceptions;
+using System.Security.Claims;
 
 namespace server.Application.Features.Persons.Commands.CreatePerson
 {
@@ -24,9 +27,18 @@ namespace server.Application.Features.Persons.Commands.CreatePerson
             Result result;
             try
             {
-                if (validation.Validate(command, _readPerson.GetEmails()))
+                var user = ReadToken.ValidateToken(command.Token);
+                if (user == null)
                 {
-                    _writePerson.AddPerson(new Person(command));
+                    result = new Result(401, "Erro ao validar token", false);
+                    return result;
+                }
+
+                Person person = new Person(command);
+                if (validation.Validate(person, _readPerson.GetEmails("")))
+                {
+                    int userId = Int32.Parse(user.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+                    _writePerson.AddPerson(new Person(command),userId);
                     result = new Result(201, "Pessoa cadastrada com sucesso!", true);
                     return result;
                 }

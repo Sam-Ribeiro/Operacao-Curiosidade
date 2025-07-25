@@ -46,18 +46,22 @@ namespace server.Application.Controllers
 
         [HttpPut("updatePassword")]
         public IResultBase UpdatePassword(UpdatePasswordCommand command) {
+            command.Token = Request.Headers["Authorization"].ToString();
             return _updatePassword.Handle(command);
         }
 
         [HttpPut("updateUser")]
         public IResultBase UpdateUser(UpdateUserCommand command) {
+            command.Token = Request.Headers["Authorization"].ToString();
             return _updateUser.Handle(command);
         }
 
         // Query
 
-        [HttpGet("getProfile{query}")]
-        public IResultBase GetUserProfile([FromHeader]GetUserProfileQuery query) {
+        [HttpGet("getProfile/{id}")]
+        public IResultBase GetUserProfile([FromRoute] int id) {
+            GetUserProfileQuery query = new GetUserProfileQuery() { Id = id };
+            query.Token = Request.Headers["Authorization"].ToString();
             return _queryProfile.Handle(query);
         }
     }

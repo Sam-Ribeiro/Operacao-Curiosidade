@@ -1,6 +1,5 @@
-﻿using server.Application.Features.Persons.Commands.CreatePerson;
-using server.Application.Features.Users.Commands.CreateUser;
-using server.Domains.Validations;
+﻿using server.Domains.Validations;
+using server.Models;
 using server.Utils.Exceptions;
 using server.Utils.Validations.Interfaces;
 
@@ -14,7 +13,7 @@ namespace server.Services.Validation
         {
             _notifications = notifications;
         }
-        public bool Validate(CreatePersonCommand person, List<string> emails)
+        public bool Validate(Person person, List<string> emails)
         {
             var contract = new ContratcValidations<PersonValidation>()
                 .IsNameValid(person.Name, "o Nome deve ter mais que 3 caracteres.", "name")

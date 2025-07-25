@@ -8,22 +8,32 @@ namespace server.Infrastructure.Repositories
     {
         public InMemoryContext _context;
         public ReadPersonRepository(InMemoryContext context)
-        {
+        { 
             _context = context;
+            _context.LoadContexts();
         }
         public List<Person>? GetAllPersons()
         {
-            return _context.persons;
+            _context.LoadContexts();
+            return _context.persons.FindAll(person => person.Removed == false);
         }
-
-        public List<string>? GetEmails()
+        
+        public List<Person>? GetDeletedPersons()
         {
-            return _context.persons?.Select(person => person.Email).ToList() ?? new List<string>();
+            _context.LoadContexts();
+            return _context.persons.FindAll(person => person.Removed == true);
+        }
+        public List<string>? GetEmails(string? email)
+        {
+            _context.LoadContexts();
+            return _context.persons.FindAll(person => person.Email != email)
+                .Select(person => person.Email).ToList() ?? new List<string>();
         }
 
         public Person? GetPersonById(int id)
         {
-            return _context.persons?.FirstOrDefault(person => person.Id == id);
+            _context.LoadContexts();
+            return _context.persons.FirstOrDefault(person => person.Id.Equals(id));
         }
     }
 }

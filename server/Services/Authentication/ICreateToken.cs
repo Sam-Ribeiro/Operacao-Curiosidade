@@ -4,6 +4,6 @@ namespace server.Services.Authentication
 {
     public interface ICreateToken
     {
-        public string NewToken(User user);
+        public string Generate(User user);
     }
 }
