@@ -24,7 +24,7 @@ namespace server.Application.Features.Persons.Queries.GetLastMonthRecordCount
             }
             catch (Exception ex)
             {
-                result = new Result(500, $"Erro ao contar pessoas inativas", false);
+                result = new Result(500, $"Erro ao contar pessoas cadastradas no ultimo mes {ex.Message}", false);
                 return result;
             }
         }

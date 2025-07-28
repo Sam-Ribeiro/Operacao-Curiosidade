@@ -152,3 +152,28 @@ p{
     font-size: var(--fonte-label);
     font-weight: 550;
 }
+
+#notification{
+    left: 3%;
+    width: 250px;
+    height: 20px;
+    color: var(--cor-branco);
+    border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    transition: 1.3s;
+    padding: 30px 10px;
+}
+
+.isOk{
+    background-color: var(--cor-azul);
+}
+.isNotOk{
+    background-color: var(--cor-vermelho);
+}
+.hidden{
+    left: -20% !important;
+    opacity: 0;
+    right: 0;
+}

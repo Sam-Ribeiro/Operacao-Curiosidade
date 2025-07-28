@@ -289,7 +289,7 @@ botaoDia.onclick = function(){
     preencherTabela(incluidos)
 }
 botaoSair.onclick = function(){
-    localStorage.removeItem("usuario")
+    localStorage.removeItem("token")
 }
 
 preencherTabela(incluidos)

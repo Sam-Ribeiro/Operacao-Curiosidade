@@ -50,7 +50,7 @@ namespace server.Application.Controllers
 
         //Command
         [HttpPost("create")]
-        public IResultBase CreatePerson(CreatePersonCommand command) {
+        public IResultBase CreatePerson([FromBody]CreatePersonCommand command) {
             command.Token = Request.Headers["Authorization"].ToString();
             return _create.Handle(command);
         }

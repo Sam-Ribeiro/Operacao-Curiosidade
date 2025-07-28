@@ -80,11 +80,11 @@ builder.Services.AddScoped<IQueryHandler<GetDeletedPersonsPagesQuery>, GetDelete
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowSpecificOrigin",
-        builder => builder.WithOrigins("http://127.0.0.1:5500")
-                          .AllowAnyHeader()
-                          .AllowAnyMethod()
-                          .AllowCredentials());
+options.AddPolicy("AllowAll", builder =>
+builder.AllowAnyOrigin()
+.AllowAnyHeader()
+.AllowAnyMethod());
+
 });
 
 
@@ -130,7 +130,7 @@ app.UseAuthentication();
 
 app.UseAuthorization();
 
-app.UseCors("AllowSpecificOrigin");
+app.UseCors("AllowAll");
 
 app.MapControllers();
 

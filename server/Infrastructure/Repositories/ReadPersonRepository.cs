@@ -45,9 +45,10 @@ namespace server.Infrastructure.Repositories
         }
         public int GetLastMonthRecordCount()
         {
-            var lastMonth = DateTime.UtcNow.Subtract(DateTime.MinValue.AddMonths(1));
-            return _context.persons.FindAll(person => person.RegistrationDate.CompareTo(lastMonth)>0).Count();
-        }
+            var now = DateTime.UtcNow;
+            var oneMonthAgo = now.AddMonths(-1);
 
+            return _context.persons.Count(person => person.RegistrationDate >= oneMonthAgo);
+        }
     }
 }

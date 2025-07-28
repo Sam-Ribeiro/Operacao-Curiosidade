@@ -58,9 +58,8 @@ namespace server.Application.Controllers
 
         // Query
 
-        [HttpGet("getProfile/{id}")]
-        public IResultBase GetUserProfile([FromRoute] int id) {
-            GetUserProfileQuery query = new GetUserProfileQuery() { Id = id };
+        [HttpGet("getProfile")]
+        public IResultBase GetUserProfile([FromQuery] GetUserProfileQuery query) {
             query.Token = Request.Headers["Authorization"].ToString();
             return _queryProfile.Handle(query);
         }

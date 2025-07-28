@@ -7,6 +7,7 @@ function carregarDados(){
     campoSenhaNova.value = ""
 }
 
+
 function salvarSenha(){
     const usuario = JSON.parse(localStorage.getItem("usuario"))
     const usuarios = JSON.parse(localStorage.getItem("usuarios"))

@@ -999,19 +999,17 @@
         }
       }
     },
-    "/api/User/getProfile/{id}": {
+    "/api/User/getProfile": {
       "get": {
         "tags": [
           "User"
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
+            "name": "Token",
+            "in": "query",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],

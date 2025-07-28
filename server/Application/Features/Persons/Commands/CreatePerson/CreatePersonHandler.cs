@@ -33,7 +33,6 @@ namespace server.Application.Features.Persons.Commands.CreatePerson
                     result = new Result(401, "Erro ao validar token", false);
                     return result;
                 }
-
                 Person person = new Person(command);
                 if (validation.Validate(person, _readPerson.GetEmails("")))
                 {
