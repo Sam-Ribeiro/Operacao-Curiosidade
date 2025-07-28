@@ -16,7 +16,7 @@ namespace server.Services.Validation
         public bool Validate(Person person, List<string> emails)
         {
             var contract = new ContratcValidations<PersonValidation>()
-                .IsNameValid(person.Name, "o Nome deve ter mais que 3 caracteres.", "name")
+                .IsNameValid(person.Name, "o Nome deve ter entre 4 e 60 caracteres", "name")
                 .IsEmailValid(person.Email, "Email inválido.", "email")
                 .IsEmailUnique(person.Email, "Email já cadastrado.", "email", emails)
                 .IsAgeValid(person.Age,"Idade Inválida.","age")

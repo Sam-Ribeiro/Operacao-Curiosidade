@@ -6,7 +6,7 @@ namespace server.Domains.Validations
     {
         public ContratcValidations<T> IsAdressValid(string addres, string message, string property)
         {
-            if (addres.Length <=0)
+            if (addres.Length <=0 || addres.Length > 400)
             {
                 AddNotification(new Notification(message, property));
             }

@@ -207,80 +207,17 @@ botaoClose.onclick = function(){
 }
 
 botaoEditar.onclick = function(){
-    const pessoas = JSON.parse(localStorage.getItem("pessoas"))  
-    const pessoa = JSON.parse(localStorage.getItem("pessoa"))
-    let retorno = verificarEntrada()
-    if(retorno){
-        const pessoaEditado = JSON.parse(localStorage.getItem("pessoa"))
-        const pessoasAtualizados = pessoas.map(u => {
-            if (u.email === pessoa.email) {
-                return pessoaEditado
-            }
-            return u
-        })
-        localStorage.setItem("pessoas", JSON.stringify(pessoasAtualizados))
-        let edicao = ""
-        if(pessoa.nome != pessoaEditado.nome){
-            edicao = edicao + " Nome alterado de: "+ pessoa.nome + " para "+pessoaEditado.nome + "."
-        }
-        if(pessoa.email != pessoaEditado.email){
-            edicao = edicao + " Email alterado de: "+ pessoa.email + " para " + pessoaEditado.email + "."
-        }
-        if(pessoa.idade != pessoaEditado.idade){
-            edicao = edicao + " Idade alterada de: "+ pessoa.idade + " para " + pessoaEditado.idade + "."
-        }
-        if(pessoa.status != pessoaEditado.status){
-            edicao = edicao + " Status alterado de: "+ pessoa.status + " para " + pessoaEditado.status + "."
-        }
-        if(pessoa.endereco != pessoaEditado.endereco){
-            edicao = edicao + " Endereço atualizado."
-        }
-        if(pessoa.informacoes != pessoaEditado.informacoes){
-            edicao = edicao + " Informações de dados e fatos atualizados."
-        }
-        if(pessoa.interesses != pessoaEditado.interesses){
-            edicao = edicao + " Interesses atualizados."
-        }
-        if(pessoa.sentimentos != pessoaEditado.sentimentos){
-            edicao = edicao + " Sentimentos atualizados."
-        }
-        if(pessoa.valores != pessoaEditado.valores){
-            edicao = edicao + " Valores atualizados."
-        }
-        enviarLog("Editou a pessoa: " + pessoa.nome +"."+ edicao)
-        notificar("Pessoa editada com sucesso!")
-        fecharCadastro()
-    }
+    notificar("Pessoa editada com sucesso!")
+    fecharCadastro()
 }
 
 botaoExcluir.onclick = function(){
-    const pessoas = JSON.parse(localStorage.getItem("pessoas"))
-    const pessoa = JSON.parse(localStorage.getItem("pessoa"))
-    const pessoasAtualizados = pessoas.map(u => {
-        if (u.email === pessoa.email) {
-            return { ...u, deletado: true, status: "Inativo" }
-        }
-            return u
-        })
-    localStorage.setItem("pessoas", JSON.stringify(pessoasAtualizados))
-    
-    enviarLog("Excluiu a pessoa: " + pessoa.nome)
     notificar("Pessoa excluida com sucesso!")
     popupExcluir.close()
     fecharCadastro()
 }
 
 botaoRestaurar.onclick = function(){
-    const pessoas = JSON.parse(localStorage.getItem("pessoas"))
-    const pessoa = JSON.parse(localStorage.getItem("pessoa"))
-    const pessoasAtualizados = pessoas.map(u => {
-        if (u.email === pessoa.email) {
-            return { ...u, deletado: false }
-        }
-            return u
-        })
-    localStorage.setItem("pessoas", JSON.stringify(pessoasAtualizados))
-    enviarLog("Restaurou a pessoa: " + pessoa.nome)
     notificar("Pessoa restaurada com sucesso!")
     fecharCadastro()
 }

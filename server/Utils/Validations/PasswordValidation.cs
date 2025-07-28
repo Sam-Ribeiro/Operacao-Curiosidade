@@ -1,4 +1,5 @@
 ﻿using server.Utils.Exceptions;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace server.Domains.Validations
 {
@@ -10,7 +11,12 @@ namespace server.Domains.Validations
             {
                 AddNotification(new Notification(message, property));
             }
+            if (password.Length > 32)
+            {
+                AddNotification(new Notification(message, property));
+            }
             return this;
+
         }
         public ContratcValidations<T> IsPasswordConfirmed(string password, string passwordConfirm,string message, string property)
         {

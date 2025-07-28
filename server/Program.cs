@@ -5,13 +5,19 @@ using server.Application.Commands.Interfaces;
 using server.Application.Features.Interfaces;
 using server.Application.Features.Logs.Queries.GetLogs;
 using server.Application.Features.Logs.Queries.PrintLogs;
+using server.Application.Features.Pages.Queries.GetDeletedPersonsPages;
+using server.Application.Features.Pages.Queries.GetLogsPages;
+using server.Application.Features.Pages.Queries.GetPersonsPages;
 using server.Application.Features.Persons.Commands.CreatePerson;
 using server.Application.Features.Persons.Commands.DeletePerson;
 using server.Application.Features.Persons.Commands.RestorePerson;
 using server.Application.Features.Persons.Commands.UpdatePerson;
 using server.Application.Features.Persons.Queries.GetDeletedPersons;
+using server.Application.Features.Persons.Queries.GetInactiveCount;
+using server.Application.Features.Persons.Queries.GetLastMonthRecordCount;
 using server.Application.Features.Persons.Queries.GetPersonData;
 using server.Application.Features.Persons.Queries.GetPersons;
+using server.Application.Features.Persons.Queries.GetPersonsCount;
 using server.Application.Features.Persons.Queries.PrintDeletedPersons;
 using server.Application.Features.Persons.Queries.PrintPersons;
 using server.Application.Features.Users.Commands.CreateUser;
@@ -59,10 +65,18 @@ builder.Services.AddScoped<IQueryHandler<GetPersonDataQuery>, GetPersonDataHandl
 builder.Services.AddScoped<IQueryHandler<GetDeletedPersonsQuery>, GetDeletedPersonsHandler>();
 builder.Services.AddScoped<IQueryHandler<PrintPersonsQuery>, PrintPersonsHandler>();
 builder.Services.AddScoped<IQueryHandler<PrintDeletePersonsQuery>, PrintDeletePersonsHandler>();
+builder.Services.AddScoped<IQueryHandler<GetInactiveCountQuery>, GetInactiveCountHandler>();
+builder.Services.AddScoped<IQueryHandler<GetPersonsCountQuery>, GetPersonsCountHandler>();
+builder.Services.AddScoped<IQueryHandler<GetMonthRecordCountQuery>, GetMonthRecordCountHandler>();
 
 //log
 builder.Services.AddScoped<IQueryHandler<PrintLogsQuery>, PrintLogsHandler>();
 builder.Services.AddScoped<IQueryHandler<GetLogsQuery>, GetLogsHandler>();
+
+//Pages
+builder.Services.AddScoped<IQueryHandler<GetPersonsPagesQuery>, GetPersonsPagesHandler>();
+builder.Services.AddScoped<IQueryHandler<GetLogsPagesQuery>, GetLogsPagesHandler>();
+builder.Services.AddScoped<IQueryHandler<GetDeletedPersonsPagesQuery>, GetDeletedPersonsPagesHandler>();
 
 builder.Services.AddCors(options =>
 {

@@ -8,5 +8,8 @@ namespace server.Infrastructure.Repositories.Interfaces
         List<Person>? GetAllPersons();
         List<Person>? GetDeletedPersons();
         List<string>? GetEmails(string? email);
+        int GetPersonsCount();
+        int GetInactiveCount();
+        int GetLastMonthRecordCount();
     }
 }

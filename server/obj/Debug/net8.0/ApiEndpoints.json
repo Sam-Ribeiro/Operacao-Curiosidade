@@ -77,6 +77,162 @@
     ]
   },
   {
+    "ContainingType": "server.Application.Controllers.PageContentController",
+    "Method": "GetDeletedPersonsPages",
+    "RelativePath": "api/PageContent/getDeletePersonsPages",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "server.Application.Features.Pages.Queries.GetDeletedPersonsPages.GetDeletedPersonsPagesQuery",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "server.Application.Results.IResultBase",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "server.Application.Controllers.PageContentController",
+    "Method": "GetInactivePersonsCount",
+    "RelativePath": "api/PageContent/getInactiveCount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "server.Application.Features.Persons.Queries.GetInactiveCount.GetInactiveCountQuery",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "server.Application.Results.IResultBase",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "server.Application.Controllers.PageContentController",
+    "Method": "GetLogsPages",
+    "RelativePath": "api/PageContent/getLogsPages",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "server.Application.Features.Pages.Queries.GetLogsPages.GetLogsPagesQuery",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "server.Application.Results.IResultBase",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "server.Application.Controllers.PageContentController",
+    "Method": "GetMonthRecordsCount",
+    "RelativePath": "api/PageContent/getMonthRecordsCount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "server.Application.Features.Persons.Queries.GetLastMonthRecordCount.GetMonthRecordCountQuery",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "server.Application.Results.IResultBase",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "server.Application.Controllers.PageContentController",
+    "Method": "GetPersonsCount",
+    "RelativePath": "api/PageContent/getPersonsCount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "server.Application.Features.Persons.Queries.GetPersonsCount.GetPersonsCountQuery",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "server.Application.Results.IResultBase",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "server.Application.Controllers.PageContentController",
+    "Method": "GetPersonsPages",
+    "RelativePath": "api/PageContent/getPersonsPages",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "server.Application.Features.Pages.Queries.GetPersonsPages.GetPersonsPagesQuery",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "server.Application.Results.IResultBase",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "server.Application.Controllers.PersonController",
     "Method": "CreatePerson",
     "RelativePath": "api/Person/create",
@@ -239,7 +395,7 @@
   {
     "ContainingType": "server.Application.Controllers.PersonController",
     "Method": "PrintDeletePersons",
-    "RelativePath": "api/Person/printeDeletedPersons",
+    "RelativePath": "api/Person/printDeletedPersons",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

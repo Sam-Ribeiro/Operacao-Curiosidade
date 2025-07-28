@@ -7,8 +7,11 @@ using server.Application.Features.Persons.Commands.DeletePerson;
 using server.Application.Features.Persons.Commands.RestorePerson;
 using server.Application.Features.Persons.Commands.UpdatePerson;
 using server.Application.Features.Persons.Queries.GetDeletedPersons;
+using server.Application.Features.Persons.Queries.GetInactiveCount;
+using server.Application.Features.Persons.Queries.GetLastMonthRecordCount;
 using server.Application.Features.Persons.Queries.GetPersonData;
 using server.Application.Features.Persons.Queries.GetPersons;
+using server.Application.Features.Persons.Queries.GetPersonsCount;
 using server.Application.Features.Persons.Queries.PrintDeletedPersons;
 using server.Application.Features.Persons.Queries.PrintPersons;
 using server.Application.Results;
@@ -28,11 +31,12 @@ namespace server.Application.Controllers
         private readonly IQueryHandler<GetPersonDataQuery> _queryPersonData;
         private readonly IQueryHandler<PrintPersonsQuery> _printPersons;
         private readonly IQueryHandler<PrintDeletePersonsQuery > _printDeleted;
-
         public PersonController(IHandlerBase<CreatePersonCommand> create, IHandlerBase<DeletePersonCommand> delete, 
-            IHandlerBase<RestorePersonCommand> restore,IHandlerBase<UpdatePersonCommand> update, IQueryHandler<GetPersonsQuery> queryPersons,
-            IQueryHandler<GetDeletedPersonsQuery> queryDeleted, IQueryHandler<GetPersonDataQuery> queryPersonData,
-            IQueryHandler<PrintPersonsQuery> printPersons, IQueryHandler<PrintDeletePersonsQuery> printDeleted) {
+            IHandlerBase<RestorePersonCommand> restore,IHandlerBase<UpdatePersonCommand> update, 
+            IQueryHandler<GetPersonsQuery> queryPersons,IQueryHandler<GetDeletedPersonsQuery> queryDeleted, 
+            IQueryHandler<GetPersonDataQuery> queryPersonData, IQueryHandler<PrintPersonsQuery> printPersons, 
+            IQueryHandler<PrintDeletePersonsQuery> printDeleted) 
+        {
             _create = create;
             _delete = delete;
             _restore = restore;
@@ -98,12 +102,11 @@ namespace server.Application.Controllers
             return _printPersons.Handle(query);
         }
 
-        [HttpGet("printeDeletedPersons")]
+        [HttpGet("printDeletedPersons")]
         public IResultBase PrintDeletePersons([FromQuery] PrintDeletePersonsQuery query) 
         {
             query.Token = Request.Headers["Authorization"].ToString();
             return _printDeleted.Handle(query);
         }
-            
     }
 }

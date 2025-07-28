@@ -119,6 +119,234 @@
         }
       }
     },
+    "/api/PageContent/getInactiveCount": {
+      "get": {
+        "tags": [
+          "PageContent"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/GetInactiveCountQuery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IResultBase"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IResultBase"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IResultBase"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PageContent/getPersonsCount": {
+      "get": {
+        "tags": [
+          "PageContent"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/GetPersonsCountQuery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IResultBase"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IResultBase"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IResultBase"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PageContent/getMonthRecordsCount": {
+      "get": {
+        "tags": [
+          "PageContent"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/GetMonthRecordCountQuery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IResultBase"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IResultBase"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IResultBase"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PageContent/getPersonsPages": {
+      "get": {
+        "tags": [
+          "PageContent"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/GetPersonsPagesQuery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IResultBase"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IResultBase"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IResultBase"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PageContent/getLogsPages": {
+      "get": {
+        "tags": [
+          "PageContent"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/GetLogsPagesQuery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IResultBase"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IResultBase"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IResultBase"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PageContent/getDeletePersonsPages": {
+      "get": {
+        "tags": [
+          "PageContent"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/GetDeletedPersonsPagesQuery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IResultBase"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IResultBase"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IResultBase"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Person/create": {
       "post": {
         "tags": [
@@ -526,7 +754,7 @@
         }
       }
     },
-    "/api/Person/printeDeletedPersons": {
+    "/api/Person/printDeletedPersons": {
       "get": {
         "tags": [
           "Person"
@@ -897,6 +1125,30 @@
             "nullable": true
           }
         },
+        "additionalProperties": false
+      },
+      "GetDeletedPersonsPagesQuery": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "GetInactiveCountQuery": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "GetLogsPagesQuery": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "GetMonthRecordCountQuery": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "GetPersonsCountQuery": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "GetPersonsPagesQuery": {
+        "type": "object",
         "additionalProperties": false
       },
       "IResultBase": {
