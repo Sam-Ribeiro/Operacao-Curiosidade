@@ -37,7 +37,7 @@ namespace server.Application.Features.Logs.Queries.GetLogs
                 }
                 else
                 {
-                    var data = DataSelect.SelectLogs(logs,query.Filter,query.Page,query.Order);
+                    var data = DataSelect.SelectLogs(logs,query.Filter,query.Page,query.Order,query.PageSize);
                     result = new Result(200, "Logs Encontrados", true);
                     result.SetData(data);
                     return result;

@@ -28,7 +28,7 @@ namespace server.Application.Features.Persons.Queries.GetDeletedPersons
                 }
                 else
                 {
-                    var data = DataSelect.SelectPersons(persons, query.Filter, query.Page, query.Order);
+                    var data = DataSelect.SelectPersons(persons, query.Filter, query.Page, query.Order, query.PageSize);
                     result = new Result(200, "Pessoas deletadas carregadas", true);
                     result.SetData(PersonListMap.MapList(data));
                 }

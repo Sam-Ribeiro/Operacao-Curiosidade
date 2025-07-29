@@ -23,38 +23,7 @@
         "IsRequired": false
       },
       {
-        "Name": "Filter",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "server.Application.Results.IResultBase",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "server.Application.Controllers.LogController",
-    "Method": "PrintLogs",
-    "RelativePath": "api/Log/printLogs",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "Token",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Order",
+        "Name": "PageSize",
         "Type": "System.Int32",
         "IsRequired": false
       },
@@ -308,6 +277,11 @@
         "IsRequired": false
       },
       {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
         "Name": "Filter",
         "Type": "System.String",
         "IsRequired": false
@@ -375,74 +349,7 @@
         "IsRequired": false
       },
       {
-        "Name": "Filter",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "server.Application.Results.IResultBase",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "server.Application.Controllers.PersonController",
-    "Method": "PrintDeletePersons",
-    "RelativePath": "api/Person/printDeletedPersons",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "Token",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Order",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "Filter",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "server.Application.Results.IResultBase",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "server.Application.Controllers.PersonController",
-    "Method": "PrintPersons",
-    "RelativePath": "api/Person/printPersons",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "Token",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Order",
+        "Name": "PageSize",
         "Type": "System.Int32",
         "IsRequired": false
       },

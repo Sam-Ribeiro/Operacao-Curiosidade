@@ -8,10 +8,10 @@ var erroData = document.getElementById("erro-data")
 const botaoCadastrar =  document.getElementById("btn-cadastrar")
 
 botaoCadastrar.onclick = function (){
-    cadastrar();
+    register();
 }
 
-async function cadastrar(){
+async function register(){
     var nome = document.getElementById("nome").value
     var email = document.getElementById("email").value
     var senha = document.getElementById("senha").value
@@ -26,39 +26,28 @@ async function cadastrar(){
     }
 
     if(verifyNotNullFields(userData)){
-        createUserRequest(userData)
+        const result = await createUserRequest(userData)
+        if(result == null){
+            notify("Erro ao comunicar com o servidor")
+        }
+        else{
+            if(result.resultCode === 400){ 
+                notify(result.message,false)
+                const notifications = result.notifications
+                for( const n in notifications){
+                    getErrorResponse(notifications[n])
+                }
+            }else if(result.resultCode === 201){
+                notify(result.message,true)
+                setTimeout(() => { window.location.href = "../login/login.html" },2200)
+            }else{
+                notify(result.message,false)
+            }
+        }
     }
 }
 
-async function createUserRequest(userData){
-    const url = 'https://localhost:7182/api/User/register'
-    const r = await fetch(url,{
-    method: 'POST',
-    headers: { 
-    'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(userData)
-    })
-    try{
-        const result = await r.json()
-        if(result.resultCode === 400){ 
-            notify(result.message,false)
-            const notifications = result.notifications
-            for( const n in notifications){
-                getErrorResponse(notifications[n])
-            }
-        }else if(result.resultCode === 201){
-            notify(result.message,true)
-            setTimeout(() => {
-                window.location.href = "../login/login.html"
-            },2200)
-        }else{
-            notify(result.message,false)
-        }
-    }catch(error){
-        notify(error,false)
-    }
-}
+
 
 const notificacao = document.getElementById("notification")
 function notify(message, isOk){
@@ -131,31 +120,18 @@ function verifyNotNullFields(userData){
 }
 
 async function validarUsuario(){
-    const token = JSON.parse(localStorage.getItem("token"))
-    const url = "https://localhost:7182/api/User/getProfile"
-    const r = await fetch(url,{
-        method: 'GET',
-        headers: { 
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-        },
-    })
-    try{
-        const result = await r.json()
-        if(result.resultCode === 200){
-            window.location.href = "../dashboard/dashboard.html"
-        }else if(result.resultCode === 401){
-            console.log("Token invalido")
-        }
-    }catch(error)
-    {
-        console.log(error)
+    const result = await QueryUserData()
+    if(result.resultCode === 200){
+        notify("Usuário carregado, redirecionando...",true)
+        setTimeout(()=> {window.location.href = "../dashboard/dashboard.html"},2000)
+    }else if(result.resultCode === 401){
+        console.log("Token invalido")
     }
 }
 
 document.addEventListener('keyup', (event) => {
     if (event.key == 'Enter') {
-        cadastrar()
+        register()
     }
     else {
         if(event.target == campoEmail){

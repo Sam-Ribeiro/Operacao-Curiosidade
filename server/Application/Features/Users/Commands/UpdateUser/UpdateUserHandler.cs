@@ -30,10 +30,11 @@ namespace server.Application.Features.Users.Commands.UpdateUser
                     result = new Result(401, "Erro ao validar token", false);
                     return result;
                 }
-                if (validation.Validate(command, _readRepository.GetEmails()))
+                int userId = Int32.Parse(userToken.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+                var user = _readRepository.GetUserById(userId);
+                var otherEmails = _readRepository.GetEmails().FindAll(email => email != user.Email);
+                if (validation.Validate(command, otherEmails))
                 {
-                    int userId = Int32.Parse(userToken.FindFirst(ClaimTypes.NameIdentifier)?.Value);
-                    var user = _readRepository.GetUserById(userId);
                     user.Email = command.Email;
                     user.Name = command.Name;
                     user.BornDate = command.BornDate;

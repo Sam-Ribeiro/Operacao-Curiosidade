@@ -1,137 +1,99 @@
-const usuario = JSON.parse(localStorage.getItem("usuario"))
 
-function preencherTabela(incluido){
-    if(usuario){
-        var tabela = document.getElementById("tabela-cadastros")
-        let pessoas = JSON.parse(localStorage.getItem("pessoas")) || []
-        pessoas = pessoas.filter(u => u.deletado != incluido)
-        tamanho = pessoas.length
-        while (tabela.rows.length > 1) {
-            tabela.deleteRow(1)
-        }
-
-        pessoas = ordenarTabela(pessoas)
-        pessoas = filtrarPesquisa(pessoas)
-        pessoas = dividirPaginas(pessoas)
-
-        for(var i = 0; i < pessoas.length ; i++){
-            const pessoa = pessoas[i]
-            var totalLinhas = tabela.rows.length
-            var linha = tabela.insertRow(totalLinhas)
-            if(i%2==0){
-                linha.classList.add("par")
-            }
-            var celulaNome = linha.insertCell(0)
-            var celulaEmail = linha.insertCell(1)
-            var celulaStatus = linha.insertCell(2)
-            var celulaData = linha.insertCell(3)
-                
-            var link = '<a class="link-pessoa" id="'+ i +'" href="#">'+ pessoa.nome +'</a>'
-
-            let data = new Date(pessoa.dataCadastro)
-            let dataFormatada = formatarData(data)
-
-            let status = "status" 
-            if(pessoa.status == "Ativo"){
-                status = `<span class="status-ativo"> Ativo <span>`
-            }else{
-                status = `<span class="status-inativo"> Inativo <span>`
-            }
-
-            celulaNome.innerHTML = link
-            celulaEmail.innerText = pessoa.email
-            celulaStatus.innerHTML = status
-            celulaData.innerText = dataFormatada
-        }
-        criarLinks(pessoas)
+async function preencherTabela(incluido){
+    var tabela = document.getElementById("tabela-cadastros")
+    
+    let result = null
+    if(incluido){
+        result = await QueryPersons(paginaAtual,ordem,itensPorPagina,filtro)
+    }else{
+        result = await QueryDeletedPersons(paginaAtual,ordem,itensPorPagina,filtro)
     }
+    let pessoas = await result.data
+
+    while (tabela.rows.length > 1) {
+        tabela.deleteRow(1)
+    }
+    orderHeaderRefresh()
+    for(var i = 0; i < pessoas.length ; i++){
+        const pessoa = pessoas[i]
+        var totalLinhas = tabela.rows.length
+        var linha = tabela.insertRow(totalLinhas)
+        if(i%2==0){
+            linha.classList.add("par")
+        }
+        var celulaNome = linha.insertCell(0)
+        var celulaEmail = linha.insertCell(1)
+        var celulaStatus = linha.insertCell(2)
+        var celulaData = linha.insertCell(3)
+            
+        var link = '<a class="link-pessoa" id="'+ pessoa.id +'" href="#">'+ pessoa.name +'</a>'
+
+        let data = new Date(pessoa.registrationDate)
+        let dataFormatada = formatarData(data)
+
+        let status = "status" 
+        if(pessoa.status){
+            status = `<span class="status-ativo"> Ativo <span>`
+        }else{
+            status = `<span class="status-inativo"> Inativo <span>`
+        }
+
+        celulaNome.innerHTML = link
+        celulaEmail.innerText = pessoa.email
+        celulaStatus.innerHTML = status
+        celulaData.innerText = dataFormatada
+    }
+    criarLinks(pessoas)
+    return true
 }
 
-function ordenarTabela(pessoas){
+function orderHeaderRefresh(){
     ths = document.querySelectorAll("th strong")
     ths.forEach((iconeOrdem) => iconeOrdem.style.visibility = "hidden")
     switch(ordem){
-            case 0:
-                pessoas.sort((a, b) => a.nome.localeCompare(b.nome))
-                th = document.querySelector("th:nth-child(1) strong")
-                th.innerHTML ="&#11167"
-                th.style.visibility = "visible"
-                break
-            case 1:
-                pessoas.sort((a, b) => b.nome.localeCompare(a.nome))
-                th = document.querySelector("th:nth-child(1) strong")
-                th.innerHTML = "&#11165"
-                th.style.visibility = "visible"
-                break
-            case 2:
-                pessoas = organizarStatus(pessoas)
-                th = document.querySelector("th:nth-child(3) strong")
-                th.innerHTML ="&#11167"
-                th.style.visibility = "visible"
-                break
-            case 3:
-                pessoas = organizarStatusInativo(pessoas)
-                th = document.querySelector("th:nth-child(3) strong")
-                th.innerHTML = "&#11165"
-                th.style.visibility = "visible"
-                break
-            case 4:
-                pessoas.sort((a, b) => a.email.localeCompare(b.email))
-                th = document.querySelector("th:nth-child(2) strong")
-                th.innerHTML ="&#11167"
-                th.style.visibility = "visible"
-                break
-            case 5:
-                pessoas.sort((a, b) => b.email.localeCompare(a.email))
-                th = document.querySelector("th:nth-child(2) strong")
-                th.innerHTML = "&#11165"
-                th.style.visibility = "visible"
-                break
-            case 6:
-                pessoas = organizarDataRecente(pessoas)
-                th = document.querySelector("th:nth-child(4) strong")
-                th.innerHTML ="&#11167"
-                th.style.visibility = "visible"
-                break
-            case 7:
-                pessoas = organizarDataAntiga(pessoas)
-                th = document.querySelector("th:nth-child(4) strong")
-                th.innerHTML = "&#11165"
-                th.style.visibility = "visible"
-                break                
-            default:
-                pessoas = JSON.parse(localStorage.getItem("pessoas")) || []
-                break            
-        }
-    return pessoas
-}
-
-function filtrarPesquisa(pessoas){
-    if(filtro != ''){
-        paginaAtual = 1
-        controlaPagina()
-        filtro = filtro.toLowerCase()
-        pessoas = pessoas.filter(u => 
-            u.email.toLowerCase().includes(filtro) || 
-            u.nome.toLowerCase().includes(filtro) || 
-            u.status.toLowerCase().startsWith(filtro)
-        )
+        case 0:
+            th = document.querySelector("th:nth-child(1) strong")
+            th.innerHTML ="&#11167"
+            th.style.visibility = "visible"
+            break
+        case 1:
+            th = document.querySelector("th:nth-child(1) strong")
+            th.innerHTML = "&#11165"
+            th.style.visibility = "visible"
+            break
+        case 2:
+            th = document.querySelector("th:nth-child(3) strong")
+            th.innerHTML ="&#11167"
+            th.style.visibility = "visible"
+            break
+        case 3:
+            th = document.querySelector("th:nth-child(3) strong")
+            th.innerHTML = "&#11165"
+            th.style.visibility = "visible"
+            break
+        case 4:
+            th = document.querySelector("th:nth-child(2) strong")
+            th.innerHTML ="&#11167"
+            th.style.visibility = "visible"
+            break
+        case 5:
+            th = document.querySelector("th:nth-child(2) strong")
+            th.innerHTML = "&#11165"
+            th.style.visibility = "visible"
+            break
+        case 6:
+            th = document.querySelector("th:nth-child(4) strong")
+            th.innerHTML ="&#11167"
+            th.style.visibility = "visible"
+            break
+        case 7:
+            th = document.querySelector("th:nth-child(4) strong")
+            th.innerHTML = "&#11165"
+            th.style.visibility = "visible"
+            break                
+        default:
+            break            
     }
-    return pessoas
-}
-
-function dividirPaginas(pessoas){
-    paginas = pessoas.length / itensPorPagina | 0
-    if (pessoas.length % itensPorPagina !== 0) {
-        paginas++
-    }
-    const pessoaInicial = (paginaAtual - 1) * itensPorPagina
-    let pessoaFinal = pessoaInicial + itensPorPagina
-    if (pessoaFinal > pessoas.length) {
-        pessoaFinal = pessoas.length
-    }
-    pessoas = pessoas.slice(pessoaInicial, pessoaFinal)
-    return pessoas
 }
 
 function criarLinks(pessoas){
@@ -219,7 +181,7 @@ let ordem = 6
 let paginaAtual = 1
 let paginas = 0
 let tamanho = 10
-let itensPorPagina = 10
+let itensPorPagina = 3
 
 const incluidos = listar()
 const paginaSpan = document.getElementById("span-pagina")

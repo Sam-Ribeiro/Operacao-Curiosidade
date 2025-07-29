@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using server.Application.Features.Interfaces;
 using server.Application.Features.Logs.Queries.GetLogs;
-using server.Application.Features.Logs.Queries.PrintLogs;
 using server.Application.Results;
 using server.Services.Authentication;
 using System.Net;
@@ -16,12 +15,10 @@ namespace server.Application.Controllers
     public class LogController : ControllerBase
     {
         private readonly IQueryHandler<GetLogsQuery> _getLogs;
-        private readonly IQueryHandler<PrintLogsQuery> _printLogs;
 
-        public LogController(IQueryHandler<GetLogsQuery> getLogs, IQueryHandler<PrintLogsQuery> printLogs)
+        public LogController(IQueryHandler<GetLogsQuery> getLogs)
         {
             _getLogs = getLogs;
-            _printLogs = printLogs;
         }
 
         [HttpGet("getLogs")]
@@ -29,12 +26,6 @@ namespace server.Application.Controllers
         {
             query.Token = Request.Headers["Authorization"].ToString();
             return _getLogs.Handle(query);
-        }
-        [HttpGet("printLogs")]
-        public IResultBase PrintLogs([FromQuery] PrintLogsQuery query)
-        {
-            query.Token = Request.Headers["Authorization"].ToString();
-            return _printLogs.Handle(query);
         }
     }
 }

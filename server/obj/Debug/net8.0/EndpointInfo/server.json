@@ -35,52 +35,7 @@
             }
           },
           {
-            "name": "Filter",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/IResultBase"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/IResultBase"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/IResultBase"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Log/printLogs": {
-      "get": {
-        "tags": [
-          "Log"
-        ],
-        "parameters": [
-          {
-            "name": "Token",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Order",
+            "name": "PageSize",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -569,6 +524,14 @@
             }
           },
           {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
             "name": "Filter",
             "in": "query",
             "schema": {
@@ -630,6 +593,14 @@
             }
           },
           {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
             "name": "Filter",
             "in": "query",
             "schema": {
@@ -674,112 +645,6 @@
             "schema": {
               "type": "integer",
               "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/IResultBase"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/IResultBase"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/IResultBase"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Person/printPersons": {
-      "get": {
-        "tags": [
-          "Person"
-        ],
-        "parameters": [
-          {
-            "name": "Token",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Order",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Filter",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/IResultBase"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/IResultBase"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/IResultBase"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Person/printDeletedPersons": {
-      "get": {
-        "tags": [
-          "Person"
-        ],
-        "parameters": [
-          {
-            "name": "Token",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Order",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Filter",
-            "in": "query",
-            "schema": {
-              "type": "string"
             }
           }
         ],

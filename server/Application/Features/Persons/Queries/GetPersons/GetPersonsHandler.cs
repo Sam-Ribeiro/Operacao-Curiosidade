@@ -26,7 +26,7 @@ namespace server.Application.Features.Persons.Queries.GetPersons
                     result = new Result(400, "Nenhuma pessoa cadastrada", true);
                 }
                 else {
-                    var data = DataSelect.SelectPersons(persons, query.Filter, query.Page, query.Order);
+                    var data = DataSelect.SelectPersons(persons, query.Filter, query.Page, query.Order, query.PageSize);
                     result = new Result(200, "Pessoas carregadas", true);
                     result.SetData(PersonListMap.MapList(data));
                 }

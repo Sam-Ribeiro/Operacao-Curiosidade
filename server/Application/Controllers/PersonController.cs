@@ -7,13 +7,8 @@ using server.Application.Features.Persons.Commands.DeletePerson;
 using server.Application.Features.Persons.Commands.RestorePerson;
 using server.Application.Features.Persons.Commands.UpdatePerson;
 using server.Application.Features.Persons.Queries.GetDeletedPersons;
-using server.Application.Features.Persons.Queries.GetInactiveCount;
-using server.Application.Features.Persons.Queries.GetLastMonthRecordCount;
 using server.Application.Features.Persons.Queries.GetPersonData;
 using server.Application.Features.Persons.Queries.GetPersons;
-using server.Application.Features.Persons.Queries.GetPersonsCount;
-using server.Application.Features.Persons.Queries.PrintDeletedPersons;
-using server.Application.Features.Persons.Queries.PrintPersons;
 using server.Application.Results;
 
 namespace server.Application.Controllers
@@ -29,13 +24,10 @@ namespace server.Application.Controllers
         private readonly IQueryHandler<GetPersonsQuery> _queryPersons;
         private readonly IQueryHandler<GetDeletedPersonsQuery> _queryDeleted;
         private readonly IQueryHandler<GetPersonDataQuery> _queryPersonData;
-        private readonly IQueryHandler<PrintPersonsQuery> _printPersons;
-        private readonly IQueryHandler<PrintDeletePersonsQuery > _printDeleted;
         public PersonController(IHandlerBase<CreatePersonCommand> create, IHandlerBase<DeletePersonCommand> delete, 
             IHandlerBase<RestorePersonCommand> restore,IHandlerBase<UpdatePersonCommand> update, 
             IQueryHandler<GetPersonsQuery> queryPersons,IQueryHandler<GetDeletedPersonsQuery> queryDeleted, 
-            IQueryHandler<GetPersonDataQuery> queryPersonData, IQueryHandler<PrintPersonsQuery> printPersons, 
-            IQueryHandler<PrintDeletePersonsQuery> printDeleted) 
+            IQueryHandler<GetPersonDataQuery> queryPersonData) 
         {
             _create = create;
             _delete = delete;
@@ -44,8 +36,6 @@ namespace server.Application.Controllers
             _queryPersons = queryPersons;
             _queryDeleted = queryDeleted;
             _queryPersonData = queryPersonData;
-            _printPersons = printPersons;
-            _printDeleted = printDeleted;
         }
 
         //Command
@@ -93,20 +83,6 @@ namespace server.Application.Controllers
             GetPersonDataQuery query = new GetPersonDataQuery() { Id = id };
             query.Token = Request.Headers["Authorization"].ToString();
             return _queryPersonData.Handle(query);
-        }
-
-        [HttpGet("printPersons")]
-        public IResultBase PrintPersons([FromQuery] PrintPersonsQuery query)
-        {
-            query.Token = Request.Headers["Authorization"].ToString();
-            return _printPersons.Handle(query);
-        }
-
-        [HttpGet("printDeletedPersons")]
-        public IResultBase PrintDeletePersons([FromQuery] PrintDeletePersonsQuery query) 
-        {
-            query.Token = Request.Headers["Authorization"].ToString();
-            return _printDeleted.Handle(query);
         }
     }
 }

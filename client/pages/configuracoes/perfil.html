@@ -57,6 +57,10 @@
                     <input class="campo" type="password" name="senha-nova" id="campo-senha-nova">
                     <span id="erro-senha-nova" class="erro-campo"></span>
 
+                    <p class="senha">Confirmar senha nova:</p>
+                    <input class="campo" type="password" name="senha-confirm" id="campo-senha-confirm">
+                    <span id="erro-senha-confirm" class="erro-campo"></span>
+
                     <input class="botao" type="button" value="SALVAR SENHA" id="btn-salvar-senha">
                     <span id= "erro-senha"></span>
                     <hr>
@@ -104,9 +108,14 @@
                     </div>
                 </form>
             </div>
+            <div id="notification" class="hidden">
+            <p></p>
+            </div>
         </main>
 
     </div>
+    <script type="text/javascript" src="../compartilhado/requests/user/queries.js"></script>
+    <script type="text/javascript" src="../compartilhado/requests/user/commands.js"></script>
     <script type="text/javascript" src="../compartilhado/js/main.js"></script>
     <script type="text/javascript" src="perfil.js"></script>
     </body>
