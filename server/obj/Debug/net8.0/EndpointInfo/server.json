@@ -195,10 +195,11 @@
         ],
         "parameters": [
           {
-            "name": "query",
+            "name": "PageSize",
             "in": "query",
             "schema": {
-              "$ref": "#/components/schemas/GetPersonsPagesQuery"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -233,10 +234,11 @@
         ],
         "parameters": [
           {
-            "name": "query",
+            "name": "PageSize",
             "in": "query",
             "schema": {
-              "$ref": "#/components/schemas/GetLogsPagesQuery"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -271,10 +273,11 @@
         ],
         "parameters": [
           {
-            "name": "query",
+            "name": "PageSize",
             "in": "query",
             "schema": {
-              "$ref": "#/components/schemas/GetDeletedPersonsPagesQuery"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -990,15 +993,7 @@
         },
         "additionalProperties": false
       },
-      "GetDeletedPersonsPagesQuery": {
-        "type": "object",
-        "additionalProperties": false
-      },
       "GetInactiveCountQuery": {
-        "type": "object",
-        "additionalProperties": false
-      },
-      "GetLogsPagesQuery": {
         "type": "object",
         "additionalProperties": false
       },
@@ -1007,10 +1002,6 @@
         "additionalProperties": false
       },
       "GetPersonsCountQuery": {
-        "type": "object",
-        "additionalProperties": false
-      },
-      "GetPersonsPagesQuery": {
         "type": "object",
         "additionalProperties": false
       },

@@ -1,33 +1,37 @@
-function carregarPessoa(){
-    const pessoa = JSON.parse(localStorage.getItem("pessoa"))
-    const modal = document.querySelector("#tela-cadastro")
-    const titulo = document.querySelector("#tela-cadastro #titulo-modal")
-    titulo.innerText = "Novo Cadastro"
-    if(pessoa){
-        modal.showModal()
-        botaoGravar.style.display = 'none'
-        botaoEditar.style.display = 'none'
-        botaoExcluirPessoa.style.display = 'none'
-        botaoRestaurar.style.display = 'none'
-        if(pessoa.deletado){
-            titulo.innerText = "Usuário apagado"
-            botaoRestaurar.style.display = 'block'
-        }else{
-            titulo.innerText = "Editar pessoa"
-            botaoEditar.style.display = 'block'
-            botaoExcluirPessoa.style.display = 'block'
-        }
-        document.querySelector("#tela-cadastro #nome").value = pessoa.nome
-        document.querySelector("#tela-cadastro #email").value = pessoa.email
-        document.querySelector("#tela-cadastro #idade").value = pessoa.idade
-        document.querySelector("#tela-cadastro #endereco").value = pessoa.endereco
-        document.querySelector("#tela-cadastro #informacoes").value = pessoa.informacoes
-        document.querySelector("#tela-cadastro #interesses").value = pessoa.interesses
-        document.querySelector("#tela-cadastro #sentimentos").value = pessoa.sentimentos
-        document.querySelector("#tela-cadastro #valores").value = pessoa.valores
-        let checkbox = document.querySelector("#tela-cadastro #status-toggle")
-        if(pessoa.status == "Ativo"){
-            checkbox.checked = true
+async function carregarPessoa(){
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    const result = await QueryPersonData(id)
+    if(result != null){
+        console.log(result)
+        const pessoa = result.data
+        const modal = document.querySelector("#tela-cadastro")
+        const titulo = document.querySelector("#tela-cadastro #titulo-modal")
+        titulo.innerText = "Novo Cadastro"
+        if(pessoa){
+            modal.showModal()
+            botaoGravar.style.display = 'none'
+            botaoEditar.style.display = 'none'
+            botaoExcluirPessoa.style.display = 'none'
+            botaoRestaurar.style.display = 'none'
+            if(pessoa.removed){
+                titulo.innerText = "Usuário apagado"
+                botaoRestaurar.style.display = 'block'
+            }else{
+                titulo.innerText = "Editar pessoa"
+                botaoEditar.style.display = 'block'
+                botaoExcluirPessoa.style.display = 'block'
+            }
+            document.querySelector("#tela-cadastro #nome").value = pessoa.name
+            document.querySelector("#tela-cadastro #email").value = pessoa.email
+            document.querySelector("#tela-cadastro #idade").value = pessoa.age
+            document.querySelector("#tela-cadastro #endereco").value = pessoa.address
+            document.querySelector("#tela-cadastro #informacoes").value = pessoa.information
+            document.querySelector("#tela-cadastro #interesses").value = pessoa.interests
+            document.querySelector("#tela-cadastro #sentimentos").value = pessoa.feelings
+            document.querySelector("#tela-cadastro #valores").value = pessoa.values
+            let checkbox = document.querySelector("#tela-cadastro #status-toggle")
+            checkbox.checked = pessoa.status
         }
     }
 }
@@ -91,40 +95,20 @@ function verificarEntrada(){
         ok = false
     }
     if(!ok){
-        return false    
+        notifyDialog("Erro ao validar dados")   
+        return false
     }else{
-        localStorage.setItem("pessoa", JSON.stringify(pessoa))   
-        return true     
+        return true
     }
-}
-
-function enviarLog(log){
-    const logs = JSON.parse(localStorage.getItem("logs")) || []
-    const usuario = JSON.parse(localStorage.getItem("usuario")) || []
-    const logformatado ={ 
-        evento: log,
-        data: new Date().toISOString(),
-        usuario: usuario.nome,
-    }
-    logs.push(logformatado)
-    localStorage.setItem("logs", JSON.stringify(logs))
 }
 
 function fecharCadastro(){
     modal.close()
-    localStorage.removeItem("pessoa")
+    const urlSemParams = window.location.origin + window.location.pathname;
+    history.replaceState({}, document.title, urlSemParams);
     preencherTabela(true)
     form = document.getElementById("form-cadastro")
     form.reset()
-}
-
-function notificar(mensagem){
-    console.log(mensagem)
-    notificacao.innerText = mensagem
-    notificacao.classList.remove("escondido")
-    setTimeout(() => {
-        notificacao.classList.add("escondido")
-    },5000)
 }
 
 const modal = document.getElementById("tela-cadastro")
@@ -137,7 +121,6 @@ const botaoExcluir = document.getElementById("btn-confirmar-excluir")
 const botaoCancelar = document.getElementById("btn-cancelar-excluir")
 const botaoExcluirPessoa = document.getElementById("btn-excluir")
 const botaoRestaurar =  document.getElementById("btn-restaurar")
-const notificacao = document.getElementById("notificacao")
 var erroNome = document.getElementById("erro-nome")
 var erroEmail = document.getElementById("erro-email")
 var erroIdade = document.getElementById("erro-idade")
@@ -146,7 +129,7 @@ const campoEmail = document.querySelector("#tela-cadastro #email")
 const campoNome = document.querySelector("#tela-cadastro #nome")
 const campoIdade = document.querySelector("#tela-cadastro #idade")
 const campoEndereco = document.querySelector("#tela-cadastro #endereco")
-
+const notificationDialog = document.querySelector("#notification-dialog")
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
         event.preventDefault()
@@ -173,6 +156,13 @@ document.addEventListener('keydown', (event) => {
     }
 })
 
+function notifyDialog(message){
+    notificationDialog.classList.add("isNotOk")
+    notificationDialog.innerText = message
+    notificationDialog.classList.remove("hidden")
+    setTimeout(() => { notificationDialog.classList.add("hidden") },5000)
+}
+
 botaoExcluirPessoa.onclick = function (){
     popupExcluir.showModal()
 }
@@ -189,18 +179,13 @@ botaoModal.onclick = function (){
     botaoRestaurar.style.display = 'none'
 }
 
-botaoGravar.onclick = function (){
-    const pessoas = JSON.parse(localStorage.getItem("pessoas")) || []
-    let retorno = verificarEntrada()
-    if(retorno){
-        const pessoa = JSON.parse(localStorage.getItem("pessoa"))
-        enviarLog("Cadastrou a pessoa: "+pessoa.nome)
-        notificar("Pessoa cadastrada com sucesso!")
-        pessoas.push(pessoa)
-        localStorage.setItem("pessoas", JSON.stringify(pessoas))
+botaoGravar.onclick = async function (){
+    if(verificarEntrada()){
+        const result = await CreatePersonRequest(personData)
         fecharCadastro()
     }
 }
+
 
 botaoClose.onclick = function(){
     fecharCadastro()

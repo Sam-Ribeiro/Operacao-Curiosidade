@@ -4,5 +4,6 @@ namespace server.Application.Features.Pages.Queries.GetLogsPages
 {
     public class GetLogsPagesQuery : IQueryBase
     {
+        public int PageSize { get; set; }
     }
 }

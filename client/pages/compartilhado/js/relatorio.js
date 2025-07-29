@@ -3,13 +3,14 @@ botaoImprimir.addEventListener("click", async function() {
     paginaAtual = 1
     var pageSize = itensPorPagina
     itensPorPagina = -1
-    var ready = await preencherTabela()
+    var ready = await preencherTabela(incluidos)
     if(ready){
         window.print()
     }
-    controlaPagina()
+    
     itensPorPagina = pageSize
-    preencherTabela()
+    controlaPagina()
+    preencherTabela(incluidos)
 })
 
 validarUsuario()

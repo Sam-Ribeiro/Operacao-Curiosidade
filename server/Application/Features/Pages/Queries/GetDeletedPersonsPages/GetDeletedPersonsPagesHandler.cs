@@ -18,7 +18,7 @@ namespace server.Application.Features.Pages.Queries.GetDeletedPersonsPages
             try
             {
                 result = new Result(200, "", true);
-                int pages = (int)Math.Ceiling(_personRepository.GetDeletedPersons().Count / 10.0);
+                int pages = (int)Math.Ceiling(_personRepository.GetDeletedPersons().Count / (double)query.PageSize);
                 result.SetData(pages);
                 return result;
             }

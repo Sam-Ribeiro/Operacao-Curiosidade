@@ -20,7 +20,7 @@ namespace server.Application.Features.Pages.Queries.GetLogsPages
             try 
             { 
                 int logsCount = _context.logs.Count;
-                int pages = (int)Math.Ceiling(logsCount / 10.0);
+                int pages = (int)Math.Ceiling(logsCount / (double)query.PageSize);
                 result = new Result(200, "", true);
                 result.SetData(pages);
                 return result;

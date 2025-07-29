@@ -16,6 +16,7 @@ namespace server.Application.DTOs
             Interests = person.Interests;
             Feelings = person.Feelings;
             Values = person.Values;
+            Removed = person.Removed;
         }
 
         public int Id { get; set; }
@@ -28,5 +29,6 @@ namespace server.Application.DTOs
         public string? Interests { get; set; }
         public string? Feelings { get; set; }
         public string? Values { get; set; }
+        public bool Removed { get; set; }
     }
 }

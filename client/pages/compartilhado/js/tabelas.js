@@ -101,10 +101,8 @@ function criarLinks(pessoas){
     links.forEach(link => {
         link.addEventListener('click', (event) => {
             const elementoClicado = event.target
-            const idLink = elementoClicado.id
-            const pessoa = pessoas[idLink]
-            localStorage.setItem("pessoa", JSON.stringify(pessoa))
-            window.location.href = "../../../client/cadastrar-pessoa/cadastro.html"
+            const personId = elementoClicado.id
+            window.location.href = `../../../client/pages/cadastrar-pessoa/cadastro.html?id=${personId}`
         })
     })
 }
@@ -157,7 +155,10 @@ function organizarDataRecente(pessoas) {
     return pessoas
 }
 
-function controlaPagina(){
+async function controlaPagina(){
+    const result = await getPersonPages(incluidos,itensPorPagina)
+    if(await result.isOk){
+        paginas = result.data
     paginaSpan.innerText = `Exibindo página ${paginaAtual} de ${paginas}`
     botaoPaginaProxima.style.color = "var(--cor-texto)"
     botaoPaginaAnterior.style.color = "var(--cor-texto)"
@@ -174,14 +175,14 @@ function controlaPagina(){
         botaoPaginaProxima.style.color = "gray"
         botaoPaginaAnterior.style.color = "gray"
     }
+    }
 }
 
 let filtro = ''
 let ordem = 6
 let paginaAtual = 1
 let paginas = 0
-let tamanho = 10
-let itensPorPagina = 3
+let itensPorPagina = 10
 
 const incluidos = listar()
 const paginaSpan = document.getElementById("span-pagina")

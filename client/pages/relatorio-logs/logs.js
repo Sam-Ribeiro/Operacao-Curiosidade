@@ -39,7 +39,7 @@ function formatarData(data){
 }
 
 async function controlaPagina(){
-    const result = await getLogsPages()
+    const result = await getLogsPages(itensPorPagina)
     if(await result.isOk){
         paginas = result.data
         paginaSpan.innerText = `Exibindo página ${paginaAtual} de ${paginas}`
@@ -103,7 +103,7 @@ let ordem = 5
 let paginaAtual = 1
 let paginas = 1
 let itensPorPagina = 10
-
+const incluidos = true
 const paginaSpan = document.getElementById("span-pagina")
 const botaoSair = document.getElementById("sair")
 const botaoUsuario = document.getElementById("evento-usuario")

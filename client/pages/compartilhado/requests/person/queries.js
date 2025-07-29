@@ -52,3 +52,24 @@ async function QueryPersonData(id){
     }
 }
 
+async function getPersonPages(included,pageSize){
+    const token = localStorage.getItem("token")
+    let url = `https://localhost:7182/api/PageContent/getPersonsPages?PageSize=${pageSize}`
+    if(!included){
+        url = `https://localhost:7182/api/PageContent/getDeletePersonsPages?PageSize=${pageSize}`
+    }
+    try{
+        const r  = await fetch(url,{
+            method: 'GET',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        const result = await r.json()
+        return result
+    }catch(ex){
+        console.log(ex)
+        return null
+    }
+}

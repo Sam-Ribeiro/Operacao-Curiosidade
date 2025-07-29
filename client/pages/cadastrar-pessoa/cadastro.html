@@ -36,7 +36,7 @@
                     <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar..." autocomplete="off">
                 </form>
                 <p href="#"id="placeholder"></p>
-                <a href="../configuracoes/perfil.html"> <em id="usuario">Nome do Usuário</em><strong id="icone">N</strong></a>
+                <a href="../configuracoes/perfil.html"> <em id="usuario"></em><strong id="icone"></strong></a>
                 <a href="../login/login.html"id="sair">Sair</a>
             </header>
 
@@ -66,7 +66,7 @@
                     <section class="formulario">
                         <form id="form-cadastro" autocomplete="off">
                             <div class="cabecalho">
-                                <button id="btn-cancelar"><span class="material-symbols-outlined">close</span></button>
+                                <button id="btn-cancelar" type="button"><span class="material-symbols-outlined">close</span></button>
                                 <h1 id="titulo-modal">Novo cadastro</h1><br>
                                 <br>
                             </div>
@@ -104,14 +104,18 @@
                                         <span class="erro-campo" id="erro-endereco" >Erro end</span>
                                     </div>
                                     <label for="informacoes">Outras informações:</label> 
-                                    <textarea class="texto" id="informacoes" name="informacoes" rows="3" cols="200"></textarea>  
+                                    <textarea class="texto" id="informacoes" name="informacoes" rows="3" cols="200"></textarea>
+                                    <span class="erro-campo" id="erro-info" ></span>  
                                 </div>
                                 <h2>2º Interesses</h2><hr>
                                     <textarea class="texto" id="interesses" name="interesses" rows="3" cols="200"></textarea>
+                                    <span class="erro-campo" id="erro-interesses" ></span> 
                                 <h2>3º Sentimentos</h2><hr>
                                     <textarea class="texto" id="sentimentos" name="sentimentos" rows="3" cols="200"></textarea>
+                                    <span class="erro-campo" id="erro-sentimentos" ></span> 
                                 <h2>4º Valores</h2><hr>
                                     <textarea class="texto" id="valores" name="valores" rows="3" cols="200"></textarea>
+                                    <span class="erro-campo" id="erro-valores" ></span> 
                                 <span id="erro">Erro</span>
                             </div>
                             
@@ -123,6 +127,9 @@
                             </div>
                         </form>
                     </section>
+                    <div id="notification-dialog" class="hidden">
+                        <p>Mensagem</p>
+                    </div>
                 </dialog>
                 <dialog id="pop-up-excluir">
                     <h1>Excluir pessoa</h1>
@@ -133,10 +140,8 @@
                     </div>
                 </dialog>
 
-                <div id="notificacao" class="escondido">
-                    <p>
-                        Mensagem
-                    </p>
+                <div id="notification" class="hidden">
+                    <p></p>
                 </div>
             </main>
         </div>

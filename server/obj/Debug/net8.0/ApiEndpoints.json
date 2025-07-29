@@ -54,8 +54,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "query",
-        "Type": "server.Application.Features.Pages.Queries.GetDeletedPersonsPages.GetDeletedPersonsPagesQuery",
+        "Name": "PageSize",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],
@@ -106,8 +106,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "query",
-        "Type": "server.Application.Features.Pages.Queries.GetLogsPages.GetLogsPagesQuery",
+        "Name": "PageSize",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],
@@ -184,8 +184,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "query",
-        "Type": "server.Application.Features.Pages.Queries.GetPersonsPages.GetPersonsPagesQuery",
+        "Name": "PageSize",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],

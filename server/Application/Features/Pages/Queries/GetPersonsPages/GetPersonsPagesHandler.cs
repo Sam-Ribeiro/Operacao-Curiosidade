@@ -17,7 +17,7 @@ namespace server.Application.Features.Pages.Queries.GetPersonsPages
             try 
             {
                 result = new Result(200, "", true);
-                int pages = (int)Math.Ceiling(_personRepository.GetPersonsCount() / 10.0);
+                int pages = (int)Math.Ceiling(_personRepository.GetPersonsCount() / (double)query.PageSize);
                 result.SetData(pages);
                 return result;
             } 
