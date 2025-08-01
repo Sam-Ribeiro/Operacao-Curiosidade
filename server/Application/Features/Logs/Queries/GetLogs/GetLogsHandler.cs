@@ -23,7 +23,7 @@ namespace server.Application.Features.Logs.Queries.GetLogs
             {
                 var user = ReadToken.ValidateToken(query.Token);
                 if(user == null) {
-                    result = new Result(401, "Erro ao validar token", false);
+                    result = new Result(401, "Acesso negado: faça login para continuar.", false);
                     return result;
                 }
                 var userId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;

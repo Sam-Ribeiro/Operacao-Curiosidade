@@ -3,6 +3,7 @@ using server.Application.Features.Interfaces;
 using server.Application.Results;
 using server.Infrastructure.Repositories.Interfaces;
 using server.Models;
+using server.Services.Authentication;
 
 namespace server.Application.Features.Persons.Queries.GetPersonData
 {
@@ -19,6 +20,12 @@ namespace server.Application.Features.Persons.Queries.GetPersonData
         {
             Result result;
             try {
+                var user = ReadToken.ValidateToken(query.Token);
+                if (user == null)
+                {
+                    result = new Result(401, "Acesso negado: faça login para continuar.", false);
+                    return result;
+                }
                 Person person = _readRepository.GetPersonById(query.Id);
                 if (person == null)
                 {

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using server.Models;
+﻿using server.Models;
 using System.Text.Json;
 
 namespace server.Infrastructure.Data
@@ -20,14 +19,34 @@ namespace server.Infrastructure.Data
         }
         public void LoadContexts() {
             var jsonUsers = File.ReadAllText("users.json");
+            try
+            {
+                users = JsonSerializer.Deserialize<List<User>>(jsonUsers);
+            }
+            catch (Exception ex)
+            {
+                users = new List<User>();
+            }
+
             var jsonPersons = File.ReadAllText("persons.json");
+            try
+            {
+                persons = JsonSerializer.Deserialize<List<Person>>(jsonPersons);
+            }
+            catch (Exception ex)
+            {
+                persons = new List<Person>();
+            }
+
             var jsonLogs = File.ReadAllText("logs.json");
-
-            users = JsonSerializer.Deserialize<List<User>>(jsonUsers)?? new List<User>();
-            persons = JsonSerializer.Deserialize<List<Person>>(jsonPersons) ?? new List<Person>();
-            logs = JsonSerializer.Deserialize<List<Log>>(jsonLogs) ?? new List<Log>();
-
+            try
+            {
+                logs = JsonSerializer.Deserialize<List<Log>>(jsonLogs);
+            }
+            catch (Exception ex) 
+            {
+                logs = new List<Log>();
+            }
         }
-        
     }
 }

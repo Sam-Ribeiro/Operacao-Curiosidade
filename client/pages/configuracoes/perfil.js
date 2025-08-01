@@ -44,11 +44,17 @@ async function salvarSenha(){
             newPasswordConfirm: senhaConfirm
         }
         const result = await updatePasswordRequest(userData)
-        if(result == null){
-            notify("Erro ao comunicar com o servidor",false)
-        }else
-        {
+        if(result != null){
             notify(result.message,result.isOk)
+            if(result.resultCode === 403 ){
+                erroSenhaAntiga.innerText = "Senha antiga inválida."
+                erroSenhaAntiga.style.display = 'block'
+                campoSenhaAntiga.classList.add("erro")  
+            }
+            const notifications = result.notifications
+            for( const n in notifications){
+                getErrorResponse(notifications[n])
+            }
         }
     } 
 }
@@ -86,12 +92,13 @@ async function salvarDados(){
             bornDate: data
         }
         const result = await updateUserRequest(userData)
-        if(result == null){
-            notify("Erro ao comunicar com o servidor",false)
-        }else
+        if(result != null)
         {
             notify(result.message,result.isOk)
-            console.log(result)
+            const notifications = result.notifications
+            for( const n in notifications){
+                getErrorResponse(notifications[n])
+            }
             LoadUser()
         }
     }else{
@@ -167,6 +174,32 @@ document.addEventListener('keyup', (event) => {
   }
 })
 
+function getErrorResponse(notification){
+    console.log(notification.message)
+    if(notification.propertyName == "name"){
+        erroNome.innerText = notification.message
+        erroNome.style.display = 'block'
+        campoNome.classList.add("erro")
+    }else if(notification.propertyName == "email"){
+        erroEmail.innerText = notification.message
+        erroEmail.style.display = 'block'
+        campoEmail.classList.add("erro")
+    }else if(notification.propertyName == "password"){
+        erroSenhaNova.innerText = notification.message
+        erroSenhaNova.style.display = 'block'
+        campoSenhaNova.classList.add("erro")
+    }else if(notification.propertyName == "passwordConfirm"){
+        erroSenhaConfirm.innerText = notification.message
+        erroSenhaConfirm.style.display = 'block'
+        campoSenhaConfirm.classList.add("erro")
+    }else if(notification.propertyName == "bornDate"){
+        erroData.innerText = notification.message
+        erroData.style.display = 'block'
+        campoData.classList.add("erro")
+    }
+}
+
+
 const botaoSalvar = document.getElementById("btn-salvar")
 const botaoSalvarSenha = document.getElementById("btn-salvar-senha")
 const campoNome = document.getElementById("campo-nome")
@@ -237,6 +270,6 @@ if(botoesFonte){
         carregarConfiguracao()
     }))
 }
-
+validarUsuario()
 LoadUser()
 carregarConfiguracao()

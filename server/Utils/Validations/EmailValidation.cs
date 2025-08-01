@@ -1,7 +1,5 @@
-﻿using System.Net.Mail;
-using server.Utils.Exceptions;
-
-
+﻿using server.Utils.Exceptions;
+using System.Net.Mail;
 
 namespace server.Domains.Validations
 {
@@ -10,6 +8,10 @@ namespace server.Domains.Validations
         public ContratcValidations<T> IsEmailValid(string email, string message, string property) {
             try 
             {
+                if (email == null || email.Length <= 3 || email.Length > 100)
+                {
+                    AddNotification(new Notification(message, property));
+                }
                 MailAddress m = new MailAddress(email);
              
             }catch (FormatException) 

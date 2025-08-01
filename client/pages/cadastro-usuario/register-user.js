@@ -67,21 +67,26 @@ function notify(message, isOk){
 }
 
 function getErrorResponse(notification){
-    var error
+    console.log(notification.message)
     if(notification.propertyName == "name"){
-        error = erroNome
+        erroNome.innerText = notification.message
+        erroNome.style.display = 'block'
         campoNome.classList.add("erro")
     }else if(notification.propertyName == "email"){
-        error = erroEmail
+        erroEmail.innerText = notification.message
+        erroEmail.style.display = 'block'
         campoEmail.classList.add("erro")
     }else if(notification.propertyName == "password"){
-        error = erroSenha
+        erroSenha.innerText = notification.message
+        erroSenha.style.display = 'block'
         campoSenha.classList.add("erro")
     }else if(notification.propertyName == "passwordConfirm"){
-        error = erroConfimarSenha
+        erroConfimarSenha.innerText = notification.message
+        erroConfimarSenha.style.display = 'block'
         campoConfirmarSenha.classList.add("erro")
     }else if(notification.propertyName == "bornDate"){
-        error = erroData
+        erroData.innerText = notification.message
+        erroData.style.display = 'block'
         campoData.classList.add("erro")
     }
 }

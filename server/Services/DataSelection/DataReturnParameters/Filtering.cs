@@ -7,9 +7,10 @@ namespace server.Services.DataSelection.DataReturnParameters
         public static List<Log> FilterLogs(List<Log> list,string filter) {
             if (filter != null)
             {
+                filter = filter.ToLower();
                 return list.Where(log =>
-                log.Message.Contains(filter) ||
-                log.Username.Contains(filter))
+                log.Message.ToLower().Contains(filter) ||
+                log.Username.ToLower().Contains(filter))
                     .ToList();
             }
             else { 
@@ -21,9 +22,10 @@ namespace server.Services.DataSelection.DataReturnParameters
         {
             if (filter != null)
             {
+                filter = filter.ToLower();
                 return list.Where(person =>
-                person.Name.Contains(filter) ||
-                person.Email.Contains(filter))
+                person.Name.ToLower().Contains(filter) ||
+                person.Email.ToLower().Contains(filter))
                     .ToList();
             }
             else {  

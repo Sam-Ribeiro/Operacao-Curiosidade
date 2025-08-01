@@ -18,7 +18,7 @@ async function CreatePersonRequest(personData){
     }
 }
 
-async function DeletePersonRequest(personData){
+async function DeletePersonRequest(personId){
     const token = localStorage.getItem("token")
     const url = 'https://localhost:7182/api/Person/delete'
     try{
@@ -29,7 +29,7 @@ async function DeletePersonRequest(personData){
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify(personData)
+        body: JSON.stringify(personId)
     })
         const result = await r.json()
         return result
@@ -38,7 +38,7 @@ async function DeletePersonRequest(personData){
     }
 }
 
-async function RestorePersonRequest(personData){
+async function RestorePersonRequest(personId){
     const token = localStorage.getItem("token")
     const url = 'https://localhost:7182/api/Person/restore'
     try{
@@ -49,7 +49,7 @@ async function RestorePersonRequest(personData){
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify(personData)
+        body: JSON.stringify(personId)
     })
         const result = await r.json()
         return result

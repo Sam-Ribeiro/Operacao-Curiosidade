@@ -1,6 +1,4 @@
-﻿
-using server.Application.Results;
-using server.Utils.Exceptions;
+﻿using server.Utils.Exceptions;
 namespace server.Application.Results
 {
     public class Result : IResultBase

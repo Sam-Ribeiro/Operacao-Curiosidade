@@ -39,6 +39,7 @@ namespace server.Services.Authentication
 
             return claimsIdentity;
         }
+
     }
 }
 

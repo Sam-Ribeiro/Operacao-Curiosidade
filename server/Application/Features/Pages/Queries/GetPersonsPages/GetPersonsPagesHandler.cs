@@ -1,6 +1,7 @@
 ﻿using server.Application.Features.Interfaces;
 using server.Application.Results;
 using server.Infrastructure.Repositories.Interfaces;
+using server.Services.DataSelection;
 
 namespace server.Application.Features.Pages.Queries.GetPersonsPages
 {
@@ -14,10 +15,11 @@ namespace server.Application.Features.Pages.Queries.GetPersonsPages
         public IResultBase Handle(GetPersonsPagesQuery query)
         {
             Result result;
-            try 
+            try
             {
                 result = new Result(200, "", true);
-                int pages = (int)Math.Ceiling(_personRepository.GetPersonsCount() / (double)query.PageSize);
+                var persons = DataSelect.SelectPersons(_personRepository.GetAllPersons(), query.Filter, -1, -1, -1);
+                int pages = (int)Math.Ceiling(persons.Count() / (double)query.PageSize);
                 result.SetData(pages);
                 return result;
             } 

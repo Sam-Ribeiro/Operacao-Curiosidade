@@ -52,11 +52,11 @@ async function QueryPersonData(id){
     }
 }
 
-async function getPersonPages(included,pageSize){
+async function getPersonPages(included,pageSize,filter){
     const token = localStorage.getItem("token")
-    let url = `https://localhost:7182/api/PageContent/getPersonsPages?PageSize=${pageSize}`
+    let url = `https://localhost:7182/api/PageContent/getPersonsPages?PageSize=${pageSize}&Filter=${filter}`
     if(!included){
-        url = `https://localhost:7182/api/PageContent/getDeletePersonsPages?PageSize=${pageSize}`
+        url = `https://localhost:7182/api/PageContent/getDeletePersonsPages?PageSize=${pageSize}&Filter=${filter}`
     }
     try{
         const r  = await fetch(url,{
@@ -69,7 +69,6 @@ async function getPersonPages(included,pageSize){
         const result = await r.json()
         return result
     }catch(ex){
-        console.log(ex)
         return null
     }
 }

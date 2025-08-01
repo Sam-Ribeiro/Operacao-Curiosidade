@@ -1,10 +1,15 @@
 
+
+
 const botaoLogar =  document.getElementById("btn-login")
 
 botaoLogar.onclick = function (){
     login();
 }
 async function login(){
+    if(botaoLogar.classList.contains("disable")){
+        return null
+    }
     var email = document.getElementById("email").value
     var senha = document.getElementById("senha").value
     var ok = true
@@ -58,16 +63,14 @@ function notify(message, isOk){
     notificacao.classList.remove("hidden")
     setTimeout(() => {
         notificacao.classList.add("hidden")
-    },5000)
+    },8000)
 }
 
 async function validarUsuario(){
     const result = await QueryUserData()
     if(result.resultCode === 200){
         notify("Usuário carregado, redirecionando...",true)
-        setTimeout(()=> {window.location.href = "../dashboard/dashboard.html"},2000)
-    }else if(result.resultCode === 401){
-        console.log("Token invalido")
+        setTimeout(()=> {window.location.href = "../dashboard/dashboard.html"},3500)
     }
 }
 
@@ -78,11 +81,9 @@ document.addEventListener('keyup', (event) => {
     else {
         if(event.target == campoEmail){
             campoEmail.classList.remove("erro")
-            erroEmail.style.display = 'none'
         }
         if(event.target == campoSenha){
             campoSenha.classList.remove("erro")
-            erroSenha.style.display = 'none'
         }
         if(campoEmail.classList.contains("erro") || campoSenha.classList.contains("erro")){
             erro.style.display = "block"
@@ -92,8 +93,30 @@ document.addEventListener('keyup', (event) => {
     }
 })
 
+function showError(){
+    const urlParams = new URLSearchParams(window.location.search)
+    const pageError = urlParams.get('error')
+    if(pageError == 'token'){
+        setTimeout(()=> (
+           notify("Acesso negado: Faça login para ter acesso aos dados.",false)
+        ),500)
+        
+    }else if(pageError == 'internal'){
+        setTimeout(()=> (
+           notify("Erro no servidor, tente novamente mais tarde.") 
+        ),500)
+        
+    }else if( pageError == 'rate-limit'){
+        setTimeout(()=> (
+            notify("Muitas tentativas, tente novamente mais tarde."),
+            botaoLogar.classList.add("disable")
+        ),500)
+        setTimeout(()=> (botaoLogar.classList.remove("disable")),20000)
+    }
+}
+
 const campoEmail = document.getElementById("email")
 const campoSenha = document.getElementById("senha")
 var erro = document.getElementById("erro")
-
+showError()
 validarUsuario()

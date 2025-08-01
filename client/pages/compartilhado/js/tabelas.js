@@ -156,7 +156,7 @@ function organizarDataRecente(pessoas) {
 }
 
 async function controlaPagina(){
-    const result = await getPersonPages(incluidos,itensPorPagina)
+    const result = await getPersonPages(incluidos,itensPorPagina,filtro)
     if(await result.isOk){
         paginas = result.data
     paginaSpan.innerText = `Exibindo página ${paginaAtual} de ${paginas}`
@@ -179,11 +179,12 @@ async function controlaPagina(){
 }
 
 let filtro = ''
-let ordem = 6
+let ordem = 7
 let paginaAtual = 1
 let paginas = 0
 let itensPorPagina = 10
-
+let search = false
+let timeOut
 const incluidos = listar()
 const paginaSpan = document.getElementById("span-pagina")
 const botaoSair = document.getElementById("sair")
@@ -210,13 +211,23 @@ botaoPaginaProxima.onclick = function(){
     }
 }
 
-document.addEventListener('keyup', (event) => {
-    filtro = document.getElementById("pesquisa").value
-    preencherTabela(incluidos)
+document.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         event.preventDefault()
+        filtro = document.getElementById("pesquisa").value
+        preencherTabela(incluidos)
     }
-    controlaPagina()
+})
+
+document.addEventListener('keyup', (event) => {
+    if(event.target == document.getElementById("pesquisa")){
+        clearTimeout(timeOut)
+        timeOut = setTimeout(() => { 
+            preencherTabela(incluidos)
+            controlaPagina()
+        },1000)
+        filtro = document.getElementById("pesquisa").value
+    }
 })
 
 botaoNome.onclick = function(){

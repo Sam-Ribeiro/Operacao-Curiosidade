@@ -1,7 +1,7 @@
 ﻿using server.Application.Features.Interfaces;
-using server.Application.Features.Pages.Queries.GetPersonsPages;
 using server.Application.Results;
 using server.Infrastructure.Repositories.Interfaces;
+using server.Services.DataSelection;
 
 namespace server.Application.Features.Pages.Queries.GetDeletedPersonsPages
 {
@@ -18,7 +18,8 @@ namespace server.Application.Features.Pages.Queries.GetDeletedPersonsPages
             try
             {
                 result = new Result(200, "", true);
-                int pages = (int)Math.Ceiling(_personRepository.GetDeletedPersons().Count / (double)query.PageSize);
+                var deletedPersons = DataSelect.SelectPersons(_personRepository.GetDeletedPersons(),query.Filter,-1,-1,-1);
+                int pages = (int)Math.Ceiling(deletedPersons.Count / (double)query.PageSize);
                 result.SetData(pages);
                 return result;
             }

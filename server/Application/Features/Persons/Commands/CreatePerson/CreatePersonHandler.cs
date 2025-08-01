@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using server.Application.Commands.Interfaces;
+﻿using server.Application.Commands.Interfaces;
 using server.Application.Results;
 using server.Infrastructure.Repositories.Interfaces;
 using server.Models;
@@ -21,7 +20,6 @@ namespace server.Application.Features.Persons.Commands.CreatePerson
             _writePerson = writePerson;
             _readPerson = readPerson;
         }
-
         public IResultBase Handle(CreatePersonCommand command)
         {
             Result result;
@@ -30,7 +28,7 @@ namespace server.Application.Features.Persons.Commands.CreatePerson
                 var user = ReadToken.ValidateToken(command.Token);
                 if (user == null)
                 {
-                    result = new Result(401, "Erro ao validar token", false);
+                    result = new Result(401, "Acesso negado: faça login para continuar.", false);
                     return result;
                 }
                 Person person = new Person(command);
@@ -48,7 +46,8 @@ namespace server.Application.Features.Persons.Commands.CreatePerson
                 }
 
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 result = new Result(500, $"Erro interno ao cadastrar pessoa: {ex.Message}", false);
                 return result;
             }

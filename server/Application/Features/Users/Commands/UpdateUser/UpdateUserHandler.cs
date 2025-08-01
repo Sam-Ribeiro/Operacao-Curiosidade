@@ -27,7 +27,7 @@ namespace server.Application.Features.Users.Commands.UpdateUser
                 var userToken = ReadToken.ValidateToken(command.Token);
                 if (userToken == null)
                 {
-                    result = new Result(401, "Erro ao validar token", false);
+                    result = new Result(401, "Acesso negado: faça login para continuar.", false);
                     return result;
                 }
                 int userId = Int32.Parse(userToken.FindFirst(ClaimTypes.NameIdentifier)?.Value);

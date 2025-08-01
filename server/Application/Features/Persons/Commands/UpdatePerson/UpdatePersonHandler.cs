@@ -1,15 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.VisualBasic;
-using server.Application.Commands.Interfaces;
+﻿using server.Application.Commands.Interfaces;
 using server.Application.Results;
 using server.Infrastructure.Repositories.Interfaces;
 using server.Models;
 using server.Services.Authentication;
 using server.Services.Validation;
 using server.Utils.Exceptions;
-using System.Net;
 using System.Security.Claims;
-using System.Xml.Linq;
 
 namespace server.Application.Features.Persons.Commands.UpdatePerson
 {

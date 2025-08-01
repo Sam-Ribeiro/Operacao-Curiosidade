@@ -1,14 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using server.Application.Features.Users.Commands.CreateUser;
 using server.Application.Results;
 using server.Application.Commands.Interfaces;
 using server.Application.Features.Users.Commands.Login;
 using server.Application.Features.Users.Commands.UpdatePassword;
-using Microsoft.AspNetCore.Authorization;
 using server.Application.Features.Users.Commands.UpdateUser;
 using server.Application.Features.Interfaces;
 using server.Application.Features.Users.Queries.GetUserProfile;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace server.Application.Controllers
 {
@@ -21,9 +20,13 @@ namespace server.Application.Controllers
         private readonly IHandlerBase<UpdatePasswordCommand> _updatePassword;
         private readonly IHandlerBase<UpdateUserCommand> _updateUser;
         private readonly IQueryHandler<GetUserProfileQuery> _queryProfile;
-        public UserController(IHandlerBase<CreateUserCommand> create, IHandlerBase<LoginCommand> login,
-            IHandlerBase<UpdatePasswordCommand> updatePassword, IHandlerBase<UpdateUserCommand> updateUser,
-            IQueryHandler<GetUserProfileQuery> queryProfile)
+        public UserController(
+            IHandlerBase<CreateUserCommand> create, 
+            IHandlerBase<LoginCommand> login,
+            IHandlerBase<UpdatePasswordCommand> updatePassword, 
+            IHandlerBase<UpdateUserCommand> updateUser,
+            IQueryHandler<GetUserProfileQuery> queryProfile
+            )
         {
             _create = create;
             _login = login;
@@ -40,6 +43,7 @@ namespace server.Application.Controllers
         }
 
         [HttpPost("login")]
+        [EnableRateLimiting("fixed")]
         public IResultBase Login(LoginCommand command) { 
             return _login.Handle(command);
         }

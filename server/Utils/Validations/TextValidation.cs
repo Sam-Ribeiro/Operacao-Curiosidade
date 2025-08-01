@@ -6,9 +6,12 @@ namespace server.Domains.Validations
     {
         public ContratcValidations<T> IsTextValid(string text, string message, string property)
         {
-            if (text.Length > 400)
+            if (text != null)
             {
-                AddNotification(new Notification(message, property));
+                if (text.Length > 400)
+                {
+                    AddNotification(new Notification(message, property));
+                }
             }
             return this;
         }

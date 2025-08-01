@@ -39,7 +39,7 @@ function formatarData(data){
 }
 
 async function controlaPagina(){
-    const result = await getLogsPages(itensPorPagina)
+    const result = await getLogsPages(itensPorPagina,filtro)
     if(await result.isOk){
         paginas = result.data
         paginaSpan.innerText = `Exibindo página ${paginaAtual} de ${paginas}`
@@ -112,7 +112,7 @@ const botaoData = document.getElementById("evento-data")
 const botaoPesquisar = document.getElementById("btn-pesquisar")
 const botaoPaginaProxima = document.getElementById("btn-proxima")
 const botaoPaginaAnterior = document.getElementById("btn-anterior")
-
+let timeOut
 botaoPaginaAnterior.onclick = function(){
     if(paginaAtual>1){
         paginaAtual--
@@ -129,13 +129,23 @@ botaoPaginaProxima.onclick = function(){
     }
 }
 
-document.addEventListener('keyup', (event) => {
-    filtro = document.getElementById("pesquisa").value
-    preencherTabela()
+document.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         event.preventDefault()
+        filtro = document.getElementById("pesquisa").value
+        preencherTabela(true)
     }
-    controlaPagina()
+})
+
+document.addEventListener('keyup', (event) => {
+    if(event.target == document.getElementById("pesquisa")){
+        clearTimeout(timeOut)
+        timeOut = setTimeout(() => { 
+            preencherTabela(true)
+            controlaPagina()
+        },750)
+        filtro = document.getElementById("pesquisa").value
+    }
 })
 
 botaoUsuario.onclick = function(){

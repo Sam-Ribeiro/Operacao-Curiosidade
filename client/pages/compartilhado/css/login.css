@@ -180,3 +180,17 @@ p{
     opacity: 0;
     right: 0;
 }
+
+.disable{
+    background-color: rgb(43, 64, 76);
+    color: rgb(99, 99, 99);
+    transform: scale(0.99);
+    pointer-events: none !important;
+}
+
+.disable:hover{
+    background-color: rgb(43, 64, 76);
+    color: rgb(99, 99, 99);
+    transform: scale(0.99);
+    pointer-events: none !important;
+}

@@ -20,7 +20,7 @@ namespace server.Services.Validation
                 .IsEmailValid(person.Email, "Email inválido.", "email")
                 .IsEmailUnique(person.Email, "Email já cadastrado.", "email", emails)
                 .IsAgeValid(person.Age,"Idade Inválida.","age")
-                .IsAdressValid(person.Address,"Endereço invalido","adress")
+                .IsAdressValid(person.Address,"Endereço invalido","address")
                 .IsTextValid(person.Information, "Máximo de caracteres (400) ultrapassado","information")
                 .IsTextValid(person.Interests, "Máximo de caracteres (400) ultrapassado", "interests")
                 .IsTextValid(person.Feelings, "Máximo de caracteres (400) ultrapassado", "feelings")

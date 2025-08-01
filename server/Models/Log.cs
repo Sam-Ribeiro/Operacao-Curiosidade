@@ -1,6 +1,4 @@
-﻿using server.Services.DataSelection.DataReturnParameters;
-
-namespace server.Models
+﻿namespace server.Models
 {
     public class Log
     {

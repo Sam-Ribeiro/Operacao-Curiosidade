@@ -12,8 +12,8 @@ namespace server.Infrastructure.Repositories
         {
             _context = context;
             _context.LoadContexts();
-
         }
+
         public void AddPerson(Person person, int userId)
         {
             List<Person> persons = _context.persons;
@@ -21,10 +21,8 @@ namespace server.Infrastructure.Repositories
             _context.persons.Add(person);
 
             var username = _context.users.FirstOrDefault(user => user.Id == userId).Name;
-            Log log = CreateLog.CreatePersonLog(person.Name, username);
-            List<Log> logs = _context.logs;
-            log.Id = logs.Count() + 1;
-            _context.logs.Add(log);
+            Log log = PersonLogs.CreatePersonLog(person.Name, username);
+            AddLog(log);
             _context.SaveChanges();
         }
 
@@ -35,10 +33,8 @@ namespace server.Infrastructure.Repositories
             person.Status = false;
 
             var username = _context.users.FirstOrDefault(user => user.Id == userId).Name;
-            Log log = CreateLog.DeletePersonLog(person.Name, username);
-            List<Log> logs = _context.logs;
-            log.Id = logs.Count() + 1;
-            _context.logs.Add(log);
+            Log log = PersonLogs.DeletePersonLog(person.Name, username);
+            AddLog(log);
             _context.SaveChanges();
         }
 
@@ -48,10 +44,8 @@ namespace server.Infrastructure.Repositories
             person.Removed = false;
 
             var username = _context.users.FirstOrDefault(user => user.Id == userId).Name;
-            Log log = CreateLog.RestorePersonLog(person.Name, username);
-            List<Log> logs = _context.logs;
-            log.Id = logs.Count() + 1;
-            _context.logs.Add(log);
+            Log log = PersonLogs.RestorePersonLog(person.Name, username);
+            AddLog(log);
             _context.SaveChanges();
         }
 
@@ -59,10 +53,8 @@ namespace server.Infrastructure.Repositories
         {
             var person = _context.persons.FirstOrDefault(p => p.Id == updatedPerson.Id);
             var username = _context.users.FirstOrDefault(user => user.Id == userId).Name;
-            Log log = CreateLog.UpdatePersonLog(person, updatedPerson, username);
-            List<Log> logs = _context.logs;
-            log.Id = logs.Count() + 1;
-
+            Log? log = PersonLogs.UpdatePersonLog(person, updatedPerson, username);
+            
             person.Name = updatedPerson.Name;
             person.Email = updatedPerson.Email;
             person.Address = updatedPerson.Address;
@@ -73,9 +65,19 @@ namespace server.Infrastructure.Repositories
             person.Feelings = updatedPerson.Feelings;
             person.Values = updatedPerson.Values;
             person.RegistrationDate = updatedPerson.RegistrationDate;
-        
-            _context.logs.Add(log);
+            if(log != null)
+            {
+                AddLog(log);
+            } 
             _context.SaveChanges();
         }
+
+        public void AddLog(Log log)
+        {
+            List<Log> logs = _context.logs;
+            log.Id = logs.Count() + 1;
+            _context.logs.Add(log);
+        }
+
     }
 }

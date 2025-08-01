@@ -6,9 +6,13 @@ namespace server.Domains.Validations
     {
         public ContratcValidations<T> IsAdressValid(string addres, string message, string property)
         {
-            if (addres.Length <=0 || addres.Length > 400)
+            if (addres.Length <= 0)
             {
-                AddNotification(new Notification(message, property));
+                AddNotification(new Notification("Endereço é um campo obrigatório", property));
+            }
+            if (addres.Length > 400)
+            {
+                AddNotification(new Notification("Máximo de caracteres (400) ultrapassado", property));
             }
             return this;
         }

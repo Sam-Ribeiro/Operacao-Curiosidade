@@ -2,7 +2,7 @@
 using server.Application.Features.Interfaces;
 using server.Application.Results;
 using server.Infrastructure.Repositories.Interfaces;
-using server.Models;
+using server.Services.Authentication;
 using server.Services.DataSelection;
 
 namespace server.Application.Features.Persons.Queries.GetDeletedPersons
@@ -21,6 +21,12 @@ namespace server.Application.Features.Persons.Queries.GetDeletedPersons
             Result result;
             try
             {
+                var user = ReadToken.ValidateToken(query.Token);
+                if (user == null)
+                {
+                    result = new Result(401, "Acesso negado: faça login para continuar.", false);
+                    return result;
+                }
                 var persons = _readRepository.GetDeletedPersons();
                 if (persons.Count()<=0)
                 {

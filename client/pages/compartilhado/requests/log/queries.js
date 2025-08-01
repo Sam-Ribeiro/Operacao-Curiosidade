@@ -17,9 +17,9 @@ async function QueryLogs(page,order,pageSize,filter){
     }
 }
 
-async function getLogsPages(pageSize){
+async function getLogsPages(pageSize,filter){
     const token = localStorage.getItem("token")
-    const url = `https://localhost:7182/api/PageContent/getLogsPages?PageSize=${pageSize}`
+    const url = `https://localhost:7182/api/PageContent/getLogsPages?PageSize=${pageSize}&Filter=${filter}`
     try{
         const r  = await fetch(url,{
             method: 'GET',
@@ -31,7 +31,7 @@ async function getLogsPages(pageSize){
         const result = await r.json()
         return result
     }catch(ex){
-        console.log(ex)
+        
         return null
     }
 }

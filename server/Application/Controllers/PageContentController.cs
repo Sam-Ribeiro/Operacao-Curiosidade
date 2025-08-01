@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using server.Application.Features.Interfaces;
-using server.Application.Features.Logs.Queries.GetLogs;
 using server.Application.Features.Pages.Queries.GetDeletedPersonsPages;
 using server.Application.Features.Pages.Queries.GetLogsPages;
 using server.Application.Features.Pages.Queries.GetPersonsPages;

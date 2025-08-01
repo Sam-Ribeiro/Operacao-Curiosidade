@@ -28,7 +28,7 @@ namespace server.Application.Features.Users.Commands.UpdatePassword
                 var userToken = ReadToken.ValidateToken(command.Token);
                 if (userToken == null)
                 {
-                    result = new Result(401, "Erro ao validar token", false);
+                    result = new Result(401, "Acesso negado: faça login para continuar.", false);
                     return result;
                 }
                 if (validation.Validate(command)){
@@ -46,7 +46,7 @@ namespace server.Application.Features.Users.Commands.UpdatePassword
                         return result;
                     }
                     else {
-                        result = new Result(400, "Senha antiga inválida", false);
+                        result = new Result(403, "Senha antiga inválida", false);
                         return result;
                     }
                 }

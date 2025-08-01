@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using server.Application.Commands.Interfaces;
 using server.Application.Features.Interfaces;
@@ -25,10 +24,11 @@ using server.Application.Features.Users.Queries.GetUserProfile;
 using server.Infrastructure.Data;
 using server.Infrastructure.Repositories;
 using server.Infrastructure.Repositories.Interfaces;
+using server.Models;
 using server.Repositories;
 using server.Services.Authentication;
-using Swashbuckle.AspNetCore.Filters;
 using System.Text;
+using System.Threading.RateLimiting;
 AppContext.SetSwitch("System.IdentityModel.Tokens.Jwt.UseLegacyAudienceValidation", true);
 Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
@@ -75,12 +75,10 @@ builder.Services.AddScoped<IQueryHandler<GetDeletedPersonsPagesQuery>, GetDelete
 builder.Services.AddCors(options =>
 {
 options.AddPolicy("AllowAll", builder =>
-builder.AllowAnyOrigin()
-.AllowAnyHeader()
-.AllowAnyMethod());
-
+    builder.AllowAnyOrigin()
+    .AllowAnyHeader()
+    .AllowAnyMethod());
 });
-
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -108,6 +106,21 @@ builder.Services.AddSwaggerGen(options => {
     });
 });
 
+builder.Services.AddRateLimiter(options =>
+{
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+    options.AddPolicy("fixed", HttpContext =>
+        RateLimitPartition.GetFixedWindowLimiter(
+            partitionKey: HttpContext.Connection.RemoteIpAddress?.ToString(),
+            factory: _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 10,
+                Window = TimeSpan.FromSeconds(20)
+            }
+        )
+    );
+}
+);
 
 var app = builder.Build();
 
@@ -120,11 +133,13 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors("AllowAll");
+
+app.UseRateLimiter();
+
 app.UseAuthentication();
 
 app.UseAuthorization();
-
-app.UseCors("AllowAll");
 
 app.MapControllers();
 

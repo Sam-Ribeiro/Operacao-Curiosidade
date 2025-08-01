@@ -8,7 +8,10 @@ async function loginRequest(userData){
             },
             body: JSON.stringify(userData)
         })
-        const result = await r.json()    
+        if(r.status === 429){
+            window.location.href = `../login/login.html?error=rate-limit`
+        }
+        const result = await r.json()
         return result
     }catch(ex){
         return null
@@ -71,7 +74,6 @@ async function updatePasswordRequest(userData){
         const result = await r.json()
         return result
     }catch(ex){
-        console.log(ex)
         return null
     }
 }

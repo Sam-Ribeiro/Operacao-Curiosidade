@@ -1,6 +1,6 @@
 async function carregarPessoa(){
-    const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get('id');
+    const urlParams = new URLSearchParams(window.location.search)
+    const id = urlParams.get('id')
     const result = await QueryPersonData(id)
     if(result != null){
         console.log(result)
@@ -36,70 +36,38 @@ async function carregarPessoa(){
     }
 }
 
-function verificarEntrada(){
-    const pessoas = JSON.parse(localStorage.getItem("pessoas")) || []
-    const pessoaEditado = JSON.parse(localStorage.getItem("pessoa")) || []
+function verificarEntrada(pessoa){
+    
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     const checkbox = document.querySelector("#tela-cadastro #status-toggle")
-    if(checkbox.checked == true){
-        var status = "Ativo"
-    }else{
-        var status = "Inativo"
-    }
-
-    const pessoa ={
-        nome: document.querySelector("#tela-cadastro #nome").value,
-        email: document.querySelector("#tela-cadastro #email").value,
-        status: status,
-        idade:  document.querySelector("#tela-cadastro #idade").value,
-        endereco: document.querySelector("#tela-cadastro #endereco").value,
-        informacoes: document.querySelector("#tela-cadastro #informacoes").value,
-        interesses: document.querySelector("#tela-cadastro #interesses").value,
-        sentimentos: document.querySelector("#tela-cadastro #sentimentos").value,
-        valores: document.querySelector("#tela-cadastro #valores").value,
-        dataCadastro: new Date().toISOString(),
-        deletado: false
-    }
-
-    const outrasPessoas = pessoas.filter(u => u.email !== pessoaEditado.email)
+    var status = checkbox.checked
     var ok = true
     
-    if(!pessoa.nome || pessoa.nome.length < 3){
+    if(!pessoa.name){
         document.querySelector("#tela-cadastro #nome").classList.add("erro")
-        erroNome.innerText = "O nome deve ter mais que dois caracteres"
+        erroNome.innerText = "Campo obrigatório"
         erroNome.style.display = "block"
         ok = false
     }
-    if(!pessoa.email || !emailRegex.test(pessoa.email)){
+    if(!pessoa.email){
         document.querySelector("#tela-cadastro #email").classList.add("erro")
-        erroEmail.innerText = "Email inválido"
+        erroEmail.innerText = "Campo obrigatório"
         erroEmail.style.display = "block"
         ok = false
     }
-    if(outrasPessoas.some(u => u.email === pessoa.email)){
-        document.querySelector("#tela-cadastro #email").classList.add("erro")
-        erroEmail.innerText = "Email já cadastrado"
-        erroEmail.style.display = "block"
-        ok = false
-    }
-    if(!pessoa.idade || Number(pessoa.idade)<1 || Number(pessoa.idade>120) || isNaN(Number(pessoa.idade))){
+    if(!pessoa.age){
         campoIdade.classList.add("erro")
-        erroIdade.innerText = "Idade inválida"
+        erroIdade.innerText = "Campo obrigatório"
         erroIdade.style.display = "block"
         ok = false
     }
-    if(!pessoa.endereco){
+    if(!pessoa.address){
         document.querySelector("#tela-cadastro #endereco").classList.add("erro")
-        erroEndereco.innerText = "Endereço inválido"
+        erroEndereco.innerText = "Campo obrigatório"
         erroEndereco.style.display = "block"
         ok = false
     }
-    if(!ok){
-        notifyDialog("Erro ao validar dados")   
-        return false
-    }else{
-        return true
-    }
+    return ok
 }
 
 function fecharCadastro(){
@@ -109,6 +77,65 @@ function fecharCadastro(){
     preencherTabela(true)
     form = document.getElementById("form-cadastro")
     form.reset()
+}
+
+function readFields(){
+    let id = 0
+    try{
+        const urlParams = new URLSearchParams(window.location.search)
+        id = urlParams.get('id')
+    }catch{
+        id = 0
+    }
+    const person ={
+        id: id,
+        name: document.querySelector("#tela-cadastro #nome").value,
+        email: document.querySelector("#tela-cadastro #email").value,
+        status: document.querySelector("#tela-cadastro #status-toggle").checked,
+        age:  document.querySelector("#tela-cadastro #idade").value,
+        address: document.querySelector("#tela-cadastro #endereco").value,
+        information: document.querySelector("#tela-cadastro #informacoes").value,
+        interests: document.querySelector("#tela-cadastro #interesses").value,
+        feelings: document.querySelector("#tela-cadastro #sentimentos").value,
+        values: document.querySelector("#tela-cadastro #valores").value,
+    }
+    return person
+}
+
+function getErrorResponse(notification){
+    if(notification.propertyName == "name"){
+        erroNome.innerText = notification.message
+        erroNome.style.display = 'block'
+        campoNome.classList.add("erro")
+    }else if(notification.propertyName == "email"){
+        erroEmail.innerText = notification.message
+        erroEmail.style.display = 'block'
+        campoEmail.classList.add("erro")
+    }else if(notification.propertyName == "age"){
+        erroIdade.innerText = notification.message
+        erroIdade.style.display = 'block'
+        campoIdade.classList.add("erro")
+    }else if(notification.propertyName == "address"){
+        erroEndereco.innerText = notification.message
+        erroEndereco.style.display = 'block'
+        campoEndereco.classList.add("erro")
+    }else if(notification.propertyName == "information"){
+        erroInformacoes.innerText = notification.message
+        erroInformacoes.style.display = 'block'
+        campoInformacao.classList.add("erro")    
+    }else if(notification.propertyName == "interests"){
+        erroInteresses.innerText = notification.message
+        erroInteresses.style.display = 'block'
+        campoInteresses.classList.add("erro")
+    }else if(notification.propertyName == "feelings"){
+        erroSentimentos.innerText = notification.message
+        erroSentimentos.style.display = 'block'
+        campoSentimentos.classList.add("erro")
+    }else if(notification.propertyName == "values"){
+        erroValores.innerText = notification.message
+        erroValores.style.display = 'block'
+        campoValores.classList.add("erro")
+    }
 }
 
 const modal = document.getElementById("tela-cadastro")
@@ -125,11 +152,20 @@ var erroNome = document.getElementById("erro-nome")
 var erroEmail = document.getElementById("erro-email")
 var erroIdade = document.getElementById("erro-idade")
 var erroEndereco = document.getElementById("erro-endereco")
+var erroInformacoes = document.getElementById("erro-info")
+var erroInteresses = document.getElementById("erro-interesses")
+var erroSentimentos = document.getElementById("erro-sentimentos")
+var erroValores = document.getElementById("erro-valores")
 const campoEmail = document.querySelector("#tela-cadastro #email")
 const campoNome = document.querySelector("#tela-cadastro #nome")
 const campoIdade = document.querySelector("#tela-cadastro #idade")
 const campoEndereco = document.querySelector("#tela-cadastro #endereco")
+const campoInformacao = document.querySelector("#tela-cadastro #informacoes")
+const campoInteresses = document.querySelector("#tela-cadastro #interesses")
+const campoSentimentos = document.querySelector("#tela-cadastro #sentimentos")
+const campoValores = document.querySelector("#tela-cadastro #valores")
 const notificationDialog = document.querySelector("#notification-dialog")
+
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
         event.preventDefault()
@@ -153,6 +189,22 @@ document.addEventListener('keydown', (event) => {
     if(event.target == campoEndereco){
         campoEndereco.classList.remove("erro")
         erroEndereco.style.display = "none"
+    }
+    if(event.target == campoInformacao){
+        campoInformacao.classList.remove("erro")
+        erroInformacoes.style.display = "none"
+    }
+    if(event.target == campoInteresses){
+        campoInteresses.classList.remove("erro")
+        erroInteresses.style.display = "none"
+    }
+    if(event.target == campoSentimentos){
+        campoSentimentos.classList.remove("erro")
+        erroSentimentos.style.display = "none"
+    }
+    if(event.target == campoValores){
+        campoValores.classList.remove("erro")
+        erroValores.style.display = "none"
     }
 })
 
@@ -180,9 +232,21 @@ botaoModal.onclick = function (){
 }
 
 botaoGravar.onclick = async function (){
-    if(verificarEntrada()){
-        const result = await CreatePersonRequest(personData)
-        fecharCadastro()
+    const person = readFields()
+    if(verificarEntrada(person)){
+        const result = await CreatePersonRequest(person)
+        if(result.resultCode === 201){
+            fecharCadastro()
+            notify("Pessoa cadastrada com sucesso!",true)
+        }else if(result.resultCode === 400){ 
+            notifyDialog(result.message,result.isOk)
+            const notifications = result.notifications
+            for( const n in notifications){
+                getErrorResponse(notifications[n])
+            }
+        }else{
+            notifyDialog(result.message,result.isOk)
+        }
     }
 }
 
@@ -191,20 +255,54 @@ botaoClose.onclick = function(){
     fecharCadastro()
 }
 
-botaoEditar.onclick = function(){
-    notificar("Pessoa editada com sucesso!")
-    fecharCadastro()
+botaoEditar.onclick = async function(){
+    const person = readFields()
+    if(verificarEntrada(person)){
+        const result = await UpdatePersonRequest(person)
+        if(result.resultCode === 200){
+            fecharCadastro()
+            notify("Pessoa editada com sucesso!",true)
+        }else if(result.resultCode === 400){ 
+            notifyDialog(result.message,result.isOk)
+            const notifications = result.notifications
+            for( const n in notifications){
+                getErrorResponse(notifications[n])
+            }
+        }else{
+            notifyDialog(result.message,result.isOk)
+        }
+    }
 }
 
-botaoExcluir.onclick = function(){
-    notificar("Pessoa excluida com sucesso!")
-    popupExcluir.close()
-    fecharCadastro()
+botaoExcluir.onclick = async function(){
+    const urlParams = new URLSearchParams(window.location.search)
+    const id = parseInt(urlParams.get('id'))
+    const request ={
+        id: id
+    }
+    const result = await DeletePersonRequest(request)
+    if(result.resultCode === 200){
+        popupExcluir.close()
+        notify(result.message,true)
+        fecharCadastro()
+    }
+    notifyDialog(result.message,result.isOk)
 }
 
-botaoRestaurar.onclick = function(){
-    notificar("Pessoa restaurada com sucesso!")
-    fecharCadastro()
+botaoRestaurar.onclick = async function(){
+    const urlParams = new URLSearchParams(window.location.search)
+    const id = parseInt(urlParams.get('id'))
+    const request ={
+        id: id
+    }
+    const result = await RestorePersonRequest(request)
+    if(result.resultCode === 200){
+        popupExcluir.close()
+        notify(result.message,true)
+        fecharCadastro()
+    }
+    notifyDialog(result.message,result.isOk)
+    
 }
 
 carregarPessoa()

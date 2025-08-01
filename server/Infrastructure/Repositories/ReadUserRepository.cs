@@ -1,5 +1,4 @@
-﻿using Microsoft.OpenApi.Any;
-using server.Infrastructure.Data;
+﻿using server.Infrastructure.Data;
 using server.Infrastructure.Repositories.Interfaces;
 using server.Models;
 

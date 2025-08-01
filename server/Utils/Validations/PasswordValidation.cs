@@ -1,5 +1,4 @@
 ﻿using server.Utils.Exceptions;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace server.Domains.Validations
 {

@@ -4,15 +4,22 @@ function listar(){
 
 async function validarUsuario(){
     const result = await QueryUserData()
-    if(result.resultCode === 200){
-        nome_perfil = document.getElementById("usuario")
-        icone_perfil = document.getElementById("icone")
-        if(nome_perfil){
-            nome_perfil.innerText = result.data.name
-            icone_perfil.innerText = result.data.name.charAt(0).toUpperCase()
+    console.log(result)
+    if(result!= null){
+        if(result.resultCode === 200){
+            nome_perfil = document.getElementById("usuario")
+            icone_perfil = document.getElementById("icone")
+            if(nome_perfil){
+                nome_perfil.innerText = result.data.name
+                icone_perfil.innerText = result.data.name.charAt(0).toUpperCase()
+            }
+        }else if(result.resultCode === 401 || 400){
+            var error = "token"
+            window.location.href = `../login/login.html?error=${error}`
         }
-    }else if(result.resultCode === 401){
-        window.location.href = "../login/login.html"
+    }else{
+        var error = "internal"
+        window.location.href = `../login/login.html?error=${error}`
     }
 }
 
@@ -29,9 +36,7 @@ function notify(message, isOk){
   }
     notificacao.innerText = message
     notificacao.classList.remove("hidden")
-    setTimeout(() => {
-        notificacao.classList.add("hidden")
-    },5000)
+    setTimeout(() => { notificacao.classList.add("hidden")},5000)
 }
 
 
