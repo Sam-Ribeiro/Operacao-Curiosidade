@@ -1,5 +1,4 @@
-﻿
-using server.Application.Results;
+﻿using server.Application.Results;
 
 namespace server.Application.Commands.Interfaces
 {

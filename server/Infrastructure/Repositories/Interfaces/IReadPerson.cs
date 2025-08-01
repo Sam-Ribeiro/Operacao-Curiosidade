@@ -6,6 +6,10 @@ namespace server.Infrastructure.Repositories.Interfaces
     {
         Person? GetPersonById(int id);
         List<Person>? GetAllPersons();
-        List<string>? GetEmails();
+        List<Person>? GetDeletedPersons();
+        List<string>? GetEmails(string? email);
+        int GetPersonsCount();
+        int GetInactiveCount();
+        int GetLastMonthRecordCount();
     }
 }

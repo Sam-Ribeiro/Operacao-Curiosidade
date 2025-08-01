@@ -3,12 +3,394 @@
   "WorkspaceRootPath": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B40D35B9-D124-438B-A9C5-94C7D9509CBC}|..\\tests\\tests.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\tests\\usertests\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B40D35B9-D124-438B-A9C5-94C7D9509CBC}|..\\tests\\tests.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\tests\\tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\controllers\\personcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\controllers\\personcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\infrastructure\\repositories\\readpersonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:infrastructure\\repositories\\readpersonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\infrastructure\\repositories\\interfaces\\ireadperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:infrastructure\\repositories\\interfaces\\ireadperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\queries\\getlastmonthrecordcount\\getmonthrecordcounthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\queries\\getlastmonthrecordcount\\getmonthrecordcounthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\queries\\getpersonscount\\getpersonscounthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\queries\\getpersonscount\\getpersonscounthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\queries\\getpersonscount\\getpersonscountquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\queries\\getpersonscount\\getpersonscountquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\queries\\getdeletedpersons\\getdeletedpersonshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\queries\\getdeletedpersons\\getdeletedpersonshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\queries\\getdeletedpersons\\getdeletedpersonsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\queries\\getdeletedpersons\\getdeletedpersonsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\users.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:users.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\logs.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:logs.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\persons.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:persons.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\infrastructure\\data\\inmemorycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:infrastructure\\data\\inmemorycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\infrastructure\\repositories\\writeuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:infrastructure\\repositories\\writeuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\infrastructure\\repositories\\writepersonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:infrastructure\\repositories\\writepersonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\infrastructure\\repositories\\readuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:infrastructure\\repositories\\readuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\services\\eventlog\\personlogs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:services\\eventlog\\personlogs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\services\\eventlog\\userlogs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:services\\eventlog\\userlogs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\infrastructure\\repositories\\interfaces\\iwriteuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:infrastructure\\repositories\\interfaces\\iwriteuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\users\\commands\\updateuser\\updateuserhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\users\\commands\\updateuser\\updateuserhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\users\\commands\\updateuser\\updateusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\users\\commands\\updateuser\\updateusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\commands\\createperson\\createpersonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\commands\\createperson\\createpersonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\logs\\queries\\getlogs\\getlogshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\logs\\queries\\getlogs\\getlogshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\logs\\queries\\getlogs\\getlogsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\logs\\queries\\getlogs\\getlogsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\utils\\validations\\textvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:utils\\validations\\textvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\utils\\validations\\passwordvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:utils\\validations\\passwordvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\utils\\validations\\namevalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:utils\\validations\\namevalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\utils\\validations\\emailvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:utils\\validations\\emailvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\utils\\validations\\contratcvalidations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:utils\\validations\\contratcvalidations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\utils\\validations\\borndate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:utils\\validations\\borndate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\utils\\validations\\agevalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:utils\\validations\\agevalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\utils\\validations\\adressvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:utils\\validations\\adressvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\utils\\validations\\interfaces\\icontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:utils\\validations\\interfaces\\icontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\utils\\exceptions\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:utils\\exceptions\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\services\\validation\\newpasswordvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:services\\validation\\newpasswordvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\services\\validation\\personvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:services\\validation\\personvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\services\\validation\\updateuservalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:services\\validation\\updateuservalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\services\\validation\\uservalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:services\\validation\\uservalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\services\\dataselection\\dataselect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:services\\dataselection\\dataselect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\services\\dataselection\\datareturnparameters\\sorting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:services\\dataselection\\datareturnparameters\\sorting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\services\\dataselection\\datareturnparameters\\pagination.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:services\\dataselection\\datareturnparameters\\pagination.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\services\\dataselection\\datareturnparameters\\filtering.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:services\\dataselection\\datareturnparameters\\filtering.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\services\\authentication\\readtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:services\\authentication\\readtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\services\\authentication\\icreatetoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:services\\authentication\\icreatetoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\services\\authentication\\createtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:services\\authentication\\createtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\models\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:models\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\models\\log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:models\\log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\infrastructure\\repositories\\interfaces\\iwriteperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:infrastructure\\repositories\\interfaces\\iwriteperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\infrastructure\\repositories\\interfaces\\ireaduserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:infrastructure\\repositories\\interfaces\\ireaduserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\results\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\results\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\results\\iresultbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\results\\iresultbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\users\\queries\\getuserprofile\\getuserprofilequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\users\\queries\\getuserprofile\\getuserprofilequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\users\\queries\\getuserprofile\\getuserprofilehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\users\\queries\\getuserprofile\\getuserprofilehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\users\\commands\\updatepassword\\updatepasswordhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\users\\commands\\updatepassword\\updatepasswordhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\users\\commands\\updatepassword\\updatepasswordcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\users\\commands\\updatepassword\\updatepasswordcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\users\\commands\\login\\loginhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\users\\commands\\login\\loginhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\users\\commands\\login\\logincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\users\\commands\\login\\logincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\users\\commands\\createuser\\createuserhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\users\\commands\\createuser\\createuserhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\users\\commands\\createuser\\createusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\users\\commands\\createuser\\createusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\queries\\getpersons\\getpersonsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\queries\\getpersons\\getpersonsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\queries\\getpersons\\getpersonshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\queries\\getpersons\\getpersonshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\queries\\getpersondata\\getpersondataquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\queries\\getpersondata\\getpersondataquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\queries\\getpersondata\\getpersondatahandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\queries\\getpersondata\\getpersondatahandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\queries\\getlastmonthrecordcount\\getmonthrecordcountquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\queries\\getlastmonthrecordcount\\getmonthrecordcountquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\queries\\getinactivecount\\getinactivecountquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\queries\\getinactivecount\\getinactivecountquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\queries\\getinactivecount\\getinactivecounthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\queries\\getinactivecount\\getinactivecounthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\commands\\updateperson\\updatepersonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\commands\\updateperson\\updatepersonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\commands\\updateperson\\updatepersoncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\commands\\updateperson\\updatepersoncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\commands\\restoreperson\\restorepersonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\commands\\restoreperson\\restorepersonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\commands\\restoreperson\\restorepersoncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\commands\\restoreperson\\restorepersoncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\commands\\deleteperson\\deletepersonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\commands\\deleteperson\\deletepersonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\commands\\deleteperson\\deletepersoncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\commands\\deleteperson\\deletepersoncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\persons\\commands\\createperson\\createpersoncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\persons\\commands\\createperson\\createpersoncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\pages\\queries\\getpersonspages\\getpersonspagesquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\pages\\queries\\getpersonspages\\getpersonspagesquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\pages\\queries\\getpersonspages\\getpersonspageshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\pages\\queries\\getpersonspages\\getpersonspageshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\pages\\queries\\getlogspages\\getlogspagesquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\pages\\queries\\getlogspages\\getlogspagesquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\pages\\queries\\getlogspages\\getlogspageshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\pages\\queries\\getlogspages\\getlogspageshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\pages\\queries\\getdeletedpersonspages\\getdeletedpersonspagesquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\pages\\queries\\getdeletedpersonspages\\getdeletedpersonspagesquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\pages\\queries\\getdeletedpersonspages\\getdeletedpersonspageshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\pages\\queries\\getdeletedpersonspages\\getdeletedpersonspageshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\interfaces\\iqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\interfaces\\iqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\interfaces\\ihandlerbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\interfaces\\ihandlerbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\interfaces\\iquerybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\interfaces\\iquerybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\features\\interfaces\\icommandbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\features\\interfaces\\icommandbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\dtos\\userloggeddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\dtos\\userloggeddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\dtos\\personintabledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\dtos\\personintabledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\dtos\\persondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\dtos\\persondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\dtos\\edituserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\dtos\\edituserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\dtos\\mapping\\personlistmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\dtos\\mapping\\personlistmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\controllers\\pagecontentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\controllers\\pagecontentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\application\\controllers\\logcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:application\\controllers\\logcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\server.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:server.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|c:\\projetos\\projeto\\samuel_ribeiro_da_costa\\server\\server.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{3011AEF3-7819-4C30-B3DE-5CC98ADF308B}|server.csproj|solutionrelative:server.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,40 +400,1215 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "tests",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\tests\\tests.csproj",
+              "RelativeDocumentMoniker": "..\\tests\\tests.csproj",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\tests\\tests.csproj",
+              "RelativeToolTip": "..\\tests\\tests.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-01T14:20:01.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GetPersonsCountHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetPersonsCount\\GetPersonsCountHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Queries\\GetPersonsCount\\GetPersonsCountHandler.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetPersonsCount\\GetPersonsCountHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Persons\\Queries\\GetPersonsCount\\GetPersonsCountHandler.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T12:00:08.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GetMonthRecordCountHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetLastMonthRecordCount\\GetMonthRecordCountHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Queries\\GetLastMonthRecordCount\\GetMonthRecordCountHandler.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetLastMonthRecordCount\\GetMonthRecordCountHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Persons\\Queries\\GetLastMonthRecordCount\\GetMonthRecordCountHandler.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBMAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T12:15:22.298Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IReadPerson.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Infrastructure\\Repositories\\Interfaces\\IReadPerson.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\Interfaces\\IReadPerson.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Infrastructure\\Repositories\\Interfaces\\IReadPerson.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\Interfaces\\IReadPerson.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T17:36:11.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ReadPersonRepository.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Infrastructure\\Repositories\\ReadPersonRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\ReadPersonRepository.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Infrastructure\\Repositories\\ReadPersonRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\ReadPersonRepository.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAA3wDAAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T17:35:46.804Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GetPersonsQuery.cs",
-              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetPersons\\GetPersonsQuery.cs",
-              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Queries\\GetPersons\\GetPersonsQuery.cs",
-              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetPersons\\GetPersonsQuery.cs",
-              "RelativeToolTip": "Application\\Features\\Persons\\Queries\\GetPersons\\GetPersonsQuery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Title": "Register.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\tests\\UserTests\\Register.cs",
+              "RelativeDocumentMoniker": "..\\tests\\UserTests\\Register.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\tests\\UserTests\\Register.cs",
+              "RelativeToolTip": "..\\tests\\UserTests\\Register.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAYwCsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-22T17:01:43.607Z",
+              "WhenOpened": "2025-07-31T16:59:33.713Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Application\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Application\\Controllers\\UserController.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwCUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T17:47:58.363Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GetPersonsCountQuery.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetPersonsCount\\GetPersonsCountQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Queries\\GetPersonsCount\\GetPersonsCountQuery.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetPersonsCount\\GetPersonsCountQuery.cs",
+              "RelativeToolTip": "Application\\Features\\Persons\\Queries\\GetPersonsCount\\GetPersonsCountQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T11:59:55.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PersonController.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Controllers\\PersonController.cs",
+              "RelativeDocumentMoniker": "Application\\Controllers\\PersonController.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Controllers\\PersonController.cs",
+              "RelativeToolTip": "Application\\Controllers\\PersonController.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAwCMAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T17:47:49.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GetDeletedPersonsHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetDeletedPersons\\GetDeletedPersonsHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Queries\\GetDeletedPersons\\GetDeletedPersonsHandler.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetDeletedPersons\\GetDeletedPersonsHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Persons\\Queries\\GetDeletedPersons\\GetDeletedPersonsHandler.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwCgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T17:32:51.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GetDeletedPersonsQuery.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetDeletedPersons\\GetDeletedPersonsQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Queries\\GetDeletedPersons\\GetDeletedPersonsQuery.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetDeletedPersons\\GetDeletedPersonsQuery.cs",
+              "RelativeToolTip": "Application\\Features\\Persons\\Queries\\GetDeletedPersons\\GetDeletedPersonsQuery.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T17:32:29.177Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "users.json",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\users.json",
+              "RelativeDocumentMoniker": "users.json",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\users.json",
+              "RelativeToolTip": "users.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAACpAQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-01T13:16:54.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "logs.json",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\logs.json",
+              "RelativeDocumentMoniker": "logs.json",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\logs.json",
+              "RelativeToolTip": "logs.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAD8CAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-01T11:21:00.677Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "InMemoryContext.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Infrastructure\\Data\\InMemoryContext.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Data\\InMemoryContext.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Infrastructure\\Data\\InMemoryContext.cs",
+              "RelativeToolTip": "Infrastructure\\Data\\InMemoryContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T11:10:39.576Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ReadUserRepository.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Infrastructure\\Repositories\\ReadUserRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\ReadUserRepository.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Infrastructure\\Repositories\\ReadUserRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\ReadUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T11:17:39.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "PersonLogs.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\Server\\Services\\EventLog\\PersonLogs.cs",
+              "RelativeDocumentMoniker": "Services\\EventLog\\PersonLogs.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\Server\\Services\\EventLog\\PersonLogs.cs",
+              "RelativeToolTip": "Services\\EventLog\\PersonLogs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T13:13:51.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "WritePersonRepository.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Infrastructure\\Repositories\\WritePersonRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\WritePersonRepository.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Infrastructure\\Repositories\\WritePersonRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\WritePersonRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEwAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T11:28:00.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "WriteUserRepository.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Infrastructure\\Repositories\\WriteUserRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\WriteUserRepository.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Infrastructure\\Repositories\\WriteUserRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\WriteUserRepository.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAgwDEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T12:27:29.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "persons.json",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\persons.json",
+              "RelativeDocumentMoniker": "persons.json",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\persons.json",
+              "RelativeToolTip": "persons.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAACbEQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-24T12:41:36.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "UserLogs.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\EventLog\\UserLogs.cs",
+              "RelativeDocumentMoniker": "Services\\EventLog\\UserLogs.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\EventLog\\UserLogs.cs",
+              "RelativeToolTip": "Services\\EventLog\\UserLogs.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwCkAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T11:32:47.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IWriteUserRepository.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Infrastructure\\Repositories\\Interfaces\\IWriteUserRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\Interfaces\\IWriteUserRepository.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Infrastructure\\Repositories\\Interfaces\\IWriteUserRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\Interfaces\\IWriteUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T14:13:22.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "UpdateUserHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Commands\\UpdateUser\\UpdateUserHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Users\\Commands\\UpdateUser\\UpdateUserHandler.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Commands\\UpdateUser\\UpdateUserHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Users\\Commands\\UpdateUser\\UpdateUserHandler.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwCgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T17:31:10.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "UpdateUserCommand.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Commands\\UpdateUser\\UpdateUserCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Users\\Commands\\UpdateUser\\UpdateUserCommand.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Commands\\UpdateUser\\UpdateUserCommand.cs",
+              "RelativeToolTip": "Application\\Features\\Users\\Commands\\UpdateUser\\UpdateUserCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T17:21:13.839Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "CreatePersonHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Commands\\CreatePerson\\CreatePersonHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Commands\\CreatePerson\\CreatePersonHandler.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Commands\\CreatePerson\\CreatePersonHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Persons\\Commands\\CreatePerson\\CreatePersonHandler.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T11:13:41.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "GetLogsHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Logs\\Queries\\GetLogs\\GetLogsHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Logs\\Queries\\GetLogs\\GetLogsHandler.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Logs\\Queries\\GetLogs\\GetLogsHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Logs\\Queries\\GetLogs\\GetLogsHandler.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwBcAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T14:37:12.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "GetLogsQuery.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Logs\\Queries\\GetLogs\\GetLogsQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Logs\\Queries\\GetLogs\\GetLogsQuery.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Logs\\Queries\\GetLogs\\GetLogsQuery.cs",
+              "RelativeToolTip": "Application\\Features\\Logs\\Queries\\GetLogs\\GetLogsQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T14:36:43.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "TextValidation.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Validations\\TextValidation.cs",
+              "RelativeDocumentMoniker": "Utils\\Validations\\TextValidation.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Validations\\TextValidation.cs",
+              "RelativeToolTip": "Utils\\Validations\\TextValidation.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T13:25:47.265Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "PasswordValidation.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Validations\\PasswordValidation.cs",
+              "RelativeDocumentMoniker": "Utils\\Validations\\PasswordValidation.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Validations\\PasswordValidation.cs",
+              "RelativeToolTip": "Utils\\Validations\\PasswordValidation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T13:26:07.775Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "NameValidation.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Validations\\NameValidation.cs",
+              "RelativeDocumentMoniker": "Utils\\Validations\\NameValidation.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Validations\\NameValidation.cs",
+              "RelativeToolTip": "Utils\\Validations\\NameValidation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T13:27:47.083Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "EmailValidation.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Validations\\EmailValidation.cs",
+              "RelativeDocumentMoniker": "Utils\\Validations\\EmailValidation.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Validations\\EmailValidation.cs",
+              "RelativeToolTip": "Utils\\Validations\\EmailValidation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T13:29:32.12Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "ContratcValidations.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Validations\\ContratcValidations.cs",
+              "RelativeDocumentMoniker": "Utils\\Validations\\ContratcValidations.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Validations\\ContratcValidations.cs",
+              "RelativeToolTip": "Utils\\Validations\\ContratcValidations.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T13:31:08.57Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "BornDate.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Validations\\BornDate.cs",
+              "RelativeDocumentMoniker": "Utils\\Validations\\BornDate.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Validations\\BornDate.cs",
+              "RelativeToolTip": "Utils\\Validations\\BornDate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T13:31:10.871Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAAAHAAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T17:41:51.349Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "AgeValidation.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Validations\\AgeValidation.cs",
+              "RelativeDocumentMoniker": "Utils\\Validations\\AgeValidation.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Validations\\AgeValidation.cs",
+              "RelativeToolTip": "Utils\\Validations\\AgeValidation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T11:56:41.941Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "AdressValidation.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Validations\\AdressValidation.cs",
+              "RelativeDocumentMoniker": "Utils\\Validations\\AdressValidation.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Validations\\AdressValidation.cs",
+              "RelativeToolTip": "Utils\\Validations\\AdressValidation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T13:25:45.012Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "IContract.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Validations\\Interfaces\\IContract.cs",
+              "RelativeDocumentMoniker": "Utils\\Validations\\Interfaces\\IContract.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Validations\\Interfaces\\IContract.cs",
+              "RelativeToolTip": "Utils\\Validations\\Interfaces\\IContract.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T14:38:13.822Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Notification.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Exceptions\\Notification.cs",
+              "RelativeDocumentMoniker": "Utils\\Exceptions\\Notification.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Utils\\Exceptions\\Notification.cs",
+              "RelativeToolTip": "Utils\\Exceptions\\Notification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T14:38:06.696Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "NewPasswordValidation.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\Validation\\NewPasswordValidation.cs",
+              "RelativeDocumentMoniker": "Services\\Validation\\NewPasswordValidation.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\Validation\\NewPasswordValidation.cs",
+              "RelativeToolTip": "Services\\Validation\\NewPasswordValidation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T11:50:56.086Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "PersonValidation.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\Validation\\PersonValidation.cs",
+              "RelativeDocumentMoniker": "Services\\Validation\\PersonValidation.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\Validation\\PersonValidation.cs",
+              "RelativeToolTip": "Services\\Validation\\PersonValidation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T11:13:14.5Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "DataSelect.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\DataSelection\\DataSelect.cs",
+              "RelativeDocumentMoniker": "Services\\DataSelection\\DataSelect.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\DataSelection\\DataSelect.cs",
+              "RelativeToolTip": "Services\\DataSelection\\DataSelect.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T13:01:53.73Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Sorting.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\DataSelection\\DataReturnParameters\\Sorting.cs",
+              "RelativeDocumentMoniker": "Services\\DataSelection\\DataReturnParameters\\Sorting.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\DataSelection\\DataReturnParameters\\Sorting.cs",
+              "RelativeToolTip": "Services\\DataSelection\\DataReturnParameters\\Sorting.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAYwAYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T11:29:18.478Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "UpdateUserValidation.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\Validation\\UpdateUserValidation.cs",
+              "RelativeDocumentMoniker": "Services\\Validation\\UpdateUserValidation.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\Validation\\UpdateUserValidation.cs",
+              "RelativeToolTip": "Services\\Validation\\UpdateUserValidation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T12:52:36.509Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "UserValidation.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\Validation\\UserValidation.cs",
+              "RelativeDocumentMoniker": "Services\\Validation\\UserValidation.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\Validation\\UserValidation.cs",
+              "RelativeToolTip": "Services\\Validation\\UserValidation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T16:45:45.505Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "Pagination.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\DataSelection\\DataReturnParameters\\Pagination.cs",
+              "RelativeDocumentMoniker": "Services\\DataSelection\\DataReturnParameters\\Pagination.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\DataSelection\\DataReturnParameters\\Pagination.cs",
+              "RelativeToolTip": "Services\\DataSelection\\DataReturnParameters\\Pagination.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T11:30:17.369Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "Filtering.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\DataSelection\\DataReturnParameters\\Filtering.cs",
+              "RelativeDocumentMoniker": "Services\\DataSelection\\DataReturnParameters\\Filtering.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\DataSelection\\DataReturnParameters\\Filtering.cs",
+              "RelativeToolTip": "Services\\DataSelection\\DataReturnParameters\\Filtering.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAQwAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T11:30:05.925Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "ReadToken.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\Authentication\\ReadToken.cs",
+              "RelativeDocumentMoniker": "Services\\Authentication\\ReadToken.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\Authentication\\ReadToken.cs",
+              "RelativeToolTip": "Services\\Authentication\\ReadToken.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T14:20:07.864Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "ICreateToken.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\Authentication\\ICreateToken.cs",
+              "RelativeDocumentMoniker": "Services\\Authentication\\ICreateToken.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\Authentication\\ICreateToken.cs",
+              "RelativeToolTip": "Services\\Authentication\\ICreateToken.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T17:22:17.14Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "CreateToken.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\Authentication\\CreateToken.cs",
+              "RelativeDocumentMoniker": "Services\\Authentication\\CreateToken.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Services\\Authentication\\CreateToken.cs",
+              "RelativeToolTip": "Services\\Authentication\\CreateToken.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwCcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T17:22:16.168Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T13:21:32.081Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "Person.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Models\\Person.cs",
+              "RelativeDocumentMoniker": "Models\\Person.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Models\\Person.cs",
+              "RelativeToolTip": "Models\\Person.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T17:52:06.768Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "Log.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Models\\Log.cs",
+              "RelativeDocumentMoniker": "Models\\Log.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Models\\Log.cs",
+              "RelativeToolTip": "Models\\Log.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T11:10:31.785Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "IWritePerson.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Infrastructure\\Repositories\\Interfaces\\IWritePerson.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\Interfaces\\IWritePerson.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Infrastructure\\Repositories\\Interfaces\\IWritePerson.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\Interfaces\\IWritePerson.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T13:59:44.405Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "IReadUserRepository.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Infrastructure\\Repositories\\Interfaces\\IReadUserRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\Interfaces\\IReadUserRepository.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Infrastructure\\Repositories\\Interfaces\\IReadUserRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\Interfaces\\IReadUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T17:36:47.518Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "Result.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Results\\Result.cs",
+              "RelativeDocumentMoniker": "Application\\Results\\Result.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Results\\Result.cs",
+              "RelativeToolTip": "Application\\Results\\Result.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA5wAIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T12:20:59.272Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "IResultBase.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Results\\IResultBase.cs",
+              "RelativeDocumentMoniker": "Application\\Results\\IResultBase.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Results\\IResultBase.cs",
+              "RelativeToolTip": "Application\\Results\\IResultBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T12:20:57.77Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "GetUserProfileQuery.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Queries\\GetUserProfile\\GetUserProfileQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Users\\Queries\\GetUserProfile\\GetUserProfileQuery.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Queries\\GetUserProfile\\GetUserProfileQuery.cs",
+              "RelativeToolTip": "Application\\Features\\Users\\Queries\\GetUserProfile\\GetUserProfileQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T16:57:43.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "GetUserProfileHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Queries\\GetUserProfile\\GetUserProfileHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Users\\Queries\\GetUserProfile\\GetUserProfileHandler.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Queries\\GetUserProfile\\GetUserProfileHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Users\\Queries\\GetUserProfile\\GetUserProfileHandler.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T17:01:34.897Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "UpdatePasswordHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Commands\\UpdatePassword\\UpdatePasswordHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Users\\Commands\\UpdatePassword\\UpdatePasswordHandler.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Commands\\UpdatePassword\\UpdatePasswordHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Users\\Commands\\UpdatePassword\\UpdatePasswordHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T17:35:47.039Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "UpdatePasswordCommand.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Commands\\UpdatePassword\\UpdatePasswordCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Users\\Commands\\UpdatePassword\\UpdatePasswordCommand.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Commands\\UpdatePassword\\UpdatePasswordCommand.cs",
+              "RelativeToolTip": "Application\\Features\\Users\\Commands\\UpdatePassword\\UpdatePasswordCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T17:21:02.251Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "LoginHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Commands\\Login\\LoginHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Users\\Commands\\Login\\LoginHandler.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Commands\\Login\\LoginHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Users\\Commands\\Login\\LoginHandler.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAYwCkAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T11:49:48.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "LoginCommand.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Commands\\Login\\LoginCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Users\\Commands\\Login\\LoginCommand.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Commands\\Login\\LoginCommand.cs",
+              "RelativeToolTip": "Application\\Features\\Users\\Commands\\Login\\LoginCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T17:21:00.386Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "CreateUserHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Commands\\CreateUser\\CreateUserHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Users\\Commands\\CreateUser\\CreateUserHandler.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Commands\\CreateUser\\CreateUserHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Users\\Commands\\CreateUser\\CreateUserHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T16:19:32.495Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "CreateUserCommand.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Commands\\CreateUser\\CreateUserCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Users\\Commands\\CreateUser\\CreateUserCommand.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Users\\Commands\\CreateUser\\CreateUserCommand.cs",
+              "RelativeToolTip": "Application\\Features\\Users\\Commands\\CreateUser\\CreateUserCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T17:20:51.549Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "GetPersonsQuery.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetPersons\\GetPersonsQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Queries\\GetPersons\\GetPersonsQuery.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetPersons\\GetPersonsQuery.cs",
+              "RelativeToolTip": "Application\\Features\\Persons\\Queries\\GetPersons\\GetPersonsQuery.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAcAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T17:01:43.607Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
               "Title": "GetPersonsHandler.cs",
               "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetPersons\\GetPersonsHandler.cs",
               "RelativeDocumentMoniker": "Application\\Features\\Persons\\Queries\\GetPersons\\GetPersonsHandler.cs",
               "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetPersons\\GetPersonsHandler.cs",
               "RelativeToolTip": "Application\\Features\\Persons\\Queries\\GetPersons\\GetPersonsHandler.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwCYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAABoAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-22T16:52:42.238Z"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "GetPersonDataQuery.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetPersonData\\GetPersonDataQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Queries\\GetPersonData\\GetPersonDataQuery.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetPersonData\\GetPersonDataQuery.cs",
+              "RelativeToolTip": "Application\\Features\\Persons\\Queries\\GetPersonData\\GetPersonDataQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T17:23:16.277Z"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "GetPersonDataHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetPersonData\\GetPersonDataHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Queries\\GetPersonData\\GetPersonDataHandler.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetPersonData\\GetPersonDataHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Persons\\Queries\\GetPersonData\\GetPersonDataHandler.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwBsAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T17:24:26.379Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "GetMonthRecordCountQuery.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetLastMonthRecordCount\\GetMonthRecordCountQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Queries\\GetLastMonthRecordCount\\GetMonthRecordCountQuery.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetLastMonthRecordCount\\GetMonthRecordCountQuery.cs",
+              "RelativeToolTip": "Application\\Features\\Persons\\Queries\\GetLastMonthRecordCount\\GetMonthRecordCountQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T12:14:52.133Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "GetInactiveCountQuery.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetInactiveCount\\GetInactiveCountQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Queries\\GetInactiveCount\\GetInactiveCountQuery.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetInactiveCount\\GetInactiveCountQuery.cs",
+              "RelativeToolTip": "Application\\Features\\Persons\\Queries\\GetInactiveCount\\GetInactiveCountQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T11:40:18.552Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "GetInactiveCountHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetInactiveCount\\GetInactiveCountHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Queries\\GetInactiveCount\\GetInactiveCountHandler.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Queries\\GetInactiveCount\\GetInactiveCountHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Persons\\Queries\\GetInactiveCount\\GetInactiveCountHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T11:40:35.704Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "UpdatePersonHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Commands\\UpdatePerson\\UpdatePersonHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Commands\\UpdatePerson\\UpdatePersonHandler.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Commands\\UpdatePerson\\UpdatePersonHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Persons\\Commands\\UpdatePerson\\UpdatePersonHandler.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAAAD4AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T11:12:37.857Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "UpdatePersonCommand.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Commands\\UpdatePerson\\UpdatePersonCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Commands\\UpdatePerson\\UpdatePersonCommand.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Commands\\UpdatePerson\\UpdatePersonCommand.cs",
+              "RelativeToolTip": "Application\\Features\\Persons\\Commands\\UpdatePerson\\UpdatePersonCommand.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAwwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T11:12:36.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "RestorePersonHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Commands\\RestorePerson\\RestorePersonHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Commands\\RestorePerson\\RestorePersonHandler.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Commands\\RestorePerson\\RestorePersonHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Persons\\Commands\\RestorePerson\\RestorePersonHandler.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAYwBYAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T13:42:22.689Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "RestorePersonCommand.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Commands\\RestorePerson\\RestorePersonCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Commands\\RestorePerson\\RestorePersonCommand.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Commands\\RestorePerson\\RestorePersonCommand.cs",
+              "RelativeToolTip": "Application\\Features\\Persons\\Commands\\RestorePerson\\RestorePersonCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T14:07:26.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "DeletePersonHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Commands\\DeletePerson\\DeletePersonHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Commands\\DeletePerson\\DeletePersonHandler.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Commands\\DeletePerson\\DeletePersonHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Persons\\Commands\\DeletePerson\\DeletePersonHandler.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAYwBgAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T12:50:46.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "DeletePersonCommand.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Commands\\DeletePerson\\DeletePersonCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Commands\\DeletePerson\\DeletePersonCommand.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Commands\\DeletePerson\\DeletePersonCommand.cs",
+              "RelativeToolTip": "Application\\Features\\Persons\\Commands\\DeletePerson\\DeletePersonCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T14:07:18.741Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "CreatePersonCommand.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Commands\\CreatePerson\\CreatePersonCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Persons\\Commands\\CreatePerson\\CreatePersonCommand.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Persons\\Commands\\CreatePerson\\CreatePersonCommand.cs",
+              "RelativeToolTip": "Application\\Features\\Persons\\Commands\\CreatePerson\\CreatePersonCommand.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAQwA8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T12:10:01.7Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "GetPersonsPagesQuery.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Pages\\Queries\\GetPersonsPages\\GetPersonsPagesQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Pages\\Queries\\GetPersonsPages\\GetPersonsPagesQuery.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Pages\\Queries\\GetPersonsPages\\GetPersonsPagesQuery.cs",
+              "RelativeToolTip": "Application\\Features\\Pages\\Queries\\GetPersonsPages\\GetPersonsPagesQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T12:39:09.324Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 78,
+              "Title": "GetPersonsPagesHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Pages\\Queries\\GetPersonsPages\\GetPersonsPagesHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Pages\\Queries\\GetPersonsPages\\GetPersonsPagesHandler.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Pages\\Queries\\GetPersonsPages\\GetPersonsPagesHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Pages\\Queries\\GetPersonsPages\\GetPersonsPagesHandler.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T12:39:43.058Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
+              "Title": "GetLogsPagesQuery.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Pages\\Queries\\GetLogsPages\\GetLogsPagesQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Pages\\Queries\\GetLogsPages\\GetLogsPagesQuery.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Pages\\Queries\\GetLogsPages\\GetLogsPagesQuery.cs",
+              "RelativeToolTip": "Application\\Features\\Pages\\Queries\\GetLogsPages\\GetLogsPagesQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T13:03:53.802Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 80,
+              "Title": "GetLogsPagesHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Pages\\Queries\\GetLogsPages\\GetLogsPagesHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Pages\\Queries\\GetLogsPages\\GetLogsPagesHandler.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Pages\\Queries\\GetLogsPages\\GetLogsPagesHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Pages\\Queries\\GetLogsPages\\GetLogsPagesHandler.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwAIAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T13:04:18.213Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 81,
+              "Title": "GetDeletedPersonsPagesQuery.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Pages\\Queries\\GetDeletedPersonsPages\\GetDeletedPersonsPagesQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Pages\\Queries\\GetDeletedPersonsPages\\GetDeletedPersonsPagesQuery.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Pages\\Queries\\GetDeletedPersonsPages\\GetDeletedPersonsPagesQuery.cs",
+              "RelativeToolTip": "Application\\Features\\Pages\\Queries\\GetDeletedPersonsPages\\GetDeletedPersonsPagesQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T13:16:26.707Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 82,
+              "Title": "GetDeletedPersonsPagesHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Pages\\Queries\\GetDeletedPersonsPages\\GetDeletedPersonsPagesHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Pages\\Queries\\GetDeletedPersonsPages\\GetDeletedPersonsPagesHandler.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Pages\\Queries\\GetDeletedPersonsPages\\GetDeletedPersonsPagesHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Pages\\Queries\\GetDeletedPersonsPages\\GetDeletedPersonsPagesHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T13:17:03.508Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 83,
+              "Title": "IQueryHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Interfaces\\IQueryHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Interfaces\\IQueryHandler.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Interfaces\\IQueryHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Interfaces\\IQueryHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T14:26:15.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 84,
+              "Title": "IHandlerBase.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Interfaces\\IHandlerBase.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Interfaces\\IHandlerBase.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Interfaces\\IHandlerBase.cs",
+              "RelativeToolTip": "Application\\Features\\Interfaces\\IHandlerBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T14:25:55.184Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 85,
+              "Title": "IQueryBase.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Interfaces\\IQueryBase.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Interfaces\\IQueryBase.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Interfaces\\IQueryBase.cs",
+              "RelativeToolTip": "Application\\Features\\Interfaces\\IQueryBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T14:26:00.108Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 86,
+              "Title": "ICommandBase.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Interfaces\\ICommandBase.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Interfaces\\ICommandBase.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Features\\Interfaces\\ICommandBase.cs",
+              "RelativeToolTip": "Application\\Features\\Interfaces\\ICommandBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T14:25:55.652Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 87,
+              "Title": "UserLoggedDTO.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\DTOs\\UserLoggedDTO.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\UserLoggedDTO.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\DTOs\\UserLoggedDTO.cs",
+              "RelativeToolTip": "Application\\DTOs\\UserLoggedDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T14:25:47.032Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 88,
+              "Title": "PersonInTableDTO.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\DTOs\\PersonInTableDTO.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\PersonInTableDTO.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\DTOs\\PersonInTableDTO.cs",
+              "RelativeToolTip": "Application\\DTOs\\PersonInTableDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T14:25:44.425Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 90,
+              "Title": "EditUserDTO.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\DTOs\\EditUserDTO.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\EditUserDTO.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\DTOs\\EditUserDTO.cs",
+              "RelativeToolTip": "Application\\DTOs\\EditUserDTO.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T14:25:30.974Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 91,
+              "Title": "PersonListMap.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\DTOs\\Mapping\\PersonListMap.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\Mapping\\PersonListMap.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\DTOs\\Mapping\\PersonListMap.cs",
+              "RelativeToolTip": "Application\\DTOs\\Mapping\\PersonListMap.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T14:25:25.175Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 93,
+              "Title": "LogController.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Controllers\\LogController.cs",
+              "RelativeDocumentMoniker": "Application\\Controllers\\LogController.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Controllers\\LogController.cs",
+              "RelativeToolTip": "Application\\Controllers\\LogController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T11:07:21.402Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 92,
+              "Title": "PageContentController.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Controllers\\PageContentController.cs",
+              "RelativeDocumentMoniker": "Application\\Controllers\\PageContentController.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\Controllers\\PageContentController.cs",
+              "RelativeToolTip": "Application\\Controllers\\PageContentController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T17:55:41.118Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 89,
+              "Title": "PersonDTO.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\DTOs\\PersonDTO.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\PersonDTO.cs",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\Application\\DTOs\\PersonDTO.cs",
+              "RelativeToolTip": "Application\\DTOs\\PersonDTO.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T17:54:00.666Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 94,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-23T17:41:58.728Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 95,
+              "Title": "server.csproj",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\Server\\server.csproj",
+              "RelativeDocumentMoniker": "server.csproj",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\Server\\server.csproj",
+              "RelativeToolTip": "server.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-24T13:48:23.963Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 96,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-23T17:56:50.152Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 97,
+              "Title": "server.http",
+              "DocumentMoniker": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\server.http",
+              "RelativeDocumentMoniker": "server.http",
+              "ToolTip": "C:\\Projetos\\Projeto\\Samuel_Ribeiro_da_Costa\\server\\server.http",
+              "RelativeToolTip": "server.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-07-23T17:51:33.047Z"
             }
           ]
         }

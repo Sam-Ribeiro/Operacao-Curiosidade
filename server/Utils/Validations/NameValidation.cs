@@ -5,7 +5,7 @@ namespace server.Domains.Validations
     public partial class ContratcValidations<T>
     {
         public ContratcValidations<T> IsNameValid(string name, string message, string property) {
-            if (name == null || name.Length <= 3){
+            if (name == null || name.Length <= 3 || name.Length > 60){
                 AddNotification(new Notification(message, property));
             }
             return this;

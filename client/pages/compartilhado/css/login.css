@@ -152,3 +152,45 @@ p{
     font-size: var(--fonte-label);
     font-weight: 550;
 }
+
+#notification{
+    display: flex;
+    left: 3%;
+    width: 250px;
+    height: 20px;
+    color: var(--cor-branco);
+    border-radius: 5px;
+    text-align: center;
+    position: fixed;
+    bottom: 10px;
+    transition: 1.3s;
+    padding: 30px 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.isOk{
+    background-color: var(--cor-azul);
+}
+.isNotOk{
+    background-color: var(--cor-vermelho);
+}
+.hidden{
+    left: -20% !important;
+    opacity: 0;
+    right: 0;
+}
+
+.disable{
+    background-color: rgb(43, 64, 76);
+    color: rgb(99, 99, 99);
+    transform: scale(0.99);
+    pointer-events: none !important;
+}
+
+.disable:hover{
+    background-color: rgb(43, 64, 76);
+    color: rgb(99, 99, 99);
+    transform: scale(0.99);
+    pointer-events: none !important;
+}

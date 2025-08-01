@@ -4,6 +4,10 @@ namespace server.Models
 {
     public class User
     {
+        public User()
+        {
+        }
+
         public User(CreateUserCommand command)
         {
             Name = command.Name;

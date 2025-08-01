@@ -1,29 +1,36 @@
-function atualizarDados(){
-    let pessoas = JSON.parse(localStorage.getItem("pessoas")) || []
+async function atualizarDados(){
     let pessoasInativos = 0
     let pessoasMes = 0
     let pessoasTotal = 0
-    const mesAtras = new Date()
-    mesAtras.setMonth(new Date().getMonth() - 1)
-    pessoas = pessoas.filter(p => !p.deletado)
-    for(let i = pessoas.length - 1; i >= 0 ; i--){
-        const pessoa = pessoas[i]
-        if(pessoa.status == "Inativo"){
-            pessoasInativos++
-        }
-        const dataCadastro = new Date(pessoa.dataCadastro)
-        if (dataCadastro >= mesAtras){
-            pessoasMes++
-        }
-        pessoasTotal++
-    }
+
     totalCadastros = document.querySelector("#bloco1 h1")
     cadastrosMes = document.querySelector("#bloco2 h1")
     cadastrosRevisao = document.querySelector("#bloco3 h1")
 
-    totalCadastros.innerText = pessoasTotal
-    cadastrosMes.innerText = pessoasMes
-    cadastrosRevisao.innerText = pessoasInativos
+     pessoasTotal
+    cadastrosMes.innerText = await LoadRecordsCount("https://localhost:7182/api/PageContent/getMonthRecordsCount")
+    cadastrosRevisao.innerText = await LoadRecordsCount("https://localhost:7182/api/PageContent/getInactiveCount")
+    totalCadastros.innerText = await LoadRecordsCount("https://localhost:7182/api/PageContent/getPersonsCount")
+}
+
+async function LoadRecordsCount(url){
+    const token = (localStorage.getItem("token"))
+    const r = await fetch(url,{
+        method: 'GET',
+        headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+        },
+    })
+    try{
+        const result = await r.json()
+        if(result.resultCode === 200){
+            return result.data
+        }
+    }catch(error)
+    {
+        console.log(error)
+    }
 }
 
 atualizarDados()

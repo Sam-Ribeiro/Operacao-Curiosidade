@@ -2,6 +2,8 @@
 using server.Application.Features.Interfaces;
 using server.Application.Results;
 using server.Infrastructure.Repositories.Interfaces;
+using server.Services.Authentication;
+using server.Services.DataSelection;
 
 namespace server.Application.Features.Persons.Queries.GetPersons
 {
@@ -19,13 +21,21 @@ namespace server.Application.Features.Persons.Queries.GetPersons
             Result result;
             try
             {
+                var user = ReadToken.ValidateToken(query.Token);
+                if (user == null)
+                {
+                    result = new Result(401, "Acesso negado: faça login para continuar.", false);
+                    return result;
+                }
                 var persons = _readRepository.GetAllPersons();
-                if (persons == null) {
+                if (persons.Count() <= 0)
+                {
                     result = new Result(400, "Nenhuma pessoa cadastrada", true);
                 }
-                else { 
-                    result = new Result(200, "Pessoas carreadas", true);
-                    result.SetData(PersonListMap.MapList(persons));
+                else {
+                    var data = DataSelect.SelectPersons(persons, query.Filter, query.Page, query.Order, query.PageSize);
+                    result = new Result(200, "Pessoas carregadas", true);
+                    result.SetData(PersonListMap.MapList(data));
                 }
                 return result;
             }

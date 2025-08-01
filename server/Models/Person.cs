@@ -4,6 +4,26 @@ namespace server.Models
 {
     public class Person
     {
+        public Person()
+        {
+        }
+
+        public Person(Person command)
+        {
+            Id = command.Id;
+            Name = command.Name;
+            Email = command.Email;
+            Status = command.Status;
+            Age = command.Age;
+            Address = command.Address;
+            Information = command.Information;
+            Interests = command.Interests;
+            Feelings = command.Feelings;
+            Values = command.Values;
+            RegistrationDate = DateTime.UtcNow;
+            Removed = command.Removed;
+        }
+
         public Person(CreatePersonCommand command) 
         {
             Name = command.Name;

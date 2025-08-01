@@ -1,8 +1,10 @@
 ﻿using server.Application.Commands.Interfaces;
 using server.Application.Results;
 using server.Infrastructure.Repositories.Interfaces;
+using server.Services.Authentication;
 using server.Services.Validation;
 using server.Utils.Exceptions;
+using System.Security.Claims;
 
 namespace server.Application.Features.Users.Commands.UpdateUser
 {
@@ -22,9 +24,17 @@ namespace server.Application.Features.Users.Commands.UpdateUser
             Result result;
             try
             {
-                if (validation.Validate(command, _readRepository.GetEmails()))
+                var userToken = ReadToken.ValidateToken(command.Token);
+                if (userToken == null)
                 {
-                    var user = _readRepository.GetUserById(command.Id);
+                    result = new Result(401, "Acesso negado: faça login para continuar.", false);
+                    return result;
+                }
+                int userId = Int32.Parse(userToken.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+                var user = _readRepository.GetUserById(userId);
+                var otherEmails = _readRepository.GetEmails().FindAll(email => email != user.Email);
+                if (validation.Validate(command, otherEmails))
+                {
                     user.Email = command.Email;
                     user.Name = command.Name;
                     user.BornDate = command.BornDate;

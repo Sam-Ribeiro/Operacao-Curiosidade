@@ -1,5 +1,4 @@
-﻿using server.Application.Features.Users.Commands.CreateUser;
-using server.Application.Features.Users.Commands.UpdatePassword;
+﻿using server.Application.Features.Users.Commands.UpdatePassword;
 using server.Domains.Validations;
 using server.Utils.Exceptions;
 using server.Utils.Validations.Interfaces;

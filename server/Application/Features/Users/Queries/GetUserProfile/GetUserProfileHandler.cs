@@ -2,6 +2,8 @@
 using server.Application.Features.Interfaces;
 using server.Application.Results;
 using server.Infrastructure.Repositories.Interfaces;
+using server.Services.Authentication;
+using System.Security.Claims;
 
 namespace server.Application.Features.Users.Queries.GetUserProfile
 {
@@ -18,7 +20,14 @@ namespace server.Application.Features.Users.Queries.GetUserProfile
         {
             Result result;
             try {
-                var user = _readRepository.GetUserById(query.Id);
+                var userToken = ReadToken.ValidateToken(query.Token);
+                if (userToken == null)
+                {
+                    result = new Result(401, "Acesso negado: faça login para continuar.", false);
+                    return result;
+                }
+                int userId = Int32.Parse(userToken.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+                var user = _readRepository.GetUserById(userId);
                 if (user == null)
                 {
                     result = new Result(400, "Erro ao carregar informações do usuário.", false);

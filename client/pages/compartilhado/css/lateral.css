@@ -35,6 +35,9 @@ nav ul{
     list-style: none;
     font-size: var(--fonte-pequena);
 }
+nav li{
+    margin: 0px;
+}
 nav a{
     display: flex;
     color: var(--cor-texto);
@@ -49,9 +52,15 @@ nav a{
 nav a:hover{
     background-color: var(--cor-fundo-claro);
     color: var(--cor-branco);
+    transition: all 0.2s ease-in;
 }
 .ativo{
     background-color: var(--cor-header-fundo);
     color: var(--cor-branco);
 }
 
+.material-symbols-outlined {
+  display: inline-block;
+  width: 24px;
+  text-align: center;
+}

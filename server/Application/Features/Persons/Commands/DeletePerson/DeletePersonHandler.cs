@@ -1,6 +1,8 @@
 ﻿using server.Application.Commands.Interfaces;
 using server.Application.Results;
 using server.Infrastructure.Repositories.Interfaces;
+using server.Services.Authentication;
+using System.Security.Claims;
 
 namespace server.Application.Features.Persons.Commands.DeletePerson
 {
@@ -20,14 +22,21 @@ namespace server.Application.Features.Persons.Commands.DeletePerson
             Result result;
             try
             {
+                var user = ReadToken.ValidateToken(command.Token);
+                if (user == null)
+                {
+                    result = new Result(401, "Acesso negado: faça login para continuar.", false);
+                    return result;
+                }
                 if (_readRepository.GetPersonById(command.Id) == null)
                 {
                     result = new Result(400, "Erro ao deletar pessoa: pessoa nao encontrada.", false);
                     return result;
                 }
-                else { 
-                    _writeRepository.DeletePerson(command.Id);
-                    result = new Result(200, "Pessoa deletado com sucesso", true);
+                else {
+                    int userId = Int32.Parse(user.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+                    _writeRepository.DeletePerson(command.Id,userId);
+                    result = new Result(200, "Pessoa deletada com sucesso", true);
                     return result;
                 }
             }

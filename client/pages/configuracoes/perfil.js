@@ -1,102 +1,110 @@
-function carregarDados(){
-    usuario = JSON.parse(localStorage.getItem("usuario"))
-    campoNome.value = usuario.nome
-    campoEmail.value = usuario.email
-    campoData.value = usuario.data
-    campoSenhaAntiga.value = ""
-    campoSenhaNova.value = ""
+async function LoadUser(){
+    const result = await QueryUserData()
+    if(result == null){
+        notify("Erro ao comunicar com o servidor")
+    }
+    if(result.resultCode === 200){
+        campoNome.value = result.data.name
+        campoEmail.value = result.data.email
+        campoData.value = result.data.bornDate
+        campoSenhaAntiga.value = ""
+        campoSenhaNova.value = ""
+    }else{
+        notify("Erro ao carregar usuário",false)
+    }
 }
 
-function salvarSenha(){
-    const usuario = JSON.parse(localStorage.getItem("usuario"))
-    const usuarios = JSON.parse(localStorage.getItem("usuarios"))
-    usuarios.forEach(u => {
-        if(u.email == usuario.email){
-            senhaAntiga = campoSenhaAntiga.value
-            senhaNova = campoSenhaNova.value
-            var ok = true
-            if(senhaNova.length < 6 || !senhaNova){
-                erroSenhaNova.innerText = "A Senha deve ter mais que seis caracteres"
-                erroSenhaNova.style.display = 'block'
-                ok = false
-                campoSenhaNova.classList.add("erro")
-            }
-            if(!senhaAntiga || senhaAntiga != usuario.senha ){
-                erroSenhaAntiga.innerText = "Para alterar a senha, preencha a senha antiga corretamente!"
+async function salvarSenha(){
+    var ok = true
+    var senhaAntiga = campoSenhaAntiga.value
+    var senhaNova = campoSenhaNova.value
+    var senhaConfirm = campoSenhaConfirm.value
+    if(senhaNova.length <= 6 || !senhaNova){
+        erroSenhaNova.innerText = "A Senha deve ter mais que seis caracteres"
+        erroSenhaNova.style.display = 'block'
+        ok = false
+        campoSenhaNova.classList.add("erro")
+    }
+    if(senhaConfirm != senhaNova){
+        ok =  false
+        erroSenhaConfirm.innerText ="As senhas não conferem."
+        erroSenhaConfirm.style.display = 'block'
+        campoSenhaConfirm.classList.add("erro")
+    }
+    if(!senhaAntiga){
+        erroSenhaAntiga.innerText = "Para alterar a senha, preencha a senha antiga corretamente!"
+        erroSenhaAntiga.style.display = 'block'
+        ok = false
+        campoSenhaAntiga.classList.add("erro")   
+    }
+    if(ok){
+        const userData = {
+            oldPassword: senhaAntiga,
+            newPassword: senhaNova,
+            newPasswordConfirm: senhaConfirm
+        }
+        const result = await updatePasswordRequest(userData)
+        if(result != null){
+            notify(result.message,result.isOk)
+            if(result.resultCode === 403 ){
+                erroSenhaAntiga.innerText = "Senha antiga inválida."
                 erroSenhaAntiga.style.display = 'block'
-                ok = false
-                campoSenhaAntiga.classList.add("erro")   
+                campoSenhaAntiga.classList.add("erro")  
             }
-            if(ok){
-                usuario.senha = senhaNova
-                u.senha = usuario.senha
-                localStorage.setItem("usuario", JSON.stringify(usuario))
-                localStorage.setItem("usuarios", JSON.stringify(usuarios))
-                erroSenha.style.color = 'var(--cor-verde)'
-                erroSenha.style.textDecorationColor = 'var(--cor-verde)'
-                erroSenha.innerText = "Senha alterada com sucesso"
-                erroSenha.style.display = 'block'
-            }
-        }   
-    })
-}
-
-function salvarDados(){
-    const usuario = JSON.parse(localStorage.getItem("usuario"))
-    const usuarios = JSON.parse(localStorage.getItem("usuarios"))
-    usuarios.forEach(u => {
-        if(u.email == usuario.email){
-            var nome = campoNome.value
-            var email = campoEmail.value
-            var data = campoData.value
-            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-            var agora = new Date().getFullYear()
-            var ok = true
-            const anotxt = data.substring(0, 4)
-            const ano = Number(anotxt)
-            const outrosUsuarios = usuarios.filter(u => u.email !== usuario.email)
-            
-            if(outrosUsuarios.some(outros => outros.email === email) || !emailRegex.test(email)|| !email){
-                erroEmail.innerText = "Email inválido"
-                erroEmail.style.display = 'block'
-                ok = false
-                campoEmail.classList.add("erro")
-            }
-            if(nome.length < 4 || !nome){
-                erroNome.innerText = "Nome deve ter mais que três caracteres"
-                erroNome.style.display = 'block'
-                ok = false
-                campoNome.classList.add("erro")
-            }if(ano>=agora || ano<1910 || !data){
-                erroData.innerText = "Data de nascimento inválida"
-                erroData.style.display = 'block'
-                ok = false
-                campoData.classList.add("erro")
-            }if(ok){
-                erro.style.color = 'var(--cor-verde)'
-                erro.style.textDecorationColor = 'var(--cor-verde)'
-                erro.innerText = "Usuário alterado com sucesso!"
-                erro.style.display = 'block'
-
-                erroEmail.style.display = 'none'
-                erroNome.style.display = 'none'
-                erroData.style.display = 'none'
-                campoEmail.classList.remove("erro")
-                campoNome.classList.remove("erro")
-                campoData.classList.remove("erro")
-
-                usuario.nome = nome
-                usuario.email = email
-                usuario.data = data
-                u.nome = nome
-                u.email = email
-                u.data = data
-                localStorage.setItem("usuario", JSON.stringify(usuario))
-                localStorage.setItem("usuarios", JSON.stringify(usuarios))
+            const notifications = result.notifications
+            for( const n in notifications){
+                getErrorResponse(notifications[n])
             }
         }
-    })
-    carregarDados()            
+    } 
+}
+
+async function salvarDados(){
+    var nome = campoNome.value
+    var email = campoEmail.value
+    var data = campoData.value
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    var agora = new Date().getFullYear()
+    var ok = true
+    const anotxt = data.substring(0, 4)
+    const ano = Number(anotxt)
+    
+    if(!emailRegex.test(email)|| !email){
+        erroEmail.innerText = "Email inválido"
+        erroEmail.style.display = 'block'
+        ok = false
+        campoEmail.classList.add("erro")
+    }
+    if(nome.length < 4 || !nome){
+        erroNome.innerText = "Nome deve ter mais que três caracteres"
+        erroNome.style.display = 'block'
+        ok = false
+        campoNome.classList.add("erro")
+    }if(ano>=agora || ano<1910 || !data){
+        erroData.innerText = "Data de nascimento inválida"
+        erroData.style.display = 'block'
+        ok = false
+        campoData.classList.add("erro")
+    }if(ok){
+        const userData ={
+            name: nome,
+            email: email,
+            bornDate: data
+        }
+        const result = await updateUserRequest(userData)
+        if(result != null)
+        {
+            notify(result.message,result.isOk)
+            const notifications = result.notifications
+            for( const n in notifications){
+                getErrorResponse(notifications[n])
+            }
+            LoadUser()
+        }
+    }else{
+        LoadUser()
+    }
+         
 }
 
 function carregarConfiguracao(){
@@ -153,12 +161,44 @@ document.addEventListener('keyup', (event) => {
         erroSenhaNova.style.display = 'none'
         erroSenha.style.color = 'var(--cor-vermelho)'
         erroSenha.style.textDecorationColor = 'var(--cor-vermelho)'
+    }else if(event.target == campoSenhaConfirm){
+        campoSenhaConfirm.classList.remove("erro")
+        erroSenha.style.display = 'none'
+        erroSenhaConfirm.style.display = 'none'
+        erroSenha.style.color = 'var(--cor-vermelho)'
+        erroSenha.style.textDecorationColor = 'var(--cor-vermelho)'
     }else{
         erro.style.color = 'var(--cor-vermelho)'
         erro.style.textDecorationColor = 'var(--cor-vermelho)'
     }
   }
 })
+
+function getErrorResponse(notification){
+    console.log(notification.message)
+    if(notification.propertyName == "name"){
+        erroNome.innerText = notification.message
+        erroNome.style.display = 'block'
+        campoNome.classList.add("erro")
+    }else if(notification.propertyName == "email"){
+        erroEmail.innerText = notification.message
+        erroEmail.style.display = 'block'
+        campoEmail.classList.add("erro")
+    }else if(notification.propertyName == "password"){
+        erroSenhaNova.innerText = notification.message
+        erroSenhaNova.style.display = 'block'
+        campoSenhaNova.classList.add("erro")
+    }else if(notification.propertyName == "passwordConfirm"){
+        erroSenhaConfirm.innerText = notification.message
+        erroSenhaConfirm.style.display = 'block'
+        campoSenhaConfirm.classList.add("erro")
+    }else if(notification.propertyName == "bornDate"){
+        erroData.innerText = notification.message
+        erroData.style.display = 'block'
+        campoData.classList.add("erro")
+    }
+}
+
 
 const botaoSalvar = document.getElementById("btn-salvar")
 const botaoSalvarSenha = document.getElementById("btn-salvar-senha")
@@ -167,6 +207,7 @@ const campoEmail = document.getElementById("campo-email")
 const campoData = document.getElementById("campo-data")
 const campoSenhaAntiga = document.getElementById("campo-senha-antiga")
 const campoSenhaNova = document.getElementById("campo-senha-nova")
+const campoSenhaConfirm = document.getElementById("campo-senha-confirm")
 const botaoExcluir = document.getElementById("btn-excluir")
 const checkbox = document.getElementById("botao-tema")
 const botoesFonte = document.getElementsByName("fonte")
@@ -178,6 +219,7 @@ var erroData = document.getElementById("erro-data")
 var erroSenha = document.getElementById("erro-senha")
 var erroSenhaAntiga = document.getElementById("erro-senha-antiga")
 var erroSenhaNova = document.getElementById("erro-senha-nova")
+var erroSenhaConfirm = document.getElementById("erro-senha-confirm")
 
 botaoSalvar.onclick = function(){
     salvarDados()
@@ -228,6 +270,6 @@ if(botoesFonte){
         carregarConfiguracao()
     }))
 }
-
-carregarDados()
+validarUsuario()
+LoadUser()
 carregarConfiguracao()

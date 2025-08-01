@@ -15,29 +15,31 @@ namespace server.Services.Authentication
         {
             _configuration = configuration;
         }
-        public string NewToken(User user)
-        {
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.Name)
+        
+        public string Generate(User user) { 
+            var handler = new JwtSecurityTokenHandler();
+            var key = Encoding.UTF8.GetBytes(_configuration.GetValue<string>("AppSettings:Token")!);
+            var credentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature);
+            
+            var tokenDescriptor = new SecurityTokenDescriptor {
+                Subject = GenerateClaims(user),
+                SigningCredentials = credentials,
+                Expires = DateTime.UtcNow.AddHours(2),
             };
 
-            var key = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(_configuration.GetValue<string>("AppSettings:Token")!));
-            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-            var tokenDescriptor = new JwtSecurityToken(
-                    issuer: _configuration.GetValue<string>("AppSettings:Issuer"),
-                    audience: _configuration.GetValue<string>("AppSettings:Audience"),
-                    claims: claims,
-                    expires: DateTime.UtcNow.AddHours(10),
-                    signingCredentials: credentials
-                );
-
-            return new JwtSecurityTokenHandler().WriteToken(tokenDescriptor);
+            var token = handler.CreateToken(tokenDescriptor);
+            return handler.WriteToken(token);
         }
+
+        private static ClaimsIdentity GenerateClaims(User user) {
+            var claimsIdentity = new ClaimsIdentity();
+            claimsIdentity.AddClaim( new Claim(ClaimTypes.Name, user.Id.ToString()));
+            claimsIdentity.AddClaim( new Claim(ClaimTypes.Role, "User"));
+            claimsIdentity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
+
+            return claimsIdentity;
+        }
+
     }
 }
 

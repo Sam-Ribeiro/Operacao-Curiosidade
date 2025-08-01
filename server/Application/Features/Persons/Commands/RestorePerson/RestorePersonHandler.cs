@@ -1,6 +1,8 @@
 ﻿using server.Application.Commands.Interfaces;
 using server.Application.Results;
 using server.Infrastructure.Repositories.Interfaces;
+using server.Services.Authentication;
+using System.Security.Claims;
 
 namespace server.Application.Features.Persons.Commands.RestorePerson
 {
@@ -18,6 +20,12 @@ namespace server.Application.Features.Persons.Commands.RestorePerson
             Result result;
             try
             {
+                var user = ReadToken.ValidateToken(command.Token);
+                if (user == null)
+                {
+                    result = new Result(401, "Acesso negado: faça login para continuar.", false);
+                    return result;
+                }
                 if (_readRepository.GetPersonById(command.Id) == null)
                 {
                     result = new Result(400, "Erro ao restaurar pessoa: pessoa nao encontrada.", false);
@@ -25,14 +33,15 @@ namespace server.Application.Features.Persons.Commands.RestorePerson
                 }
                 else
                 {
-                    _writeRepository.RestorePerson(command.Id);
+                    int userId = Int32.Parse(user.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+                    _writeRepository.RestorePerson(command.Id,userId);
                     result = new Result(200, "Pessoa restaurado com sucesso", true);
                     return result;
                 }
             }
             catch (Exception ex)
             {
-                result = new Result(500, $"Erro interno ao restaurarpessoa: {ex.Message}", false);
+                result = new Result(500, $"Erro interno ao restaurar pessoa: {ex.Message}", false);
                 return result;
             }
         }

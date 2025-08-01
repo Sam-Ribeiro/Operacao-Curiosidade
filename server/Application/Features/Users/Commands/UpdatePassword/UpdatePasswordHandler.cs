@@ -3,8 +3,10 @@ using server.Application.Commands.Interfaces;
 using server.Application.Results;
 using server.Infrastructure.Repositories.Interfaces;
 using server.Models;
+using server.Services.Authentication;
 using server.Services.Validation;
 using server.Utils.Exceptions;
+using System.Security.Claims;
 
 namespace server.Application.Features.Users.Commands.UpdatePassword
 {
@@ -23,8 +25,15 @@ namespace server.Application.Features.Users.Commands.UpdatePassword
             Result result;
             try
             {
+                var userToken = ReadToken.ValidateToken(command.Token);
+                if (userToken == null)
+                {
+                    result = new Result(401, "Acesso negado: faça login para continuar.", false);
+                    return result;
+                }
                 if (validation.Validate(command)){
-                    var user = _readRepository.GetUserById(command.Id);
+                    int userId = Int32.Parse(userToken.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+                    var user = _readRepository.GetUserById(userId);
                     if (user == null) {
                         result = new Result(404, "Usuário não encontrado", false);
                         return result;
@@ -37,19 +46,18 @@ namespace server.Application.Features.Users.Commands.UpdatePassword
                         return result;
                     }
                     else {
-                        result = new Result(401, "Senha antiga inválida", true);
+                        result = new Result(403, "Senha antiga inválida", false);
                         return result;
                     }
-
                 }
                 else { 
-                    result = new Result(400,"Senha nova inválida",true);
+                    result = new Result(400,"Senha nova inválida",false);
                     result.SetNotifications(new List<Notification>(validation.Notifications));
                     return result;
                 }
             }
             catch (Exception ex){
-                result = new Result(500, $"Erro ao cadastrar usuário ${ex.Message}", false);
+                result = new Result(500, $"Erro ao alterar senha: {ex.Message}", false);
                 return result;
             }
         }

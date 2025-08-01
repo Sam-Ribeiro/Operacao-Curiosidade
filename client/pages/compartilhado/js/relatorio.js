@@ -1,14 +1,16 @@
 const botaoImprimir = document.getElementById("btn-imprimir")
-
-if(botaoImprimir){
-    botaoImprimir.addEventListener("click", function() {
-        paginaAtual = 1
-        itensPorPagina = tamanho
-        preencherTabela(listar())
+botaoImprimir.addEventListener("click", async function() {
+    paginaAtual = 1
+    var pageSize = itensPorPagina
+    itensPorPagina = -1
+    var ready = await preencherTabela(incluidos)
+    if(ready){
         window.print()
-        itensPorPagina = 10
-        preencherTabela(listar())
-    })
-}
+    }
+    
+    itensPorPagina = pageSize
+    controlaPagina()
+    preencherTabela(incluidos)
+})
 
 validarUsuario()

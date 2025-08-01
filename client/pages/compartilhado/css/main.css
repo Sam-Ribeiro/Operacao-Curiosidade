@@ -206,3 +206,33 @@ header form{
     font-size: var(--fonte-label);
     font-weight: 550;
 }
+
+#notification{
+    display: flex;
+    left: 1%;
+    width: 250px;
+    height: 20px;
+    color: var(--cor-branco);
+    border-radius: 5px;
+    text-align: center;
+    position: fixed;
+    bottom: 10px;
+    transition: 1.3s;
+    padding: 30px 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.hidden{
+    left: -20% !important;
+    opacity: 0;
+    right: 0;
+}
+
+.isOk{
+    background-color: var(--cor-azul);
+}
+.isNotOk{
+    background-color: var(--cor-vermelho);
+}

@@ -6,7 +6,6 @@ namespace server.Infrastructure.Repositories.Interfaces
     {
         User? GetUserById(int id);
         User? GetUserByEmail(string email);
-        List<User>? GetAllUsers();
         List<string>? GetEmails();
     }
 }

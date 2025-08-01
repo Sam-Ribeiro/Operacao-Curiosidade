@@ -1,12 +1,21 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using server.Application.Commands.Interfaces;
 using server.Application.Features.Interfaces;
+using server.Application.Features.Logs.Queries.GetLogs;
+using server.Application.Features.Pages.Queries.GetDeletedPersonsPages;
+using server.Application.Features.Pages.Queries.GetLogsPages;
+using server.Application.Features.Pages.Queries.GetPersonsPages;
 using server.Application.Features.Persons.Commands.CreatePerson;
 using server.Application.Features.Persons.Commands.DeletePerson;
 using server.Application.Features.Persons.Commands.RestorePerson;
 using server.Application.Features.Persons.Commands.UpdatePerson;
+using server.Application.Features.Persons.Queries.GetDeletedPersons;
+using server.Application.Features.Persons.Queries.GetInactiveCount;
+using server.Application.Features.Persons.Queries.GetLastMonthRecordCount;
+using server.Application.Features.Persons.Queries.GetPersonData;
+using server.Application.Features.Persons.Queries.GetPersons;
+using server.Application.Features.Persons.Queries.GetPersonsCount;
 using server.Application.Features.Users.Commands.CreateUser;
 using server.Application.Features.Users.Commands.Login;
 using server.Application.Features.Users.Commands.UpdatePassword;
@@ -15,20 +24,25 @@ using server.Application.Features.Users.Queries.GetUserProfile;
 using server.Infrastructure.Data;
 using server.Infrastructure.Repositories;
 using server.Infrastructure.Repositories.Interfaces;
+using server.Models;
 using server.Repositories;
 using server.Services.Authentication;
-using Swashbuckle.AspNetCore.Filters;
 using System.Text;
+using System.Threading.RateLimiting;
+AppContext.SetSwitch("System.IdentityModel.Tokens.Jwt.UseLegacyAudienceValidation", true);
+Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
 
 var builder = WebApplication.CreateBuilder(args);
 
+ReadToken.Configure(builder.Configuration);
+
 // Add services to the container.
 // Data
-builder.Services.AddSingleton<InMemoryContext>();
+builder.Services.AddScoped<InMemoryContext>();
 // User
 builder.Services.AddScoped<IReadUserRepository, ReadUserRepository>();
 builder.Services.AddScoped<IWriteUserRepository, WriteUserRepository>();
-
 builder.Services.AddScoped<IHandlerBase<CreateUserCommand>, CreateUserHandler>();
 builder.Services.AddScoped<IHandlerBase<LoginCommand>, LoginHandler>();
 builder.Services.AddScoped<IHandlerBase<UpdatePasswordCommand>, UpdatePasswordHandler>();
@@ -40,46 +54,73 @@ builder.Services.AddScoped<ICreateToken, CreateToken>();
 builder.Services.AddScoped<IReadPerson, ReadPersonRepository>();
 builder.Services.AddScoped<IWritePerson, WritePersonRepository>();
 builder.Services.AddScoped<IHandlerBase<CreatePersonCommand>, CreatePersonHandler>();
-builder.Services.AddScoped<IHandlerBase<DeletePersonCommand>, DeletePersonHandler>();
 builder.Services.AddScoped<IHandlerBase<RestorePersonCommand>, RestorePersonHandler>();
 builder.Services.AddScoped<IHandlerBase<UpdatePersonCommand>, UpdatePersonHandler>();
+builder.Services.AddScoped<IHandlerBase<DeletePersonCommand>, DeletePersonHandler>();
+builder.Services.AddScoped<IQueryHandler<GetPersonsQuery>, GetPersonsHandler>();
+builder.Services.AddScoped<IQueryHandler<GetPersonDataQuery>, GetPersonDataHandler>();
+builder.Services.AddScoped<IQueryHandler<GetDeletedPersonsQuery>, GetDeletedPersonsHandler>();
+builder.Services.AddScoped<IQueryHandler<GetInactiveCountQuery>, GetInactiveCountHandler>();
+builder.Services.AddScoped<IQueryHandler<GetPersonsCountQuery>, GetPersonsCountHandler>();
+builder.Services.AddScoped<IQueryHandler<GetMonthRecordCountQuery>, GetMonthRecordCountHandler>();
+
+//log
+builder.Services.AddScoped<IQueryHandler<GetLogsQuery>, GetLogsHandler>();
+
+//Pages
+builder.Services.AddScoped<IQueryHandler<GetPersonsPagesQuery>, GetPersonsPagesHandler>();
+builder.Services.AddScoped<IQueryHandler<GetLogsPagesQuery>, GetLogsPagesHandler>();
+builder.Services.AddScoped<IQueryHandler<GetDeletedPersonsPagesQuery>, GetDeletedPersonsPagesHandler>();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowSpecificOrigin",
-        builder => builder.WithOrigins("http://127.0.0.1:5500")
-                          .AllowAnyHeader()
-                          .AllowAnyMethod()
-                          .AllowCredentials());
+options.AddPolicy("AllowAll", builder =>
+    builder.AllowAnyOrigin()
+    .AllowAnyHeader()
+    .AllowAnyMethod());
 });
-
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options => {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidIssuer = builder.Configuration["AppSettings:Issuer"],
-            ValidateAudience = true,
-            ValidAudience = builder.Configuration["AppSettings:Audience"],
-            ValidateLifetime = true,
-            IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(builder.Configuration.GetSection("AppSettings:Token").Value!)),
-            ValidateIssuerSigningKey = true
-        };
-    });
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options => {
-options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+    options.AddSecurityDefinition(JwtBearerDefaults.AuthenticationScheme, 
+        new OpenApiSecurityScheme
+        {
+            Name = "Authorization",
+            Description = "Enter the token",
+            In = ParameterLocation.Header,
+            Type = SecuritySchemeType.ApiKey,
+            Scheme = "Bearer"
+        });
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
-        Description = "Standard Authorization header using the Bearer scheme (\"bearer {token}\")",
-        In = ParameterLocation.Header,
-        Name = "Authorization",
-        Type = SecuritySchemeType.ApiKey
+        {
+            new OpenApiSecurityScheme{
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = JwtBearerDefaults.AuthenticationScheme
+                }
+            }, new string[]{ }
+        }
     });
-    options.OperationFilter<SecurityRequirementsOperationFilter>();
 });
+
+builder.Services.AddRateLimiter(options =>
+{
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+    options.AddPolicy("fixed", HttpContext =>
+        RateLimitPartition.GetFixedWindowLimiter(
+            partitionKey: HttpContext.Connection.RemoteIpAddress?.ToString(),
+            factory: _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 10,
+                Window = TimeSpan.FromSeconds(20)
+            }
+        )
+    );
+}
+);
 
 var app = builder.Build();
 
@@ -92,11 +133,13 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors("AllowAll");
+
+app.UseRateLimiter();
+
 app.UseAuthentication();
 
 app.UseAuthorization();
-
-app.UseCors("AllowSpecificOrigin");
 
 app.MapControllers();
 
