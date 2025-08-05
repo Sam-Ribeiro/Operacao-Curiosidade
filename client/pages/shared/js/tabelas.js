@@ -43,7 +43,7 @@ async function preencherTabela(incluido){
         celulaStatus.innerHTML = status
         celulaData.innerText = dataFormatada
     }
-    criarLinks(pessoas)
+    criarLinks()
     return true
 }
 
@@ -96,13 +96,13 @@ function orderHeaderRefresh(){
     }
 }
 
-function criarLinks(pessoas){
+function criarLinks(){
     const links = document.querySelectorAll('.link-pessoa')
     links.forEach(link => {
         link.addEventListener('click', (event) => {
             const elementoClicado = event.target
             const personId = elementoClicado.id
-            window.location.href = `../../../client/pages/cadastrar-pessoa/cadastro.html?id=${personId}`
+            window.location.href = `../../../client/pages/create-person/create.html?id=${personId}`
         })
     })
 }

@@ -29,9 +29,6 @@ using server.Repositories;
 using server.Services.Authentication;
 using System.Threading.RateLimiting;
 
-//AppContext.SetSwitch("System.IdentityModel.Tokens.Jwt.UseLegacyAudienceValidation", true);
-//Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-
 var builder = WebApplication.CreateBuilder(args);
 
 ReadToken.Configure(builder.Configuration);
@@ -113,12 +110,11 @@ builder.Services.AddRateLimiter(options =>
             factory: _ => new FixedWindowRateLimiterOptions
             {
                 PermitLimit = 10,
-                Window = TimeSpan.FromSeconds(20)
+                Window = TimeSpan.FromSeconds(60)
             }
         )
     );
-}
-);
+});
 
 var app = builder.Build();
 

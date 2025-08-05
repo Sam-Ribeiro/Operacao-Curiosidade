@@ -13,4 +13,4 @@ botaoImprimir.addEventListener("click", async function() {
     preencherTabela(incluidos)
 })
 
-validarUsuario()
+validateUser()

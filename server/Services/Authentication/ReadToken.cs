@@ -30,12 +30,11 @@ namespace server.Services.Authentication
                     IssuerSigningKey = new SymmetricSecurityKey(key),
                 };
 
-                var principal = tokenHandler.ValidateToken(token, parameters, out SecurityToken validatedToken);
-                return principal;
+                var user = tokenHandler.ValidateToken(token, parameters, out SecurityToken validatedToken);
+                return user;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Erro validando token: " + ex.Message);
                 return null;
             }
         }

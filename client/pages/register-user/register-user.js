@@ -124,7 +124,7 @@ function verifyNotNullFields(userData){
     return ok
 }
 
-async function validarUsuario(){
+async function CheckLoggedUser(){
     const result = await QueryUserData()
     if(result.resultCode === 200){
         notify("Usuário carregado, redirecionando...",true)
@@ -166,13 +166,11 @@ document.addEventListener('keyup', (event) => {
     }
 })
 
-
-const usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
 const campoEmail = document.getElementById("email")
 const campoSenha = document.getElementById("senha")
 const campoNome = document.getElementById("nome")
 const campoData = document.getElementById("data")
 const campoConfirmarSenha = document.getElementById("confirmar-senha")
-var erro = document.getElementById("erro")
+var error = document.getElementById("erro")
 
-validarUsuario()
+CheckLoggedUser()

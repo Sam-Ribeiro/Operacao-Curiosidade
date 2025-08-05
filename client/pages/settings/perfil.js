@@ -14,7 +14,7 @@ async function LoadUser(){
     }
 }
 
-async function salvarSenha(){
+async function ChangePassword(){
     var ok = true
     var senhaAntiga = campoSenhaAntiga.value
     var senhaNova = campoSenhaNova.value
@@ -59,7 +59,7 @@ async function salvarSenha(){
     } 
 }
 
-async function salvarDados(){
+async function ChangeProfileData(){
     var nome = campoNome.value
     var email = campoEmail.value
     var data = campoData.value
@@ -107,7 +107,7 @@ async function salvarDados(){
          
 }
 
-function carregarConfiguracao(){
+function LoadSettings(){
     const temaSalvo = JSON.parse(localStorage.getItem('temaSalvo'))
     const fonteSalva = JSON.parse(localStorage.getItem('fonteSalva'))
     if(temaSalvo.tema == "escuro"){
@@ -136,17 +136,17 @@ document.addEventListener('keyup', (event) => {
     if(event.target == campoNome){
         campoNome.classList.remove("erro")
         erroNome.style.display = 'none'
-        erro.style.display = 'none'
+        error.style.display = 'none'
     }
     if(event.target == campoEmail){
         campoEmail.classList.remove("erro")
         erroEmail.style.display = 'none'
-        erro.style.display = 'none'
+        error.style.display = 'none'
     }
     if(event.target == campoData){
         campoData.classList.remove("erro")
         erroData.style.display = 'none'
-        erro.style.display = 'none'
+        error.style.display = 'none'
     }
 
     if(event.target == campoSenhaAntiga){
@@ -168,8 +168,15 @@ document.addEventListener('keyup', (event) => {
         erroSenha.style.color = 'var(--cor-vermelho)'
         erroSenha.style.textDecorationColor = 'var(--cor-vermelho)'
     }else{
-        erro.style.color = 'var(--cor-vermelho)'
-        erro.style.textDecorationColor = 'var(--cor-vermelho)'
+        error.style.color = 'var(--cor-vermelho)'
+        error.style.textDecorationColor = 'var(--cor-vermelho)'
+    }
+  }
+  else{
+    if(event.target == campoNome || campoEmail || campoData){
+        ChangeProfileData()
+    }else if( event.target == campoSenhaAntiga || campoSenhaNova || campoSenhaConfirm){
+        ChangePassword()
     }
   }
 })
@@ -199,7 +206,6 @@ function getErrorResponse(notification){
     }
 }
 
-
 const botaoSalvar = document.getElementById("btn-salvar")
 const botaoSalvarSenha = document.getElementById("btn-salvar-senha")
 const campoNome = document.getElementById("campo-nome")
@@ -212,7 +218,7 @@ const botaoExcluir = document.getElementById("btn-excluir")
 const checkbox = document.getElementById("botao-tema")
 const botoesFonte = document.getElementsByName("fonte")
 const divsFonte = document.getElementsByClassName("fonte")
-var erro = document.getElementById("erro")
+var error = document.getElementById("erro")
 var erroEmail = document.getElementById("erro-email")
 var erroNome = document.getElementById("erro-nome")
 var erroData = document.getElementById("erro-data")
@@ -222,54 +228,49 @@ var erroSenhaNova = document.getElementById("erro-senha-nova")
 var erroSenhaConfirm = document.getElementById("erro-senha-confirm")
 
 botaoSalvar.onclick = function(){
-    salvarDados()
+    ChangeProfileData()
 }
 
 botaoSalvarSenha.onclick = function(){
-    salvarSenha()
+    ChangePassword()
 }
 
-
-if(checkbox){
-    checkbox.addEventListener('change', function() {
-        if(checkbox.checked == true){
-            const temaSalvo ={
-                tema: "escuro"
-            }
-            localStorage.setItem("temaSalvo",JSON.stringify(temaSalvo))
-        }else{
-            const temaSalvo ={
-                tema: "claro"
-            }
-            localStorage.setItem("temaSalvo",JSON.stringify(temaSalvo))
+checkbox.addEventListener('change', function() {
+    if(checkbox.checked == true){
+        const temaSalvo ={
+            tema: "escuro"
         }
-        aplicarTema()
-    })
-}
-
-
-if(botoesFonte){
-    botoesFonte.forEach(b => b.addEventListener('change', function() {
-        if(botoesFonte[0].checked == true){
-            const fonteSalva ={
-                fonte: "pequena"
-            }
-            localStorage.setItem("fonteSalva",JSON.stringify(fonteSalva))
-        }else if(botoesFonte[2].checked == true){
-            const fonteSalva ={
-                fonte: "grande"
-            }
-            localStorage.setItem("fonteSalva",JSON.stringify(fonteSalva))
-        }else{
-            const fonteSalva ={
-                fonte: "media"
-            }
-            localStorage.setItem("fonteSalva",JSON.stringify(fonteSalva))
+        localStorage.setItem("temaSalvo",JSON.stringify(temaSalvo))
+    }else{
+        const temaSalvo ={
+            tema: "claro"
         }
-        aplicarFonte()
-        carregarConfiguracao()
-    }))
-}
-validarUsuario()
+        localStorage.setItem("temaSalvo",JSON.stringify(temaSalvo))
+    }
+    aplicarTema()
+})
+
+botoesFonte.forEach(b => b.addEventListener('change', function() {
+    if(botoesFonte[0].checked == true){
+        const fonteSalva ={
+            fonte: "pequena"
+        }
+        localStorage.setItem("fonteSalva",JSON.stringify(fonteSalva))
+    }else if(botoesFonte[2].checked == true){
+        const fonteSalva ={
+            fonte: "grande"
+        }
+        localStorage.setItem("fonteSalva",JSON.stringify(fonteSalva))
+    }else{
+        const fonteSalva ={
+            fonte: "media"
+        }
+        localStorage.setItem("fonteSalva",JSON.stringify(fonteSalva))
+    }
+    aplicarFonte()
+    LoadSettings()
+}))
+
+validateUser()
 LoadUser()
-carregarConfiguracao()
+LoadSettings()

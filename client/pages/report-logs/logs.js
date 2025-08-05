@@ -180,5 +180,5 @@ botaoSair.onclick = function(){
 }
 
 preencherTabela()
-validarUsuario()
+validateUser()
 controlaPagina()

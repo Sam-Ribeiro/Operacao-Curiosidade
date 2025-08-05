@@ -14,7 +14,6 @@ namespace server.Models
             Email = command.Email;
             PasswordHash = new PasswordHasher<User>().HashPassword(this,command.Password);
             BornDate = command.BornDate;
-            Removed = false;
         }
 
         public int Id { get; set; }
@@ -22,7 +21,6 @@ namespace server.Models
         public string Email { get; set; } = string.Empty;
         public string PasswordHash { get; set; } = string.Empty;
         public DateOnly BornDate { get; set; }
-        public bool Removed { get; set; } = false;
 
     }
 }

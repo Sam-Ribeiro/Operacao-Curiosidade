@@ -23,13 +23,6 @@ namespace server.Repositories
             _context.SaveChanges();
         }
 
-        public void DeleteUser(int id)
-        {
-            User user = _context.users.FirstOrDefault(u => u.Id.Equals(id));
-            user.Removed = true;
-            _context.SaveChanges();
-        }
-
         public void UpdateUser(User updatedUser)
         {
             User user = _context.users.FirstOrDefault(u => u.Id.Equals(updatedUser.Id));

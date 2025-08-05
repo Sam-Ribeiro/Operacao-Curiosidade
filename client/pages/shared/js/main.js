@@ -2,7 +2,7 @@ function listar(){
     return true
 } 
 
-async function validarUsuario(){
+async function validateUser(){
     const result = await QueryUserData()
     if(result!= null){
         document.querySelector('.background-loader')?.remove();
@@ -27,20 +27,20 @@ async function validarUsuario(){
 }
 
 
-const notificacao = document.getElementById("notification")
+const notification = document.getElementById("notification")
 function notify(message, isOk){
   if(isOk){
-    notificacao.classList.add("isOk")
-    notificacao.classList.remove("isNotOk")
+    notification.classList.add("isOk")
+    notification.classList.remove("isNotOk")
   }
   else{
-    notificacao.classList.add("isNotOk")
-    notificacao.classList.remove("isOk")
+    notification.classList.add("isNotOk")
+    notification.classList.remove("isOk")
   }
-    notificacao.innerText = message
-    notificacao.classList.remove("hidden")
-    setTimeout(() => { notificacao.classList.add("hidden")},5000)
+    notification.innerText = message
+    notification.classList.remove("hidden")
+    setTimeout(() => { notification.classList.add("hidden")},5000)
 }
 
 
-validarUsuario()
+validateUser()

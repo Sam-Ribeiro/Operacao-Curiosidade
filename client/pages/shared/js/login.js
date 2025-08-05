@@ -4,7 +4,7 @@
 const botaoLogar =  document.getElementById("btn-login")
 
 botaoLogar.onclick = function (){
-    login();
+    login()
 }
 async function login(){
     if(botaoLogar.classList.contains("disable")){
@@ -18,14 +18,14 @@ async function login(){
         password: senha,
     }
     if (!email) {
-        erro.innerText = "Preencha todos os campos"
-        erro.style.display = 'block'
+        error.innerText = "Preencha todos os campos"
+        error.style.display = 'block'
         ok = false
         campoEmail.classList.add("erro")
     }
     if (!senha) {
-        erro.innerText = "Preencha todos os campos"
-        erro.style.display = 'block'
+        error.innerText = "Preencha todos os campos"
+        error.style.display = 'block'
         ok = false
         campoSenha.classList.add("erro")
     }
@@ -37,6 +37,8 @@ async function login(){
         if(result.resultCode === 400)
         { 
             notify(result.message,false)
+            campoSenha.classList.add("erro")
+            campoEmail.classList.add("erro")
         }
         else if(result.resultCode === 200)
         {
@@ -66,7 +68,7 @@ function notify(message, isOk){
     },8000)
 }
 
-async function validarUsuario(){
+async function validateUser(){
     const result = await QueryUserData()
     if(result.resultCode === 200){
         notify("Usuário carregado, redirecionando...",true)
@@ -76,6 +78,8 @@ async function validarUsuario(){
 
 document.addEventListener('keyup', (event) => {
     if (event.key == 'Enter') {
+        campoEmail.classList.remove("erro")
+        campoSenha.classList.remove("erro")
         login()
     }
     else {
@@ -86,9 +90,9 @@ document.addEventListener('keyup', (event) => {
             campoSenha.classList.remove("erro")
         }
         if(campoEmail.classList.contains("erro") || campoSenha.classList.contains("erro")){
-            erro.style.display = "block"
+            error.style.display = "block"
         }else{
-            erro.style.display = "none"
+            error.style.display = "none"
         }
     }
 })
@@ -111,12 +115,12 @@ function showError(){
             notify("Muitas tentativas, tente novamente mais tarde."),
             botaoLogar.classList.add("disable")
         ),500)
-        setTimeout(()=> (botaoLogar.classList.remove("disable")),20000)
+        setTimeout(()=> (botaoLogar.classList.remove("disable")),60000)
     }
 }
 
 const campoEmail = document.getElementById("email")
 const campoSenha = document.getElementById("senha")
-var erro = document.getElementById("erro")
+var error = document.getElementById("erro")
 showError()
-validarUsuario()
+validateUser()
