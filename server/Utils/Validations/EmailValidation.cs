@@ -21,11 +21,13 @@ namespace server.Domains.Validations
             return this;
         }
 
-        public ContratcValidations<T> IsEmailUnique(string email, string message, string property, List<string> emails)
+        public ContratcValidations<T> IsEmailUnique(string email, string message, string property, List<string>? emails)
         {
-            if (emails.Any(e => e.Equals(email))){
-                AddNotification(new Notification(message, property));
-                return this;
+            if(emails != null) {
+                if (emails.Any(e => e.Equals(email))){
+                    AddNotification(new Notification(message, property));
+                    return this;
+                }
             }
             return this;
         }

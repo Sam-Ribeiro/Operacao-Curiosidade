@@ -1,13 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
+using server.Application.Controllers.HandlerContainers;
 using server.Application.Features.Users.Commands.CreateUser;
-using server.Application.Results;
-using server.Application.Commands.Interfaces;
 using server.Application.Features.Users.Commands.Login;
 using server.Application.Features.Users.Commands.UpdatePassword;
 using server.Application.Features.Users.Commands.UpdateUser;
-using server.Application.Features.Interfaces;
 using server.Application.Features.Users.Queries.GetUserProfile;
-using Microsoft.AspNetCore.RateLimiting;
+using server.Application.Results;
 
 namespace server.Application.Controllers
 {
@@ -15,57 +14,42 @@ namespace server.Application.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IHandlerBase<CreateUserCommand> _create;
-        private readonly IHandlerBase<LoginCommand> _login;
-        private readonly IHandlerBase<UpdatePasswordCommand> _updatePassword;
-        private readonly IHandlerBase<UpdateUserCommand> _updateUser;
-        private readonly IQueryHandler<GetUserProfileQuery> _queryProfile;
+        private readonly UserServices _services;
         public UserController(
-            IHandlerBase<CreateUserCommand> create, 
-            IHandlerBase<LoginCommand> login,
-            IHandlerBase<UpdatePasswordCommand> updatePassword, 
-            IHandlerBase<UpdateUserCommand> updateUser,
-            IQueryHandler<GetUserProfileQuery> queryProfile
+            UserServices services
             )
         {
-            _create = create;
-            _login = login;
-            _updatePassword = updatePassword;
-            _updateUser = updateUser;
-            _queryProfile = queryProfile;
+            _services = services;
         }
-        // Command 
 
         [HttpPost("register")]
         public IResultBase InsertUser(CreateUserCommand command)
         {
-            return _create.Handle(command);
+            return _services.Create.Handle(command);
         }
 
         [HttpPost("login")]
         [EnableRateLimiting("fixed")]
         public IResultBase Login(LoginCommand command) { 
-            return _login.Handle(command);
+            return _services.Login.Handle(command);
         }
 
         [HttpPut("updatePassword")]
         public IResultBase UpdatePassword(UpdatePasswordCommand command) {
             command.Token = Request.Headers["Authorization"].ToString();
-            return _updatePassword.Handle(command);
+            return _services.UpdatePassword.Handle(command);
         }
 
         [HttpPut("updateUser")]
         public IResultBase UpdateUser(UpdateUserCommand command) {
             command.Token = Request.Headers["Authorization"].ToString();
-            return _updateUser.Handle(command);
+            return _services.UpdateUser.Handle(command);
         }
-
-        // Query
 
         [HttpGet("getProfile")]
         public IResultBase GetUserProfile([FromQuery] GetUserProfileQuery query) {
             query.Token = Request.Headers["Authorization"].ToString();
-            return _queryProfile.Handle(query);
+            return _services.QueryProfile.Handle(query);
         }
     }
 }

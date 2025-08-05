@@ -4,8 +4,8 @@ function listar(){
 
 async function validarUsuario(){
     const result = await QueryUserData()
-    console.log(result)
     if(result!= null){
+        document.querySelector('.background-loader')?.remove();
         if(result.resultCode === 200){
             nome_perfil = document.getElementById("usuario")
             icone_perfil = document.getElementById("icone")
@@ -13,8 +13,11 @@ async function validarUsuario(){
                 nome_perfil.innerText = result.data.name
                 icone_perfil.innerText = result.data.name.charAt(0).toUpperCase()
             }
-        }else if(result.resultCode === 401 || 400){
+        }else if(result.resultCode === 401 || 400 ){
             var error = "token"
+            window.location.href = `../login/login.html?error=${error}`
+        }else if(result.resultCode === 500 ){
+            var error = "internal"
             window.location.href = `../login/login.html?error=${error}`
         }
     }else{

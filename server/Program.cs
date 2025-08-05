@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
 using server.Application.Commands.Interfaces;
+using server.Application.Controllers.HandlerContainers;
 using server.Application.Features.Interfaces;
 using server.Application.Features.Logs.Queries.GetLogs;
 using server.Application.Features.Pages.Queries.GetDeletedPersonsPages;
@@ -24,25 +25,22 @@ using server.Application.Features.Users.Queries.GetUserProfile;
 using server.Infrastructure.Data;
 using server.Infrastructure.Repositories;
 using server.Infrastructure.Repositories.Interfaces;
-using server.Models;
 using server.Repositories;
 using server.Services.Authentication;
-using System.Text;
 using System.Threading.RateLimiting;
-AppContext.SetSwitch("System.IdentityModel.Tokens.Jwt.UseLegacyAudienceValidation", true);
-Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
+//AppContext.SetSwitch("System.IdentityModel.Tokens.Jwt.UseLegacyAudienceValidation", true);
+//Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
 var builder = WebApplication.CreateBuilder(args);
 
 ReadToken.Configure(builder.Configuration);
 
-// Add services to the container.
-// Data
 builder.Services.AddScoped<InMemoryContext>();
-// User
+
 builder.Services.AddScoped<IReadUserRepository, ReadUserRepository>();
 builder.Services.AddScoped<IWriteUserRepository, WriteUserRepository>();
+builder.Services.AddScoped<UserServices>();
 builder.Services.AddScoped<IHandlerBase<CreateUserCommand>, CreateUserHandler>();
 builder.Services.AddScoped<IHandlerBase<LoginCommand>, LoginHandler>();
 builder.Services.AddScoped<IHandlerBase<UpdatePasswordCommand>, UpdatePasswordHandler>();
@@ -50,9 +48,9 @@ builder.Services.AddScoped<IHandlerBase<UpdateUserCommand>,  UpdateUserHandler>(
 builder.Services.AddScoped<IQueryHandler<GetUserProfileQuery>,  GetUserProfileHandler>();
 builder.Services.AddScoped<ICreateToken, CreateToken>();
 
-//person
 builder.Services.AddScoped<IReadPerson, ReadPersonRepository>();
 builder.Services.AddScoped<IWritePerson, WritePersonRepository>();
+builder.Services.AddScoped<PersonServices>();
 builder.Services.AddScoped<IHandlerBase<CreatePersonCommand>, CreatePersonHandler>();
 builder.Services.AddScoped<IHandlerBase<RestorePersonCommand>, RestorePersonHandler>();
 builder.Services.AddScoped<IHandlerBase<UpdatePersonCommand>, UpdatePersonHandler>();
@@ -64,10 +62,10 @@ builder.Services.AddScoped<IQueryHandler<GetInactiveCountQuery>, GetInactiveCoun
 builder.Services.AddScoped<IQueryHandler<GetPersonsCountQuery>, GetPersonsCountHandler>();
 builder.Services.AddScoped<IQueryHandler<GetMonthRecordCountQuery>, GetMonthRecordCountHandler>();
 
-//log
+builder.Services.AddScoped<LogServices>();
 builder.Services.AddScoped<IQueryHandler<GetLogsQuery>, GetLogsHandler>();
 
-//Pages
+builder.Services.AddScoped<PageContentServices>();
 builder.Services.AddScoped<IQueryHandler<GetPersonsPagesQuery>, GetPersonsPagesHandler>();
 builder.Services.AddScoped<IQueryHandler<GetLogsPagesQuery>, GetLogsPagesHandler>();
 builder.Services.AddScoped<IQueryHandler<GetDeletedPersonsPagesQuery>, GetDeletedPersonsPagesHandler>();

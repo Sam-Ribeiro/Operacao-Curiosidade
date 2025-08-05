@@ -17,7 +17,7 @@ namespace server.Services.Validation
         {
             var contract = new ContratcValidations<UpdateUserValidation>()
                 .IsEmailValid(user.Email, "Email inválido.", "email")
-                .IsNameValid(user.Name, "o Nome deve ter mais que 3 caracteres.", "name")
+                .IsNameValid(user.Name, "o Nome deve ter entre 4 e 60 caracteres", "name")
                 .IsBornDateValid(user.BornDate, "Data de nascimento inválida", "bornDate")
                 .IsEmailUnique(user.Email, "Email inválido.", "email", emails);
 

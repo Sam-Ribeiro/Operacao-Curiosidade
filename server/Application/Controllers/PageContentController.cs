@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using server.Application.Features.Interfaces;
+using server.Application.Controllers.HandlerContainers;
 using server.Application.Features.Pages.Queries.GetDeletedPersonsPages;
 using server.Application.Features.Pages.Queries.GetLogsPages;
 using server.Application.Features.Pages.Queries.GetPersonsPages;
@@ -14,63 +14,46 @@ namespace server.Application.Controllers
     [ApiController]
     public class PageContentController : ControllerBase
     {
-        private readonly IQueryHandler<GetInactiveCountQuery> _inactiveCount;
-        private readonly IQueryHandler<GetPersonsCountQuery> _personsCount;
-        private readonly IQueryHandler<GetMonthRecordCountQuery> _monthRecordsCount;
-        private readonly IQueryHandler<GetPersonsPagesQuery> _personsPages;
-        private readonly IQueryHandler<GetLogsPagesQuery> _logsPages;
-        private readonly IQueryHandler<GetDeletedPersonsPagesQuery> _deletedPersonsPages;
+        private readonly PageContentServices _services;
 
-        public PageContentController(
-            IQueryHandler<GetInactiveCountQuery> inactiveCount,
-            IQueryHandler<GetPersonsCountQuery> personsCount, 
-            IQueryHandler<GetMonthRecordCountQuery> monthRecordsCount,
-            IQueryHandler<GetPersonsPagesQuery> personsPages,
-            IQueryHandler<GetLogsPagesQuery> logsPages,
-            IQueryHandler<GetDeletedPersonsPagesQuery> deletedPersonsPages
-            )
+        public PageContentController(PageContentServices services)
         {
-            _inactiveCount = inactiveCount;
-            _personsCount = personsCount;
-            _monthRecordsCount = monthRecordsCount;
-            _personsPages = personsPages;
-            _logsPages = logsPages;
-            _deletedPersonsPages = deletedPersonsPages;
+            _services = services;
         }
 
         [HttpGet("getInactiveCount")]
         public IResultBase GetInactivePersonsCount([FromQuery] GetInactiveCountQuery query)
         {
-            return _inactiveCount.Handle(query);
+            return _services.InactiveCount.Handle(query);
         }
 
         [HttpGet("getPersonsCount")]
         public IResultBase GetPersonsCount([FromQuery] GetPersonsCountQuery query)
         {
-            return _personsCount.Handle(query);
+            return _services.PersonsCount.Handle(query);
         }
 
         [HttpGet("getMonthRecordsCount")]
         public IResultBase GetMonthRecordsCount([FromQuery] GetMonthRecordCountQuery query)
         {
-            return _monthRecordsCount.Handle(query);
+            return _services.MonthRecordsCount.Handle(query);
         }
 
         [HttpGet("getPersonsPages")]
         public IResultBase GetPersonsPages([FromQuery] GetPersonsPagesQuery query)
         {
-            return _personsPages.Handle(query);
+            return _services.PersonsPages.Handle(query);
         }
 
         [HttpGet("getLogsPages")]
         public IResultBase GetLogsPages([FromQuery] GetLogsPagesQuery query)
         {
-            return _logsPages.Handle(query);
+            return _services.LogsPages.Handle(query);
         }
         [HttpGet("getDeletePersonsPages")]
         public IResultBase GetDeletedPersonsPages([FromQuery] GetDeletedPersonsPagesQuery query)
         {
-            return _deletedPersonsPages.Handle(query);
+            return _services.DeletedPersonsPages.Handle(query);
         }
     }
 }

@@ -236,3 +236,32 @@ header form{
 .isNotOk{
     background-color: var(--cor-vermelho);
 }
+
+.loader {
+  height: 5px;
+  width: 150px;
+  --c:no-repeat linear-gradient(var(--cor-tema) 0 0);
+  background: var(--c),var(--c),var(--cor-fundo2);    
+  background-size: 60% 100%;
+  animation: l16 3s infinite;
+  position: fixed;
+}
+@keyframes l16 {
+  0%   {background-position:-150% 0,-150% 0}
+  66%  {background-position: 250% 0,-150% 0}
+  100% {background-position: 250% 0, 250% 0}
+}
+
+.loader::backdrop{
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.background-loader{
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--cor-fundo);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
