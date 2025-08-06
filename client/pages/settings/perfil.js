@@ -9,6 +9,7 @@ async function LoadUser(){
         campoData.value = result.data.bornDate
         campoSenhaAntiga.value = ""
         campoSenhaNova.value = ""
+        campoSenhaConfirm.value = ""
     }else{
         notify("Erro ao carregar usuário",false)
     }
@@ -28,6 +29,12 @@ async function ChangePassword(){
     if(senhaConfirm != senhaNova){
         ok =  false
         erroSenhaConfirm.innerText ="As senhas não conferem."
+        erroSenhaConfirm.style.display = 'block'
+        campoSenhaConfirm.classList.add("erro")
+    }
+    if(!senhaConfirm){
+        ok = false
+        erroSenhaConfirm.innerText ="O Campo de confirmar senha é obrigatório."
         erroSenhaConfirm.style.display = 'block'
         campoSenhaConfirm.classList.add("erro")
     }
@@ -57,6 +64,7 @@ async function ChangePassword(){
             }
         }
     } 
+    
 }
 
 async function ChangeProfileData(){
@@ -173,9 +181,9 @@ document.addEventListener('keyup', (event) => {
     }
   }
   else{
-    if(event.target == campoNome || campoEmail || campoData){
+    if(event.target == campoNome || event.target == campoEmail || event.target == campoData){
         ChangeProfileData()
-    }else if( event.target == campoSenhaAntiga || campoSenhaNova || campoSenhaConfirm){
+    }else if(event.target == campoSenhaAntiga || event.target == campoSenhaNova || event.target == campoSenhaConfirm){
         ChangePassword()
     }
   }

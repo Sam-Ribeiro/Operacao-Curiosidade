@@ -5,6 +5,7 @@ using server.Application.Features.Users.Commands.CreateUser;
 using server.Application.Features.Users.Commands.Login;
 using server.Application.Features.Users.Commands.UpdatePassword;
 using server.Application.Features.Users.Commands.UpdateUser;
+using server.Application.Features.Users.Queries.GetUserName;
 using server.Application.Features.Users.Queries.GetUserProfile;
 using server.Application.Results;
 
@@ -50,6 +51,12 @@ namespace server.Application.Controllers
         public IResultBase GetUserProfile([FromQuery] GetUserProfileQuery query) {
             query.Token = Request.Headers["Authorization"].ToString();
             return _services.QueryProfile.Handle(query);
+        }
+
+        [HttpGet("getUserName")]
+        public IResultBase GetUserName([FromQuery] GetUserNameQuery query) {
+            query.Token = Request.Headers["Authorization"].ToString();
+            return _services.QueryName.Handle(query);
         }
     }
 }

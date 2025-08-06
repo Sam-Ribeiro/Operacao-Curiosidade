@@ -1,6 +1,7 @@
 ﻿using server.Infrastructure.Data;
 using server.Infrastructure.Repositories.Interfaces;
 using server.Models;
+using server.Services.Authentication;
 using server.Services.EventLog;
 
 namespace server.Repositories
@@ -18,6 +19,7 @@ namespace server.Repositories
             List<User> users = _context.users;
             user.Id = users.Any() ? users.Max(p => p.Id) + 1 : 1;
             _context.users.Add(user);
+
             Log log = UserLogs.RegisterLog(user.Email, user.Name);
             AddLog(log);
             _context.SaveChanges();
@@ -32,13 +34,19 @@ namespace server.Repositories
                 user.Name = updatedUser.Name;
                 user.Email = updatedUser.Email;
                 user.BornDate = updatedUser.BornDate;
-                user.PasswordHash = updatedUser.PasswordHash;
                 if (log != null)
                 {
                     AddLog(log);
                 }
                 _context.SaveChanges();
             }
+        }
+        public void UpdatePassword(User user, string newPassword)
+        {
+            user.PasswordHash = PasswordGenerator.CreatePassword(newPassword, user.Salt);
+            Log log = UserLogs.UpdatePasswordLog(user.Name);
+            AddLog(log);
+            _context.SaveChanges();
         }
 
         public void AddLog(Log log)

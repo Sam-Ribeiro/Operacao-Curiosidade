@@ -4,6 +4,7 @@ using server.Application.Features.Users.Commands.CreateUser;
 using server.Application.Features.Users.Commands.Login;
 using server.Application.Features.Users.Commands.UpdatePassword;
 using server.Application.Features.Users.Commands.UpdateUser;
+using server.Application.Features.Users.Queries.GetUserName;
 using server.Application.Features.Users.Queries.GetUserProfile;
 
 namespace server.Application.Controllers.HandlerContainers
@@ -15,13 +16,14 @@ namespace server.Application.Controllers.HandlerContainers
         public IHandlerBase<UpdatePasswordCommand> UpdatePassword { get; set; }
         public IHandlerBase<UpdateUserCommand> UpdateUser { get; set; }
         public IQueryHandler<GetUserProfileQuery> QueryProfile { get; set; }
-
+        public IQueryHandler<GetUserNameQuery> QueryName { get; set; }
         public UserServices(
             IHandlerBase<CreateUserCommand> create,
             IHandlerBase<LoginCommand> login,
             IHandlerBase<UpdatePasswordCommand> updatePassword,
             IHandlerBase<UpdateUserCommand> updateUser,
-            IQueryHandler<GetUserProfileQuery> queryProfile
+            IQueryHandler<GetUserProfileQuery> queryProfile,
+            IQueryHandler<GetUserNameQuery> queryName
             )
         {
             Create = create;
@@ -29,6 +31,7 @@ namespace server.Application.Controllers.HandlerContainers
             UpdatePassword = updatePassword;
             UpdateUser = updateUser;
             QueryProfile = queryProfile;
+            QueryName = queryName;
         }
     }
 }

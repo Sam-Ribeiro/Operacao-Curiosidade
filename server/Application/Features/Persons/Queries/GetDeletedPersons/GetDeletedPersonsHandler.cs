@@ -15,7 +15,6 @@ namespace server.Application.Features.Persons.Queries.GetDeletedPersons
         {
             _readRepository = readRepository;
         }
-
         public IResultBase Handle(GetDeletedPersonsQuery query)
         {
             Result result;

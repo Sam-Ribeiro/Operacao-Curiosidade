@@ -64,6 +64,5 @@ namespace server.Services.DataSelection.DataReturnParameters
                     return list;
             }
         }
-
     }
 }

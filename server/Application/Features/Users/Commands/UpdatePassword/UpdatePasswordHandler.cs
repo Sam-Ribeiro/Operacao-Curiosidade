@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
-using server.Application.Commands.Interfaces;
+﻿using server.Application.Commands.Interfaces;
 using server.Application.Results;
 using server.Infrastructure.Repositories.Interfaces;
-using server.Models;
 using server.Services.Authentication;
 using server.Services.Validation;
 using server.Utils.Exceptions;
@@ -31,27 +29,28 @@ namespace server.Application.Features.Users.Commands.UpdatePassword
                     result = new Result(401, "Acesso negado: faça login para continuar.", false);
                     return result;
                 }
-                if (validation.Validate(command)){
+                if (validation.Validate(command) && command.NewPassword != command.OldPassword)
+                {
                     int userId = Int32.Parse(userToken.FindFirst(ClaimTypes.NameIdentifier)?.Value);
                     var user = _readRepository.GetUserById(userId);
-                    if (user == null) {
-                        result = new Result(404, "Usuário não encontrado", false);
+                    if (user == null) 
+                    {
+                        result = new Result(404, "Usuário não encontrado.", false);
                         return result;
                     }
-                    if (new PasswordHasher<User>().VerifyHashedPassword(user, user.PasswordHash,
-                    command.OldPassword) == PasswordVerificationResult.Success){
-                        user.PasswordHash = new PasswordHasher<User>().HashPassword(user, command.NewPassword);
-                        _writeRepository.UpdateUser(user);
-                        result = new Result(200, "Senha alterada", true);
+                    if (PasswordGenerator.VerifyPassword(command.OldPassword,user.Salt,user.PasswordHash))
+                    {
+                        _writeRepository.UpdatePassword(user, command.NewPassword);
+                        result = new Result(200, "Senha alterada com sucesso!", true);
                         return result;
                     }
                     else {
-                        result = new Result(403, "Senha antiga inválida", false);
+                        result = new Result(403, "Senha antiga inválida.", false);
                         return result;
                     }
                 }
                 else { 
-                    result = new Result(400,"Senha nova inválida",false);
+                    result = new Result(400,"Senha nova inválida.",false);
                     result.SetNotifications(new List<Notification>(validation.Notifications));
                     return result;
                 }

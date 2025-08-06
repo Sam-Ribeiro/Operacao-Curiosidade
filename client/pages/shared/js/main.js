@@ -3,15 +3,15 @@ function listar(){
 } 
 
 async function validateUser(){
-    const result = await QueryUserData()
+    const result = await QueryUserName()
     if(result!= null){
         document.querySelector('.background-loader')?.remove();
         if(result.resultCode === 200){
             nome_perfil = document.getElementById("usuario")
             icone_perfil = document.getElementById("icone")
             if(nome_perfil){
-                nome_perfil.innerText = result.data.name
-                icone_perfil.innerText = result.data.name.charAt(0).toUpperCase()
+                nome_perfil.innerText = result.data
+                icone_perfil.innerText = result.data.charAt(0).toUpperCase()
             }
         }else if(result.resultCode === 401 || 400 ){
             var error = "token"

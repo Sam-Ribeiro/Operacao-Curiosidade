@@ -13,4 +13,8 @@ botaoImprimir.addEventListener("click", async function() {
     preencherTabela(incluidos)
 })
 
+botaoSair.onclick = function(){
+    localStorage.removeItem("token")
+}
+
 validateUser()

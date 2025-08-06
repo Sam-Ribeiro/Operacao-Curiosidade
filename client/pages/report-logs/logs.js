@@ -176,7 +176,7 @@ botaoData.onclick = function(){
 }
 
 botaoSair.onclick = function(){
-    localStorage.removeItem("usuario")
+    localStorage.removeItem("token")
 }
 
 preencherTabela()

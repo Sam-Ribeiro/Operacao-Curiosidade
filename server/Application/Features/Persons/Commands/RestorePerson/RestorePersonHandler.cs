@@ -28,7 +28,7 @@ namespace server.Application.Features.Persons.Commands.RestorePerson
                 }
                 if (_readRepository.GetPersonById(command.Id) == null)
                 {
-                    result = new Result(400, "Erro ao restaurar pessoa: pessoa nao encontrada.", false);
+                    result = new Result(404, "Erro ao restaurar pessoa: pessoa nao encontrada.", false);
                     return result;
                 }
                 else

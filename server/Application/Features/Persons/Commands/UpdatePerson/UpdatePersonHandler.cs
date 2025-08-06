@@ -26,7 +26,7 @@ namespace server.Application.Features.Persons.Commands.UpdatePerson
                 var user = ReadToken.ValidateToken(command.Token);
                 if (user == null)
                 {
-                    result = new Result(401, "Erro ao validar token", false);
+                    result = new Result(401, "Acesso negado: faça login para continuar.", false);
                     return result;
                 }
                 Person person = new Person(_readRepository.GetPersonById(command.Id));

@@ -5,5 +5,6 @@ namespace server.Infrastructure.Repositories.Interfaces
     {
         void AddUser(User user);
         void UpdateUser(User user);
+        void UpdatePassword(User user, string newPassword);
     }
 }

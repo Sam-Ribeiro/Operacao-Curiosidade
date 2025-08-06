@@ -33,8 +33,8 @@ namespace server.Services.Authentication
 
         private static ClaimsIdentity GenerateClaims(User user) {
             var claimsIdentity = new ClaimsIdentity();
-            claimsIdentity.AddClaim( new Claim(ClaimTypes.Name, user.Id.ToString()));
-            claimsIdentity.AddClaim( new Claim(ClaimTypes.Role, "User"));
+            //claimsIdentity.AddClaim(new Claim(ClaimTypes.Name, user.Id.ToString()));
+            //claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, "User"));
             claimsIdentity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
 
             return claimsIdentity;

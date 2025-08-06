@@ -31,8 +31,7 @@ namespace server.Application.Features.Users.Commands.Login
                 {
                     if (user.Email == command.Email)
                     {
-                        if (new PasswordHasher<User>().VerifyHashedPassword(user, user.PasswordHash,
-                            command.Password) == PasswordVerificationResult.Success)
+                        if (PasswordGenerator.VerifyPassword(command.Password,user.Salt,user.PasswordHash))
                         {
                             result = new Result(200, "Login realizado", true);
                             UserLoggedDTO userDTO = new UserLoggedDTO(user);
