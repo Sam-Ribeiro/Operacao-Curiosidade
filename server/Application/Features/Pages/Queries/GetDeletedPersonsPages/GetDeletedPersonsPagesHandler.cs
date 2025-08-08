@@ -17,7 +17,7 @@ namespace server.Application.Features.Pages.Queries.GetDeletedPersonsPages
             Result result;
             try
             {
-                result = new Result(200, "", true);
+                result = new Result(200, "Total de páginas da lista de pessoas deletadas:", true);
                 var deletedPersons = DataSelect.SelectPersons(_personRepository.GetDeletedPersons(),query.Filter,-1,-1,-1);
                 int pages = (int)Math.Ceiling(deletedPersons.Count / (double)query.PageSize);
                 result.SetData(pages);

@@ -23,5 +23,4 @@ namespace server.Application.Results
             Notifications = notifications;
         }
     }
-
 }

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using server.Application.Commands.Interfaces;
-using server.Application.Features.Interfaces;
+using server.Application.Controllers.HandlerContainers;
 using server.Application.Features.Persons.Commands.CreatePerson;
 using server.Application.Features.Persons.Commands.DeletePerson;
 using server.Application.Features.Persons.Commands.RestorePerson;
@@ -16,64 +15,47 @@ namespace server.Application.Controllers
     [ApiController]
     public class PersonController : ControllerBase
     {
-        private readonly IHandlerBase<CreatePersonCommand> _create;
-        private readonly IHandlerBase<DeletePersonCommand> _delete;
-        private readonly IHandlerBase<RestorePersonCommand> _restore;
-        private readonly IHandlerBase<UpdatePersonCommand> _update;
-        private readonly IQueryHandler<GetPersonsQuery> _queryPersons;
-        private readonly IQueryHandler<GetDeletedPersonsQuery> _queryDeleted;
-        private readonly IQueryHandler<GetPersonDataQuery> _queryPersonData;
-        public PersonController(IHandlerBase<CreatePersonCommand> create, IHandlerBase<DeletePersonCommand> delete, 
-            IHandlerBase<RestorePersonCommand> restore,IHandlerBase<UpdatePersonCommand> update, 
-            IQueryHandler<GetPersonsQuery> queryPersons,IQueryHandler<GetDeletedPersonsQuery> queryDeleted, 
-            IQueryHandler<GetPersonDataQuery> queryPersonData) 
+        private readonly PersonServices _services;
+        public PersonController(PersonServices services) 
         {
-            _create = create;
-            _delete = delete;
-            _restore = restore;
-            _update = update;
-            _queryPersons = queryPersons;
-            _queryDeleted = queryDeleted;
-            _queryPersonData = queryPersonData;
+            _services = services;
         }
 
-        //Command
         [HttpPost("create")]
         public IResultBase CreatePerson([FromBody]CreatePersonCommand command) {
             command.Token = Request.Headers["Authorization"].ToString();
-            return _create.Handle(command);
+            return _services.Create.Handle(command);
         }
 
         [HttpDelete("delete")]
         public IResultBase DeletePerson(DeletePersonCommand command){
             command.Token = Request.Headers["Authorization"].ToString();
-            return _delete.Handle(command);
+            return _services.Delete.Handle(command);
         }
 
         [HttpPost("restore")]
         public IResultBase RestorePerson(RestorePersonCommand command) {
             command.Token = Request.Headers["Authorization"].ToString();
-            return _restore.Handle(command);
+            return _services.Restore.Handle(command);
         }
 
         [HttpPut("update")]
         public IResultBase UpdatePerson(UpdatePersonCommand command){
             command.Token = Request.Headers["Authorization"].ToString();
-            return _update.Handle(command);
+            return _services.Update.Handle(command);
         }
 
-        // Query
         [HttpGet("getPersons")]
         public IResultBase GetPersons([FromQuery] GetPersonsQuery query) {
             query.Token = Request.Headers["Authorization"].ToString();
-            return _queryPersons.Handle(query);
+            return _services.QueryPersons.Handle(query);
         }
 
         [HttpGet("getDeletedPersons")]
         public IResultBase GetDeletedPersons([FromQuery] GetDeletedPersonsQuery query)
         {
             query.Token = Request.Headers["Authorization"].ToString();
-            return _queryDeleted.Handle(query);
+            return _services.QueryDeleted.Handle(query);
         }
 
         [HttpGet("getPersonData/{id}")]
@@ -81,7 +63,7 @@ namespace server.Application.Controllers
         {
             GetPersonDataQuery query = new GetPersonDataQuery() { Id = id };
             query.Token = Request.Headers["Authorization"].ToString();
-            return _queryPersonData.Handle(query);
+            return _services.QueryPersonData.Handle(query);
         }
     }
 }

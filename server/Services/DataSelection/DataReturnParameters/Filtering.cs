@@ -9,9 +9,9 @@ namespace server.Services.DataSelection.DataReturnParameters
             {
                 filter = filter.ToLower();
                 return list.Where(log =>
-                log.Message.ToLower().Contains(filter) ||
-                log.Username.ToLower().Contains(filter))
-                    .ToList();
+                    log.Message.ToLower().Contains(filter) ||
+                    log.Username.ToLower().Contains(filter))
+                        .ToList();
             }
             else { 
                 return list;
@@ -24,9 +24,9 @@ namespace server.Services.DataSelection.DataReturnParameters
             {
                 filter = filter.ToLower();
                 return list.Where(person =>
-                person.Name.ToLower().Contains(filter) ||
-                person.Email.ToLower().Contains(filter))
-                    .ToList();
+                    person.Name.ToLower().Contains(filter) ||
+                    person.Email.ToLower().Contains(filter))
+                        .ToList();
             }
             else {  
                 return list; 

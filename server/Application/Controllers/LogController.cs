@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using server.Application.Features.Interfaces;
+using server.Application.Controllers.HandlerContainers;
 using server.Application.Features.Logs.Queries.GetLogs;
 using server.Application.Results;
 
@@ -9,18 +9,18 @@ namespace server.Application.Controllers
     [ApiController]
     public class LogController : ControllerBase
     {
-        private readonly IQueryHandler<GetLogsQuery> _getLogs;
+        private readonly LogServices _services;
 
-        public LogController(IQueryHandler<GetLogsQuery> getLogs)
+        public LogController(LogServices services)
         {
-            _getLogs = getLogs;
+            _services = services;
         }
 
         [HttpGet("getLogs")]
         public IResultBase GetLogs([FromQuery] GetLogsQuery query)
         {
             query.Token = Request.Headers["Authorization"].ToString();
-            return _getLogs.Handle(query);
+            return _services.GetLogs.Handle(query);
         }
     }
 }

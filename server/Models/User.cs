@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
-using server.Application.Features.Users.Commands.CreateUser;
+﻿using server.Application.Features.Users.Commands.CreateUser;
+using server.Services.Authentication;
 namespace server.Models
 {
     public class User
@@ -12,17 +12,16 @@ namespace server.Models
         {
             Name = command.Name;
             Email = command.Email;
-            PasswordHash = new PasswordHasher<User>().HashPassword(this,command.Password);
+            Salt = PasswordGenerator.GenerateSalt();
+            PasswordHash = PasswordGenerator.CreatePassword(command.Password, Salt);
             BornDate = command.BornDate;
-            Removed = false;
         }
 
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
-        public string PasswordHash { get; set; } = string.Empty;
+        public byte[] PasswordHash { get; set; }
         public DateOnly BornDate { get; set; }
-        public bool Removed { get; set; } = false;
-
+        public byte[] Salt { get; set; }
     }
 }

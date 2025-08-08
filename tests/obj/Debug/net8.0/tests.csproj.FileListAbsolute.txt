@@ -126,3 +126,5 @@ C:\Projetos\Projeto\Samuel_Ribeiro_da_Costa\tests\obj\Debug\net8.0\refint\tests.
 C:\Projetos\Projeto\Samuel_Ribeiro_da_Costa\tests\obj\Debug\net8.0\tests.pdb
 C:\Projetos\Projeto\Samuel_Ribeiro_da_Costa\tests\obj\Debug\net8.0\tests.genruntimeconfig.cache
 C:\Projetos\Projeto\Samuel_Ribeiro_da_Costa\tests\obj\Debug\net8.0\ref\tests.dll
+C:\Projetos\Projeto\Samuel_Ribeiro_da_Costa\tests\bin\Debug\net8.0\Castle.Core.dll
+C:\Projetos\Projeto\Samuel_Ribeiro_da_Costa\tests\bin\Debug\net8.0\Moq.dll

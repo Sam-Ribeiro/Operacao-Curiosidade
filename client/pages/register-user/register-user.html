@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar</title>
+    <link rel="shortcut icon" href="../../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../shared/css/login.css">
+    <link rel="stylesheet" href="../shared/css/temas.css">
+</head>
+    <body>
+        <script type="text/javascript" src="../shared/js/tema.js"></script>
+        <main id="main-cadastro">
+                <div class="logo">
+                    <h1>OC</h1>
+                    <p>Operação Curiosidade</p>
+                </div>
+                <form id="cadastrar-form" autocomplete="off">
+                        <input class="campo" type="text" name="nome" id="nome" placeholder="Nome" title="O nome deve conter mais que três caracteres">
+                        <span class="erro-campo" id="erro-nome" >Erro</span>
+                        <input class="campo" type="text" name="email" id="email" placeholder="Email">
+                        <span class="erro-campo" id="erro-email" >Erro</span>
+                        <input class="campo" type="password" name="senha" id="senha" placeholder="Senha">
+                        <span class="erro-campo" id="erro-senha" >Erro</span>
+                        <input class="campo" type="password" name="senha" id="confirmar-senha" placeholder="Confirme sua senha">
+                        <span class="erro-campo" id="erro-confirmar-senha" >Erro</span>
+                        <input class="campo" type="text" onfocus="(this.type='date')" name="data" id="data" placeholder="Data de Nascimento">
+                        <span class="erro-campo" id="erro-data" >Erro</span>
+                        <input class="botao" type="button" value="CADASTRAR" id="btn-cadastrar">
+                </form>
+                <span id="erro"></span>
+                <p class="link">Já possui uma conta? <a href="../login/login.html">Entrar</a></p>
+        </main>
+        <div id="notification" class="hidden">
+            <p>
+            </p>
+        </div>
+        <script type="text/javascript" src="../shared/requests/user/queries.js"></script>
+        <script type="text/javascript" src="../shared/requests/user/commands.js"></script>
+        <script type="text/javascript" src="register-user.js"></script>
+    </body>
+</html>

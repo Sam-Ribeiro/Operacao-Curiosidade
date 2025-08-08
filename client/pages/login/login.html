@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="shortcut icon" href="../../assets/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../compartilhado/css/login.css">
-    <link rel="stylesheet" href="../compartilhado/css/temas.css">
+    <link rel="stylesheet" href="../shared/css/login.css">
+    <link rel="stylesheet" href="../shared/css/temas.css">
 </head>
     <body>
-        <script type="text/javascript" src="../compartilhado/js/tema.js"></script>
+        <script type="text/javascript" src="../shared/js/tema.js"></script>
         <main>
             <div class="logo">
                 <h1>OC</h1>
@@ -20,14 +20,12 @@
                 <input class="campo" type="password" name="senha" id="senha" placeholder="Senha">
                 <input class="botao" type="button" value="ENTRAR" id="btn-login">
             </form>
-            <div id="erro"></div>
-            <p class="link">Novo na Operação Curiosidade? <a href="../cadastro-usuario/cadastrar.html">Crie uma conta</a></p>
-            <div id="notification" class="hidden">
-            <p></p>
-            </div>
+            <div id="erro" class="erro-campo"></div>
+            <p class="link">Novo na Operação Curiosidade? <a href="../register-user/register-user.html">Crie uma conta</a></p>
+            <div id="notification" class="hidden"><p></p></div>
         </main>
-        <script type="text/javascript" src="../compartilhado/requests/user/queries.js"></script>
-        <script type="text/javascript" src="../compartilhado/requests/user/commands.js"></script>
-        <script type="text/javascript" src="../compartilhado/js/login.js"></script>
+        <script type="text/javascript" src="../shared/requests/user/queries.js"></script>
+        <script type="text/javascript" src="../shared/requests/user/commands.js"></script>
+        <script type="text/javascript" src="../shared/js/login.js"></script>
     </body>
 </html>

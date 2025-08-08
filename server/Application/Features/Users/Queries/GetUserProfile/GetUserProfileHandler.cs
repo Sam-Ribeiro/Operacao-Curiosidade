@@ -39,11 +39,11 @@ namespace server.Application.Features.Users.Queries.GetUserProfile
                     result.SetData(UserDTO);
                     return result;
                 }
-            } catch (Exception ex) {
+            } catch (Exception ex) 
+            {
                 result = new Result(500, $"Erro interno ao carregar informações do usuário: {ex.Message}",false);
                 return result;
             }
-            
         }
     }
 }

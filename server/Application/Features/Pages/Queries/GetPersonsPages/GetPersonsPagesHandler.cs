@@ -17,7 +17,7 @@ namespace server.Application.Features.Pages.Queries.GetPersonsPages
             Result result;
             try
             {
-                result = new Result(200, "", true);
+                result = new Result(200, "Total de páginas da lista de pessoas", true);
                 var persons = DataSelect.SelectPersons(_personRepository.GetAllPersons(), query.Filter, -1, -1, -1);
                 int pages = (int)Math.Ceiling(persons.Count() / (double)query.PageSize);
                 result.SetData(pages);

@@ -8,7 +8,7 @@ namespace server.Domains.Validations
         public ContratcValidations<T> IsEmailValid(string email, string message, string property) {
             try 
             {
-                if (email == null || email.Length <= 3 || email.Length > 100)
+                if (email == null || email.Length <= 3 || email.Length > 200)
                 {
                     AddNotification(new Notification(message, property));
                 }
@@ -21,11 +21,13 @@ namespace server.Domains.Validations
             return this;
         }
 
-        public ContratcValidations<T> IsEmailUnique(string email, string message, string property, List<string> emails)
+        public ContratcValidations<T> IsEmailUnique(string email, string message, string property, List<string>? emails)
         {
-            if (emails.Any(e => e.Equals(email))){
-                AddNotification(new Notification(message, property));
-                return this;
+            if(emails != null) {
+                if (emails.Any(e => e.Equals(email))){
+                    AddNotification(new Notification(message, property));
+                    return this;
+                }
             }
             return this;
         }

@@ -1,13 +1,8 @@
-async function atualizarDados(){
-    let pessoasInativos = 0
-    let pessoasMes = 0
-    let pessoasTotal = 0
-
+async function LoadDashboardCounts(){
     totalCadastros = document.querySelector("#bloco1 h1")
     cadastrosMes = document.querySelector("#bloco2 h1")
     cadastrosRevisao = document.querySelector("#bloco3 h1")
 
-     pessoasTotal
     cadastrosMes.innerText = await LoadRecordsCount("https://localhost:7182/api/PageContent/getMonthRecordsCount")
     cadastrosRevisao.innerText = await LoadRecordsCount("https://localhost:7182/api/PageContent/getInactiveCount")
     totalCadastros.innerText = await LoadRecordsCount("https://localhost:7182/api/PageContent/getPersonsCount")
@@ -33,4 +28,4 @@ async function LoadRecordsCount(url){
     }
 }
 
-atualizarDados()
+LoadDashboardCounts()

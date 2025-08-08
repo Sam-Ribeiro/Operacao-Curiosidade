@@ -1,22 +1,21 @@
 ﻿using server.Models;
-using System.Security.Cryptography.Xml;
 
 namespace server.Services.EventLog
 {
     public static class PersonLogs
     {
         public static Log CreatePersonLog(string personName, string username) {
-            string message = $"Cadastrou a pessoa {personName}";
+            string message = $"Cadastrou a pessoa {personName}.";
             Log log = new Log(message, username);
             return log;
         }
         public static Log DeletePersonLog(string personName, string username) {
-            string message = $"Deletou a pessoa {personName}";
+            string message = $"Deletou a pessoa {personName}.";
             Log log = new Log(message, username);
             return log;
         }
         public static Log RestorePersonLog(string personName, string username) {
-            string message = $"Restaurou a pessoa {personName}";
+            string message = $"Restaurou a pessoa {personName}.";
             Log log = new Log(message, username);
             return log;
         }

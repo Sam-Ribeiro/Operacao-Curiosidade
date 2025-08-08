@@ -20,7 +20,7 @@ namespace server.Application.Features.Pages.Queries.GetLogsPages
             {
                 int logsCount = DataSelect.SelectLogs(_context.logs, query.Filter, -1, -1, -1).Count;
                 int pages = (int)Math.Ceiling(logsCount / (double)query.PageSize);
-                result = new Result(200, "", true);
+                result = new Result(200, "Total de páginas de logs", true);
                 result.SetData(pages);
                 return result;
             } 

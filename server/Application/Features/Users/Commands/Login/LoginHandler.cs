@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
-using server.Application.Commands.Interfaces;
-using server.Application.DTOs;
+﻿using server.Application.Commands.Interfaces;
 using server.Application.Results;
 using server.Infrastructure.Repositories.Interfaces;
-using server.Models;
 using server.Services.Authentication;
 
 namespace server.Application.Features.Users.Commands.Login
@@ -31,14 +28,11 @@ namespace server.Application.Features.Users.Commands.Login
                 {
                     if (user.Email == command.Email)
                     {
-                        if (new PasswordHasher<User>().VerifyHashedPassword(user, user.PasswordHash,
-                            command.Password) == PasswordVerificationResult.Success)
+                        if (PasswordGenerator.VerifyPassword(command.Password,user.Salt,user.PasswordHash))
                         {
                             result = new Result(200, "Login realizado", true);
-                            UserLoggedDTO userDTO = new UserLoggedDTO(user);
                             var token = _createToken.Generate(user);
-                            var data = new { token, userDTO };
-                            result.SetData(data);
+                            result.SetData(token);
                             return result;
                         }
                     }

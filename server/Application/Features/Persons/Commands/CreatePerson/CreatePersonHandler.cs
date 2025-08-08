@@ -44,7 +44,6 @@ namespace server.Application.Features.Persons.Commands.CreatePerson
                     result.SetNotifications(new List<Notification>(validation.Notifications));
                     return result;
                 }
-
             }
             catch (Exception ex)
             {

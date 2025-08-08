@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastros</title>
+    <link rel="shortcut icon" href="../../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="cadastro.css">
+    <link rel="stylesheet" href="../shared/css/main.css">
+    <link rel="stylesheet" href="../shared/css/lateral.css">
+    <link rel="stylesheet" href="../shared/css/temas.css">
+    <link rel="stylesheet" href="../shared/css/tabelas.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,700,1,200"/>
+</head>
+    <body>
+     <script type="text/javascript" src="../shared/js/tema.js"></script>
+    <div class="container">
+
+        <nav>
+            <div>
+                <h1>OC</h1>
+                <p>Operação Curiosidade</p>
+            </div>
+            <ul>
+                <li><a href="../dashboard/dashboard.html"><span class="material-symbols-outlined">home</span> Inicio</a></li>
+                <li><a href="create.html" class="ativo"><span class="material-symbols-outlined">person_add</span> Cadastro</a></li>
+                <li><a href="../reports/relatorios.html"><span class="material-symbols-outlined">demography</span>  Relatórios</a></li>
+                <li><a href="../settings/perfil.html"><span class="material-symbols-outlined">manage_accounts</span> Configurações</a></li>
+            </ul> 
+        </nav>
+
+        <div class="principal">
+
+            <header>
+                <form>
+                    <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar..." autocomplete="off">
+                </form>
+                <p href="#"id="placeholder"></p>
+                <a href="../settings/perfil.html"> <em id="usuario"></em><strong id="icone"></strong></a>
+                <a href="../login/login.html"id="sair">Sair</a>
+            </header>
+
+            <main>
+                <section class="tabela overflow">
+                    <h1>Cadastros</h1>
+                    <input id="novo-cadastro" type="button" class="botao" value="NOVO CADASTRO">
+                    <table id="tabela-cadastros">
+                        <thead><tr>
+                            <th id="nome">NOME <strong>&#11167;</strong></th>
+                            <th id="email">EMAIL <strong>&#11167;</strong></th>
+                            <th id="status">STATUS <strong>&#11167;</strong></th>
+                            <th id="cad-data">ÚLTIMA ALTERAÇÃO <strong>&#11167;</strong></th>
+                        </tr></thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <hr>
+                    <div class="page-controle">
+                        <input class="page-botao" type="button" value="&#11164; Pagina anterior" id="btn-anterior">
+                        <span id="span-pagina">Exibindo página 1 de 1</span>
+                        <input class="page-botao" type="button" value="Próxima pagina &#11166;" id="btn-proxima">
+                    </div>
+                </section>
+
+                <dialog id="tela-cadastro">
+                    <section class="formulario">
+                        <form id="form-cadastro" autocomplete="off">
+                            <div class="cabecalho">
+                                <button id="btn-cancelar" type="button"><span class="material-symbols-outlined">close</span></button>
+                                <h1 id="titulo-modal">Novo cadastro</h1><br>
+                                <br>
+                            </div>
+                            <div class="form-corpo">
+                                <h2>1º Fatos e dados</h2><hr>
+                                <div id="fatos-dados">
+                                    <div class="linha">
+                                        <div id="div-nome">
+                                            <label id="label-nome" for="nome">Nome:*</label>
+                                            <input class="campo" type="text" name="nome" id="nome">
+                                            <span class="erro-campo" id="erro-nome" >Erro</span>
+                                        </div>
+                                        <div class="status">
+                                            <label for="status">Status:</label>
+                                            <div class="toggle">
+                                            <input type="checkbox" id="status-toggle" /><label for="status-toggle"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="linha">
+                                        <div id="div-idade"> 
+                                            <label for="idade">Idade:*</label>
+                                            <input class="campo" type="number" min="0" name="idade" id="idade">
+                                            <span class="erro-campo" id="erro-idade" >Erro idade</span>
+                                        </div>
+                                        <div id="div-email">  
+                                            <label for="email">Email:*</label>
+                                            <input class="campo" type="email" name="email" id="email">
+                                            <span class="erro-campo" id="erro-email" >Erro email</span>
+                                        </div>
+                                    </div> 
+                                    <div id="div-endereco">
+                                        <label for="endereco">Endereço:*</label>  
+                                        <input class="campo" type="text" name="endereco" id="endereco">
+                                        <span class="erro-campo" id="erro-endereco" >Erro end</span>
+                                    </div>
+                                    <label for="informacoes">Outras informações:</label> 
+                                    <textarea class="texto" id="informacoes" name="informacoes" rows="3" cols="200"></textarea>
+                                    <span class="erro-campo" id="erro-info" ></span>  
+                                </div>
+                                <h2>2º Interesses</h2><hr>
+                                    <textarea class="texto" id="interesses" name="interesses" rows="3" cols="200"></textarea>
+                                    <span class="erro-campo" id="erro-interesses" ></span> 
+                                <h2>3º Sentimentos</h2><hr>
+                                    <textarea class="texto" id="sentimentos" name="sentimentos" rows="3" cols="200"></textarea>
+                                    <span class="erro-campo" id="erro-sentimentos" ></span> 
+                                <h2>4º Valores</h2><hr>
+                                    <textarea class="texto" id="valores" name="valores" rows="3" cols="200"></textarea>
+                                    <span class="erro-campo" id="erro-valores" ></span> 
+                                <span id="erro">Erro</span>
+                            </div>
+                            
+                            <div class="container">
+                                <input class="botao" type="button" value="GRAVAR" id="btn-gravar">
+                                <input class="botao" type="button" value="SALVAR" id="btn-editar">
+                                <input class="botao" type="button" value="EXCLUIR" id="btn-excluir">
+                                <input class="botao" type="button" value="RESTAURAR" id="btn-restaurar">
+                            </div>
+                        </form>
+                    </section>
+                    <div id="notification-dialog" class="hidden">
+                        <p>Mensagem</p>
+                    </div>
+                </dialog>
+                <dialog id="pop-up-excluir">
+                    <h1>Excluir pessoa</h1>
+                    <span>Deseja realmente excluir essa pessoa?</span>
+                    <div class="container">
+                        <input class="botao" type="button" value="CANCELAR" id="btn-cancelar-excluir">
+                        <input class="botao" type="button" value="EXCLUIR" id="btn-confirmar-excluir">
+                    </div>
+                </dialog>
+
+                <div id="notification" class="hidden">
+                    <p></p>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div class="background-loader"><div class="loader"></div></div>
+    <script type="text/javascript" src="../shared/requests/user/queries.js"></script>
+    <script type="text/javascript" src="../shared/requests/person/commands.js"></script>
+    <script type="text/javascript" src="../shared/requests/person/queries.js"></script>
+    <script type="text/javascript" src="../shared/js/main.js"></script>
+    <script type="text/javascript" src="cadastro.js"></script>
+    <script type="text/javascript" src="../shared/js/tabelas.js"></script>
+    </body>
+</html>

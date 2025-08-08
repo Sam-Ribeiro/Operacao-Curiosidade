@@ -30,7 +30,7 @@ namespace server.Application.Features.Persons.Commands.DeletePerson
                 }
                 if (_readRepository.GetPersonById(command.Id) == null)
                 {
-                    result = new Result(400, "Erro ao deletar pessoa: pessoa nao encontrada.", false);
+                    result = new Result(404, "Erro ao deletar pessoa: pessoa nao encontrada.", false);
                     return result;
                 }
                 else {
