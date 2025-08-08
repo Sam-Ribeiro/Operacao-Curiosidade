@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-html, .editar-perfil, .campo, .botao, .fonte, nav, body, h1, h2, h3, h4, p, a, label, input {
+html, body, .editar-perfil, .campo, .botao, .fonte, nav, body, h1, h2, h3, h4, p, a, label, input {
     transition: all 0.3s ease;
 }
 
@@ -97,6 +97,10 @@ main{
     border: var(--cor-texto) solid 1px;
     border-radius: 10px;
     padding: 5px;
+}
+
+.fonte:hover{
+    transform: scale(1.05);
 }
 
 .fonte-ativa{

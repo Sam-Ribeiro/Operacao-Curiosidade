@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
-using server.Application.Features.Users.Commands.CreateUser;
+﻿using server.Application.Features.Users.Commands.CreateUser;
 using server.Services.Authentication;
-using System.Security.Cryptography;
 namespace server.Models
 {
     public class User

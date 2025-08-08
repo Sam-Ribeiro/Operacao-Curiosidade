@@ -1,6 +1,3 @@
-
-
-
 const botaoLogar =  document.getElementById("btn-login")
 
 botaoLogar.onclick = function (){
@@ -43,13 +40,11 @@ async function login(){
         else if(result.resultCode === 200)
         {
             notify(result.message,true)
-            localStorage.setItem("token",result.data.token)
+            localStorage.setItem("token",result.data)
             setTimeout(() => { window.location.href = "../dashboard/dashboard.html" },1500)
         }
     }
 }
-
-
 
 const notificacao = document.getElementById("notification")
 function notify(message, isOk){
@@ -85,9 +80,11 @@ document.addEventListener('keyup', (event) => {
     else {
         if(event.target == campoEmail){
             campoEmail.classList.remove("erro")
+            campoSenha.classList.remove("erro")
         }
         if(event.target == campoSenha){
             campoSenha.classList.remove("erro")
+            campoEmail.classList.remove("erro")
         }
         if(campoEmail.classList.contains("erro") || campoSenha.classList.contains("erro")){
             error.style.display = "block"

@@ -71,16 +71,17 @@ builder.Services.AddScoped<IQueryHandler<GetDeletedPersonsPagesQuery>, GetDelete
 
 builder.Services.AddCors(options =>
 {
-options.AddPolicy("AllowAll", builder =>
-    builder.AllowAnyOrigin()
-    .AllowAnyHeader()
-    .AllowAnyMethod());
+    options.AddPolicy("AllowAll", builder =>
+        builder.AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod());
 });
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options => {
-    options.AddSecurityDefinition(JwtBearerDefaults.AuthenticationScheme, 
+builder.Services.AddSwaggerGen(options =>
+{
+    options.AddSecurityDefinition(JwtBearerDefaults.AuthenticationScheme,
         new OpenApiSecurityScheme
         {
             Name = "Authorization",

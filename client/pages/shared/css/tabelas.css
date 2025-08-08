@@ -16,6 +16,10 @@
     text-align: left;
 }
 
+.overflow{
+    overflow: auto;
+}
+
 table{
     padding: 5px;
     width: 100%;
@@ -23,11 +27,11 @@ table{
 }
 
 #tabela-cadastros{
-    height: 80%;
+    min-height: 80%;
 }
 
 #tabela-logs{
-    height: 80%;
+    min-height: 80%;
 }
 
 .tabela #nome{

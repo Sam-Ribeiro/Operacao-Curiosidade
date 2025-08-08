@@ -1,4 +1,3 @@
-
 async function preencherTabela(incluido){
     var tabela = document.getElementById("tabela-cadastros")
     
@@ -43,6 +42,7 @@ async function preencherTabela(incluido){
         celulaStatus.innerHTML = status
         celulaData.innerText = dataFormatada
     }
+    controlaPagina()
     criarLinks()
     return true
 }
@@ -215,6 +215,7 @@ document.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         event.preventDefault()
         filtro = document.getElementById("pesquisa").value
+        paginaAtual = 1;
         preencherTabela(incluidos)
     }
 })
@@ -223,8 +224,8 @@ document.addEventListener('keyup', (event) => {
     if(event.target == document.getElementById("pesquisa")){
         clearTimeout(timeOut)
         timeOut = setTimeout(() => { 
+            paginaAtual = 1;
             preencherTabela(incluidos)
-            controlaPagina()
         },1000)
         filtro = document.getElementById("pesquisa").value
     }
@@ -267,4 +268,3 @@ botaoSair.onclick = function(){
 }
 
 preencherTabela(incluidos)
-controlaPagina()

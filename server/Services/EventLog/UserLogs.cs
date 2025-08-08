@@ -1,5 +1,4 @@
 ﻿using server.Models;
-using System.Text;
 
 namespace server.Services.EventLog
 {
@@ -7,13 +6,13 @@ namespace server.Services.EventLog
     {
         public static Log RegisterLog(string email, string username)
         {
-            string message = $"Se cadastrou usando o email: {email}.";
+            string message = $"Se cadastrou usando o email: '{email}'.";
             Log log = new Log(message, username);
             return log;
         }
         public static Log UpdatePasswordLog(string username)
         {
-            string message = "Fez alterações em sua conta: Senha alterada";
+            string message = "Fez alterações em sua conta: Senha alterada.";
             Log log = new Log(message, username);
             return log;
         }
@@ -28,7 +27,7 @@ namespace server.Services.EventLog
             }
             if (user.Email != updatedUser.Email)
             {
-                message = message + $" Email alterado de {user.Email} para {updatedUser.Email}.";
+                message = message + $" Email alterado de '{user.Email}' para '{updatedUser.Email}'.";
                 change = true;
             }
             if (user.BornDate != updatedUser.BornDate)

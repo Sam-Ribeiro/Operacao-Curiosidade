@@ -46,8 +46,8 @@ namespace server.Infrastructure.Repositories
         public int GetLastMonthRecordCount()
         {
             var now = DateTime.UtcNow;
-            var oneMonthAgo = now.AddMonths(-1);
-            return _context.persons.Count(person => person.RegistrationDate >= oneMonthAgo && person.Removed == false);
+            var oneMonthAgo = now.AddDays(-10);
+            return _context.persons.Count(person => person.RegistrationDate > oneMonthAgo && person.Removed == false);
         }
     }
 }

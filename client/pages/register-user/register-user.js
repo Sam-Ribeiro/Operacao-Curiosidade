@@ -1,5 +1,3 @@
-
-
 var erroNome = document.getElementById("erro-nome")
 var erroEmail = document.getElementById("erro-email")
 var erroSenha = document.getElementById("erro-senha")
@@ -8,7 +6,7 @@ var erroData = document.getElementById("erro-data")
 const botaoCadastrar =  document.getElementById("btn-cadastrar")
 
 botaoCadastrar.onclick = function (){
-    register();
+    register()
 }
 
 async function register(){
@@ -46,8 +44,6 @@ async function register(){
         }
     }
 }
-
-
 
 const notificacao = document.getElementById("notification")
 function notify(message, isOk){

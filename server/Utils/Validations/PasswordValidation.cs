@@ -10,9 +10,9 @@ namespace server.Domains.Validations
             {
                 AddNotification(new Notification(message, property));
             }
-            if (password.Length > 32)
+            if (password.Length > 60)
             {
-                AddNotification(new Notification(message, property));
+                AddNotification(new Notification("A senha pode ter até 60 caracteres", property));
             }
             return this;
 

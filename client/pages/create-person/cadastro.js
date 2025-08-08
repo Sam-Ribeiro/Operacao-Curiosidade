@@ -238,6 +238,7 @@ botaoGravar.onclick = async function (){
         if(result.resultCode === 201){
             fecharCadastro()
             notify("Pessoa cadastrada com sucesso!",true)
+            preencherTabela(true)
         }else if(result.resultCode === 400){ 
             notifyDialog(result.message,result.isOk)
             const notifications = result.notifications

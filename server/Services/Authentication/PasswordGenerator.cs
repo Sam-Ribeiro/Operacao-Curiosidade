@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using server.Models;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 
 namespace server.Services.Authentication
 {
@@ -8,7 +6,7 @@ namespace server.Services.Authentication
     {
         public static byte[] CreatePassword(string password, byte[] salt)
         {
-            using var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 100_000, HashAlgorithmName.SHA256);
+            using var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 100000, HashAlgorithmName.SHA256);
             byte[] hash = pbkdf2.GetBytes(32);
             return hash;
         }

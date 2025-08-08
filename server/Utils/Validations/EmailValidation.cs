@@ -8,7 +8,7 @@ namespace server.Domains.Validations
         public ContratcValidations<T> IsEmailValid(string email, string message, string property) {
             try 
             {
-                if (email == null || email.Length <= 3 || email.Length > 100)
+                if (email == null || email.Length <= 3 || email.Length > 200)
                 {
                     AddNotification(new Notification(message, property));
                 }

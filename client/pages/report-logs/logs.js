@@ -133,6 +133,7 @@ document.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         event.preventDefault()
         filtro = document.getElementById("pesquisa").value
+        paginaAtual = 1;
         preencherTabela(true)
     }
 })
@@ -141,8 +142,8 @@ document.addEventListener('keyup', (event) => {
     if(event.target == document.getElementById("pesquisa")){
         clearTimeout(timeOut)
         timeOut = setTimeout(() => { 
+            paginaAtual = 1;
             preencherTabela(true)
-            controlaPagina()
         },750)
         filtro = document.getElementById("pesquisa").value
     }

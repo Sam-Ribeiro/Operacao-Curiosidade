@@ -6,9 +6,12 @@ namespace server.Domains.Validations
     public partial class ContratcValidations<T>
     {
         public ContratcValidations<T> IsNameValid(string name, string message, string property) {
-            if (name == null || name.Length <= 3 || name.Length > 60)
+            if (name == null || name.Length <= 3)
             {
-                AddNotification(new Notification(message, property));
+                AddNotification(new Notification("O Nome deve ter mais que 3 caracteres.", property));
+            }
+            if (name.Length > 80) {
+                AddNotification(new Notification("O Nome pode ter até 80 caracteres.", property));
             }
             else
             {
