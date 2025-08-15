@@ -2,7 +2,7 @@
 
 Projeto desenvolvido para estudos, com **frontend em HTML, CSS e JavaScript** e **backend em C# (.NET) utilizando arquitetura CQRS**.
 
-O sistema permite **cadastro de usuários**, autenticação via **JWT** e CRUD completo de "Pessoas" (clientes ou fornecedores), incluindo recursos de paginação, filtro e ordenação.  
+O sistema permite **cadastro de usuários**, autenticação via **JWT** e CRUD completo de "Pessoas" (útil para fortalecer relações com clientes, fornecedores, colaboradores etc...), incluindo recursos de paginação, filtro e ordenação.  
 Além disso, conta com funcionalidades de **logs**, **troca de tema** e **ajuste de tamanho de fonte**.
 
 ---
@@ -27,7 +27,7 @@ Além disso, conta com funcionalidades de **logs**, **troca de tema** e **ajuste
 
 - **Cadastro de Usuário** com autenticação
 - **Login com JWT** e validação de token em quase todas as requisições
-- **CRUD de Pessoas** (Clientes / Fornecedores)
+- **CRUD de Pessoas** (Clientes, Fornecedores, Colaboradores, etc..)
 - **Paginação Avançada** com:
   - Filtros
   - Ordenação
@@ -42,12 +42,15 @@ Além disso, conta com funcionalidades de **logs**, **troca de tema** e **ajuste
 ## 🖼️ Prévia do Projeto
 
 ### Página de Login
-![Login Screenshot](./imagens/login.png)
+![Login Screenshot](./screenshots/login-page-dark-theme.png)
 
 ### Listagem de Pessoas
-![Lista Pessoas](./imagens/lista-pessoas.png)
+![Lista Pessoas](./screenshots/person-list-dark-theme.png)
 
-### Tema Escuro
-![Tema Escuro](./imagens/tema-escuro.png)
+### Tema Claro
+![Tema Claro](./screenshots/removed-person-list.png)
+
+### Telas Menores
+![Versão de celular](./screenshots/dashboard-small-screen.png)
 
 ---
