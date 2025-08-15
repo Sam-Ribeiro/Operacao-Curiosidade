@@ -5,7 +5,7 @@ body{
     font-family: Verdana;
     margin: 0px;
     display: flex;
-    min-height: 100vh;
+    min-height: 100dvh;
     flex-direction: column;
     color: var(--cor-texto);
     scrollbar-color: var(--cor-texto2) var(--cor-fundo2);
@@ -264,4 +264,54 @@ header form{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#menu-button{
+    
+    background-color: var(--cor-tema);
+    color: var(--cor-texto);
+    border-radius: 10px;
+    border: none;
+}
+
+@media(max-width:1250px){
+    .tabela{
+        overflow-x: scroll !important;
+    }
+    tr{
+        overflow: scroll !important;
+    }
+    td{
+        width: 100px!important;
+        max-width: 100px !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    th{
+        width: 100px!important;
+        max-width: 100px !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    #span-pagina{
+        white-space: nowrap;
+    }
+    #usuario,#placeholder{
+        display: none;
+    }
+    #sair{
+        padding: 0px 10px;
+    }
+    header{
+        padding: 5px 0px 5px 5px;
+        justify-content: space-evenly;
+    }
+    header a{
+        width: 20px;
+    }
+    main{
+        width: 100vw;
+    }
 }

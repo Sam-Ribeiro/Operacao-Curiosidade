@@ -2,32 +2,18 @@
 
 namespace server.Services.DataSelection.DataReturnParameters
 {
-    public static class Pagination
+    public static class Pagination<T>
     {
-        public static List<Person> SlicePersons(List<Person> list, int page, int pageSize)
+        public static List<T> SliceList(List<T> list, int page, int pageSize)
         {
             if (page > 0 && pageSize > 0)
             {
-                var slicedList = new List<Person>();
+                var slicedList = new List<T>();
                 slicedList = list.Skip((page - 1) * pageSize).Take(pageSize).ToList();
                 return slicedList;
             }
             else
             {
-                return list;
-            }
-        }
-
-        public static List<Log> SliceLogs(List<Log> list, int page, int pageSize)
-        {
-            if (page > 0 && pageSize > 0)
-            {
-                var slicedList = new List<Log>();
-                slicedList = list.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-                return slicedList;
-            }
-            else 
-            { 
                 return list;
             }
         }

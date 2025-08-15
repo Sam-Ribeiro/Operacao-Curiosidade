@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+nav div h1{
+    transition: all 0.3s ease;
+}
 nav{
     background-color: var(--cor-fundo);
     width: 300px;
@@ -7,7 +10,7 @@ nav{
     margin: 0px;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    min-width: 75px;
 }
 
 nav div{
@@ -34,6 +37,8 @@ nav ul{
     padding-left: 0px;
     list-style: none;
     font-size: var(--fonte-pequena);
+    position: sticky;
+    top: 0;
 }
 nav li{
     margin: 0px;
@@ -63,4 +68,17 @@ nav a:hover{
   display: inline-block;
   width: 24px;
   text-align: center;
+}
+@media(max-width:1250px){
+    .description,nav div p{
+        display: none;
+    }
+    nav div h1{
+        transform: scale(0.8) !important;
+        position: relative;
+        left: -10px;
+    }
+    nav{
+        width: 64px;
+    }
 }

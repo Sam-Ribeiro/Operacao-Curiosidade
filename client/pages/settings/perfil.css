@@ -9,8 +9,6 @@ html, body{
 }
 main{
     margin: 10px 5px;
-    
-    
 }
 .editar-perfil{
     background-color: var(--cor-fundo);
@@ -21,9 +19,6 @@ main{
     flex: 1;
     margin-left: 5px;
     margin-right: 5px;
-    height: 110vh;
-    max-height: 110vh;
-    width: 32vw;
 }
 
 #campo-data{
@@ -161,4 +156,26 @@ h4{
     text-align: center;
     font-weight: normal;
     font-size: var(--fonte-erro);
+}
+
+@media(max-width:1250px){
+    main{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .font-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .editar-perfil{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+    .editar-perfil hr{
+        width: 300px;
+    }
 }

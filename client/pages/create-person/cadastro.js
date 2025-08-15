@@ -37,12 +37,27 @@ async function carregarPessoa(){
 }
 
 function verificarEntrada(pessoa){
-    
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-    const checkbox = document.querySelector("#tela-cadastro #status-toggle")
-    var status = checkbox.checked
+    const nameRegex = /^[a-zA-Z\s-]+$/
     var ok = true
-    
+    if(!emailRegex.test(pessoa.email)){
+        document.querySelector("#tela-cadastro #email").classList.add("erro")
+        erroEmail.innerText = "Email inválido"
+        erroEmail.style.display = 'block'
+        ok = false 
+    }
+    if(pessoa.name.length < 3 || !nameRegex.test(pessoa.name)){
+        document.querySelector("#tela-cadastro #nome").classList.add("erro")
+        erroNome.innerText = "Nome inválido"
+        erroNome.style.display = 'block'
+        ok = false
+    }
+    if(pessoa.age > 120 || pessoa.age < 1){
+        campoIdade.classList.add("erro")
+        erroIdade.innerText = "Idade inválida"
+        erroIdade.style.display = "block"
+        ok = false
+    }
     if(!pessoa.name){
         document.querySelector("#tela-cadastro #nome").classList.add("erro")
         erroNome.innerText = "Campo obrigatório"

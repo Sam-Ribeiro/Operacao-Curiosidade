@@ -223,4 +223,9 @@ label{
     right: 0;
 }
 
+@media(max-width:1250px){
+    dialog{ 
+        width: 100%;
+    }
+}
 

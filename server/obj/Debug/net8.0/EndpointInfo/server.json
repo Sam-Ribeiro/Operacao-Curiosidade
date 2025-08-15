@@ -926,7 +926,7 @@
         }
       }
     },
-    "/api/User/getUserName": {
+    "/api/User/validadeUser": {
       "get": {
         "tags": [
           "User"
