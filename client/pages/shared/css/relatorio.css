@@ -90,3 +90,25 @@
         border: 1px solid rgb(136, 136, 136) !important;
     }
 }
+
+@media(max-width:660px){
+    .description,nav div p{
+        display: none;
+    }
+    nav div h1{
+        transform: scale(0.8) !important;
+        position: relative;
+        left: -10px;
+    }
+    nav{
+        height: 120dvh;
+        max-height:none;
+    }
+    .tabela{
+        max-height: none;
+        height: 100dvh;
+    }
+    #btn-imprimir{
+        float: left;
+    }
+}

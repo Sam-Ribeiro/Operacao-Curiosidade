@@ -21,7 +21,7 @@ using server.Application.Features.Users.Commands.CreateUser;
 using server.Application.Features.Users.Commands.Login;
 using server.Application.Features.Users.Commands.UpdatePassword;
 using server.Application.Features.Users.Commands.UpdateUser;
-using server.Application.Features.Users.Queries.GetUserName;
+using server.Application.Features.Users.Queries.ValidateUser;
 using server.Application.Features.Users.Queries.GetUserProfile;
 using server.Infrastructure.Data;
 using server.Infrastructure.Repositories;
@@ -44,7 +44,7 @@ builder.Services.AddScoped<IHandlerBase<LoginCommand>, LoginHandler>();
 builder.Services.AddScoped<IHandlerBase<UpdatePasswordCommand>, UpdatePasswordHandler>();
 builder.Services.AddScoped<IHandlerBase<UpdateUserCommand>,  UpdateUserHandler>();
 builder.Services.AddScoped<IQueryHandler<GetUserProfileQuery>,  GetUserProfileHandler>();
-builder.Services.AddScoped<IQueryHandler<GetUserNameQuery>, GetUserNameHandler>();
+builder.Services.AddScoped<IQueryHandler<ValidateUserQuery>, ValidateUserHandler>();
 builder.Services.AddScoped<ICreateToken, CreateToken>();
 
 builder.Services.AddScoped<IReadPerson, ReadPersonRepository>();

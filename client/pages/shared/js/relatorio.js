@@ -18,6 +18,7 @@ botaoImprimir.addEventListener("click", async function() {
 
 botaoSair.onclick = function(){
     localStorage.removeItem("token")
+    localStorage.removeItem("name")
 }
 
 validateUser()

@@ -16,9 +16,9 @@ async function QueryUserData(){
     }
 }
 
-async function QueryUserName(){
+async function ValidateToken(){
     const token = localStorage.getItem("token")
-    const url = "https://localhost:7182/api/User/getUserName"
+    const url = "https://localhost:7182/api/User/validadeUser"
     try{
         const r  = await fetch(url,{
             method: 'GET',

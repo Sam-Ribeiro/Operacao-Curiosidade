@@ -39,8 +39,10 @@ async function login(){
         }
         else if(result.resultCode === 200)
         {
+            
             notify(result.message,true)
-            localStorage.setItem("token",result.data)
+            localStorage.setItem("token", await result.data.token)
+            localStorage.setItem("name", await result.data.name)
             setTimeout(() => { window.location.href = "../dashboard/dashboard.html" },1500)
         }
     }

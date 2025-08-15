@@ -23,7 +23,7 @@ async function register(){
         bornDate: date
     }
 
-    if(verifyNotNullFields(userData)){
+    if(verifyInvalidFields(userData)){
         const result = await createUserRequest(userData)
         if(result == null){
             notify("Erro ao comunicar com o servidor")
@@ -87,8 +87,40 @@ function getErrorResponse(notification){
     }
 }
 
-function verifyNotNullFields(userData){
+function verifyInvalidFields(userData){
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    var now = new Date().getFullYear()
     var ok = true
+    const anotxt = userData.bornDate.substring(0, 4)
+    const ano = Number(anotxt)
+    if(!emailRegex.test(userData.email)){
+        erroEmail.innerText = "Email inválido"
+        erroEmail.style.display = 'block'
+        campoEmail.classList.add("erro")
+        ok = false 
+    }if(userData.name.length < 3){
+        erroNome.innerText = "O Nome deve ter mais que três caracteres"
+        erroNome.style.display = 'block'
+        ok = false
+        campoNome.classList.add("erro")
+    }if(userData.password.length < 7 ){
+        erroSenha.innerText = "A Senha deve ter mais que seis caracteres"
+        erroSenha.style.display = 'block'
+        ok = false
+        campoSenha.classList.add("erro")
+    }
+    if(userData.password != userData.passwordConfirm){
+        erroConfimarSenha.innerText = "As senhas não conferem"
+        erroConfimarSenha.style.display = 'block'
+        ok = false
+        campoConfirmarSenha.classList.add("erro")
+    }
+    if(ano > now || ano < 1910){
+        erroData.innerText = "Data de nascimento inválida"
+        erroData.style.display = 'block'
+        ok = false
+        campoData.classList.add("erro")
+    }
     if(!userData.email){
         erroEmail.innerText = "O campo Email deve ser preenchido."
         erroEmail.style.display = 'block'

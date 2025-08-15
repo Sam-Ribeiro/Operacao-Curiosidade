@@ -10,6 +10,7 @@ async function LoadUser(){
         campoSenhaAntiga.value = ""
         campoSenhaNova.value = ""
         campoSenhaConfirm.value = ""
+        localStorage.setItem("name", await result.data.name)
     }else{
         notify("Erro ao carregar usuário",false)
     }
@@ -278,7 +279,5 @@ botoesFonte.forEach(b => b.addEventListener('change', function() {
     aplicarFonte()
     LoadSettings()
 }))
-
-validateUser()
 LoadUser()
 LoadSettings()

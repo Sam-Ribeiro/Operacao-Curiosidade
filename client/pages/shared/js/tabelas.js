@@ -265,6 +265,7 @@ botaoDia.onclick = function(){
 }
 botaoSair.onclick = function(){
     localStorage.removeItem("token")
+    localStorage.removeItem("name")
 }
 
 preencherTabela(incluidos)

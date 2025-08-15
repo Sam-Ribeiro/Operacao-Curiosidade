@@ -9,7 +9,7 @@ namespace server.Services.DataSelection
             List<Person> result = new List<Person>();
             result = Filtering.FilterPersons(persons, filter);
             result = Sorting.SortPersons(result, order);
-            result = Pagination.SlicePersons(result, page, pageSize);
+            result = Pagination<Person>.SliceList(result, page, pageSize);
             return result;
         }
 
@@ -18,7 +18,7 @@ namespace server.Services.DataSelection
             List<Log> result = new List<Log>();
             result = Filtering.FilterLogs(logs, filter);
             result = Sorting.SortLogs(result, order);
-            result = Pagination.SliceLogs(result, page, pageSize);
+            result = Pagination<Log>.SliceList(result, page, pageSize);
             return result;
         }
     }

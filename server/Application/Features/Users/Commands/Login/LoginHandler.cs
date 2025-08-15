@@ -32,7 +32,9 @@ namespace server.Application.Features.Users.Commands.Login
                         {
                             result = new Result(200, "Login realizado", true);
                             var token = _createToken.Generate(user);
-                            result.SetData(token);
+                            var name = user.Name;
+                            var data = new { token , name };
+                            result.SetData(data);
                             return result;
                         }
                     }
